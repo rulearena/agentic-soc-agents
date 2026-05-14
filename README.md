@@ -11,7 +11,7 @@
 
 現有的 SOC 教材多半在講「**該偵測什麼**」（rules、IOC、TTP），較少有人系統性整理「**SOC 各角色怎麼想、怎麼做**」。
 
-這個 repo 把 SOC 從 L1 一線分流到 SOC Manager 治理層各角色的思維、工作流程、技術交付物、升級鏈條，整理成可被 AI agent 工具直接 consume 的角色定義檔。
+這個 repo 把 SOC 從 L1 一線分流到 SOC Manager 治理層各角色的思維、工作流程、技術交付物、升級鏈條，整理成方便轉成 AI agent prompt / workflow reference 的角色定義檔。
 
 **適用場景**：
 - 訓練新人 SOC 分析師：用 agent 模擬資深角色給回饋
@@ -94,7 +94,7 @@ tool_stack:
 
 ## 設計原則
 
-- **真實感優先**：所有範例（SPL、KQL、Sigma rule、Triage report）必須是可實際執行/使用的，不是 placeholder
+- **真實感優先**：所有範例（SPL、KQL、Sigma rule、Triage report）必須接近實務、可依環境調整後使用，不是 placeholder
 - **角色邊界清楚**：L1 不寫 detection rule、Detection Engineer 不做 24/7 班輪值、IR Commander 不直接做 forensics
 - **量化指標可調整**：成功指標標為 Example Metrics，附上「實際門檻依環境調整」說明，避免被讀者當絕對標準反駁
 - **不貶低同業**：架構評論可，產品評論不可
@@ -104,9 +104,7 @@ tool_stack:
 
 ## 對應 YouTube 系列
 
-RuleArena 頻道 Agentic SIEM 系列影片：YouTube channel URL（影片發布後補連結）
-
-每個 agent 完成時，若有對應影片，會在該 agent 檔案末尾附上影片連結。
+RuleArena 頻道 Agentic SIEM 系列影片發布後，會在對應的 agent 檔案末尾附上影片連結。
 
 ---
 
