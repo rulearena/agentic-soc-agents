@@ -56,9 +56,9 @@
 
 每個角色檔案是一份結構化 Markdown，含 frontmatter 元資料 + 多個章節。
 
-**Claude Code**：複製檔案內容到 `.claude/agents/<role>.md`，作為 subagent 定義。
-**Cursor**：複製到 `.cursor/rules` 或作為 `@<role>` 引用的角色 prompt。
-**Copilot / 其他**：直接複製或片段引用，作為對話 prompt 的角色設定。
+- **Claude Code**：複製檔案內容到 `.claude/agents/<role>.md`，作為 subagent 定義
+- **Cursor**：複製到 `.cursor/rules` 或作為 `@<role>` 引用的角色 prompt
+- **Copilot / 其他**：直接複製或片段引用，作為對話 prompt 的角色設定
 
 ### Frontmatter 結構
 
