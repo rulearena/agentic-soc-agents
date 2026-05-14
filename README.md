@@ -26,7 +26,7 @@
 
 ### 🎯 Triage（一線分流）
 - ✅ [`triage-l1-soc-analyst`](triage/triage-l1-soc-analyst.md) — L1 一線分析師（24/7 alert triage、初步調查、明確規則內處置）
-- ⏳ `triage-l2-soc-analyst` — L2 進階分析師（pivot、enrichment、IR 銜接）
+- ✅ [`triage-l2-soc-analyst`](triage/triage-l2-soc-analyst.md) — L2 進階分析師（8x5 + on-call、跨資料源 pivot、執行 pre-approved containment playbook、IR 升級判斷）
 
 ### 🔬 Detection Engineering（偵測工程）
 - ⏳ `detection-engineering-threat-detection-engineer` — 偵測規則撰寫、Sigma rule、ATT&CK 覆蓋
