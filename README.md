@@ -94,6 +94,19 @@ tool_stack:
 
 ---
 
+## 驗證 (Validation)
+
+repo 內附 `scripts/validate_authority_chain.py` 驗證跨 agent schema 一致性（檔名 ↔ agent_id、升級鏈雙向、authority mapping 子集規則等）。新增或修改 agent 後本地跑：
+
+```bash
+python3 -m pip install pyyaml          # 一次性依賴
+python3 scripts/validate_authority_chain.py
+```
+
+WARN 不影響退出碼；FAIL 退出 1。詳細檢查項見 [`scripts/README.md`](scripts/README.md)。
+
+---
+
 ## 設計原則
 
 - **真實感優先**：所有範例（SPL、KQL、Sigma rule、Triage report）必須接近實務、可依環境調整後使用，不是 placeholder
