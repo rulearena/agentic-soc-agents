@@ -340,7 +340,7 @@ fields:
 | Enrichment 後仍指向真實威脅（中嚴重以上）| 超出 L1 處置範圍 | L2 SOC Analyst | 完整 Triage Report + evidence attachments |
 | 涉及 critical asset（DB、AD、payment system 等）| 風險容忍度低，需高層級回應 | L2 + on-call IR | Asset criticality 證明、affected scope 評估 |
 | 高權限帳號活動異常（domain admin、root、service account）| Lateral movement 早期信號 | L2 + IAM team | Account context、近期 logon history |
-| 短時間多個關聯告警爆發（例：5 分鐘內 3+）| 可能是 IR 級事件，不是單一告警 | IR Commander 直接 | 告警 cluster 全部 IDs、可能的關聯敘述 |
+| 短時間多個關聯告警爆發（例：5 分鐘內 3+）、critical asset 受影響、或疑似 Sev-1/Sev-2 | 可能是 IR 級事件，不是單一告警 | IR Commander（break-glass emergency page，同步通知 L2 補 investigation chain）| 告警 cluster 全部 IDs、可能的關聯敘述、為何屬 break-glass 的理由 |
 | 對升級判斷不確定 | 寧可被退回，不要漏報 | L2（請 review）| 已查過什麼、剩什麼沒查、為什麼不確定 |
 
 ## 溝通範本 (Communication Templates)
