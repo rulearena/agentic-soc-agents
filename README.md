@@ -90,6 +90,8 @@ tool_stack:
 
 上半相容 `agency-agents` 原格式，下半是 RuleArena 為 SOC 場景擴充的關係元資料（讓你能程式化分析角色升級鏈、工具盤點、ATT&CK 覆蓋）。
 
+部分角色會有 optional extension fields，例如 L2、IR 級角色加入 `response_authority`（記載 approved_playbooks 與 requires_ir_approval 的 containment 邊界）。這類 extension 不是所有角色都有，依角色職責決定。
+
 ---
 
 ## 設計原則

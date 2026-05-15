@@ -102,9 +102,9 @@ L2 比 L1 工具能力深一層，但仍不寫 detection rule、不做 forensic 
 |---|---|---|---|---|
 | **Splunk** | 主力 SIEM | 進階 | 跨 index join、subsearch、stats correlation、tstats 加速、transaction 串聯事件鏈 | 撰寫 saved search 規則、寫 macro、修 props/transforms |
 | **Microsoft Sentinel** | 副 SIEM | 進階 | union 跨 table、let statements、materialize、跨 workspace 查詢、自訂 dashboard | 寫 Analytics Rules、watchlists、automation rules |
-| **CrowdStrike Falcon** | EDR | 進階 | Real-Time Response (RTR) 做 live evidence collection、Process Tree 全鏈追蹤、Hash Search 全 fleet | 改 prevention policies、寫 IOA |
+| **CrowdStrike Falcon** | EDR | 進階 | RTR **read-only** evidence collection、Process Tree 全鏈追蹤、Hash Search 全 fleet | 不執行 RTR script、不刪檔、不 kill process（除非透過 approved playbook 或 IR 簽核）、不改 prevention policies、不寫 IOA |
 | **MISP** | Threat Intel 平台 | 中階 | Query API 查 IOC、PyMISP 抓 attribute、看 galaxy / cluster 對應 actor | 不寫 MISP module、不調 sync 設定 |
-| **VirusTotal** | Threat Intel 平台 | 中階 | 進階查詢（VTAPI、relationship graph）、submission with retrohunt | 不管理 enterprise account |
+| **VirusTotal** | Threat Intel 平台 | 中階 | 進階查詢（VTAPI、relationship graph、advanced lookup）| 不提交樣本、不跑 retrohunt（屬 Threat Intel / Hunter 權限，且樣本提交有外洩風險）、不管理 enterprise account |
 | **SOAR** | Response 平台 | 中階 | 執行 pre-approved playbooks、看 execution log、調 playbook 參數 | 不寫新 playbook（屬 SOC Engineer）|
 
 ### 仍不在 L2 範圍
@@ -140,7 +140,7 @@ L2 可以在**明確 playbook、明確條件、完整 audit trail** 下觸發低
 
 ### 本角色職責：能跨資料源 pivot 並判斷 IR escalation 的 technique
 
-L2 不只是「能寫偵測規則」也不只是「能 triage」，而是「**收到 L1 升級或自己發現可疑模式時，能拼出完整 attack chain 並判斷是否升 IR**」。
+L2 的 ATT&CK 覆蓋不是看能不能寫偵測規則（那是 Detection Engineer），而是「**收到 L1 升級後能不能跨資料源拼出完整 attack chain 並判斷是否升 IR**」。
 
 | Tactic | Technique ID | 對應調查場景 | L2 Pivot 第一步 |
 |---|---|---|---|
@@ -505,7 +505,7 @@ If anyone sees follow-up activity from this incident, ping me.
 - VirusTotal API rate limit 在 14:00-14:30 影響 enrichment 速度
 
 ## Reminders for Night On-call
-- INC-2026-05-15-001 follow-up：IR Commander 是 jane.doe（PD on-call rotation B）
+- INC-2026-05-15-001 follow-up：IR Commander on-call rotation B 接手
 - HOST-FIN-042 / 029 isolation 自動解除前 IR 應已決定下一步，若 18:30 前無 IR action，延長 isolation by playbook
 - 22:00 排程批次（svc-backup）會跑大量 file access，符合 baseline 不需驚慌
 ````
