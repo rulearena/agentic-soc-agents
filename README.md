@@ -44,7 +44,7 @@
 ### 📋 Governance（治理）
 - ⏳ `governance-soc-manager` — SOC 運營管理、SLA 追蹤、團隊培訓
 - ⏳ `governance-compliance-auditor` — 合規對應（SOC 2、ISO 27001、NIST CSF）
-- ⏳ `governance-audit-liaison` — 內外稽核窗口、evidence 蒐集
+- ✅ [`governance-audit-liaison`](governance/governance-audit-liaison.md) — 事實翻譯層、regulator-facing evidence package、control mapping、audit trail、compliance gap report
 
 ### 🟣 Purple Team（紫隊）
 - ⏳ `purple-team-adversary-emulator` — Atomic Red Team、CALDERA 對應
