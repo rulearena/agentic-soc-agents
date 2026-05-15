@@ -34,7 +34,7 @@
 
 ### 🚨 Incident Response（事件回應）
 - ✅ [`incident-response-ir-commander`](incident-response/incident-response-ir-commander.md) — IR 指揮、跨團隊協調、stakeholder 溝通
-- ⏳ `incident-response-ir-analyst` — IR 執行、evidence collection、containment
+- ✅ [`incident-response-ir-analyst`](incident-response/incident-response-ir-analyst.md) — IR 執行、operational evidence collection、containment / eradication / recovery 驗證
 - ⏳ `incident-response-forensics-analyst` — Digital forensics、memory analysis、disk imaging
 
 ### 🧠 Threat Intelligence（威脅情資）
@@ -91,6 +91,16 @@ tool_stack:
 上半相容 `agency-agents` 原格式，下半是 RuleArena 為 SOC 場景擴充的關係元資料（讓你能程式化分析角色升級鏈、工具盤點、ATT&CK 覆蓋）。
 
 部分角色會有 optional extension fields，例如 `response_authority`：記載角色的 containment 與簽核邊界。Analyst tier（如 L2）含 `approved_playbooks`（可自主執行的 pre-approved playbook）與 `requires_ir_approval`（需升級簽核的高風險 action）；Incident Commander tier 含 `can_approve`（指揮鏈內可核准的 action，與下層 `requires_ir_approval` 對齊）、`cannot_approve_alone`（需與 Legal/Exec/PR 共同決策的 action 類別）、`delegates_to`（執行委派的 agent_id forward refs）。這類 extension 不是所有角色都有，依角色職責決定。
+
+### 欄位語意設計原則
+
+repo 內 frontmatter 關係欄位各自代表不同語意，**不混用**：
+
+- `escalates_to` / `escalates_from`：**tier 升級鏈**（目前限 L1 → L2 → IR Commander 三角色）
+- `delegates_to`：**指揮角色向下委派**（目前只有 IR Commander 用，指向具體執行 agent）
+- `response_authority`：**角色本身的執行或簽核邊界**（`approved_playbooks` / `requires_*_approval` / `can_approve` / `cannot_approve_alone`）
+
+純執行角色（如 IR Analyst）使用 `escalates_to/from: null` 並省略 `response_authority` 區塊；其 execution boundary 在 agent 正文描述。未來若有機器可讀的執行授權需求，再設計新 extension，不在現有欄位上堆疊不同語意。
 
 ---
 
