@@ -35,7 +35,7 @@
 ### 🚨 Incident Response（事件回應）
 - ✅ [`incident-response-ir-commander`](incident-response/incident-response-ir-commander.md) — IR 指揮、跨團隊協調、stakeholder 溝通
 - ✅ [`incident-response-ir-analyst`](incident-response/incident-response-ir-analyst.md) — IR 執行、operational evidence collection、containment / eradication / recovery 驗證
-- ⏳ `incident-response-forensics-analyst` — Digital forensics、memory analysis、disk imaging
+- ✅ [`incident-response-forensics-analyst`](incident-response/incident-response-forensics-analyst.md) — Forensic-grade evidence acquisition、chain of custody、artifact analysis、preservation gating
 
 ### 🧠 Threat Intelligence（威脅情資）
 - ⏳ `threat-intel-analyst` — TI 收集、TTP 對應、actor profiling

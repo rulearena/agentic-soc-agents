@@ -22,4 +22,4 @@
 
 - ✅ [`incident-response-ir-commander`](incident-response-ir-commander.md) — IR 指揮、跨團隊協調、severity escalation、stakeholder 溝通
 - ✅ [`incident-response-ir-analyst`](incident-response-ir-analyst.md) — IR 執行、operational evidence collection、containment / eradication / recovery 驗證
-- ⏳ `incident-response-forensics-analyst` — Digital forensics、memory analysis、disk imaging、artifact 鑑識
+- ✅ [`incident-response-forensics-analyst`](incident-response-forensics-analyst.md) — Forensic-grade evidence acquisition、chain of custody、artifact analysis、preservation gating
