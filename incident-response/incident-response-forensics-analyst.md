@@ -278,7 +278,7 @@ Forensics Analyst 事件鑑識生命週期，六階段：
 
 ## Recommendations to Other Roles
 - **Detection Engineer**: reflective DLL injection 偵測規則覆蓋度可檢視（透過 Post-incident Action Tracker）
-- **Threat Intel**: 上述 technical facts 提供作為 attribution / actor profiling 的輸入資料
+- **Threat Intel**: 上述 technical facts 提供作為 IOC / TTP contextualization 與 actor-profile context 的輸入資料（非 attribution 結論）
 - **IR Commander**: in-memory only persistence 模式可能影響 recovery validation 判斷
 ```
 
@@ -339,7 +339,7 @@ Forensics 在事件流程中的協作節點：
 
 ### 回饋下游（透過 Post-incident Action Tracker）
 - **Detection Engineer** —— 鑑識觀察到的 attack technique 細節、persistence 模式
-- **Threat Intel** —— Technical facts 作為 attribution / actor profiling 輸入
+- **Threat Intel** —— Technical facts 作為 IOC / TTP contextualization 與 actor-profile context 輸入（非 attribution 結論）
 - **SOC Manager** —— 流程缺口、工具限制、人力配置議題
 
 ### 不直接接觸
