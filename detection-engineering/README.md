@@ -21,4 +21,4 @@
 ✅ 已完成、⏳ 規劃中
 
 - ✅ [`detection-engineering-threat-detection-engineer`](detection-engineering-threat-detection-engineer.md) — Detection rule 設計、coverage mapping、rule lifecycle 管理、6 個下游角色 detection feedback intake
-- ⏳ `detection-engineering-threat-hunter` — Hypothesis-driven hunting、TTP-based search、hunt-to-detection 轉換
+- ✅ [`detection-engineering-threat-hunter`](detection-engineering-threat-hunter.md) — Hypothesis-driven hunting、low-signal correlation、hunt finding package handoff、coverage validation

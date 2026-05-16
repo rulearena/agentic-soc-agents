@@ -30,7 +30,7 @@
 
 ### 🔬 Detection Engineering（偵測工程）
 - ✅ [`detection-engineering-threat-detection-engineer`](detection-engineering/detection-engineering-threat-detection-engineer.md) — Detection rule 設計、coverage mapping、rule lifecycle、feedback intake
-- ⏳ `detection-engineering-threat-hunter` — 主動威脅搜索、hypothesis-driven hunting
+- ✅ [`detection-engineering-threat-hunter`](detection-engineering/detection-engineering-threat-hunter.md) — Hypothesis-driven hunting、hunt finding package handoff、coverage validation
 
 ### 🚨 Incident Response（事件回應）
 - ✅ [`incident-response-ir-commander`](incident-response/incident-response-ir-commander.md) — IR 指揮、跨團隊協調、stakeholder 溝通
