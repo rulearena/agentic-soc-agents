@@ -6,7 +6,7 @@
 
 **典型工作**：
 - TI feed 收集（OSINT、商業情資、ISAC、政府機關）
-- IOC 生命週期管理（ageing、源信譽評估、deconfliction）
+- IOC 生命週期管理（aging、source hygiene 指標、dedup / deconfliction）
 - TTP 對應 MITRE ATT&CK、actor-profile context（只作脈絡，不下 attribution 結論）
 - Threat landscape 報告（產業別、地理別、時間別）
 - 把情資轉成 Detection Engineering 的 hunt hypothesis 或新 rule
