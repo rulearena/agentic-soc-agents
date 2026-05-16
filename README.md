@@ -42,7 +42,7 @@
 - ✅ [`threat-intel-ioc-curator`](threat-intel/threat-intel-ioc-curator.md) — IOC lifecycle / aging / dedup / source hygiene execution（依既定 policy，提供 hygiene metrics 不下 source reliability judgment）
 
 ### 📋 Governance（治理）
-- ⏳ `governance-soc-manager` — SOC 運營管理、SLA 追蹤、團隊培訓
+- ✅ [`governance-soc-manager`](governance/governance-soc-manager.md) — Process / SLA / staffing / training / policy ownership；PIR facilitator（lessons-learned）；不參與 live incident command
 - ⏳ `governance-compliance-auditor` — 合規對應（SOC 2、ISO 27001、NIST CSF）
 - ✅ [`governance-audit-liaison`](governance/governance-audit-liaison.md) — 事實翻譯層、regulator-facing evidence package、control mapping、audit trail、compliance gap report
 

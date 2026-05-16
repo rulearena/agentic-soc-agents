@@ -19,6 +19,6 @@
 
 ✅ 已完成、⏳ 規劃中
 
-- ⏳ `governance-soc-manager` — SOC 運營管理、SLA 追蹤、團隊培訓、metrics 報告
+- ✅ [`governance-soc-manager`](governance-soc-manager.md) — Process / SLA / staffing / training / policy ownership；post-incident review facilitator（lessons-learned 非 blame-oriented）；不參與 live incident command
 - ⏳ `governance-compliance-auditor` — 合規 framework 對應（SOC 2、ISO 27001、NIST CSF）
 - ✅ [`governance-audit-liaison`](governance-audit-liaison.md) — 事實翻譯層、regulator-facing evidence package、control mapping、audit trail、compliance gap report
