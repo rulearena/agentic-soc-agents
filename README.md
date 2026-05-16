@@ -38,7 +38,7 @@
 - ✅ [`incident-response-forensics-analyst`](incident-response/incident-response-forensics-analyst.md) — Forensic-grade evidence acquisition、chain of custody、artifact analysis、preservation gating
 
 ### 🧠 Threat Intelligence（威脅情資）
-- ⏳ `threat-intel-analyst` — TI 收集、TTP 對應、actor profiling
+- ✅ [`threat-intel-analyst`](threat-intel/threat-intel-analyst.md) — IOC / TTP contextualization、source reliability、confidence marking、actor-profile context（非 attribution）
 - ⏳ `threat-intel-ioc-curator` — IOC 生命週期管理、ageing、源信譽評估
 
 ### 📋 Governance（治理）

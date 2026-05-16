@@ -18,7 +18,7 @@
 
 ## 角色清單
 
-⏳ 規劃中
+✅ 已完成、⏳ 規劃中
 
-- ⏳ `threat-intel-analyst` — TI 收集、TTP 分析、actor profiling、threat landscape 報告
+- ✅ [`threat-intel-analyst`](threat-intel-analyst.md) — IOC / TTP contextualization、source reliability、confidence marking、actor-profile context（非 attribution）
 - ⏳ `threat-intel-ioc-curator` — IOC 生命週期管理、ageing 政策、源信譽評估、deconfliction
