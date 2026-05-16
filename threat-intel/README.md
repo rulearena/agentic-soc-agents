@@ -21,4 +21,4 @@
 ✅ 已完成、⏳ 規劃中
 
 - ✅ [`threat-intel-analyst`](threat-intel-analyst.md) — IOC / TTP contextualization、source reliability、confidence marking、actor-profile context（非 attribution）
-- ⏳ `threat-intel-ioc-curator` — IOC 生命週期管理、ageing 政策、源信譽評估、deconfliction
+- ✅ [`threat-intel-ioc-curator`](threat-intel-ioc-curator.md) — IOC lifecycle / aging / dedup / source hygiene execution（依既定 policy，提供 hygiene metrics 不下 source reliability judgment）

@@ -39,7 +39,7 @@
 
 ### 🧠 Threat Intelligence（威脅情資）
 - ✅ [`threat-intel-analyst`](threat-intel/threat-intel-analyst.md) — IOC / TTP contextualization、source reliability、confidence marking、actor-profile context（非 attribution）
-- ⏳ `threat-intel-ioc-curator` — IOC 生命週期管理、ageing、源信譽評估
+- ✅ [`threat-intel-ioc-curator`](threat-intel/threat-intel-ioc-curator.md) — IOC lifecycle / aging / dedup / source hygiene execution（依既定 policy，提供 hygiene metrics 不下 source reliability judgment）
 
 ### 📋 Governance（治理）
 - ⏳ `governance-soc-manager` — SOC 運營管理、SLA 追蹤、團隊培訓
