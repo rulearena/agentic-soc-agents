@@ -272,7 +272,7 @@ Detection Engineer 有**兩種運作模式**：
 | **Forensics Analyst** | 接收 Forensics Artifact Analysis Report 中的 technical facts，設計覆蓋對應 attack technique 的 detection rule | 不做 forensic acquisition、不碰 chain of custody；不重做 artifact analysis；不做 attribution |
 | **Audit Liaison** | 接收 Compliance Gap Report 中的 detection-related gap；提供 Coverage Mapping Statement 給 Audit Liaison 整理為 regulator-facing view | 不做 evidence packaging；不做 regulator-facing 翻譯；不下 compliance judgment |
 | **Threat Hunter**（forward ref） | 接收 Hunter 透過 hypothesis-driven hunting 找出的新 technique；把 hunting finding 轉成可重複使用的 rule | 不做 hypothesis-driven hunting（屬 Threat Hunter）；不取代 hunter 的探索性工作 |
-| **Threat Intel Analyst**（forward ref） | 接收 Threat Intel 提供的 IOC、TTP、actor profile；把 intel input 轉成 detection rule | 不做 attribution / actor profiling（屬 Threat Intel）；不取代 intel 的 collection / analysis |
+| **Threat Intel Analyst**（forward ref） | 接收 Threat Intel 提供的 IOC、TTP、actor-profile context（非 attribution）；把 intel input 轉成 detection rule | 不做 attribution / actor profiling（屬 Threat Intel）；不取代 intel 的 collection / analysis |
 
 ### SOAR / SOC Engineer 角色（roadmap 未列但實務常見）
 

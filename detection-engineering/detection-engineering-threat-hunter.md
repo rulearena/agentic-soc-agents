@@ -315,7 +315,7 @@ PowerShell in-memory C2 implant 可能存在於環境中
 | **Forensics Analyst** | Hunt 發現需要 forensic-grade evidence 的情境，移交 Forensics 採集 | **不做 forensic acquisition、不碰 chain of custody**；hunt 收的是 operational evidence，不能當 chain of custody 起點 |
 | **Audit Liaison** | Hunt sprint 結果中與 compliance 相關的 coverage 狀況提供作為 Audit Liaison 的 control mapping 輸入 | 不做 evidence packaging；不下 compliance judgment |
 | **Detection Engineer** | **主要 handoff 對象**：Hunt Finding Package 中 Recommended Detection Coverage 移交 DE 走 rule design 流程；DE Coverage Mapping Statement 是 hunt 的 hypothesis source 之一 | **不寫 production detection rule、不做 rule lifecycle、不擁有 SIEM / EDR 平台變更權限** |
-| **Threat Intel Analyst**（forward ref） | **雙向協作**：接收 Threat Intel 提供的 IOC / TTP 作為 hypothesis source；**actor profile 僅作為 hypothesis context，不作為 attribution 結論**；hunt 觀察到的技術事實回送 Threat Intel 作為 attribution input | **不做 attribution / actor profiling**（屬 Threat Intel）；不做 IOC curation / 信譽評估；不下「這是 APT-X」結論 |
+| **Threat Intel Analyst**（forward ref） | **雙向協作**：接收 Threat Intel 提供的 IOC / TTP 作為 hypothesis source；**actor profile 僅作為 hypothesis context，不作為 attribution 結論**；hunt 觀察到的技術事實回送 Threat Intel 作為 IOC / TTP contextualization 與 actor-profile context input（非 attribution 結論） | **不做 attribution / actor profiling**（屬 Threat Intel）；不做 IOC curation / 信譽評估；不下「這是 APT-X」結論 |
 
 ### 三條最重要邊界（容易踩錯）
 
