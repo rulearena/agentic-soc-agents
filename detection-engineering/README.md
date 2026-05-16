@@ -18,7 +18,7 @@
 
 ## 角色清單
 
-⏳ 規劃中
+✅ 已完成、⏳ 規劃中
 
-- ⏳ `detection-engineering-threat-detection-engineer` — 偵測規則撰寫、ATT&CK 覆蓋分析、detection-as-code pipeline 維護
+- ✅ [`detection-engineering-threat-detection-engineer`](detection-engineering-threat-detection-engineer.md) — Detection rule 設計、coverage mapping、rule lifecycle 管理、6 個下游角色 detection feedback intake
 - ⏳ `detection-engineering-threat-hunter` — Hypothesis-driven hunting、TTP-based search、hunt-to-detection 轉換

@@ -29,7 +29,7 @@
 - ✅ [`triage-l2-soc-analyst`](triage/triage-l2-soc-analyst.md) — L2 進階分析師（8x5 + on-call、跨資料源 pivot、執行 pre-approved containment playbook、IR 升級判斷）
 
 ### 🔬 Detection Engineering（偵測工程）
-- ⏳ `detection-engineering-threat-detection-engineer` — 偵測規則撰寫、Sigma rule、ATT&CK 覆蓋
+- ✅ [`detection-engineering-threat-detection-engineer`](detection-engineering/detection-engineering-threat-detection-engineer.md) — Detection rule 設計、coverage mapping、rule lifecycle、feedback intake
 - ⏳ `detection-engineering-threat-hunter` — 主動威脅搜索、hypothesis-driven hunting
 
 ### 🚨 Incident Response（事件回應）
