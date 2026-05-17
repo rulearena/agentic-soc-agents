@@ -5,11 +5,11 @@
 紅藍融合的演練角色。職責是驗證 SOC 既有偵測與回應能力，把假想敵的 TTP 變成可量化的覆蓋率與時效。
 
 **典型工作**：
-- Adversary emulation（Atomic Red Team、CALDERA、MITRE Engenuity）
-- Detection coverage 驗證：每個 rule 對應的 technique 真的會被觸發嗎？
-- TTP-based exercises（基於 APT 集團的真實手法重現）
-- 演練後 debrief：哪些偵測有用、哪些缺、哪些是噪音
-- Detection roadmap 輸入：把演練結果回饋給 Detection Engineering
+- Scope-controlled emulation engagement（scope + approval + comm plan + abort criteria）
+- Lab / staging / signal-only validation；不在實際運行環境執行可能造成損害的操作
+- TTP / ATT&CK technique ID 作為測試標記，不描述執行細節
+- Coverage validation signal 與 Detection Engineering handoff
+- Engagement charter / execution log / closure report 全程可稽核
 
 **不在這分類**：
 - 真實事件回應 → 屬 [`incident-response/`](../incident-response/)
@@ -20,7 +20,7 @@
 
 ## 角色清單
 
-⏳ 規劃中
+✅ 已完成、⏳ 規劃中
 
-- ⏳ `purple-team-adversary-emulator` — Atomic Red Team / CALDERA 對應、TTP-based exercise 設計
-- ⏳ `purple-team-detection-validator` — 偵測規則驗證、coverage 測試、演練後 debrief
+- ✅ [`purple-team-adversary-emulator`](purple-team-adversary-emulator.md) — Scope-controlled emulation engagement；collaborative purple（非 red team）；Coverage validation signal handoff to Detection Engineering
+- ⏳ `purple-team-detection-validator` — Detection validation result interpretation、coverage 評估、result credibility review

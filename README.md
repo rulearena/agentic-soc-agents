@@ -47,8 +47,8 @@
 - ✅ [`governance-audit-liaison`](governance/governance-audit-liaison.md) — 事實翻譯層、regulator-facing evidence package、control mapping、audit trail、compliance gap report
 
 ### 🟣 Purple Team（紫隊）
-- ⏳ `purple-team-adversary-emulator` — Atomic Red Team、CALDERA 對應
-- ⏳ `purple-team-detection-validator` — 偵測規則驗證、coverage 測試
+- ✅ [`purple-team-adversary-emulator`](purple-team/purple-team-adversary-emulator.md) — Scope-controlled emulation engagement；collaborative purple（非 red team）；Coverage validation signal handoff to Detection Engineering
+- ⏳ `purple-team-detection-validator` — Detection validation result interpretation、coverage 評估、result credibility review
 
 ---
 
