@@ -43,7 +43,7 @@
 
 ### 📋 Governance（治理）
 - ✅ [`governance-soc-manager`](governance/governance-soc-manager.md) — Process / SLA / staffing / training / policy ownership；PIR facilitator（lessons-learned）；不參與 live incident command
-- ⏳ `governance-compliance-auditor` — 合規對應（SOC 2、ISO 27001、NIST CSF）
+- ✅ [`governance-compliance-auditor`](governance/governance-compliance-auditor.md) — Control framework internal interpretation（for review）、evidence sufficiency review、audit finding validation；不做 evidence packaging、不下 final compliance conclusion
 - ✅ [`governance-audit-liaison`](governance/governance-audit-liaison.md) — 事實翻譯層、regulator-facing evidence package、control mapping、audit trail、compliance gap report
 
 ### 🟣 Purple Team（紫隊）

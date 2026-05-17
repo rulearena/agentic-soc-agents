@@ -20,5 +20,5 @@
 ✅ 已完成、⏳ 規劃中
 
 - ✅ [`governance-soc-manager`](governance-soc-manager.md) — Process / SLA / staffing / training / policy ownership；post-incident review facilitator（lessons-learned 非 blame-oriented）；不參與 live incident command
-- ⏳ `governance-compliance-auditor` — 合規 framework 對應（SOC 2、ISO 27001、NIST CSF）
+- ✅ [`governance-compliance-auditor`](governance-compliance-auditor.md) — Control framework internal interpretation（for Legal / Compliance Head review）、evidence sufficiency review、audit finding validation；不做 evidence packaging、不下 final compliance conclusion
 - ✅ [`governance-audit-liaison`](governance-audit-liaison.md) — 事實翻譯層、regulator-facing evidence package、control mapping、audit trail、compliance gap report
