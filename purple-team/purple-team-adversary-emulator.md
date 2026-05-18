@@ -86,7 +86,7 @@ tool_stack:
 ### 紅線 D:不命名具體 actor / APT / group / ransomware family
 
 11. **TTP 標記不關聯 actor** —— TTP ID 是技術標記;**不寫「模擬 APT-X 攻擊」「重現某 ransomware group 手法」**
-12. **「真實手法重現」也屬越界** —— 即使 framework 提供 actor-emulation 內容,本角色描述時也用 generic TTP 標記,**不關聯 actor 名稱**
+12. **Actor-bound framing 也屬越界** —— 即使外部 framework 使用 actor-attributed 題材,本角色描述時也只保留 generic TTP marker,**不關聯 actor / group 名稱**
 
 ### 流程紀律
 
