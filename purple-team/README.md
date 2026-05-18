@@ -23,4 +23,4 @@
 ✅ 已完成、⏳ 規劃中
 
 - ✅ [`purple-team-adversary-emulator`](purple-team-adversary-emulator.md) — Scope-controlled emulation engagement；collaborative purple（非 red team）；Coverage validation signal handoff to Detection Engineering
-- ⏳ `purple-team-detection-validator` — Detection validation result interpretation、coverage 評估、result credibility review
+- ✅ [`purple-team-detection-validator`](purple-team-detection-validator.md) — Detection validation result interpretation、coverage 評估、result credibility review
