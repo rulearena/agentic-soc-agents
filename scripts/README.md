@@ -53,9 +53,19 @@ C8 的邊界情況：
 - 某 agent 有 `requires_*_approval` 但 `escalates_to` 不存在 → C5 已 FAIL，C8 skip 不重複
 - 升級對象沒有 `response_authority.can_approve` → FAIL（missing 全部 required items）
 
+### CI 整合
+
+GitHub Actions workflow `.github/workflows/validate-agents.yml` 會在以下時機自動跑此 script：
+
+- `pull_request` 進 `main`
+- `push` 進 `main`
+- 手動 `workflow_dispatch`
+
+任何 FAIL 都會讓該 check 紅燈；`main` branch protection ruleset 要求此 check 通過才能 merge。WARN（C9 forward ref）不擋。
+
 ### 未來擴充（不在 v1）
 
-- CI / GitHub Actions / pre-commit hook 整合
+- pre-commit hook 整合
 - pytest 單元測試
 - 完整 schema validator（如 `tool_stack` key 列舉、`primary_tactics` 是 ATT&CK tactic ID）
 - 若 `escalates_from` 改成 list（多入口升級鏈），C7 需擴為多值檢查
