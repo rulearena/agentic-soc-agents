@@ -1,5 +1,7 @@
 # Agentic SOC Agents
 
+[![Validate Authority Chain](https://github.com/rulearena/agentic-soc-agents/actions/workflows/validate-agents.yml/badge.svg)](https://github.com/rulearena/agentic-soc-agents/actions/workflows/validate-agents.yml)
+
 仿 [`msitarzewski/agency-agents`](https://github.com/msitarzewski/agency-agents) 格式打造的 SOC 專業角色庫。
 30+ 個經驗導向的 AI agent 定義檔，**可作為 Claude Code / Cursor / Copilot 等 agentic coding 工具的角色提示與工作流參考**。
 
