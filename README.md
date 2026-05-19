@@ -119,6 +119,12 @@ WARN 不影響退出碼；FAIL 退出 1。詳細檢查項見 [`scripts/README.md
 
 ---
 
+## v1.1 Backlog
+
+實測中發現尚未併入 v1.0 的改善建議集中在 [`backlog/`](backlog/README.md)，含 6 個 category 共 80 條 tuning item。歡迎 issue / PR 引用對應 `TUN-*` ID（先 search 避免重複提案）。
+
+---
+
 ## 設計原則
 
 - **真實感優先**：所有範例（SPL、KQL、Sigma rule、Triage report）必須接近實務、可依環境調整後使用，不是 placeholder
