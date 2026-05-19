@@ -7,7 +7,7 @@ emoji: 🎯
 vibe: 一線分流，把雜訊變成可調查的訊號
 
 # === RuleArena 擴充欄位（SOC 角色關係程式化解析用）===
-agent_id: triage-l1-soc-analyst
+agent_id: WRONG-ID-FOR-RULESET-TEST
 seniority: L1
 shift_pattern: 24/7
 primary_tactics:
