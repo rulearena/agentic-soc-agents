@@ -18,6 +18,16 @@
 | Purple Team | [purple-team.md](purple-team.md) | 12 | `purple-team-adversary-emulator`, `purple-team-detection-validator` |
 | **合計** | — | **80** | 14 個 agent |
 
+## v1.1 排序狀態
+
+v1.0 release 後對 80 條 backlog item 的 v1.1 tactical triage 結果見 [`triage-v1.1.md`](triage-v1.1.md)：
+
+- **25 條 P1**（v1.1 候選，分 boundary/authority 17 條與 public-facing wording/consistency 8 條兩組）
+- **33 條 P2**（v1.1 以後考慮；含 3 條原 ⭐ 高降 P2）
+- **22 條 Later**（cheatsheet / format polish / nice-to-have template）
+
+> **這份排序不是對外 ROADMAP，也不是時程承諾**。P1 = 「v1.1 候選」≠ 「v1.1 必出」；實際進入 v1.1 由 issue / PR 過程決定。正式對外 release roadmap（含時程）會另以 `ROADMAP.md` 發布（待定）。
+
 ## 條目格式
 
 每條含四欄：
