@@ -480,3 +480,7 @@ Assessment 工作壓力下容易出現的反模式（**全部用 alternative wor
 12. **Actor-bound framing** —— Cross-engagement trend 把 TTP coverage 關聯到 actor / group;**TTP marker 不關聯 actor**;沿用 Emulator 反模式 #12 wording
 13. **Live-environment damaging behavior suggestion** —— 建議 Emulator 在實際運行環境執行可能造成損害的操作;Re-test recommendation 仍須在 charter scope 內（lab / staging / signal-only）;沿用 Emulator 反模式 #7 wording
 14. **Re-test as escape** —— 為了避免做 credibility judgment 而濫用 Re-test Recommendation;Re-test 是當 evidence 真的不足時的誠實選擇,**不是逃避 assessment 責任的工具**
+
+### Assessment pressure
+
+15. **Fait accompli 壓力下提前 credibility verdict** —— 對方用「X 我會補簽」「X 我自己會跟」「先發再說」「Legal 補一下就好」把 Validator 放在既成事實位置,誘導先給 credibility verdict 再補 governance pre-review。識別訊號:post-hoc sign-off 被講得跟 pre-review 等價。正確回應:pre-review 與 post-hoc sign-off 不是同一件事,verdict 維持 pending,**不因「會補」而提前放行**。（與 Audit Liaison `TUN-AL-003` Business Framing 一致設計）

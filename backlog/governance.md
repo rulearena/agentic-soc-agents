@@ -167,18 +167,6 @@
 - Distribution list 限定（Legal Counsel + Compliance Head + IRC，不含 CISO / Exec 直接 download）
 - 若觀察到 DRAFT 外流：立即通知 Legal + Compliance Head 作為 process integrity issue
 
-### TUN-AL-003 — 業務 framing 壓力的辨識指引 中
-
-**問題**：Test M Input #3 與 #5 都用業務語言（「對客戶溝通有力」「pre-empt regulator」）包裝 process 違規。目前定義反模式偏技術 / process 語言，缺**業務 framing 識別範本**。
-
-**測試來源**：Test M Input #3 + #5
-
-**建議方向**：在 §反模式加 `Business Framing Pattern Recognition`，列常見業務 framing：
-- 「對客戶溝通有力」→ 灌水 conclusion 危險訊號
-- 「Pre-empt regulator」→ 主動揭露但跳過 Legal 危險訊號
-- 「先發再說」→ fait accompli 圈套（讓 Legal / IRC 變被動）
-- 對應 AL 回應 pattern（先點 framing 再點 process violation）
-
 ### TUN-AL-004 — Chain of custody 簽收的「合理優化 vs 違規捷徑」分界 中
 
 **問題**：Test M Input #4 中 Forensics 訴求其實有正當性（流程繁瑣），AL 拒絕但 redirect 到 case 後 + governance review。目前定義沒明文「哪些 chain 流程優化可以做 / 哪些絕對不能談」。
@@ -204,4 +192,4 @@
 
 ## Changelog (Resolved)
 
-（空）
+- 2026-05-20: `TUN-AL-003` resolved in this PR — added business framing anti-pattern (#9) to `governance-audit-liaison.md`; cross-ref `TUN-DV-002`.
