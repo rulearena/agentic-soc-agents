@@ -26,7 +26,7 @@ v1.0 release 後對 80 條 backlog item 的 v1.1 tactical triage 結果見 [`tri
 - **33 條 P2**（v1.1 以後考慮；含 3 條原 ⭐ 高降 P2）
 - **22 條 Later**（cheatsheet / format polish / nice-to-have template）
 
-> **這份排序不是對外 ROADMAP，也不是時程承諾**。P1 = 「v1.1 候選」≠ 「v1.1 必出」；實際進入 v1.1 由 issue / PR 過程決定。正式對外 release roadmap（含時程）會另以 `ROADMAP.md` 發布（待定）。
+> **這份排序不是對外 ROADMAP，也不是時程承諾**。P1 = 「v1.1 候選」≠ 「v1.1 必出」；實際進入 v1.1 由 issue / PR 過程決定。對外方向見 [`ROADMAP.md`](../ROADMAP.md)（themes，**不含時程**）。
 
 ## 條目格式
 
@@ -62,4 +62,4 @@ backlog 公開不是承諾 roadmap，而是讓貢獻者：
 - 評估「想領的條目」是否與其他條目 coupled
 - 對 agent 定義局限性保有透明預期
 
-正式 release roadmap（含時程承諾）會另外以 ROADMAP.md 形式發布（待定）。
+對外方向見 [`ROADMAP.md`](../ROADMAP.md)（themes，**不含時程**）。

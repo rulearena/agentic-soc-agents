@@ -159,4 +159,4 @@
 
 ## 對外承諾邊界
 
-本檔**不是 ROADMAP** — **不承諾時程**。P1 = 「v1.1 候選」≠ 「v1.1 必出」。實際進 v1.1 由 issue/PR 過程決定。對外 release roadmap（含時程承諾）會另以 `ROADMAP.md` 發布（待定）。
+本檔**不是 ROADMAP** — **不承諾時程**。P1 = 「v1.1 候選」≠ 「v1.1 必出」。實際進 v1.1 由 issue/PR 過程決定。對外方向見 [`ROADMAP.md`](../ROADMAP.md)（themes，**不含時程**）。
