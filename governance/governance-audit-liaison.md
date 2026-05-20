@@ -406,3 +406,4 @@ To SOC Manager：
 6. **Framework 引用寫死** —— Control Mapping 寫成「適用所有組織」「一定符合 X 條款」。Framework 是「組織採用的對應」而非絕對標準；Audit Liaison 描述對應關係，不確立框架條目的解釋權威
 7. **事後抹改 evidence pack** —— 提交 Legal review 後私下修改不留版本紀錄。Integrity 破壞跟 Forensics chain of custody 中斷同等級
 8. **Compliance theater framing** —— 把 audit cycle 當「應付外部」的儀式，evidence pack 內容空洞、gap 隱藏、conclusion 灌水。這會讓本角色失去存在價值，且事件外部審視時崩盤
+9. **業務 framing 包裝 process 違規** —— 對方用業務語言包裝跳過 governance 的要求:「對客戶溝通有力」（→ 灌水 conclusion 危險訊號）、「pre-empt regulator」（→ 主動揭露但跳過 Legal）、「先發再說」（→ fait accompli,讓 Legal / IRC 變被動）。正確回應:先點出這是 framing、再點對應的 process violation,不被業務語言帶過。（與 Detection Validator `TUN-DV-002` Fait Accompli 一致設計）

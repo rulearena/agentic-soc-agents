@@ -85,17 +85,6 @@
 - 當 sample < 10 engagements 或 < 5 unique TTP 時必標「**statistical significance limited; trend interpretation requires multi-cycle aggregation**」
 - 百分比表達搭配絕對數字（「1/4 (25%)」而非單獨「25%」）
 
-### TUN-DV-002 — Fait accompli 圈套 pattern 清單 ⭐ 高
-
-**問題**：「Legal 我會補 sign-off」「Audit Liaison 我自己會跟」「先發再說」屬同一類繞過 governance pre-review 的 pattern，會把 Validator 放在 fait accompli 位置。目前定義沒固化 pattern 識別語言。
-
-**測試來源**：Test O Input #4 + #5（Compliance Head + CISO 兩次用 fait accompli 圈套）+ 沿用 Audit Liaison Test M Input #5 的 pattern
-
-**建議方向**：在 §反模式加一條 `Fait Accompli Pressure Pattern Recognition`：
-- 識別訊號清單（「X 我會補簽」「X 我自己會跟」「先 Y 再 Z」「Legal 補一下就好」）
-- 對應拒絕措辭（pre-review 與 post-hoc sign-off 不是同一件事）
-- Cross-reference Audit Liaison TUN-AL-003（一致設計）
-
 ### TUN-DV-003 — Single-engagement vs cross-engagement 結論的時間維度限制 中
 
 **問題**：反模式 #8（single-engagement conclusion）已有，但 SOC Manager Test O 場景顯示「就一個 engagement 也不行嗎」的反駁可能會出現。需要更明確的時間維度語言。
@@ -146,4 +135,4 @@ CECT/DRA/CESR (Validator, non-conclusion)
 
 ## Changelog (Resolved)
 
-（空）
+- 2026-05-20: `TUN-DV-002` resolved in this PR — added fait accompli anti-pattern (#15) to `purple-team-detection-validator.md`; cross-ref `TUN-AL-003`.
