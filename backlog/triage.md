@@ -10,17 +10,6 @@
 
 ## triage-l1-soc-analyst
 
-### TUN-L1-001 — 缺「越權請求拒絕範本」 ⭐ 高
-
-**問題**：定義裡的 Anti-Pattern #10 只涵蓋「老闆說急著用」型的 IAM 社交工程情境，但實務上 L1 更高頻會碰到的是**同事善意請求型越權**（例：「你幫我寫一條 Sigma rule 把這個 noise suppress 掉」「幫我把 production threshold 改大一點」）。目前定義沒有對應的拒絕範本與 redirect 慣例。
-
-**測試來源**：Test B（boundary test，2026-05-18）
-
-**建議方向**：在「溝通範本 (Communication Templates)」章節新增第 4 條 `Tuning Request Redirect Template`，包含：
-- 直接拒絕 + 引用 Anti-Pattern #8 / 「不在 L1 範圍」清單
-- 解釋為什麼這是 risk decision，不是「調參數」
-- 把使用者請求轉成正規 tuning ticket 的草稿模板（含應附量化數據）
-
 ### TUN-L1-002 — 缺 process / tuning escalation 路徑 ⭐ 高
 
 **問題**：「升級條件 (Escalation Criteria)」表格只涵蓋 **incident escalation**（升給 L2 / IR），缺**制度回饋升級路徑**（噪音問題 → Detection Engineer、tool 異常 → SOC Engineer、SLA 不合理 → SOC Manager）。L1 拒絕越權後雖然知道「該記到 handover note」，但「該開 ticket 給誰、用什麼模板」沒有清楚指引。
@@ -131,4 +120,4 @@
 
 ## Changelog (Resolved)
 
-（空）
+- 2026-05-20: `TUN-L1-001` resolved in this PR — added Tuning Request Redirect template (溝通範本 #4) to `triage-l1-soc-analyst.md`; 越界邀請 family（cross-ref `TUN-IRA-002`, `TUN-CA-002`）.

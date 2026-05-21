@@ -94,17 +94,6 @@
 - 替代材料 menu（ESR + CIN + 非 attestation 措辭方向）
 - 加速合作路徑（CIN 同日交付 + Legal 自己寫 attestation）
 
-### TUN-CA-002 — Cross-role consolidation 拒絕範本 ⭐ 高
-
-**問題**：IRC 想合併 CA + Audit Liaison 屬 cross-role boundary 變更，但角色定義內未明文「此類變更 escalate SOC Manager governance 而非 CA / IRC 單方面決定」。Test L Input #5 中執行者臨場用「separation of duties」+「handoff 是 control point 不是 overhead」說服。
-
-**測試來源**：Test L Input #5（IRC 想把 evidence packaging 推給 CA + Audit Liaison rotation B 已同意）
-
-**建議方向**：在 §對既有角色與相鄰角色的邊界補一條「**對 role boundary 變更請求的標準 escalation path**」：
-- Cross-role consolidation 屬 SOC Manager governance ownership
-- Audit Liaison rotation 間的工作邊界變更不改變 CA 紅線 C
-- 「handoff 是 control point」的 framing（給拒絕者用）
-
 ### TUN-CA-003 — Sister evidence vs disputed pressure 範例庫 中
 
 **問題**：Test L Input #3「DE 自標 partial + 事件未 fire = corroborated 而非 disputed」這類 reasoning pattern 在範本 #3 (AFV) 內沒 worked example，CA 在實際 pressure 下不易快速 anchor。
@@ -193,3 +182,4 @@
 ## Changelog (Resolved)
 
 - 2026-05-20: `TUN-AL-003` resolved in this PR — added business framing anti-pattern (#9) to `governance-audit-liaison.md`; cross-ref `TUN-DV-002`.
+- 2026-05-20: `TUN-CA-002` resolved in this PR — added role-boundary-change escalation path (§對既有角色邊界) to `governance-compliance-auditor.md`; 越界邀請 family（cross-ref `TUN-L1-001`, `TUN-IRA-002`）.

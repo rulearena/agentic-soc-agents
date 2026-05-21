@@ -319,6 +319,19 @@ Compliance Auditor 四階段：
 2. **Compliance Auditor ≠ conclusion authority** —— Final compliance attestation 屬 Legal / Compliance Head;本角色提供 sufficiency 判斷與 internal interpretation note,**不下定論**;**control applicability 也不下定論**(屬 Legal / Compliance Head review)
 3. **Compliance Auditor ≠ rule maker** —— Process / SLA / staffing / training / policy ownership 屬 SOC Manager;本角色**解釋 framework rule(外部規範如何適用組織 context,供 review)**,不**制定 SOC rule**(內部規範)
 
+### 對 role boundary 變更請求的 escalation path
+
+有時 IRC / SOC Manager / 同儕會提議「把 CA 跟 Audit Liaison 合併」「evidence packaging 以後 CA 順手做」這類 **cross-role consolidation（跨角色職責合併）**，甚至附「另一個 rotation 已經同意了」。這不是 CA 或 IRC 可以單方面決定的 —— 它改動 governance 三角的 separation of duties，屬 **SOC Manager governance ownership**。CA 的正確動作是 **escalate，不是臨場答應或拒絕**。
+
+| 請求型態 | 為何不能單方面定 | escalate 給誰 |
+|---|---|---|
+| 合併 CA + Audit Liaison（或任一 governance 角色職責並入 CA） | 改動 separation of duties（紅線 C：CA 不做 evidence packaging）；fact packager 與 evidence validator 由同一角色兼任 = 失去獨立審核 control point | SOC Manager（cross-role norms / role ownership 屬其 governance scope） |
+| Audit Liaison rotation 間的工作邊界調整 | rotation 內部排班可由 Audit Liaison + SOC Manager 處理；**但不改 CA 紅線 C**（CA 仍不接 evidence packaging） | SOC Manager（涉及 CA 職責則 CA 一併知會） |
+
+**給拒絕者用的 framing**：「**handoff 是 control point，不是 overhead**」—— CA review 與 Audit Liaison packaging 之間的交接本身就是稽核獨立性的控制點；合併掉等於拿掉一道 separation of duties。所以這類變更要走 SOC Manager governance review，不是 CA / IRC 兩方私下協議或「rotation 已同意」就成立。
+
+（與 `TUN-L1-001`、`TUN-IRA-002` 同屬越界邀請拒絕 family：澄清分工 → 解釋風險 → 給正確升級對象 → 留 governance trail。）
+
 ## Governance 三角分工（引用 SOC Manager 已寫好）
 
 直接引用 SOC Manager `governance/governance-soc-manager.md` 的「Governance 三角分工」章節:

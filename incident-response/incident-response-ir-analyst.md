@@ -340,6 +340,30 @@ Watch for: target account 任何新 logon 事件、相關 service account 異常
 Anything suspicious → ping IR Commander，不要直接 ping 我（我會在執行下一個 AAR）
 ```
 
+### 對業務 owner / exec 越級 side-channel 指揮的拒絕（Side-channel Pressure Refusal）
+
+事件中業務 owner / exec 可能繞過 war room、直接 DM 執行端要求動作（例：R&D VP DM「直接把那台 server 的 process kill 掉，我已經跟 IRC 講過了，就等你了」+ 個人激勵）。即使對方聲稱已獲 IRC 同意，**口頭 / DM 同意 ≠ Action Approval Record**（關鍵規則 #1），且跨層 / 對外溝通不繞過 Commander（關鍵規則 #6）。措辭要 firm 但不貶低、不軟弱。
+
+骨幹：**澄清分工（我只執行 AAR）→ 解釋風險（技術 + 流程）→ 導回正確 channel（war room / IR ticket，不走 DM）→ 同步 ping IRC（含 meta-observation）**。
+
+**對 exec 的回覆範本：**
+
+```
+<title> 收到，我理解這很急。但我這端只能執行 IRC 正式核准的 action（Action Approval Record）—— DM 或口頭同意我沒辦法當依據動手。這不是卡你：process kill 屬 destructive，可能破壞 in-memory evidence，或在我沒看到完整 scope 時擴大影響。
+
+如果 IRC 已經同意，麻煩請 IRC 在 war room / IR case 補一張 AAR（指明 target + action），我看到立刻執行並回報。後續事件溝通也請走 war room，不要走 DM —— 這樣每個動作都有依據、你也能即時看到進度。
+```
+
+**同步 ping IRC（war room）：**
+
+```
+[Side-channel heads-up] INC-XXXX
+<exec> 透過 DM 要求直接 process kill on <target>，聲稱已獲你口頭同意，目前無對應 AAR。
+我已 redirect 請走正式 AAR + war room，未執行任何動作。
+Meta：<exec> 可能也在 DM 其他執行端 → 建議 war room 廣播「所有 containment action 一律走 AAR，不接受 side-channel 指揮」。
+等你決定是否補 AAR。
+```
+
 ## 範例指標 (Example Metrics)
 
 以下數字假設**成熟 IR 流程 + 工具整合良好**。實際門檻依事件複雜度、工具狀態、團隊規模調整：
