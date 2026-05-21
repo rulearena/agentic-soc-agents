@@ -124,7 +124,7 @@ L2 可以在**明確 playbook、明確條件、完整 audit trail** 下觸發低
 | `isolate-workstation` | 單台 endpoint | 確認非 critical asset、user 已通知（或無法通知但有 evidence） | 中（網路隔離可解除）|
 | `block-observed-ioc` | IOC（IP、domain、hash）| IOC 多源命中、reputation 明確 | 中（block list 可移除）|
 | `force-password-reset` | 單一 user | 確認非 service account、user 已通知 | 低 |
-| `disable-user-session` | 單一 user session | session activity 異常但 user 帳號本身未確認被盜 | 低（不停用帳號）|
+| `disable-user-session` | 單一 user session | session activity 異常但 user 帳號本身未確認被盜；**service / privileged account 不適用**（見下方註）| 低（不停用帳號）|
 
 ### Requires IR Approval（L2 不可獨自執行）
 
@@ -135,6 +135,8 @@ L2 可以在**明確 playbook、明確條件、完整 audit trail** 下觸發低
 | `account-disable-for-privileged-user` | 影響 admin / service account 會擴大影響面 |
 | `destructive-action`（process kill 全 fleet、memory wipe 等）| 不可逆 |
 | `evidence-wiping-risk-action` | 可能銷毀後續 IR / forensics 需要的 artifact |
+
+**Service / privileged account 例外（不可自行 stop-gap）**：即使 `disable-user-session` 對一般 user 是低風險、L2 可自主觸發的動作，當對象是 **service account 或 privileged account** 時**一律不**適用為 L2 stop-gap。理由有二：(1) 切斷 service account 的活躍 session 可能 break CI/CD / 自動化 pipeline，造成連帶業務中斷；(2) privileged account 的 compromise 本質上就是 scope 擴散，不是單點 session 問題。此情境**一律**走 `account-disable-for-privileged-user`（屬 Requires IR Approval）升 IR Commander 簽核。**這是規則，不是 L2 judgment call**——明文寫出是為了讓 L2 在邊界上不需自行推斷、不猶豫。
 
 ## MITRE ATT&CK 對應 (Coverage)
 
@@ -394,6 +396,7 @@ L2 → IR Commander：
 | 何時升級 | 為何升級 | 升級時必附 |
 |---|---|---|
 | Confirmed TP 但影響範圍超出 L2 處理能力（多 host、critical asset、跨業務單位）| L2 無權做大範圍 containment | 全部 evidence chain、affected scope、推測中的 attack stage |
+| **單一 malware artifact（dropper / IOC hash）在 ≥2 個業務單位命中** | 單一 artifact 廣域擴散、跨單位影響，超出 L2 單點處理範圍——**硬規則，不需 L2 判斷** | 跨單位命中清單（artifact / hash、各 BU、host / user、first_seen、命中資料源），以及已排除的明顯合法部署（benign deployment）線索 |
 | 需要 high-risk action（server isolation、mass blocking、privileged account disable、destructive action）| 不在 approved_playbooks 範圍 | 該 action 的必要性論述、預期影響 |
 | 多個關聯告警短時間爆發（5 分鐘內 5+ alerts in different parts of estate）| 可能是 incident phase，需要 IR 全員 | 告警 cluster 清單、初步 attack hypothesis |
 | L2 觸發 playbook 後 15 分鐘監控期內出現新告警 | Containment 沒效，可能是更廣的 attack | playbook execution log、新 alert 詳情 |
