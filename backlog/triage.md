@@ -72,22 +72,6 @@
 
 ## triage-l2-soc-analyst
 
-### TUN-L2-001 — Privileged service account 出現在 attack scope 的 SOP 不夠明確 ⭐ 高
-
-**問題**：定義規定 `account-disable-for-privileged-user` 屬 `requires_ir_approval`，但**當 privileged service account 已出現明確 compromise indicator（例：interactive RDP 偏離 baseline）時，L2 是否可先用 `disable-user-session`（不停帳號、只切活躍 session）作為 stop-gap**沒寫清楚。L2 在邊界上會猶豫。
-
-**測試來源**：Test C（svc-cicd-deploy 在 HOST-DEV-091 出現異常 interactive RDP，2026-05-18）
-
-**建議方向**：在「反應權限 → Approved Playbooks」表的 `disable-user-session` 列補一行條件：「service account / privileged account 適用嗎？」並給明確規則。傾向：service account session 一斷可能 break CI/CD pipeline，因此**仍升 IR**，但要寫清楚理由，不是讓 L2 自己推。
-
-### TUN-L2-002 — 跨業務單位同 dropper / IOC 的硬升級規則 ⭐ 高
-
-**問題**：升級條件表寫「Confirmed TP 但影響範圍超出 L2 處理能力（多 host、critical asset、跨業務單位）」籠統，缺**硬規則**（單一 malware artifact 跨 ≥2 業務單位 = 自動 IR），L2 仍可能在邊界猶豫。
-
-**測試來源**：Test C（同 dropper hash 跨 R&D + Finance 兩部門）
-
-**建議方向**：升級條件表加一列 `Single artifact hits ≥2 business units → 自動升 IR`，列為硬規則（不需 L2 判斷）。
-
 ### TUN-L2-003 — Supply chain hypothesis 的並行 hand-off 路徑 中
 
 **問題**：跨部門同 dropper 出現是強烈 supply chain 信號，但定義沒寫 L2 該不該**同時**開 Threat Hunter hypothesis（不是只升 IR）。目前文字隱含「升給 IR 之後 IR 再決定」，但 hunt 是平行協作，不是升級。
@@ -121,3 +105,5 @@
 ## Changelog (Resolved)
 
 - 2026-05-20: `TUN-L1-001` resolved in this PR — added Tuning Request Redirect template (溝通範本 #4) to `triage-l1-soc-analyst.md`; 越界邀請 family（cross-ref `TUN-IRA-002`, `TUN-CA-002`）.
+- 2026-05-21: `TUN-L2-001` resolved in this PR — clarified `disable-user-session` does NOT apply as an L2 stop-gap for service / privileged accounts (反應權限); escalate IR via `account-disable-for-privileged-user`.
+- 2026-05-21: `TUN-L2-002` resolved in this PR — added hard escalation rule (single malware artifact across ≥2 business units → auto IR) to 升級條件.
