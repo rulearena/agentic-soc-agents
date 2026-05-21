@@ -63,17 +63,6 @@
 
 **建議方向**：在「工具掌握度」表的 SIEM 列加註：「verification query 應綁定 AAR target；超出 target 的 pivot 屬 hunting，需 callback 給 IRC 決定是否啟動 Threat Hunter」。同時補一段「pivot 觸發 scope drift 的處理方式」（即使越界發現了問題，仍應走 Scope Drift Report 流程交回 IRC）。
 
-### TUN-IRA-002 — 業務 owner / exec 越級直接 ping 執行端的拒絕範本缺 ⭐ 高
-
-**問題**：定義 §溝通範本沒有「對業務 owner / exec 越級指揮的拒絕 + redirect」範本。Test F 訊息 #3 顯示這是高頻情境（VP DM 要求直接 process kill），目前要 IR Analyst 自由發揮，措辭品質不穩、可能得罪人或軟弱。
-
-**測試來源**：Test F 訊息 #3（R&D VP DM 要求 process kill + 「我已經跟 IRC 講過」+ 個人激勵）
-
-**建議方向**：在 §溝通範本加第 5 條 `Side-channel Pressure Refusal Template`，含：
-- 拒絕措辭（不貶低、說明流程要求、解釋技術原因）
-- 引導回正確 channel（war room / IR ticket，不走 DM）
-- 同步 ping IRC 的範本（含「VP 可能在 ping 其他執行端，建議 war room 廣播」這層 meta-observation）
-
 ### TUN-IRA-003 — Pending action 在 BLOCK 狀態下的回報節奏沒明示 中
 
 **問題**：pending action（如 Test D 的 #002 process kill）被 IRC BLOCK 後，IR Analyst 是該定期回報自己 standby 狀態還是被動等？目前定義沒講，執行端只能自由選擇。Test F 場景中 IR Analyst 選了被動等 + 在其他訊息結尾 reminder，但實務上跨班次 / 跨人員可能漏掉。
@@ -167,4 +156,4 @@
 
 ## Changelog (Resolved)
 
-（空）
+- 2026-05-20: `TUN-IRA-002` resolved in this PR — added Side-channel Pressure Refusal template (§溝通範本) to `incident-response-ir-analyst.md`; 越界邀請 family（cross-ref `TUN-L1-001`, `TUN-CA-002`）.

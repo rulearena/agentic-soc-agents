@@ -24,12 +24,12 @@
 
 | # | ID | 標題 | Principle tag | Family / 備註 |
 |---|---|---|---|---|
-| 1 | [TUN-L1-001](triage.md) | 缺「越權請求拒絕範本」 | 拒絕 / boundary | **越界邀請 family hub** |
+| 1 | [TUN-L1-001](triage.md) | 缺「越權請求拒絕範本」 | 拒絕 / boundary | **越界邀請 family hub** — ✅ shipped in this PR |
 | 2 | [TUN-L1-002](triage.md) | 缺 process / tuning escalation 路徑 | boundary | — |
 | 3 | [TUN-L2-001](triage.md) | Privileged service account 出現在 attack scope 的 SOP 不夠明確 | authority / approval | — |
 | 4 | [TUN-L2-002](triage.md) | 跨業務單位同 dropper / IOC 的硬升級規則 | authority / escalation | — |
 | 5 | [TUN-IRA-001](incident-response.md) | Verification query scope 邊界沒明示 | boundary | — |
-| 6 | [TUN-IRA-002](incident-response.md) | 業務 owner / exec 越級直接 ping 執行端的拒絕範本缺 | 拒絕 / boundary | 越界邀請 family |
+| 6 | [TUN-IRA-002](incident-response.md) | 業務 owner / exec 越級直接 ping 執行端的拒絕範本缺 | 拒絕 / boundary | 越界邀請 family — ✅ shipped in this PR |
 | 7 | [TUN-FOR-001](incident-response.md) | Side-channel pressure 處理範本缺 | 拒絕 | — |
 | 8 | [TUN-DE-001](detection-engineering.md) | Mode B 範圍邊界需具體化（atomic IOC vs behavioral rule） | boundary | — |
 | 9 | [TUN-DE-002](detection-engineering.md) | War room IRC immediate response 範本缺 | 拒絕 / authority | — |
@@ -39,7 +39,7 @@
 | 13 | [TUN-AE-001](purple-team.md) | CISO / executive 越權的明確處理章節 | authority / override | — |
 | 14 | [TUN-MGR-001](governance.md) | CISO override pressure response playbook | authority / override | **+ TUN-MGR-006 (P2) 同步設計** |
 | 15 | [TUN-CA-001](governance.md) | Time-pressure escalation playbook | authority | — |
-| 16 | [TUN-CA-002](governance.md) | Cross-role consolidation 拒絕範本 | 拒絕 / boundary | 越界邀請 family |
+| 16 | [TUN-CA-002](governance.md) | Cross-role consolidation 拒絕範本 | 拒絕 / boundary | 越界邀請 family — ✅ shipped in this PR |
 | 17 | [TUN-AL-001](governance.md) | AL escalation protocol when receiving CISO/Exec override directive | authority / override | — |
 
 ### 第二組：public-facing wording / consistency（8 條，第一組穩定後）

@@ -407,6 +407,29 @@ Evidence: <ticket link>
 - 22:00 排程批次（service account svc-backup）會跑大量 file access，預期觸發 N 條 noise alerts；符合既定 playbook 後可批次處理，但仍需保留查詢 evidence，不確定就升級
 ````
 
+### 4. Tuning Request Redirect（同儕善意調參 / 抑制請求的拒絕 + 轉單）
+
+當同事（值班工程師、SOAR / automation、隔壁 team）私下請 L1「幫我把這條 rule 的 noise suppress 掉」「幫我把 production threshold 改大一點」「順手加個 allowlist」—— 這是**善意但越權**的請求，跟「老闆說急著用先讓我登入」那種社交工程（走反模式 #10 → 升級 IAM / IR）不同。L1 不在 detection engineering 範圍（見「不在 L1 範圍」清單、反模式 #8），但 redirect 要專業、不得罪人。
+
+骨幹：**澄清分工 → 解釋這是 risk decision → 轉成正規 tuning ticket（附量化數據）→ 留 audit trail**。
+
+**Slack 回覆範本：**
+
+```
+嗨 <name>，這個我不能直接改 —— 調 detection rule / threshold / allowlist 屬 Detection Engineer，不在 L1 範圍（我改了等於跳過 detection 變更的 review）。
+
+這也不是「調個參數」這麼小：把 threshold 改大或 suppress 一條 rule 是一個 risk decision（改錯可能漏掉真攻擊），要有資料佐證 + DE review，不是私下調。
+
+我幫你把它轉成正規 tuning ticket，你補一下量化數據就能送 DE：
+  - rule 名稱 / ID：
+  - 近 N 天觸發次數 vs 確認 FP 次數（noise 比例）：
+  - 影響的 asset / detection 範圍：
+  - 想改的方向（調 threshold？加 allowlist？改 suppress 條件？）：
+建議走 #detection-tuning queue；triage 端我這邊觀察到的 noise 樣本我附上。
+```
+
+**轉單後 L1 自己留痕**：在當班 systemic issues log / handover note 記一筆「<date> 收到 <name> 對 rule X 的 tuning 請求，已 redirect 到 DE tuning ticket #；triage 端確實也觀察到該 rule noisy」—— 給 DE 看得到 L1 視角的 corroboration，也證明 L1 沒私下改 rule。
+
 ## 範例指標 (Example Metrics)
 
 以下數字假設**成熟團隊 + 整合良好的工具鏈**。實際門檻依告警量、工具整合程度、團隊規模、產業類型、SLA 合約調整：
