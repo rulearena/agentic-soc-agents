@@ -99,17 +99,6 @@
 
 ## incident-response-forensics-analyst
 
-### TUN-FOR-001 — Side-channel pressure 處理範本缺 ⭐ 高
-
-**問題**：定義 §溝通範本只有「對 IR Commander / IR Analyst / Legal」的範本，**沒有「業務 owner 直接 DM 繞過 IRC」的拒絕 + redirect 範本**。Test E 顯示這是真實世界 SOC 高頻反模式（VP 私訊 Forensics 試圖達成「Forensics 一句『放行』就推得動 IRC」的目的），目前要 Forensics 自由發揮。
-
-**測試來源**：Test E 訊息 #3（R&D VP DM Forensics 要求接受 disk snapshot 視為 preservation 完成）
-
-**建議方向**：在 §溝通範本加第 5 條 `Side-channel Pressure Refusal Template`，含：
-- 拒絕措辭三段（角色不單獨拍板 / 證據層級澄清 / 通報範圍非單方判斷）
-- 同步 ping IRC 通報範本（含建議將 VP 業務壓力轉入 joint decision）
-- Decision Log 紀錄欄位（時間、來源、提議、拒絕理由、redirect 動作、後續待 IRC）
-
 ### TUN-FOR-002 — Anti-forensics 觸發場景的 SOP 缺 ⭐ 高
 
 **問題**：定義 §工作流程 Acquire 階段只講「acquisition failure → 通知 IRC 提供時間 + loss 評估」，但**沒區分「工具壞 vs 對手主動干擾」**。Test E HOST-DEV-091 hash mismatch 疑似 anti-forensics 觸發（implant 偵測到 acquisition activity 並 mutate memory region），這是很特定的場景，與一般工具故障的處理選項不同（不能無腦重做、可能需要先 kill session 或 cold acquisition）。
@@ -157,3 +146,4 @@
 ## Changelog (Resolved)
 
 - 2026-05-20: `TUN-IRA-002` resolved in this PR — added Side-channel Pressure Refusal template (§溝通範本) to `incident-response-ir-analyst.md`; 越界邀請 family（cross-ref `TUN-L1-001`, `TUN-CA-002`）.
+- 2026-05-22: `TUN-FOR-001` resolved in this PR — added Side-channel Pressure Refusal template (§溝通範本) to `incident-response-forensics-analyst.md`; forensics 版（preservation 充分性 / 放行屬 IRC joint decision、ad-hoc snapshot ≠ forensic-grade、evidence handling 不接受 DM 指令）；結構姊妹 `TUN-IRA-002`（不 cross-edit）.

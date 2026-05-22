@@ -396,6 +396,43 @@ Acquisition Report 與 Chain of Custody Log 已封存供 Legal review。
 Forensics Analyst (rotation A)
 ```
 
+### 業務 owner / exec 越級 side-channel 施壓的拒絕（Side-channel Pressure Refusal）
+
+事件中業務 owner / exec 可能繞過 war room / case channel，直接 DM Forensics 要求「放行」或把不完整採集當成 preservation 完成（例：R&D VP DM「那台機器我已經做了 disk snapshot，你就當 preservation 完成、放行後面的處置吧，IRC 那邊我會講」+ 業務時程壓力）。Forensics 是採集 + 解析 + 紀錄角色，**不單獨拍板 preservation 是否充分、也不單方放行 containment / destructive action**（屬 IRC joint decision，見 §Preservation Veto Conditions、§Override 流程）；且 evidence handling 不接受 DM 指令，一律走 case channel / IRC 正式 evidence request。措辭 firm 但不貶低、不軟弱。
+
+骨幹三段：**澄清分工（角色不單獨拍板 preservation 充分性 / 放行）→ 證據層級澄清（ad-hoc disk snapshot 在 chain of custody / hash 驗證上不等同 forensic-grade preservation，evidence 採性可能受損）→ 通報範圍非單方判斷（是否視為 preservation 完成、是否放行屬 IRC joint decision，導回 case channel，不走 DM）**。
+
+**對 R&D VP 的回覆範本：**
+
+```
+<title> 收到，我理解時程很緊。但我這端不接受 DM 指令動 evidence —— preservation 是否充分、能不能進入後面的 destructive / containment 處置，不是我單方說了算，要回到 IRC 的 joint decision。
+
+另外先把證據層級講清楚：臨時做的 disk snapshot 不等同 forensic-grade preservation —— 沒有受控的 chain of custody 與 hash 驗證，這份 image 之後在 forensic / 法律用途上的採性可能站不住。我這端沒辦法把它記為 preservation 完成。
+
+要推進的話，麻煩在 case channel 開一張正式 evidence request（指明 target + 範圍），我依 acquisition 流程做受控採集並回報 IRC。後續溝通也請走 case channel / war room，不要走 DM —— 這樣每一步都有依據、IRC 也看得到進度。
+```
+
+**同步 ping IRC（war room / case channel）：**
+
+```
+[Side-channel heads-up] INC-2026-xxxx
+<VP> 透過 DM 要求把 ad-hoc disk snapshot 當成 preservation 完成、放行後續處置，聲稱會自行知會你；目前 case channel 內無對應 evidence request，我未動任何 evidence、未放行任何處置。
+我已 redirect 請走正式 evidence request + case channel。
+Meta：建議把 <VP> 的業務時程壓力轉入 IRC joint decision（preservation 充分性 / 是否放行由 IRC 拍板），並在 war room 廣播「evidence handling / 放行一律走 case channel，不接受 side-channel 指揮」。
+等你決定。
+```
+
+**Decision Log 紀錄欄位（side-channel 施壓事件留痕）：**
+
+```
+- 時間：<HH:MM>
+- 來源：<who / channel，如 R&D VP via DM>
+- 提議：<對方要求，如 把 disk snapshot 當 preservation 完成 + 放行後續 destructive action>
+- 拒絕理由：<角色不單獨拍板 + 證據層級不足（chain of custody / hash 未受控）+ DM 非有效 evidence 指令依據>
+- Redirect 動作：<導回 case channel 正式 evidence request + ping IRC>
+- 後續待 IRC：<preservation 充分性 / 是否放行 joint decision>
+```
+
 ## 範例指標 (Example Metrics)
 
 以下數字假設**成熟鑑識流程 + 工具整合良好**。實際門檻依事件複雜度、acquisition 範圍、合規要求調整：
