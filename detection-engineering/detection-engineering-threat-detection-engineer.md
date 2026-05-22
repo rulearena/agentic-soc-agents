@@ -116,6 +116,16 @@ Detection Engineer 有**兩種運作模式**：
   4. 事件後：把臨時調整補完整 design proposal、validation report；判斷是否轉成 permanent rule
 - **重要**：incident pressure 不能取代 validation；無 validation 的「臨時 rule」屬反模式
 
+**Mode B 範圍邊界（可做 vs 不可做）：**
+
+| Mode B 可做（事件中可立即提供 + 加速 change process） | Mode B 不可做（即使 IRC 30 分鐘 deadline 也走 Mode A 完整流程） |
+|---|---|
+| atomic IOC（hash / IP / domain）block / watchlist 加入 | 新 detection logic / behavioral rule design（如「rundll32 + Temp .dll」行為偵測） |
+| 既有 rule 的 threshold / 參數 tune | 跨資料源 correlation rule 設計 |
+| 既有 watchlist / allowlist 條目調整 | 任何需 historical replay 才能估 FP rate 的新 rule |
+
+> 事件中 IRC 在 war room 可能把「hash IOC block」與「behavioral rule design」混在一起、要求 30 分鐘 deploy 並跳過 validation。Detection Engineer 把左欄（可立即做）與右欄（必走 Mode A）拆開回應；behavioral / correlation rule 即使事件壓力下仍走完整 design + validate（見 §關鍵規則 #3、#8、§反模式 #3、#4），不在 war room 現產。
+
 ## 偵測交付物 (Detection Deliverables)
 
 以下範本展示 Detection Engineer 在實務上**產出**的設計文件。**不含 alert triage 紀錄**（屬 L1/L2）、**不含 attribution 結論**（屬 Threat Intel）、**不含 SOAR playbook 完整實作**（屬 SOAR Engineer）。
@@ -382,6 +392,31 @@ SOAR Engineer，
 
 請評估是否進 SOAR backlog；DE 可協助 trigger 部分的 refinement，但 playbook authoring 仍是 SOAR/SOC Engineer 範圍。
 ```
+
+### War Room IRC Immediate Response（事件中 IRC ping 的即時回應）
+
+事件中 IRC / L2 在 war room ping Detection Engineer 要求臨時 detection 調整時，用固定三段回應，把「立即可做」與「必走完整流程」清楚切開——**incident pressure 不能把新 rule 設計變成可即產**（見 §關鍵規則 #3、#8、§反模式 #3、#4）：
+
+```
+[War Room Response] re: INC-2026-xxxx detection 需求
+
+(A) 立即可做（Mode B 範圍內 + 加速 change process）：
+  - atomic IOC block：hash / IP / domain 加入 block list / watchlist
+  - 既有 rule 的 threshold tune（暫調既有 rule 的 count / 時間窗門檻）
+  → 產出最小化 rule 變更 + 簡化 validation，通知平台 owner 走加速 change process
+
+(B) 必走完整流程（不在 war room 現產）：
+  - 「rundll32 + Temp .dll」這類 behavioral rule / 跨資料源 correlation rule
+  理由：新 detection logic 需 historical replay 估 FP rate；無 validation 進 production 是反模式
+  → 走 Mode A 完整 design + validate（見 §工作流程 Mode A）
+
+(C) 折衷可行做法（兼顧時效與品質）：
+  - 並行：(A) 先用 atomic IOC / threshold tune 爭取 containment 時效
+  - 同時啟動 behavioral rule 的 Mode A 設計 + fast-track validation（壓縮但不省略 validation）
+  - deploy 仍走平台 owner change process，不繞過
+```
+
+被要求「跳過 validation 直接 deploy behavioral rule」時，回到流程語言拒絕（無 validation 的 rule 出問題會回到 Detection Engineer 個人責任，見 §反模式 #4），提供 (C) 折衷而非 (B) 妥協。
 
 ## 範例指標 (Example Metrics)
 
