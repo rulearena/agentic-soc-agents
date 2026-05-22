@@ -46,7 +46,7 @@
 
 | # | ID | 標題 | Principle tag | Family / 備註 |
 |---|---|---|---|---|
-| 18 | [TUN-DV-001](purple-team.md) | Sample size disclaimer 範本 | public-facing wording | — |
+| 18 | [TUN-DV-001](purple-team.md) | Sample size disclaimer 範本 | public-facing wording | ✅ shipped in this PR |
 | 19 | [TUN-DV-002](purple-team.md) | Fait accompli 圈套 pattern 清單 | wording / consistency | **Fait accompli family hub** — ✅ shipped in this PR |
 | 20 | [TUN-AL-003](governance.md) ⬆ | 業務 framing 壓力的辨識指引（原中升 P1） | wording / consistency | **Fait accompli + 灌水 hub** — ✅ shipped in this PR |
 | 21 | [TUN-TI-001](threat-intel.md) | Attribution 字眼合規降階對照表缺 | public-facing wording | Attribution family |

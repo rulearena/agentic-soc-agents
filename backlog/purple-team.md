@@ -74,17 +74,6 @@
 
 ## purple-team-detection-validator
 
-### TUN-DV-001 — Sample size disclaimer 範本 ⭐ 高
-
-**問題**：CECT 在 engagement 數少時（< 10 sample）的百分比表達容易誤導 board / auditor —「25%」「100%」在 1-2 sample 下沒有 statistical significance。Test O Input #1 中 CECT 顯示 1/4 = 25% consistent，需 sample-size caveat。
-
-**測試來源**：Test O Input #1（CECT-2026-Q2 顯示 25% consistently detected 但實際 sample = 4 unique TTP / 5 engagements）
-
-**建議方向**：在 §Validation 交付物 #2 CECT 範本加固定子段 `Sample Size Caveat`：
-- 自動標 sample size（engagement count + unique TTP count）
-- 當 sample < 10 engagements 或 < 5 unique TTP 時必標「**statistical significance limited; trend interpretation requires multi-cycle aggregation**」
-- 百分比表達搭配絕對數字（「1/4 (25%)」而非單獨「25%」）
-
 ### TUN-DV-003 — Single-engagement vs cross-engagement 結論的時間維度限制 中
 
 **問題**：反模式 #8（single-engagement conclusion）已有，但 SOC Manager Test O 場景顯示「就一個 engagement 也不行嗎」的反駁可能會出現。需要更明確的時間維度語言。
@@ -136,3 +125,4 @@ CECT/DRA/CESR (Validator, non-conclusion)
 ## Changelog (Resolved)
 
 - 2026-05-20: `TUN-DV-002` resolved in this PR — added fait accompli anti-pattern (#15) to `purple-team-detection-validator.md`; cross-ref `TUN-AL-003`.
+- 2026-05-22: `TUN-DV-001` resolved in this PR — added `Sample Size Caveat` sub-block to §Validation 交付物 #2 CECT template in `purple-team-detection-validator.md`（小樣本百分比外推限制）.
