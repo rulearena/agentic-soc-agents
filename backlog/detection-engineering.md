@@ -8,27 +8,6 @@
 
 ## detection-engineering-threat-detection-engineer
 
-### TUN-DE-001 — Mode B 範圍邊界需具體化（atomic IOC vs behavioral rule） ⭐ 高
-
-**問題**：定義 §Mode B incident on-call 只說「臨時 rule 調整」「新 IOC 阻擋觸發」，但 Test G Input #3 顯示實務上 IRC 會把「hash IOC block」「behavioral rule design」混在一起要求 30 分鐘 deploy。目前邊界鬆，會讓 DE 在邊界上被動。
-
-**測試來源**：Test G Input #3（IRC 要求 30 分鐘 deploy hash block + 「rundll32 + Temp .dll」behavioral rule，並要求跳過 validation）
-
-**建議方向**：在 §Mode B 加一張「可做 vs 不可做」對照表：
-- **Mode B 可做**：atomic IOC（hash / IP / domain）block、watchlist 加入、threshold tune（既有 rule 的參數調整）
-- **Mode B 不可做**：新 detection logic / behavioral rule design / 跨資料源 correlation rule —— 這些必走 Mode A 完整 design + validate
-
-### TUN-DE-002 — War room IRC immediate response 範本缺 ⭐ 高
-
-**問題**：§溝通範本全是 async 格式（email / triage reply）。事件中 IRC 在 war room ping DE 的場景沒對應 template。Test G 場景中執行者自行設計「(A) 立即可做 / (B) 不能做 / (C) 折衷」三段結構，這個結構穩定有用，應固化。
-
-**測試來源**：Test G Input #3 處理方式
-
-**建議方向**：在 §溝通範本加 `War Room IRC Immediate Response Template`，固定三段：
-- **(A) 立即可做**（Mode B 範圍內 + 加速 change process）
-- **(B) 必走完整流程的部分**（並引用 §Mode A）
-- **(C) 折衷可行做法**（並行設計 + fast-track validation + 仍走平台 owner）
-
 ### TUN-DE-003 — Replacement readiness gate 機制未明寫 中
 
 **問題**：Rule Retirement Notice 範本沒明確要求 retire 前先確認 replacement rule 已 deployed + production FP rate confirmed。Test G Input #2 場景中執行者自加「retirement 條件式 gate 在 replacement validated」，但這是憑判斷，定義沒寫。會留 detection gap 風險。
@@ -128,4 +107,5 @@
 
 ## Changelog (Resolved)
 
-（空）
+- 2026-05-22: `TUN-DE-001` resolved in this PR — added Mode B 可做/不可做 對照表 (atomic IOC / threshold tune vs behavioral / correlation rule → Mode A) to threat-detection-engineer §工作流程.
+- 2026-05-22: `TUN-DE-002` resolved in this PR — added War Room IRC Immediate Response template (§溝通範本) with (A) 立即可做 / (B) 必走完整流程 / (C) 折衷 三段; preserves validate-before-deploy boundary.
