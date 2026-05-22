@@ -216,6 +216,11 @@ Detection Validator 四階段(規律 cross-engagement review cycle 內):
 - Never detected TTP markers: [count] 占 [%]
 - **趨勢觀察,非 rule recommendation**
 
+## Sample Size Caveat
+- **Sample size 標記（必填欄位）**：engagements reviewed = [n]｜unique TTP markers = [n]
+- 當 engagements < 10 或 unique TTP markers < 5 時，本 trend 須標：「**statistical significance limited; percentages reflect observed ratio within a small sample, not a statistically stable detection rate — trend interpretation requires multi-cycle aggregation**」
+- 所有百分比一律搭配絕對數字呈現（例「1/4 (25%)」而非單獨「25%」），避免小樣本比率被外推為組織級 coverage 結論
+
 ## Handoff Notes
 - 給 DE:cross-cycle coverage 趨勢 input,作為 rule lifecycle 決策 reference;**不建議具體 rule 行為**
 - 給 SOC Manager:purple-team program 覆蓋健康度;governance review input
