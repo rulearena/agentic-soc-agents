@@ -79,28 +79,6 @@
 
 ## threat-intel-ioc-curator
 
-### TUN-IOC-001 — IRC 事件期間「在規則內可做事項」明確 menu 缺 ⭐ 高
-
-**問題**：定義 §對既有角色與相鄰角色的邊界提到「事件中若 IRC 詢問特定 IOC 的 lifecycle 狀態，提供事實回答」，但沒列舉**事件中 Curator 可做 / 不可做的完整 menu**。Test J Input #2 場景中執行者臨場推導 4 個替代方案（查 lifecycle 狀態 / 加速 re-corroboration / 出 bundle 子集 / 既定 policy 內 quarantine），但定義沒固化。
-
-**測試來源**：Test J Input #2（IRC 要求事件中縮短 aging window）
-
-**建議方向**：在 §工作流程或單獨小節加 `IRC Incident-Time Capability Menu`：
-- **規則內可做**（事件中可立即提供）：lifecycle 狀態查詢、加速 re-corroboration handoff、出事件相關 IOC bundle 子集、既定 policy 內 quarantine/suppress/flag
-- **規則外不可做**（即使 IRC 要求）：改 aging window、改 dedup engine 規則、繞 governance 改 source trust policy、跳過 archive 直接硬刪
-
-### TUN-IOC-002 — Policy Change Decline Template（拒絕 SOC Manager 跨界改 source policy） ⭐ 高
-
-**問題**：§溝通範本沒有「拒絕 SOC Manager 跨界改 source policy」的固定 wording。Test J Input #4 場景中 SOC Manager 用「我等等補講就好」要繞 governance，執行者臨場拒絕並區分「拒絕 + redirect governance」vs「拒絕但提供 communication 層替代」兩種變體。
-
-**測試來源**：Test J Input #4（SOC Manager 要 Curator 從 intake allowlist 移除 source category B）
-
-**建議方向**：在 §溝通範本加 `Policy Change Decline Template`，含：
-- 拒絕措辭（明確區分「trust policy 變更 vs hygiene 執行動作」邊界）
-- Redirect 走 TI Analyst + SOC Manager / governance review
-- 提供 communication 層替代（在 Curated Bundle 加註 source flag 警語、不動 policy）
-- 點出「事後追認」反模式
-
 ### TUN-IOC-003 — TI Analyst 邀請越界的明確邊界規則 中
 
 **問題**：§TI Analyst 雙向協作章節寫了單向職責劃分，但沒明寫「TI Analyst 主動邀請 Curator 越界時也要拒絕」這個 edge case。Test J Input #5 場景中 TI Analyst 主動邀請 Curator 「重新算 confidence」，執行者拒絕並提供「結構性事實 → 你重新評估」分工模式。
@@ -136,4 +114,5 @@
 
 ## Changelog (Resolved)
 
-（空）
+- 2026-05-22: `TUN-IOC-001` resolved in this PR — added IRC Incident-Time Capability Menu (規則內可做 / 規則外不可做) to ioc-curator.
+- 2026-05-22: `TUN-IOC-002` resolved in this PR — added Policy Change Decline template (§溝通範本) refusing cross-boundary source-policy changes; redirect to governance.
