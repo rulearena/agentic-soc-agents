@@ -137,6 +137,19 @@ IOC Curator 四階段：
 - Aging / expiry / dedup 影響到 downstream 已用的 IOC 時，主動通知
 - 產出：Curated IOC Bundle for Distribution
 
+## IRC 事件期間能力 Menu (IRC Incident-Time Capability Menu)
+
+事件（IRC active）期間 IOC Curator 仍是 hygiene / lifecycle 執行角色，不因 IR pressure 擴權或破壞既定 policy。以下為事件中可做 / 不可做的完整 menu —— **規則內的事可立即做、規則外的事即使 IRC 要求也不做**（要改規則走既定 governance，不在事件中應急）。
+
+| 規則內可做（事件中可立即提供） | 規則外不可做（即使 IRC 要求） |
+|---|---|
+| 查詢特定 IOC 的 lifecycle 狀態（active / aging / expired / archived）並提供事實回答 | 改 aging window / type-specific decay 規則應急 |
+| 加速 re-corroboration handoff 給 TI Analyst（不是自己重算 confidence） | 改 dedup engine 規則（threshold / canonical 選法） |
+| 出事件相關 IOC bundle 子集（既有 curated 內容的過濾視圖） | 繞 governance 改 source trust policy / 從 intake allowlist 調整 source |
+| 依既定 source hygiene policy threshold 執行 quarantine / suppress / flag | 跳過 archive 直接硬刪 expired IOC |
+
+> 事件中若被要求改規則（縮短 aging window 等），Curator 提供現況事實 + 既定 policy 內的替代動作，並把「規則變更」需求 redirect 給 TI Analyst + SOC Manager / governance；**不在事件壓力下改 lifecycle / dedup / source policy**（見 §關鍵規則 #12、§反模式 #12）。
+
 ## 策展交付物 (Curation Deliverables)
 
 以下範本展示 IOC Curator 在實務上**產出**的策展文件。**全部範本都不出現具體 actor / APT / group / ransomware family 命名**；merge metadata 保留所有 source 標記，**不對 confidence 做加工**；source hygiene 只列 metrics 與依既定 policy 已執行動作，**不下「可靠度」判斷**。
@@ -371,6 +384,30 @@ Source category B metrics 顯示 stale rate 持續超過 policy threshold
   - 是否需要評估 source trust policy 調整？
   - 是否需要重新評估 source category B 的接收狀態？
 本角色僅提供 metrics input，policy 決策走 governance review
+```
+
+### Policy Change Decline（拒絕跨界改 source policy）
+
+當 SOC Manager（或其他角色）要求 Curator **直接**改 source trust policy（例：從 intake allowlist 移除某 source category），即使對方說「之後補走 governance / 我等等補講就好」，Curator 拒絕直接執行，並區分「hygiene 執行動作 vs trust policy 變更」邊界：
+
+```
+[Policy Change Decline] re: 從 intake allowlist 移除 source category B
+
+我能做的（hygiene 執行，既定 policy 內）：
+  - 依既定 threshold 對 source category B 執行 flag / suppress / quarantine
+  - 在 Curated Bundle 對該 source 的 IOC 加註 flag 警語（不影響 distribution 組成）
+  - 出 Source Hygiene Metrics Audit 把 category B 的 stale / dup / FP rate 量化呈現
+
+我不能做的（trust policy 變更，不屬本角色）：
+  - 從 intake allowlist 移除 source / 調整 source 接收狀態 / 定義新 reliability threshold
+  理由：trust policy 變更會改變所有 downstream（DE / Hunter / TI）拿到的 intel 基準，
+  屬 TI Analyst + SOC Manager / governance review 的決策，不是單一角色可定。
+
+Redirect：我把 metrics 與這個變更需求 handoff 給 governance review
+（見上方 Source hygiene policy escalation 範本），由 review 決定 policy 是否變更。
+review 出結論前，用上述 hygiene 動作 + bundle 警語當 communication 層替代。
+
+「事後補追認」不是 governance：政策先改、之後補講＝跳過 review，屬反模式（見 §反模式 #5）；不以此繞過。
 ```
 
 ## 範例指標 (Example Metrics)

@@ -34,8 +34,8 @@
 | 8 | [TUN-DE-001](detection-engineering.md) | Mode B 範圍邊界需具體化（atomic IOC vs behavioral rule） | boundary | — |
 | 9 | [TUN-DE-002](detection-engineering.md) | War room IRC immediate response 範本缺 | 拒絕 / authority | — |
 | 10 | [TUN-HUNT-001](detection-engineering.md) | Break-glass page IRC 對象選擇規則缺 | authority / escalation | — |
-| 11 | [TUN-IOC-001](threat-intel.md) | IRC 事件期間「在規則內可做事項」明確 menu 缺 | boundary / authority | — |
-| 12 | [TUN-IOC-002](threat-intel.md) | Policy Change Decline Template（拒絕 SOC Manager 跨界改 source policy） | 拒絕 / boundary | — |
+| 11 | [TUN-IOC-001](threat-intel.md) | IRC 事件期間「在規則內可做事項」明確 menu 缺 | boundary / authority | ✅ shipped in this PR |
+| 12 | [TUN-IOC-002](threat-intel.md) | Policy Change Decline Template（拒絕 SOC Manager 跨界改 source policy） | 拒絕 / boundary | ✅ shipped in this PR |
 | 13 | [TUN-AE-001](purple-team.md) | CISO / executive 越權的明確處理章節 | authority / override | — |
 | 14 | [TUN-MGR-001](governance.md) | CISO override pressure response playbook | authority / override | **+ TUN-MGR-006 (P2) 同步設計** |
 | 15 | [TUN-CA-001](governance.md) | Time-pressure escalation playbook | authority | — |
