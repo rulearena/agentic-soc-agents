@@ -30,7 +30,7 @@
 | 4 | [TUN-L2-002](triage.md) | 跨業務單位同 dropper / IOC 的硬升級規則 | authority / escalation | ✅ shipped in this PR |
 | 5 | [TUN-IRA-001](incident-response.md) | Verification query scope 邊界沒明示 | boundary | — |
 | 6 | [TUN-IRA-002](incident-response.md) | 業務 owner / exec 越級直接 ping 執行端的拒絕範本缺 | 拒絕 / boundary | 越界邀請 family — ✅ shipped in this PR |
-| 7 | [TUN-FOR-001](incident-response.md) | Side-channel pressure 處理範本缺 | 拒絕 | — |
+| 7 | [TUN-FOR-001](incident-response.md) | Side-channel pressure 處理範本缺 | 拒絕 | ✅ shipped in this PR |
 | 8 | [TUN-DE-001](detection-engineering.md) | Mode B 範圍邊界需具體化（atomic IOC vs behavioral rule） | boundary | ✅ shipped in this PR |
 | 9 | [TUN-DE-002](detection-engineering.md) | War room IRC immediate response 範本缺 | 拒絕 / authority | ✅ shipped in this PR |
 | 10 | [TUN-HUNT-001](detection-engineering.md) | Break-glass page IRC 對象選擇規則缺 | authority / escalation | — |
