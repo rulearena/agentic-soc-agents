@@ -25,7 +25,7 @@
 | # | ID | 標題 | Principle tag | Family / 備註 |
 |---|---|---|---|---|
 | 1 | [TUN-L1-001](triage.md) | 缺「越權請求拒絕範本」 | 拒絕 / boundary | **越界邀請 family hub** — ✅ shipped in this PR |
-| 2 | [TUN-L1-002](triage.md) | 缺 process / tuning escalation 路徑 | boundary | — |
+| 2 | [TUN-L1-002](triage.md) | 缺 process / tuning escalation 路徑 | boundary | ✅ shipped in this PR |
 | 3 | [TUN-L2-001](triage.md) | Privileged service account 出現在 attack scope 的 SOP 不夠明確 | authority / approval | ✅ shipped in this PR |
 | 4 | [TUN-L2-002](triage.md) | 跨業務單位同 dropper / IOC 的硬升級規則 | authority / escalation | ✅ shipped in this PR |
 | 5 | [TUN-IRA-001](incident-response.md) | Verification query scope 邊界沒明示 | boundary | — |
