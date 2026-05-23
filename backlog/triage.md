@@ -10,14 +10,6 @@
 
 ## triage-l1-soc-analyst
 
-### TUN-L1-002 — 缺 process / tuning escalation 路徑 ⭐ 高
-
-**問題**：「升級條件 (Escalation Criteria)」表格只涵蓋 **incident escalation**（升給 L2 / IR），缺**制度回饋升級路徑**（噪音問題 → Detection Engineer、tool 異常 → SOC Engineer、SLA 不合理 → SOC Manager）。L1 拒絕越權後雖然知道「該記到 handover note」，但「該開 ticket 給誰、用什麼模板」沒有清楚指引。
-
-**測試來源**：Test B
-
-**建議方向**：在升級條件表加一列 `Systemic Issue → Process Escalation`，或獨立小節 `Process Escalation Paths`，明列各類 systemic issue 的對應角色 + 升級管道（ticket queue / Slack channel / weekly review）。
-
 ### TUN-L1-003 — 缺 time-critical TP 快速升級決策框架 中
 
 **問題**：定義裡的 enrichment checklist 是**線性執行**（asset → temporal → external → behavioral），但對 credential dumping、ransomware 前置、Active Directory 攻擊等高時效告警，等 enrichment 全跑完才升級可能錯過 containment window。
@@ -107,3 +99,4 @@
 - 2026-05-20: `TUN-L1-001` resolved in this PR — added Tuning Request Redirect template (溝通範本 #4) to `triage-l1-soc-analyst.md`; 越界邀請 family（cross-ref `TUN-IRA-002`, `TUN-CA-002`）.
 - 2026-05-21: `TUN-L2-001` resolved in this PR — clarified `disable-user-session` does NOT apply as an L2 stop-gap for service / privileged accounts (反應權限); escalate IR via `account-disable-for-privileged-user`.
 - 2026-05-21: `TUN-L2-002` resolved in this PR — added hard escalation rule (single malware artifact across ≥2 business units → auto IR) to 升級條件.
+- 2026-05-23: `TUN-L1-002` resolved in this PR — added `Process / Systemic Escalation Paths` sub-section (systemic issue → Detection Engineer / SOC Engineer / SOC Manager + ticket queue / Slack channel / weekly review + 留痕) to `triage-l1-soc-analyst.md` §升級條件.

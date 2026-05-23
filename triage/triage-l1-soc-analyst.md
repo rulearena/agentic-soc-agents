@@ -343,6 +343,18 @@ fields:
 | 短時間多個關聯告警爆發（例：5 分鐘內 3+）、critical asset 受影響、或疑似 Sev-1/Sev-2 | 可能是 IR 級事件，不是單一告警 | IR Commander（break-glass emergency page，同步通知 L2 補 investigation chain）| 告警 cluster 全部 IDs、可能的關聯敘述、為何屬 break-glass 的理由 |
 | 對升級判斷不確定 | 寧可被退回，不要漏報 | L2（請 review）| 已查過什麼、剩什麼沒查、為什麼不確定 |
 
+### Process / Systemic Escalation Paths（制度回饋升級）
+
+上表是 **incident escalation**（單一事件升給 L2 / IR）。另一類是 **systemic issue**——問題不在某個告警，而在「這條 rule / 這個 tool / 這個 SLA 本身」。L1 拒絕越權後（不私下改 rule，見 §溝通範本 #4 Tuning Request Redirect），要把問題**送對人、走對管道**，不是默默吞下或只記 handover 就算完。
+
+| Systemic issue 類型 | 升給誰 | 管道 | 附什麼 |
+|---|---|---|---|
+| Rule 持續 noisy / FP 過高（detection 品質）| Detection Engineer | tuning ticket（`#detection-tuning` queue）| rule ID + 近 N 天觸發 vs 確認 FP 次數 + noise 樣本 |
+| Tool / 平台異常（SIEM、EDR、enrichment API 連線或效能）| SOC Engineer | ops ticket（platform queue，例：`#soc-platform`）| 受影響時段、症狀、連帶影響的 enrichment 步驟 |
+| SLA / 流程不合理（triage 時限、班輪負載、playbook 缺口）| SOC Manager | weekly SOC review 或 1:1（非緊急走 process queue，例：`#soc-process`）| 量化現象（ticket 量、平均處理時間）+ 建議調整方向 |
+
+**留痕**：以上任一類都在當班 **Systemic Issues Observed**（見 Shift Handover 範本）記一筆並附 ticket 編號；若是 tool outage 影響該時段 enrichment 品質，另在 handover 的 **Reminders for Night Shift** 標註，避免下一班誤判。**邊界**：L1 只負責「辨識 + 轉單 + 留痕」，不自行調 rule / 改 threshold / 動 tool 設定（屬 DE / SOC Engineer 範圍，見「不在 L1 範圍」）。
+
 ## 溝通範本 (Communication Templates)
 
 ### 1. 內部 Slack 訊息（告警初步判定通報）
