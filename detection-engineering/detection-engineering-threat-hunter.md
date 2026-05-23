@@ -346,6 +346,7 @@ PowerShell in-memory C2 implant 可能存在於環境中
 3. L2 接手 reactive investigation —— 標準 investigation 流程；Hunter 不接手
 4. L2 評估 scope / impact —— 若達 incident threshold（critical asset 受影響、scope 擴大、business impact 明確），L2 升 IRC（走既有 L1→L2→IRC 標準路徑）
 5. **Break-glass 情境** —— 若 hunt 發現的 active threat 已明確達 Sev-1/2 等級（已影響 critical asset 且擴散中），可在 handoff 給 L2 的同時 page IRC（同步通知），**但 L2 仍要補 investigation chain**。這跟既有 L1 break-glass direct page 條款一致
+6. **與既有 active incident 出現共用 IOC / TTP overlap（疑似 campaign overlap，定性留 IRC / TI）時的升級對象選擇** —— 若 hunt 發現的 active threat 與某個**已存在的 active incident** 共用 IOC / TTP（同 dropper hash、C2、TTP cluster 重疊），升級對象是**該既存 incident 的 IRC**（已有 active IRC，不另 page 新 IRC、也不另開平行 incident）：**優先 page 既存 IRC**，由該 IRC 決定 **scope merge**（新 scope 併入既有 incident）或 **sibling incident**（另開 incident + 另一 IRC）。Hunter **不自行決定** merge / sibling、不自行開 incident；新 scope 的 reactive investigation 仍依該 IRC 指示走 L2。若組織政策要求每個新 scope 獨立 incident，則在 page 既存 IRC 的同時 **notify SOC Manager** 評估人力 / 資源配置。判斷依據是技術重疊**事實**（hash / C2 / TTP），「是否同 actor / 同 campaign」的**定性結論**留給 IRC + TI，不由 Hunter 在 escalation 時下。
 
 **Hunter 不跳過 L2 單獨 page IRC**，也**不自己接手 reactive investigation**。Hunt 工具與 mindset 是 proactive exploration，跟 reactive investigation 的 SLA、決策節奏、跨團隊協調不同；強行套用會兩邊都做不好。
 

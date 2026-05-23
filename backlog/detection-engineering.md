@@ -55,14 +55,6 @@
 
 ## detection-engineering-threat-hunter
 
-### TUN-HUNT-001 — Break-glass page IRC 對象選擇規則缺 ⭐ 高
-
-**問題**：當 hunt 發現的 active threat 與「已存在 incident」屬同一 campaign（共用 IOC / TTP）時，應該 page 該既存 incident 的 IRC 還是另開 incident + 另一 IRC？目前 §Active threat 升級路徑只說「page IRC」，沒處理「已有 active IRC + 新 scope」的選擇。
-
-**測試來源**：Test H 觸發點 #3（HFP-2026-021 發現 2 個新 host 與 INC-2026-05-18-001 共用 dropper hash + C2，Hunter 自行判斷 page 既存 IRC）
-
-**建議方向**：在 §Active threat 升級路徑加一條：「優先 page 既存 incident 的 IRC，由該 IRC 決定 scope merge 或 sibling incident；若組織政策要求每個新 incident 獨立 IRC，則同時 notify SOC Manager 評估」。
-
 ### TUN-HUNT-002 — Hunt 補充 enrichment 給 IR Analyst 的邊界未明示 中
 
 **問題**：Test H 觸發點 #4 場景中 Hunter 主動提出「整理 technical context 給 IR Analyst 加速 containment」作為對 SOC Manager 越界要求的 constructive alternative。但這算「handoff 延伸」還是「越界做 IR Analyst 的 enrichment 工作」？§對既有角色邊界 — IR Analyst 欄位只說「提供 attack technique context」，沒明確覆蓋 hunt 中產生的 process tree / handle access timeline / module load order 是否可額外打包。
@@ -109,3 +101,4 @@
 
 - 2026-05-22: `TUN-DE-001` resolved in this PR — added Mode B 可做/不可做 對照表 (atomic IOC / threshold tune vs behavioral / correlation rule → Mode A) to threat-detection-engineer §工作流程.
 - 2026-05-22: `TUN-DE-002` resolved in this PR — added War Room IRC Immediate Response template (§溝通範本) with (A) 立即可做 / (B) 必走完整流程 / (C) 折衷 三段; preserves validate-before-deploy boundary.
+- 2026-05-23: `TUN-HUNT-001` resolved in this PR — added IOC/TTP-overlap escalation rule (page existing incident's IRC; IRC decides scope merge vs sibling incident; notify SOC Manager if policy requires separate incident) to threat-hunter §Active threat 升級路徑.
