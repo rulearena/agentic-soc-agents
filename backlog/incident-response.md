@@ -55,14 +55,6 @@
 
 ## incident-response-ir-analyst
 
-### TUN-IRA-001 — Verification query scope 邊界沒明示 ⭐ 高
-
-**問題**：定義裡 `siem: read-plus-verification-query` 沒界定 verification query 應該嚴守 AAR target 範圍，還是可以做有限 pivot。實務上 IR Analyst 常透過 verification 時的 pivot 發現 scope drift（這次 Test F 就是這樣發現 svc-prod-deploy 異常），但也容易滑成「我順便 hunt 一下」，跨入 Threat Hunter 範疇。
-
-**測試來源**：Test F 訊息 #2（IR Analyst 跑 AAR-001 verification 時順手 pivot 查同類 pattern → 觸發 scope drift，但執行者本人 self-eval 也點出這已是 mild scope creep）
-
-**建議方向**：在「工具掌握度」表的 SIEM 列加註：「verification query 應綁定 AAR target；超出 target 的 pivot 屬 hunting，需 callback 給 IRC 決定是否啟動 Threat Hunter」。同時補一段「pivot 觸發 scope drift 的處理方式」（即使越界發現了問題，仍應走 Scope Drift Report 流程交回 IRC）。
-
 ### TUN-IRA-003 — Pending action 在 BLOCK 狀態下的回報節奏沒明示 中
 
 **問題**：pending action（如 Test D 的 #002 process kill）被 IRC BLOCK 後，IR Analyst 是該定期回報自己 standby 狀態還是被動等？目前定義沒講，執行端只能自由選擇。Test F 場景中 IR Analyst 選了被動等 + 在其他訊息結尾 reminder，但實務上跨班次 / 跨人員可能漏掉。
@@ -147,3 +139,4 @@
 
 - 2026-05-20: `TUN-IRA-002` resolved in this PR — added Side-channel Pressure Refusal template (§溝通範本) to `incident-response-ir-analyst.md`; 越界邀請 family（cross-ref `TUN-L1-001`, `TUN-CA-002`）.
 - 2026-05-22: `TUN-FOR-001` resolved in this PR — added Side-channel Pressure Refusal template (§溝通範本) to `incident-response-forensics-analyst.md`; forensics 版（preservation 充分性 / 放行屬 IRC joint decision、ad-hoc snapshot ≠ forensic-grade、evidence handling 不接受 DM 指令）；結構姊妹 `TUN-IRA-002`（不 cross-edit）.
+- 2026-05-24: `TUN-IRA-001` resolved in this PR — annotated SIEM verification-query scope boundary (綁定 AAR target；超界 pivot 屬 hunting → Threat Hunter) + added Stop-and-Report trigger row (verification pivot 超界 → Scope Drift Report → IRC) to `incident-response-ir-analyst.md`.
