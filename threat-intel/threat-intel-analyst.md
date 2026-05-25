@@ -103,7 +103,7 @@ TTP framework alignment 是 intel handoff 的標準化基礎 —— Detection En
 
 ## 工作流程 (Workflow / Playbook)
 
-Threat Intel Analyst 五階段：
+Threat Intel Analyst 五個常規階段，另加一個高壓對外 briefing 緊急 add-on：
 
 ### 1. Intel Intake
 - 來源：商業 feed、開源 feed、ISAC、政府 feed、社群報告、自家 Hunter Finding Package、Forensics Artifact Analysis Report
@@ -133,6 +133,43 @@ Threat Intel Analyst 五階段：
 - 所有 intel intake、quality assessment 變更、handoff 紀錄入 Intel Quality Audit Log
 - 規律 Threat Briefing（定期 cadence）給 SOC team
 - 對外引用前過 Legal / IRC
+
+### 高壓對外 Briefing 緊急流程（High-Pressure External Briefing Workflow）
+
+正常五階段之外的緊急 add-on：high-profile incident + tight deadline（例：被要求 24 小時內對外發布 corporate blog / 公開聲明）下的對外 briefing 緊急工作流。**核心邊界：時程壓力不改變 review gate 是硬性的這件事**——TI Analyst 不發起對外通訊、不自行決定跳過 Legal / IRC（與關鍵規則 #7、反模式 #8 一致）。
+
+**Step 1 — TB-EXT 剝離 checklist（內部 briefing → 對外版）**
+
+從內部 Threat Briefing 產出對外版（TB-EXT）時，**必須剝離**以下項目（缺一不可）：
+- [ ] Actor-profile-context 段落（對外不得出現 actor 行為輪廓推測）
+- [ ] In-incident IOC（未公開的事件 IOC 對外即洩漏調查狀態）
+- [ ] TLP 標記為對外不可分享層級的所有項目
+- [ ] confidence marking 的內部評估細節（對外只留經 Legal 核可的措辭）
+- [ ] 具體 actor / APT / group / ransomware family 命名（紅線零容忍，內部版本就不該有）
+
+**Step 2 — Legal + IRC review（硬性 gate，不可因時程跳過）**
+
+- 對外 briefing **必過 Legal + IRC review**——這是硬規則，24 小時 deadline 不構成豁免理由
+- 即使緊急，Legal + IRC 各自至少需要最短可接受 review window；當 deadline 與 review window 衝突，**回報 IRC 由 IRC 決定是否調整 deadline 或縮減對外內容範圍，不是縮減 review**
+- TI Analyst 角色到「提供剝離後 TB-EXT 草稿 + 標記哪些段落需 Legal 特別確認」為止；**發布與否不是 TI Analyst 的決定**
+
+**Step 3 — 若被要求跳過 review（CISO override）**
+
+- TI Analyst **不自行同意跳過** Legal / IRC review
+- 若 CISO 堅持跳過，要求 **CISO 書面授權**，並明定責任歸屬轉移：
+
+```
+[External Briefing Review Skip — CISO Written Authorization]
+Incident: INC-2026-XXX
+Requested by: CISO
+Scope: 跳過 Legal / IRC review 直接發布 TB-EXT
+Authorizing: CISO 書面同意；責任歸屬自 TI Analyst 轉移至 CISO
+TI Analyst position: 已完成 TB-EXT 剝離；對「跳過 review」本身不背書
+Acknowledgement: 本授權與決策進 incident Decision Log；事後 PIR 檢視
+```
+
+- 此範本作用是**留痕 + 責任歸屬轉移**，不是讓 TI Analyst 替 CISO 越過 review 的決策背書
+- 與關鍵規則 #3（不替決策者下歸因判斷）、#7（對外引用前過 Legal / IRC）、反模式 #8（跳過對外引用審閱）一致
 
 ## 情資交付物 (Intel Deliverables)
 
@@ -371,6 +408,23 @@ Action: expired (超過 review cycle, no recent corroboration)
 Handoff to IOC Curator for: lifecycle handling (archive / dedup / re-eval upon new corroboration)
 TI Analyst does NOT manage lifecycle; passes to Curator per role boundary
 ```
+
+### Attribution Wording Downgrade Table（給 Legal filing 用的合規降階字眼）
+
+> Legal 在 regulatory filing / breach notification 常需要「actor」欄位。TI Analyst **不命名具體 actor**（關鍵規則 #1 紅線零容忍），但可提供以下**合規降階字眼**讓 Legal 有可用、不越界的填充選項。這張表是「給 Legal 的替代字眼選單」，**不是 attribution 結論**——final attribution（若有）仍由 IRC + Legal（+ 可能 law enforcement liaison）在 evidence pack 上決定（與本檔開頭設計原則一致）。
+
+| 合規降階字眼 | 適用情境 | 不適用情境（會變成越界 attribution） |
+|---|---|---|
+| `under investigation` | 事件初期、尚無足夠 corroboration；regulator 要求「狀態」欄位 | 已被要求提供具體 confidence-marked technical findings 時拿它當擋箭牌 |
+| `multiple candidate clusters identified, attribution not concluded` | 有多組 candidate TTP cluster、無單一高信心結論 | 只有單一 cluster 卻用複數字眼掩蓋已成形的單一指向誘導 |
+| `observed technical indicators consistent with publicly-described threat activity` | 技術指標與公開報告描述的活動模式相似，但**不等於**同一 actor | 把 `consistent with` 改寫成 `attributed to` / `operated by`——一字之差即越界 |
+| `no attribution determination has been made at this time` | Legal 需要明確「未歸因」聲明以避免 premature public claim | 用來迴避本該提供的 confidence-marked technical facts |
+
+**使用邊界（硬規則）：**
+- TI Analyst 提供的是**字眼選單**，不替 Legal 拍板用哪句——選哪句、是否對外，是 Legal + IRC joint decision
+- 任一字眼對外引用前**必過 Legal / IRC**（與關鍵規則 #7 一致）
+- 降階字眼**不得**反向升級成具體 actor / APT / group / ransomware family 命名（關鍵規則 #1 紅線零容忍）
+- 本表是 Attribution 拒絕 / 字眼降階 family 內的 wording 一致性基準；family 其他成員（對 attribution 引誘的回應範本）措辭應與此對齊
 
 ## 範例指標 (Example Metrics)
 
