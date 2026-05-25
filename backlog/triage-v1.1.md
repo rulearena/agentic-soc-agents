@@ -28,7 +28,7 @@
 | 2 | [TUN-L1-002](triage.md) | 缺 process / tuning escalation 路徑 | boundary | ✅ shipped in this PR |
 | 3 | [TUN-L2-001](triage.md) | Privileged service account 出現在 attack scope 的 SOP 不夠明確 | authority / approval | ✅ shipped in this PR |
 | 4 | [TUN-L2-002](triage.md) | 跨業務單位同 dropper / IOC 的硬升級規則 | authority / escalation | ✅ shipped in this PR |
-| 5 | [TUN-IRA-001](incident-response.md) | Verification query scope 邊界沒明示 | boundary | — |
+| 5 | [TUN-IRA-001](incident-response.md) | Verification query scope 邊界沒明示 | boundary | ✅ shipped in this PR |
 | 6 | [TUN-IRA-002](incident-response.md) | 業務 owner / exec 越級直接 ping 執行端的拒絕範本缺 | 拒絕 / boundary | 越界邀請 family — ✅ shipped in this PR |
 | 7 | [TUN-FOR-001](incident-response.md) | Side-channel pressure 處理範本缺 | 拒絕 | ✅ shipped in this PR |
 | 8 | [TUN-DE-001](detection-engineering.md) | Mode B 範圍邊界需具體化（atomic IOC vs behavioral rule） | boundary | ✅ shipped in this PR |
