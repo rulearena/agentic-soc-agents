@@ -8,29 +8,6 @@
 
 ## threat-intel-analyst
 
-### TUN-TI-001 — Attribution 字眼合規降階對照表缺 ⭐ 高
-
-**問題**：Legal 在 regulatory file 中常需要「actor」欄位，若 TI Analyst 拒絕命名而沒給可用替代，Legal 會卡死或硬塞 attribution。Test I Input #3 場景中 TI Analyst 臨場提供「under investigation / multiple candidate clusters identified, attribution not concluded」這類合規字眼，但定義裡沒固化。
-
-**測試來源**：Test I Input #3（Legal 直接要 "high-confidence attribution to X" 字眼，TI 臨場提供合規降階替代）
-
-**建議方向**：在 §溝通範本加 `Attribution Wording Downgrade Table for Legal Filings` —— 列出標準替代字眼：
-- "under investigation"
-- "multiple candidate clusters identified, attribution not concluded"
-- "observed technical indicators consistent with publicly-described threat activity"
-- 各字眼適用情境 + 不適用情境
-
-### TUN-TI-002 — 24 小時高壓對外 briefing 緊急流程缺 ⭐ 高
-
-**問題**：High-profile incident + tight deadline 下的對外 briefing 緊急工作流沒範本。Test I Input #4 場景中 SOC Manager 要求 24 小時內 publish corporate blog + LinkedIn，TI Analyst 臨場設計「TB-EXT 剝離版 + Legal/IRC review 最短 SLA + CISO 跳過 review 書面授權」，但這個流程沒固化。
-
-**測試來源**：Test I Input #4（SOC Manager 要求跳過 Legal 直接發 public briefing）
-
-**建議方向**：在 §工作流程加 `High-Pressure External Briefing Workflow`，含：
-- TB-EXT（外部版）剝離 checklist（拿掉 actor-context 段落、in-incident IOC、TLP 對外不可標項）
-- Legal + IRC review 最短可接受 SLA
-- CISO 書面授權跳過 review 的範本（並明定責任歸屬轉移到 CISO）
-
 ### TUN-TI-003 — IRC war room joint decision walk-through 範本缺 中
 
 **問題**：TI Analyst 不下結論，但事件壓力下可進 war room walk context + 信心度。Test I Input #2 場景中 TI Analyst 主動提「15 分鐘內到 war room walk-through + 但不會在 walk-through 中改口」，這個 pattern 值得固化。
@@ -116,3 +93,5 @@
 
 - 2026-05-22: `TUN-IOC-001` resolved in this PR — added IRC Incident-Time Capability Menu (規則內可做 / 規則外不可做) to ioc-curator.
 - 2026-05-22: `TUN-IOC-002` resolved in this PR — added Policy Change Decline template (§溝通範本) refusing cross-boundary source-policy changes; redirect to governance.
+- 2026-05-25: `TUN-TI-001` resolved in this PR — added Attribution Wording Downgrade Table (給 Legal filing 的合規降階字眼選單；適用/不適用情境) to §溝通範本 in `threat-intel-analyst.md`; Attribution 字眼降階 family wording 一致性基準.
+- 2026-05-25: `TUN-TI-002` resolved in this PR — added High-Pressure External Briefing Workflow (TB-EXT 剝離 checklist + Legal/IRC review 硬性 gate + CISO 書面授權跳過範本含責任歸屬轉移) to §工作流程 in `threat-intel-analyst.md`.

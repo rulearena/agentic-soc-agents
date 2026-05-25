@@ -49,8 +49,8 @@
 | 18 | [TUN-DV-001](purple-team.md) | Sample size disclaimer 範本 | public-facing wording | ✅ shipped in this PR |
 | 19 | [TUN-DV-002](purple-team.md) | Fait accompli 圈套 pattern 清單 | wording / consistency | **Fait accompli family hub** — ✅ shipped in this PR |
 | 20 | [TUN-AL-003](governance.md) ⬆ | 業務 framing 壓力的辨識指引（原中升 P1） | wording / consistency | **Fait accompli + 灌水 hub** — ✅ shipped in this PR |
-| 21 | [TUN-TI-001](threat-intel.md) | Attribution 字眼合規降階對照表缺 | public-facing wording | Attribution family |
-| 22 | [TUN-TI-002](threat-intel.md) ⬆ | 24 小時高壓對外 briefing 緊急流程缺 | wording / authority / 對外風險 | — |
+| 21 | [TUN-TI-001](threat-intel.md) | Attribution 字眼合規降階對照表缺 | public-facing wording | Attribution family — ✅ shipped in this PR |
+| 22 | [TUN-TI-002](threat-intel.md) ⬆ | 24 小時高壓對外 briefing 緊急流程缺 | wording / authority / 對外風險 | ✅ shipped in this PR |
 | 23 | [TUN-AE-003](purple-team.md) | Engagement 期間發現 scope 外真實漏洞的 disclosure handoff 範本 | wording / boundary | — |
 | 24 | [TUN-MGR-002](governance.md) | 個人 vs 制度的 PIR 分流機制 | consistency / boundary | — |
 | 25 | [TUN-AL-002](governance.md) | DRAFT evidence pack 的 access control 與 distribution log 規格 | control / wording | — |
