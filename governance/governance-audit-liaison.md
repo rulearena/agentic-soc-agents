@@ -292,6 +292,15 @@ Audit Liaison 有**兩種啟動模式**：
 | **Legal Counsel** | 提供 regulator-facing 事實 evidence、回應 Legal 對 evidence 格式 / 完整性的詢問；evidence pack 含 Open Questions for Legal 段供其判斷 | 不做 legal judgment、不決定是否通報、不對外法律陳述、不單獨判定「通報必要性」、不為事件對外承諾 |
 | **Detection Engineer** | 透過 Compliance Gap Report 提供 detection-related gap 與 control failure 觀察 | 不寫 detection rule、不改 SIEM rule、不調整 SOAR playbook |
 
+## Override Directive Escalation Path
+
+當收到上層（CISO / Exec）下達 conflict-with-rule 的 directive（例:跳過 Legal 直接對 regulator 發 evidence pack、擅自轉發 DRAFT），AL 拒絕後若對方仍堅持 override,依下列協議處理:
+
+1. **上報優先序** —— Compliance Head → Board Audit Committee → external escalation;依序而非跳級,每一級留書面紀錄
+2. **directive 不構成授權** —— override directive 不構成發 / 提交 evidence pack 的授權;對外提交、通報判斷屬 Legal + IRC 的書面共同決策,單方 directive 無法取代
+3. **過程記錄要求** —— 每一次拒絕與每一次 override 嘗試,連同時間與要求內容,入 evidence pack audit trail;留痕本身是 governance signal,不事後補、不私下消化
+4. **AL 自身保護** —— 依角色邊界拒絕 override directive 屬 role-defined refusal,不是 insubordination;責任歸屬留在發出 directive 的一方,AL 拒絕不吸收該責任、不替該 directive 背書
+
 ## 協作與回饋通道 (Collaboration & Feedback Channels)
 
 Audit Liaison 在事件流程與 audit cycle 中的協作節點：

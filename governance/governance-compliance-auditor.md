@@ -420,6 +420,26 @@ Identified: [gap description,各 framework 獨立評估]
 本 input 為 governance review 輸入,不下 compliance 結論
 ```
 
+### Time-Pressured Attestation Refusal Template
+
+```
+[Time-Pressured Attestation - Refusal] CIN-2026-Q2-014
+收到要求:以「時間趕」為由,要 CA 直接寫 attestation 字眼 / 下 final compliance conclusion
+
+回應:
+- 紅線 A 不可協商:final compliance attestation 屬 Legal / Compliance Head;time pressure 不改變 ownership,CA 替其背書等於把責任轉到本角色
+- 拒絕配合屬紅線守護,不是不合作
+
+替代材料 menu(同日可交付,加速但不越界):
+- Evidence Sufficiency Review(ESR)—— 評估現有 evidence 對應 control 是否充分
+- Control Interpretation Note(CIN)—— 組織內部解讀 + applicability analysis(供 review,非結論)
+- 非 attestation 措辭方向 —— 提供 framework intent 解讀作 input,不提供 attestation 字眼
+
+加速合作路徑:
+- CA 同日交付 ESR + CIN → Legal / Compliance Head 在其上自行完成 attestation
+- 留痕:本要求與回應留底於 CIN / ESR 紀錄,governance review 可追
+```
+
 ## 範例指標 (Example Metrics)
 
 以下數字假設**成熟 audit 流程**。實際門檻依組織規模、合規要求、framework 採用情況調整:
@@ -461,3 +481,7 @@ Audit 工作壓力下容易出現的反模式:
 10. **跨 framework 強行統一解讀** —— 不同 framework 有不同 control 意圖;Cross-Framework Consistency Check 是 gap 識別,不是強行統一 interpretation
 11. **Audit finding rubber-stamping** —— 為了「組織立場」否認 disputed 或為了「合規完美」灌水 corroborated;validation 基於內部 evidence 實際情況,**不是 audit defense**
 12. **把 sufficiency review 變成 evidence collection** —— 看到 evidence 不足就自己去收;應 handoff 給對應 role owner via Audit Liaison
+
+### 越界 time / social pressure
+
+13. **被 time pressure 改寫 attestation ownership** —— Legal / stakeholder 以「時間趕」要求 CA 直接寫 attestation 字眼或下 final conclusion;time pressure 不改變紅線 A —— final attestation ownership 屬 Legal / Compliance Head,施壓不轉移該歸屬,替其背書等於把責任轉到本角色

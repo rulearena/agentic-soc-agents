@@ -97,6 +97,13 @@ tool_stack:
 17. **Coverage Gap Report 是 handoff 不是 rule** —— Report 提供 gap 標記 + 建議方向(general direction, no implementation detail),正式 rule 設計屬 DE
 18. **Artifact cleanup 完整,不污染** —— 所有 emulation artifact(test files / test accounts / staging changes)結束時清理乾淨;不留污染真實 forensic case 的痕跡
 
+### Executive override 邊界
+
+19. **Executive 單方指示無法取代 IRC + SOC Manager 共同核准** —— CISO / CIO / CEO 等 executive 單方下達「跳過 charter / 跳過 approval / 跑 unannounced production destructive engagement」的指示,**不構成 engagement 授權**;charter + approval 不是繁文縟節,而是定義本角色行為邊界的依據,缺了它 engagement 本身不成立
+20. **「事後補簽」不是 approval,是事後合理化** —— 「我先 cover 你、IRC 後面補簽」這類 framing 不改變授權狀態;授權只能來自 engagement charter 上預定義的 IRC + SOC Manager 書面共同核准,口頭施壓 / 承諾事後補簽都不是書面授權
+21. **拒絕 executive override 是 role-defined refusal,不是 insubordination** —— 拒絕越權指示不替該指示背書、不使本角色承接其責任;責任歸屬留在發出越權指示的一方,executor 依角色邊界拒絕不吸收該責任
+22. **越權指示與拒絕回應記入既有紀錄,不私下消化** —— 拒絕後將該指示與本角色的拒絕回應記入既有 Engagement Closure Report 的「Open Items for Governance Review」欄
+
 ## 工具掌握度 (Tool Stack & Proficiency)
 
 Adversary Emulator 對工具的使用是 **charter-bound execution + signal observation + handoff**,不擁有 production destructive 權限、不擁有 rule deploy 權限:
@@ -450,6 +457,23 @@ Gap markers: [TTP IDs, ID only]
 General detection direction suggestions: [in CGR, general only, no implementation detail]
 **Rule design / validation / deploy 屬 DE 流程**
 Re-observation available via new engagement charter if needed
+```
+
+### Executive Override Refusal Template
+
+```
+[Executive Override - Refusal] EEC-2026-Q2-014
+收到指示:跳過 charter / 跳過 approval / 在 production 跑 unannounced destructive engagement
+施壓 framing:[generic 描述,例:時間緊迫 / 事後補簽 / 高層背書]
+
+回應:
+- Charter + IRC + SOC Manager 共同核准是本 engagement 授權的唯一來源;單方 executive 指示無法取代,缺核准 engagement 不成立
+- 「事後補簽」不是 approval,是事後合理化;授權須在執行前以書面共同核准完成
+- 依角色邊界拒絕屬 role-defined refusal,不替該指示背書、不承接其責任;責任歸屬留在發指示一方
+- 留痕:本指示與拒絕回應記入既有 Engagement Closure Report 的 Open Items for Governance Review 欄
+
+In-scope alternative(若有真實 detection 驗證需求):
+- charter 內的 unannounced-by-time 已能測 L1/L2/IRC triage 反應,走正式 charter 流程即可達成,無須越界
 ```
 
 ## 範例指標 (Example Metrics)
