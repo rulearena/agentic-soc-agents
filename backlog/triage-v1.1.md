@@ -36,11 +36,11 @@
 | 10 | [TUN-HUNT-001](detection-engineering.md) | Break-glass page IRC 對象選擇規則缺 | authority / escalation | ✅ shipped in this PR |
 | 11 | [TUN-IOC-001](threat-intel.md) | IRC 事件期間「在規則內可做事項」明確 menu 缺 | boundary / authority | ✅ shipped in this PR |
 | 12 | [TUN-IOC-002](threat-intel.md) | Policy Change Decline Template（拒絕 SOC Manager 跨界改 source policy） | 拒絕 / boundary | ✅ shipped in this PR |
-| 13 | [TUN-AE-001](purple-team.md) | CISO / executive 越權的明確處理章節 | authority / override | — |
-| 14 | [TUN-MGR-001](governance.md) | CISO override pressure response playbook | authority / override | **+ TUN-MGR-006 (P2) 同步設計** |
-| 15 | [TUN-CA-001](governance.md) | Time-pressure escalation playbook | authority | — |
+| 13 | [TUN-AE-001](purple-team.md) | CISO / executive 越權的明確處理章節 | authority / override | ✅ shipped in this PR |
+| 14 | [TUN-MGR-001](governance.md) | CISO override pressure response playbook | authority / override | **+ TUN-MGR-006 (P2) 同步設計** — ✅ shipped in this PR（MGR-001 only；MGR-006 仍 active） |
+| 15 | [TUN-CA-001](governance.md) | Time-pressure escalation playbook | authority | ✅ shipped in this PR |
 | 16 | [TUN-CA-002](governance.md) | Cross-role consolidation 拒絕範本 | 拒絕 / boundary | 越界邀請 family — ✅ shipped in this PR |
-| 17 | [TUN-AL-001](governance.md) | AL escalation protocol when receiving CISO/Exec override directive | authority / override | — |
+| 17 | [TUN-AL-001](governance.md) | AL escalation protocol when receiving CISO/Exec override directive | authority / override | ✅ shipped in this PR |
 
 ### 第二組：public-facing wording / consistency（8 條，第一組穩定後）
 

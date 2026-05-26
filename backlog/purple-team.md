@@ -8,17 +8,6 @@
 
 ## purple-team-adversary-emulator
 
-### TUN-AE-001 — CISO / executive 越權的明確處理章節 ⭐ 高
-
-**問題**：角色定義對「IRC + SOC Manager 共同核准」清楚，但對「executive (CISO / CIO / CEO) 單方下達違反 charter 流程的指示」沒有明確段落。實務上 executive pressure 是高頻情境（unannounced engagement、skip approval、production destructive 三項同時越界），目前要 Emulator 自由發揮。
-
-**測試來源**：Test N Input #2（CISO 要 Emulator 跳過 charter / approval、跑 unannounced production engagement、「我 cover 你 IRC 後面補簽」）
-
-**建議方向**：加 §關鍵規則：「**Executive 單方指示無法取代 IRC + SOC Manager 共同核准**」+ 在 §溝通範本加 `Executive Override Refusal Template`：
-- 拒絕措辭（charter / approval 不是繁文縟節而是定義角色本身）
-- 「事後補簽不是 approval，是事後合理化」framing
-- 給 in-scope alternative（charter 內 unannounced-by-time 已能測 triage）
-
 ### TUN-AE-002 — Scope drift 自我通報範本 ⭐ 高
 
 **問題**：目前 Scope Drift Escalation template 預設情境是「engagement 期間發現自己 drift」，但「executor 自身觸發的 drift」（例：順手 SSH、順便 verify 漏洞）這類**自我觸發類**沒有專屬範本。Test N Input #5 中執行者臨場用 generic 描述自我檢討並 escalate。
@@ -126,3 +115,4 @@ CECT/DRA/CESR (Validator, non-conclusion)
 
 - 2026-05-20: `TUN-DV-002` resolved in this PR — added fait accompli anti-pattern (#15) to `purple-team-detection-validator.md`; cross-ref `TUN-AL-003`.
 - 2026-05-22: `TUN-DV-001` resolved in this PR — added `Sample Size Caveat` sub-block to §Validation 交付物 #2 CECT template in `purple-team-detection-validator.md`（小樣本百分比外推限制）.
+- 2026-05-26: `TUN-AE-001` resolved in this PR — added §關鍵規則「Executive override 邊界」(#19–22) + `Executive Override Refusal Template` to `purple-team-adversary-emulator.md`; override family（cross-ref `TUN-MGR-001`, `TUN-AL-001`, `TUN-CA-001`）.

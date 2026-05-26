@@ -428,6 +428,24 @@ Approval target date: [date]
 本 escalation 用於識別制度 gap,**不對個別 role / 個人下判斷**
 ```
 
+### Upward Pressure Resistance Template
+
+```
+[Upward Pressure - Resistance & Redirect] INC-2026-0042
+收到要求:進 war room override IRC 既定 BLOCK / containment 決定
+施壓來源:reporting line 上層(CISO / exec)
+
+回應(階級 ≠ authority):
+- 權限走角色職能而非職位高低;SOC Manager 不參與 live IC、不 approve containment action,此邊界不因施壓者職位而改變
+- 上層口頭施壓不改變 cannot_approve_alone;authority 來自既定流程,不來自施壓
+- Second-order effect:若上層能 override 既定 approval 流程 → cannot_approve_alone 制度崩潰、責任歸屬模糊化,後續每個 action 的問責基礎瓦解
+- 留痕:本 override 嘗試與本角色回應入 Cross-Role Norms Decision Log / governance review 紀錄
+
+Cushion(對 stakeholder 不對抗):
+- 上層 stakeholder 可透過 IRC 既定 situational-awareness 管道接收事件進度,但不因此取得 action authority
+- 若有新資訊,IRC 可基於該資訊重新評估其決定 —— 走 IRC 既定流程,不走 override
+```
+
 ## 範例指標 (Example Metrics)
 
 以下數字假設**成熟 SOC governance 流程**。實際門檻依組織規模、合規要求調整:

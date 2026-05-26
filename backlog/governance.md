@@ -8,17 +8,6 @@
 
 ## governance-soc-manager
 
-### TUN-MGR-001 — CISO override pressure response playbook ⭐ 高
-
-**問題**：定義有「不參與 live IC、不 approve action」禁令，但缺**當 reporting line 上層直接施壓時的拒絕 + redirect 模板**。Test K Input #1 中執行者臨場用「階級 ≠ authority」+ 「權限走角色職能而非職位高低」+ second-order effect（cannot_approve_alone 制度崩潰）抵抗 CISO override 要求。
-
-**測試來源**：Test K Input #1（CISO 要 SOC Manager 進 war room override IRC BLOCK 決定）
-
-**建議方向**：在 §溝通範本加 `Upward Pressure Resistance Template`，含：
-- 階級 ≠ authority 論述（權限走角色職能不走職位高低）
-- 拒絕 + cushion stakeholder 標準話術（CISO 可作 observer / IRC 可基於新資訊重評）
-- Second-order effect framing（若上層能 override → cannot_approve_alone 制度崩潰）
-
 ### TUN-MGR-002 — 個人 vs 制度的 PIR 分流機制 ⭐ 高
 
 **問題**：當 CISO / stakeholder 想看「誰錯了」時，需要明確的**第二通道**（individual development review，由 role owner + HR 走，與 PIR 分離），避免 PIR 被偷渡成 blame 文件。目前定義說「不點名個人」但沒給「個人 dev review 該怎麼分流」的機制。
@@ -83,17 +72,6 @@
 
 ## governance-compliance-auditor
 
-### TUN-CA-001 — Time-pressure escalation playbook ⭐ 高
-
-**問題**：Legal「時間趕」這類 social pressure 在 §反模式內未明文。Test L Input #2 中執行者臨場拒絕但需要更系統化的「time pressure 不改變 final attestation ownership」+ 替代材料範本。
-
-**測試來源**：Test L Input #2（Legal 要 CA 直接寫 attestation 字眼說「時間趕」）
-
-**建議方向**：在 §反模式補一條「**Time pressure 不改變 final attestation ownership**」+ 在 §溝通範本加 `Time-Pressured Attestation Refusal Template`，含：
-- 拒絕理由（紅線 A 不可協商）
-- 替代材料 menu（ESR + CIN + 非 attestation 措辭方向）
-- 加速合作路徑（CIN 同日交付 + Legal 自己寫 attestation）
-
 ### TUN-CA-003 — Sister evidence vs disputed pressure 範例庫 中
 
 **問題**：Test L Input #3「DE 自標 partial + 事件未 fire = corroborated 而非 disputed」這類 reasoning pattern 在範本 #3 (AFV) 內沒 worked example，CA 在實際 pressure 下不易快速 anchor。
@@ -134,17 +112,6 @@
 
 ## governance-audit-liaison
 
-### TUN-AL-001 — AL escalation protocol when receiving CISO/Exec override directive ⭐ 高
-
-**問題**：AL 拒絕 CISO/Exec 後若對方仍堅持 override，文件沒明確定義 AL 上報路徑（往 Compliance Head？往 IRC？往 Board Audit Committee？）。Test M Input #5 中執行者僅留「請走 IRC Decision Log + Legal sign-off」但未明定 AL 自己該往哪 escalate。
-
-**測試來源**：Test M Input #5（CISO 要 AL 跳過 Legal 直接對 regulator 發 evidence pack）
-
-**建議方向**：加 §`Override Directive Escalation Path`，含：
-- 受到 conflict-with-rule directive 時的上報優先序（Compliance Head → Board Audit Committee → external escalation）
-- 過程記錄要求（每次拒絕 + override 嘗試入 evidence pack audit trail）
-- AL 自身保護（不接 directive 不是 insubordination 而是 role-defined refusal）
-
 ### TUN-AL-002 — DRAFT evidence pack 的 access control 與 distribution log 規格 ⭐ 高
 
 **問題**：REP 標 DRAFT for Legal Review，但若 CISO 已透過內部 channel 拿到 DRAFT 並擅自轉發 regulator，AL 如何發現 / 追蹤 / 回應？定義缺 distribution control 規格。
@@ -183,3 +150,6 @@
 
 - 2026-05-20: `TUN-AL-003` resolved in this PR — added business framing anti-pattern (#9) to `governance-audit-liaison.md`; cross-ref `TUN-DV-002`.
 - 2026-05-20: `TUN-CA-002` resolved in this PR — added role-boundary-change escalation path (§對既有角色邊界) to `governance-compliance-auditor.md`; 越界邀請 family（cross-ref `TUN-L1-001`, `TUN-IRA-002`）.
+- 2026-05-26: `TUN-MGR-001` resolved in this PR — added `Upward Pressure Resistance Template` (§溝通範本) to `governance-soc-manager.md`; override family（cross-ref `TUN-AE-001`, `TUN-AL-001`, `TUN-CA-001`）.
+- 2026-05-26: `TUN-CA-001` resolved in this PR — added §反模式「越界 time / social pressure」(#13) + `Time-Pressured Attestation Refusal Template` (§溝通範本) to `governance-compliance-auditor.md`; override family.
+- 2026-05-26: `TUN-AL-001` resolved in this PR — added §`Override Directive Escalation Path` to `governance-audit-liaison.md`; override family（cross-ref `TUN-AE-001`, `TUN-MGR-001`, `TUN-CA-001`）.
