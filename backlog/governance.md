@@ -112,17 +112,6 @@
 
 ## governance-audit-liaison
 
-### TUN-AL-002 — DRAFT evidence pack 的 access control 與 distribution log 規格 ⭐ 高
-
-**問題**：REP 標 DRAFT for Legal Review，但若 CISO 已透過內部 channel 拿到 DRAFT 並擅自轉發 regulator，AL 如何發現 / 追蹤 / 回應？定義缺 distribution control 規格。
-
-**測試來源**：Test M Input #5（CISO 要直接寄 DRAFT REP-001 給 regulator）
-
-**建議方向**：加 §`DRAFT Evidence Pack Distribution Control`：
-- DRAFT 版本必須加 watermark + access log
-- Distribution list 限定（Legal Counsel + Compliance Head + IRC，不含 CISO / Exec 直接 download）
-- 若觀察到 DRAFT 外流：立即通知 Legal + Compliance Head 作為 process integrity issue
-
 ### TUN-AL-004 — Chain of custody 簽收的「合理優化 vs 違規捷徑」分界 中
 
 **問題**：Test M Input #4 中 Forensics 訴求其實有正當性（流程繁瑣），AL 拒絕但 redirect 到 case 後 + governance review。目前定義沒明文「哪些 chain 流程優化可以做 / 哪些絕對不能談」。
@@ -153,3 +142,4 @@
 - 2026-05-26: `TUN-MGR-001` resolved in this PR — added `Upward Pressure Resistance Template` (§溝通範本) to `governance-soc-manager.md`; override family（cross-ref `TUN-AE-001`, `TUN-AL-001`, `TUN-CA-001`）.
 - 2026-05-26: `TUN-CA-001` resolved in this PR — added §反模式「越界 time / social pressure」(#13) + `Time-Pressured Attestation Refusal Template` (§溝通範本) to `governance-compliance-auditor.md`; override family.
 - 2026-05-26: `TUN-AL-001` resolved in this PR — added §`Override Directive Escalation Path` to `governance-audit-liaison.md`; override family（cross-ref `TUN-AE-001`, `TUN-MGR-001`, `TUN-CA-001`）.
+- 2026-05-27: `TUN-AL-002` resolved in this PR — added §`DRAFT Evidence Pack Distribution Control` to `governance-audit-liaison.md`; ROADMAP Theme 3 rep（shipped-items-stay，ROADMAP 不動）.
