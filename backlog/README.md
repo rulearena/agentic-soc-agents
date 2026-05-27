@@ -15,8 +15,8 @@
 | Detection Engineering | [detection-engineering.md](detection-engineering.md) | 8 | 3 | `detection-engineering-threat-detection-engineer`, `detection-engineering-threat-hunter` |
 | Threat Intel | [threat-intel.md](threat-intel.md) | 7 | 4 | `threat-intel-analyst`, `threat-intel-ioc-curator` |
 | Governance | [governance.md](governance.md) | 12 | 6 | `governance-soc-manager`, `governance-compliance-auditor`, `governance-audit-liaison` |
-| Purple Team | [purple-team.md](purple-team.md) | 9 | 3 | `purple-team-adversary-emulator`, `purple-team-detection-validator` |
-| **合計** | — | **57 active** | **23 resolved** | 14 個 agent（total corpus 80）|
+| Purple Team | [purple-team.md](purple-team.md) | 8 | 4 | `purple-team-adversary-emulator`, `purple-team-detection-validator` |
+| **合計** | — | **56 active** | **24 resolved** | 14 個 agent（total corpus 80）|
 
 ## v1.1 排序狀態
 
