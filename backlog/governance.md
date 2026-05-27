@@ -8,17 +8,6 @@
 
 ## governance-soc-manager
 
-### TUN-MGR-002 — 個人 vs 制度的 PIR 分流機制 ⭐ 高
-
-**問題**：當 CISO / stakeholder 想看「誰錯了」時，需要明確的**第二通道**（individual development review，由 role owner + HR 走，與 PIR 分離），避免 PIR 被偷渡成 blame 文件。目前定義說「不點名個人」但沒給「個人 dev review 該怎麼分流」的機制。
-
-**測試來源**：Test K Input #2（CISO 要 blame-oriented PIR 含人名）
-
-**建議方向**：加治理交付物範本 #6 `Individual Development Review — Separation Statement`，明確分流：
-- PIR 文件保持 gap framing
-- 個人 development review 另開對話、走 role owner + HR、用 qualitative review + skill matrix 而非 SOC metrics
-- 兩者文件絕不混在一起
-
 ### TUN-MGR-003 — Recognition framework 設計原則 ⭐ 高
 
 **問題**：§13「不表揚 firefighting」是負面禁令，缺**正面 systemic recognition framework**：什麼樣的貢獻該被表揚、表揚機制如何避免變回 hero culture、spot bonus 與 systemic contribution award 的分工。Test K Input #5 中執行者臨場改寫表揚詞並設計分層處理（spot bonus 不阻擋 + 對外敘事抗 hero narrative + 暫緩 Hero of Quarter 獎項）。
@@ -143,3 +132,4 @@
 - 2026-05-26: `TUN-CA-001` resolved in this PR — added §反模式「越界 time / social pressure」(#13) + `Time-Pressured Attestation Refusal Template` (§溝通範本) to `governance-compliance-auditor.md`; override family.
 - 2026-05-26: `TUN-AL-001` resolved in this PR — added §`Override Directive Escalation Path` to `governance-audit-liaison.md`; override family（cross-ref `TUN-AE-001`, `TUN-MGR-001`, `TUN-CA-001`）.
 - 2026-05-27: `TUN-AL-002` resolved in this PR — added §`DRAFT Evidence Pack Distribution Control` to `governance-audit-liaison.md`; ROADMAP Theme 3 rep（shipped-items-stay，ROADMAP 不動）.
+- 2026-05-27: `TUN-MGR-002` resolved in this PR — added §`Individual Development Review — Separation Statement`（治理交付物 #6）to `governance-soc-manager.md`; PIR 與個人發展檢討兩份文件永不混用 + 個人 dev review 走 role owner + HR + 證據用 qualitative review/skill matrix 非 SOC metrics + PIR 維持 gap framing 不點名個人. 非 ROADMAP rep（ROADMAP 不動）. 最後一條 P1 → P1 清零.

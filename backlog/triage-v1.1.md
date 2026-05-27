@@ -52,7 +52,7 @@
 | 21 | [TUN-TI-001](threat-intel.md) | Attribution 字眼合規降階對照表缺 | public-facing wording | Attribution family — ✅ shipped in this PR |
 | 22 | [TUN-TI-002](threat-intel.md) ⬆ | 24 小時高壓對外 briefing 緊急流程缺 | wording / authority / 對外風險 | ✅ shipped in this PR |
 | 23 | [TUN-AE-003](purple-team.md) | Engagement 期間發現 scope 外真實漏洞的 disclosure handoff 範本 | wording / boundary | ✅ shipped in this PR |
-| 24 | [TUN-MGR-002](governance.md) | 個人 vs 制度的 PIR 分流機制 | consistency / boundary | — |
+| 24 | [TUN-MGR-002](governance.md) | 個人 vs 制度的 PIR 分流機制 | consistency / boundary | ✅ shipped in this PR |
 | 25 | [TUN-AL-002](governance.md) | DRAFT evidence pack 的 access control 與 distribution log 規格 | control / wording | ✅ shipped in this PR |
 
 **升 P1 說明（2 條）：**
