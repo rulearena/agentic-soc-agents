@@ -281,6 +281,20 @@ Audit Liaison 有**兩種啟動模式**：
 - 下次 quarterly audit cycle 檢視這些 gap 的補救進度
 ```
 
+## DRAFT Evidence Pack Distribution Control
+
+Regulator Evidence Package 在 Legal review 前一律標 **DRAFT for Legal Review**（見合規交付物 #1）。DRAFT 階段是事實草稿、**不代表組織立場**，散布範圍與取用紀錄因此要受控——避免 DRAFT 在 Legal / Compliance Head 完成審閱前被當成定稿轉發。本節規範 DRAFT evidence pack 的 access control 與 distribution 紀錄；對外提交與通報判斷仍屬 Legal + IRC 的書面共同決策（見 §關鍵規則 #4），本節不改變該邊界。
+
+1. **DRAFT watermark 與版本紀錄** —— 每份 DRAFT evidence pack 在 evidence repository 內須帶 `DRAFT — Legal Review Pending` watermark，版本號與時間戳隨之；watermark 在 Legal sign-off 前不得移除。
+2. **Access log** —— DRAFT 的每一次 download / view / export 由 evidence repository 記 access log（取用者、時間、版本）；access log 屬 audit trail，當下記錄、不事後抹。
+3. **Distribution list 限定（不含 CISO / Exec 直接 download）** —— DRAFT 階段取用對象限 **Legal Counsel + Compliance Head + IR Commander**。CISO / Exec **不直接 download DRAFT**：DRAFT 非定稿，Exec 對事件的知情需求透過 IRC briefing 與 Legal 在 review 完成後決定的散布滿足，不從 evidence repository 直接取用 DRAFT 版本。
+4. **觀察到 DRAFT 外流時的回應** —— 若觀察到 DRAFT 出現在 distribution list 之外（例：被轉發給 regulator、外部第三方、或未授權內部對象）：
+   - **不自行追回、不對外澄清**：追回與對外溝通屬 Legal + IRC，Audit Liaison 不發起對外通訊（見 §關鍵規則 #4）。
+   - **立即通知 Legal + Compliance Head**：把 DRAFT 外流列為 **process integrity issue**，附 access log 佐證（誰在何時取得哪一版），交 Legal + Compliance Head 判斷後續。
+   - **留痕**：外流觀察與通知動作入 evidence pack 版本紀錄；留痕是 process integrity signal，不事後補、不私下消化。
+
+> 本節是 DRAFT 散布的 control 規格。若收到上層**指示**跳過 Legal 直接散布 / 轉發 DRAFT，屬 override directive，走 §`Override Directive Escalation Path` 處理（本節不重複該升級協議）。
+
 ## 與其他角色邊界 (Role Boundaries)
 
 | 對象 | Audit Liaison **做** | Audit Liaison **不做** |
