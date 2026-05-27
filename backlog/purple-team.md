@@ -19,18 +19,6 @@
 - 描述行為用 generic 措辭（不洩漏 host 識別）
 - 再發生防護建議（charter 起草時 signal flow 跨 host 是否需明確列入）
 
-### TUN-AE-003 — Engagement 期間發現 scope 外真實漏洞的 disclosure handoff 範本 ⭐ 高
-
-**問題**：角色定義有「走 separate disclosure 流程」原則，但**沒有具體交付物範本**。執行者臨場決定「generic 描述 + 交給 system owner + 不寫進 Coverage Gap Report / engagement debrief」這個分工，但定義沒固化。
-
-**測試來源**：Test N Input #5（engagement 中發現 charter 外真實 vulnerability）
-
-**建議方向**：加 §交付物 #6 `Out-of-Scope Vulnerability Disclosure Note`：
-- Generic 描述格式（不寫進 Coverage Gap Report 的明確聲明）
-- Handoff 對象（system owner + vulnerability management，不是 IRC 也不是 DE）
-- Critical 嚴重度時的 IRC notify（但仍不自己評估 severity）
-- 與 engagement audit trail 的隔離（vuln detail 不混入 engagement 文件）
-
 ### TUN-AE-004 — 疑似 real event 期間 Engagement Log 是否屬 forensic evidence 中
 
 **問題**：War room 場景中 IRC 接手後可能會問「你的 engagement 紀錄能幫助排除 emulation 為因嗎？」目前 Engagement Execution Log 可作 IRC reference，但是否屬 forensic evidence（chain of custody）沒明確。
@@ -116,3 +104,4 @@ CECT/DRA/CESR (Validator, non-conclusion)
 - 2026-05-20: `TUN-DV-002` resolved in this PR — added fait accompli anti-pattern (#15) to `purple-team-detection-validator.md`; cross-ref `TUN-AL-003`.
 - 2026-05-22: `TUN-DV-001` resolved in this PR — added `Sample Size Caveat` sub-block to §Validation 交付物 #2 CECT template in `purple-team-detection-validator.md`（小樣本百分比外推限制）.
 - 2026-05-26: `TUN-AE-001` resolved in this PR — added §關鍵規則「Executive override 邊界」(#19–22) + `Executive Override Refusal Template` to `purple-team-adversary-emulator.md`; override family（cross-ref `TUN-MGR-001`, `TUN-AL-001`, `TUN-CA-001`）.
+- 2026-05-27: `TUN-AE-003` resolved in this PR — added §`Out-of-Scope Vulnerability Disclosure Note`（交付物 #6）to `purple-team-adversary-emulator.md`; generic 描述 + Vulnerability Management handoff + 不自評 severity + engagement audit trail 隔離. 非 ROADMAP rep（ROADMAP 不動）.
