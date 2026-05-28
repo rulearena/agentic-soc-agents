@@ -10,17 +10,6 @@
 
 ## triage-l1-soc-analyst
 
-### TUN-L1-003 — 缺 time-critical TP 快速升級決策框架 中
-
-**問題**：定義裡的 enrichment checklist 是**線性執行**（asset → temporal → external → behavioral），但對 credential dumping、ransomware 前置、Active Directory 攻擊等高時效告警，等 enrichment 全跑完才升級可能錯過 containment window。
-
-**測試來源**：Test A（LSASS dump triage，分析師被迫在「先補 external context」vs「立刻升級保 containment window」之間做取捨）
-
-**建議方向**：在 Workflow 章節加一個分支 `Time-Critical TP Fast-Track`：
-- 列出哪些 alert pattern 觸發 fast-track（credential dumping、AD attack、known ransomware staging）
-- 規範「升級 + 並行 enrichment」的工作方式
-- ticket 註記模板：明確標註「fast-track escalation，enrichment 並行進行中」
-
 ### TUN-L1-004 — 缺 IOC 取得操作層細節 中
 
 **問題**：定義說 L1 用 VirusTotal「**看結果**」，但沒寫「**如何從 EDR 撈到 hash 才能查**」這段銜接動作。對新人不夠 actionable。
@@ -100,3 +89,4 @@
 - 2026-05-21: `TUN-L2-001` resolved in this PR — clarified `disable-user-session` does NOT apply as an L2 stop-gap for service / privileged accounts (反應權限); escalate IR via `account-disable-for-privileged-user`.
 - 2026-05-21: `TUN-L2-002` resolved in this PR — added hard escalation rule (single malware artifact across ≥2 business units → auto IR) to 升級條件.
 - 2026-05-23: `TUN-L1-002` resolved in this PR — added `Process / Systemic Escalation Paths` sub-section (systemic issue → Detection Engineer / SOC Engineer / SOC Manager + ticket queue / Slack channel / weekly review + 留痕) to `triage-l1-soc-analyst.md` §升級條件.
+- 2026-05-28: `TUN-L1-003` resolved in this PR — added `Time-Critical TP Fast-Track` sub-section (升級 + 並行 enrichment) to `triage-l1-soc-analyst.md` §工作流程; triggers on credential dumping / AD attack / ransomware staging patterns.
