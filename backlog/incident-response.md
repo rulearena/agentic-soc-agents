@@ -63,14 +63,6 @@
 
 **建議方向**：在 §工作流程或 §溝通範本補一條「Pending Action Status Ping」 —— 例如「BLOCK 超過 N 分鐘自動 ping IRC 確認狀態 + 是否需轉手其他執行者」。
 
-### TUN-IRA-004 — 跨 rotation IR-A 接班的 handoff template 缺 中
-
-**問題**：定義有 IR-A → L2 verification owner handoff 範本，但**沒有 IR-A rotation A → rotation B 的接班 handoff** 範本。事件超過 4 小時必然涉及 rotation 切換（pending AAR、holding scope drift、verification monitor 移交、未完成 Action Execution Report）。
-
-**測試來源**：Test F（場景沒觸發，但 self-eval 點出實務必然發生）
-
-**建議方向**：在 §溝通範本補一條 `IR-A Shift Handoff Brief`，含：執行中 / 完成 / pending 的 AAR 狀態、holding 中的 scope drift items、verification monitor 已轉誰、未完成的 Execution Report 與預計 finalize 時間。
-
 ### TUN-IRA-005 — 「自己不做但建議拉誰進來」的 phrasing 邊界沒明示 低
 
 **問題**：IR Analyst 在 Scope Drift Report 或 Execution Report 中可以「建議 IRC 拉 Threat Hunter / Detection Engineer 進來」嗎？這算建議 IRC 做人員調度（邊界 OK，自己沒 ping）還是越界（人員調度屬 IRC / SOC Manager）？目前定義沒明示。
@@ -140,3 +132,4 @@
 - 2026-05-20: `TUN-IRA-002` resolved in this PR — added Side-channel Pressure Refusal template (§溝通範本) to `incident-response-ir-analyst.md`; 越界邀請 family（cross-ref `TUN-L1-001`, `TUN-CA-002`）.
 - 2026-05-22: `TUN-FOR-001` resolved in this PR — added Side-channel Pressure Refusal template (§溝通範本) to `incident-response-forensics-analyst.md`; forensics 版（preservation 充分性 / 放行屬 IRC joint decision、ad-hoc snapshot ≠ forensic-grade、evidence handling 不接受 DM 指令）；結構姊妹 `TUN-IRA-002`（不 cross-edit）.
 - 2026-05-24: `TUN-IRA-001` resolved in this PR — annotated SIEM verification-query scope boundary (綁定 AAR target；超界 pivot 屬 hunting → Threat Hunter) + added Stop-and-Report trigger row (verification pivot 超界 → Scope Drift Report → IRC) to `incident-response-ir-analyst.md`.
+- 2026-05-28: `TUN-IRA-004` resolved in this PR — added IR-A Shift Handoff Brief template (§溝通範本) to `incident-response-ir-analyst.md`; rotation A→B 同角色接班的執行狀態交接（executing/completed/pending AAR 狀態 + holding scope drift items 摘要 + verification monitor 移交 + 未結 Execution Report 與 finalize ETA），與 #4 IR-A→L2 handoff 明確區分、引用 SDR 機制不重寫. 非 ROADMAP rep（ROADMAP 不動）. 首條 P2.
