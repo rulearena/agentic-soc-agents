@@ -70,7 +70,7 @@
 
 | # | ID | 標題 | 原 priority | Family / 備註 |
 |---|---|---|---|---|
-| 1 | [TUN-L1-003](triage.md) | 缺 time-critical TP 快速升級決策框架 | 中 | — |
+| 1 | [TUN-L1-003](triage.md) | 缺 time-critical TP 快速升級決策框架 | 中 | ✅ shipped in this PR |
 | 2 | [TUN-L1-005](triage.md) | Evidence pending 處理規範 | 中 | — |
 | 3 | [TUN-L2-003](triage.md) | Supply chain hypothesis 的並行 hand-off 路徑 | 中 | — |
 | 4 | [TUN-IRC-001](incident-response.md) | `cannot_approve_alone` 缺法規時限速查 hook | 中 | — |

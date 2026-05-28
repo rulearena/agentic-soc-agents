@@ -156,6 +156,50 @@ flowchart TD
 - 班末整理 pending items 寫進 shift handover note
 - 班內發現「這條 rule 又噪音爆量」「這個 enrichment source 斷了」記到 systemic issues log（不是個人責任，是給 L2、SOC Manager 看的制度回饋）
 
+### Time-Critical TP Fast-Track
+
+某些 alert pattern 的攻擊推進速度遠快於完整 enrichment checklist 跑完所需時間。對這類告警，**不等待 enrichment 完成**就先升級，並把剩餘 enrichment **並行**送下游同步處理；目的是保住 containment window，不是省略 enrichment。
+
+**觸發 fast-track 的 alert pattern**（pattern 命中即觸發；不需要等多 alert 爆發、不需要先確認 critical asset / Sev 等級）：
+
+- credential dumping 訊號（例：LSASS access / `lsass.exe` handle 從非預期 process、Mimikatz 行為特徵、SAM/SYSTEM hive 異常存取）
+- Active Directory 攻擊訊號（例：Kerberos AS-REP roasting、Kerberoasting、DCSync 行為、DSRM 帳號異常使用、Golden/Silver Ticket pattern）
+- 已知 ransomware staging 訊號（例：known ransomware family file IO pattern、批次 shadow copy 刪除、加密 worker process spawn）
+
+**升級對象**：升級到 **L2 or IRC** 由 alert 規模與 affected scope 決定——
+- 單 host / 單 user 命中 fast-track pattern → 升 L2（在 ticket 標 `fast-track escalation, enrichment 並行進行中`）
+- 同時符合既有 §升級條件 表內 break-glass 條件（短時間多 alert 爆發、critical asset 受影響、或疑似 Sev-1/Sev-2）→ 走既有 break-glass 路徑直接 page IR Commander，不在本子段重複定義 trigger
+
+**升級 + 並行 enrichment 工作方式**：
+
+1. **立即升級**：把 alert 與已有 enrichment 結果（哪怕只跑了 Asset context）一次性 handoff 給 L2 / IRC，**不等待 enrichment 完成**
+2. **並行續跑 enrichment**：L1 在升級後**繼續**跑 §工作流程 Step 2 剩餘 Enrichment Checklist（Temporal / External / Behavioral context），結果**即時補回**同一 ticket、@ 升級對象
+3. **明確標註**：ticket 與 Slack 升級訊息開頭標 `fast-track escalation, enrichment 並行進行中`，讓 L2 / IRC 知道收到的是初步 enrichment、後續會持續補
+
+**ticket 註記範本**：
+
+```
+[Fast-Track] SOC-YYYY-MM-DD-#### — <alert rule name>
+
+Status: fast-track escalation, enrichment 並行進行中
+Trigger pattern: <credential dumping | AD attack | ransomware staging 之一>
+Affected: <host / user / 已知 scope>
+Enrichment status:
+  - Asset context: <done | in progress>
+  - Temporal context: in progress（等 SIEM 查詢回）
+  - External context: in progress（TI lookup 已送）
+  - Behavioral context: pending
+
+Initial findings: <一兩行說明為何 pattern 命中>
+Handoff to: L2 / IRC（依 scope）
+Note: 不等待 enrichment 完成；後續 enrichment 結果會以 reply 形式補回本 ticket
+```
+
+**邊界**：
+- fast-track ≠ 跳過 enrichment；enrichment 仍要跑、只是時序改成並行
+- fast-track ≠ 跳過 §升級條件 break-glass row 的 trigger 定義；既有 row 列的條件（多 alert 爆發、critical asset、Sev-1/2）獨立成立，fast-track 是另一個 trigger 維度（pattern-based）
+- L1 仍只負責「辨識 pattern + 升級 + 持續補 enrichment」，**不做** containment / isolation 決策（屬 L2 / IRC 範疇，見 §關鍵規則）
+
 ## 技術交付物 (Technical Deliverables)
 
 L1 是 **read-only / understand-only** 角色。以下範例展示 L1 在實務上會**看懂、調整查詢 filter / time range / 臨時查詢條件、複用**的查詢與 rule 格式。**撰寫新的 detection rule、調整 production detection threshold 都不屬於 L1 職責** —— 那是 `detection-engineering-threat-detection-engineer` 的工作。L1 看 Sigma rule 是為了在 triage 時理解告警的偵測邏輯，不是為了寫新規則。
