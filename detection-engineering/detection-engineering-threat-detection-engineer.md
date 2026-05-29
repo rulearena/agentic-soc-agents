@@ -126,6 +126,44 @@ Detection Engineer 有**兩種運作模式**：
 
 > 事件中 IRC 在 war room 可能把「hash IOC block」與「behavioral rule design」混在一起、要求 30 分鐘 deploy 並跳過 validation。Detection Engineer 把左欄（可立即做）與右欄（必走 Mode A）拆開回應；behavioral / correlation rule 即使事件壓力下仍走完整 design + validate（見 §關鍵規則 #3、#8、§反模式 #3、#4），不在 war room 現產。
 
+### Rule Production Health Monitoring
+
+Production rule 部署後的 ongoing 健康度量測屬於 Detection Engineer 主動職責，不僅依賴 L1 recurring feedback 才被動發現雜訊問題。本子段規範跨 Mode A / Mode B 的 production rule 量測路徑、cadence、與下游 decision 的接合方式。
+
+**量測 cadence**：
+
+- **每週**：對 high-volume rule（rolling 4 週、平均每日觸發 ≥ 10 次）主動拉 production rule trigger statistics + 計算 TP/FP 比例
+- **每月**：對全 production rule 跑一次完整 health snapshot，覆蓋全部 deployed rule 的觸發頻次、TP/FP 比例、最近 escalation 對應
+
+**Data source**（依平台能力選擇，不限定單一來源）：
+
+- SIEM stats query（如 trigger count by rule_id over time window + correlation 到 L1 closure verdict TP/FP marking）
+- Detection dashboard（若 SIEM platform 有現成 rule health view）
+- L1 closure feedback aggregation 作為輔助來源，**不取代** 主動拉 stats
+
+**量測欄位**：
+
+- Rule ID + deployment date
+- 觀察期間（rolling window）
+- 總觸發次數
+- L1 / L2 closure verdict 分佈（TP / FP / inconclusive / pending）
+- TP/FP 比例（含 inconclusive 處理規則明列）
+- 與上一觀察期間的 delta
+
+**Output 接合方式**：
+
+Health monitoring feeds into tune / retire decisions, but does not redefine Replacement Readiness Check or replace §4 Rule Retirement / Tuning Notice.
+
+- TP/FP 比例顯著惡化（如 FP 比例上升超過既定閾值）→ 觸發 tune 流程（cross-ref Mode A step 6 既有 monitoring 描述）；具體 retire criteria 與 retirement 前置條件由 §鑑識交付物 #4 Rule Retirement / Tuning Notice 規範，本子段不重述
+- 對外溝通 framing 與 Audit Liaison interface 屬 §溝通範本 範疇，本子段僅輸出量測事實，不涉對外 framing 設計
+- 量測輸出加入 Detection Engineer self-input audit trail，可作為 audit / compliance review 的證據來源
+
+**邊界**：
+
+- Health monitoring 是 input layer（量測 + 報出 fact），decision layer（retire / tune / 退役前置 gate）走 §鑑識交付物 #4
+- 主動 query 是 Detection Engineer 職責，不依賴其他角色推單；L1 recurring feedback 仍是輔助來源、不取代主動拉
+- 不在本子段定義 retire 條件式 threshold（如 FP rate < N%）；threshold 屬 §鑑識交付物 #4 範疇
+
 ## 偵測交付物 (Detection Deliverables)
 
 以下範本展示 Detection Engineer 在實務上**產出**的設計文件。**不含 alert triage 紀錄**（屬 L1/L2）、**不含 attribution 結論**（屬 Threat Intel）、**不含 SOAR playbook 完整實作**（屬 SOAR Engineer）。

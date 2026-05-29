@@ -12,11 +12,11 @@
 |---|---|---|---|---|
 | Triage | [triage.md](triage.md) | 7 | 5 | `triage-l1-soc-analyst`, `triage-l2-soc-analyst` |
 | Incident Response | [incident-response.md](incident-response.md) | 12 | 4 | `incident-response-ir-commander`, `incident-response-forensics-analyst`, `incident-response-ir-analyst` |
-| Detection Engineering | [detection-engineering.md](detection-engineering.md) | 8 | 3 | `detection-engineering-threat-detection-engineer`, `detection-engineering-threat-hunter` |
+| Detection Engineering | [detection-engineering.md](detection-engineering.md) | 7 | 4 | `detection-engineering-threat-detection-engineer`, `detection-engineering-threat-hunter` |
 | Threat Intel | [threat-intel.md](threat-intel.md) | 7 | 4 | `threat-intel-analyst`, `threat-intel-ioc-curator` |
 | Governance | [governance.md](governance.md) | 11 | 7 | `governance-soc-manager`, `governance-compliance-auditor`, `governance-audit-liaison` |
 | Purple Team | [purple-team.md](purple-team.md) | 8 | 4 | `purple-team-adversary-emulator`, `purple-team-detection-validator` |
-| **合計** | — | **53 active** | **27 resolved** | 14 個 agent（total corpus 80）|
+| **合計** | — | **52 active** | **28 resolved** | 14 個 agent（total corpus 80）|
 
 ## v1.1 排序狀態
 
