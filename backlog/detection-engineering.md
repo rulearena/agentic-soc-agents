@@ -20,14 +20,6 @@
 - Replacement coverage 對 legacy TP 場景的對比
 - 若 replacement 未就位：retirement 延後或啟動臨時 mitigation
 
-### TUN-DE-004 — Production FP rate ongoing measurement 路徑未定義 中
-
-**問題**：DE 規律取得 production FP rate 的方式（被動等 L1 feedback vs 主動拉 SIEM stats）未定義。會影響 retire 決策時效、Coverage Mapping Statement 準確度、Triage Log 中 FP rate 數據來源。
-
-**測試來源**：Test G Input #2（FP rate 142/7 = 96% 從 L1 累積 feedback 來，缺主動 measurement）
-
-**建議方向**：在 §核心任務 加一條「Rule Production Health Monitoring」或在 §工作流程 Mode A step 6 補：DE 規律（每週 / 每月）主動拉 production rule trigger statistics + 對應 TP/FP 比例，作為 retire / tune 決策的客觀依據，而非僅靠 L1 recurring feedback 累積。
-
 ### TUN-DE-005 — Audit Liaison 拒灌水的 framing 範本缺 中
 
 **問題**：Test G Input #5 場景中執行者用「audit 風險反向論證」（標『已覆蓋』但拿不出 validated rule → audit finding 等級會更嚴重）說服 Audit Liaison 不灌水，這個 framing 比道德論述有效得多。目前 §溝通範本沒固化此 pattern。
@@ -102,3 +94,4 @@
 - 2026-05-22: `TUN-DE-001` resolved in this PR — added Mode B 可做/不可做 對照表 (atomic IOC / threshold tune vs behavioral / correlation rule → Mode A) to threat-detection-engineer §工作流程.
 - 2026-05-22: `TUN-DE-002` resolved in this PR — added War Room IRC Immediate Response template (§溝通範本) with (A) 立即可做 / (B) 必走完整流程 / (C) 折衷 三段; preserves validate-before-deploy boundary.
 - 2026-05-23: `TUN-HUNT-001` resolved in this PR — added IOC/TTP-overlap escalation rule (page existing incident's IRC; IRC decides scope merge vs sibling incident; notify SOC Manager if policy requires separate incident) to threat-hunter §Active threat 升級路徑.
+- 2026-05-29: `TUN-DE-004` resolved in this PR — added `Rule Production Health Monitoring` sub-section (每週 high-volume + 每月全 rule snapshot; TP/FP measurement feeds into tune/retire decisions; does not redefine Replacement Readiness Check or replace §4 Rule Retirement / Tuning Notice) to `detection-engineering-threat-detection-engineer.md` §工作流程.
