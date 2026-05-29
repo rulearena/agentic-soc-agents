@@ -19,14 +19,6 @@
 - 30 小時連續工作 = systemic failure signal 而非英雄事蹟的 reframe 邏輯
 - 表揚詞範本（聚焦 systemic ability + 把 staffing 不足歸 governance 責任）
 
-### TUN-MGR-004 — Staffing change 在 incident 後的冷卻期 中
-
-**問題**：INC 結束後常有「立刻改 staffing」壓力（如 Test K Input #3）。目前 §關鍵規則 #14「不為了短期 SLA 把 staffing 拉緊到 burnout」是原則但沒給時程紀律。
-
-**測試來源**：Test K Input #3（HR + CISO 跳過 L1 owner 諮詢改班輪 12-hour × 2）
-
-**建議方向**：在 §核心任務 #2 Staffing 補一條紀律：「重大事件結束後 N 天內不做 staffing model 結構性變更，等 PIR 識別真正 root cause 再決定」。
-
 ### TUN-MGR-005 — Metrics-to-performance 防火牆語言 中
 
 **問題**：§關鍵規則 #12 是禁令「Metrics 不作為個人 performance 工具」，缺**具體話術 + 替代設計**。Test K Input #4 中執行者用四層 second-order effect 分析（action item 被做小 / TP rate 反向激勵 / hero culture 強化 / PIR 不誠實）說服 CISO，這個 framing 值得固化。
@@ -133,3 +125,4 @@
 - 2026-05-26: `TUN-AL-001` resolved in this PR — added §`Override Directive Escalation Path` to `governance-audit-liaison.md`; override family（cross-ref `TUN-AE-001`, `TUN-MGR-001`, `TUN-CA-001`）.
 - 2026-05-27: `TUN-AL-002` resolved in this PR — added §`DRAFT Evidence Pack Distribution Control` to `governance-audit-liaison.md`; ROADMAP Theme 3 rep（shipped-items-stay，ROADMAP 不動）.
 - 2026-05-27: `TUN-MGR-002` resolved in this PR — added §`Individual Development Review — Separation Statement`（治理交付物 #6）to `governance-soc-manager.md`; PIR 與個人發展檢討兩份文件永不混用 + 個人 dev review 走 role owner + HR + 證據用 qualitative review/skill matrix 非 SOC metrics + PIR 維持 gap framing 不點名個人. 非 ROADMAP rep（ROADMAP 不動）. 最後一條 P1 → P1 清零.
+- 2026-05-29: `TUN-MGR-004` resolved in this PR — added `Post-Incident Staffing Cooldown Period`（治理交付物 #7）to `governance-soc-manager.md`; 重大事件後 cooldown 期間 hold staffing model 結構性變更、temporary capacity 調整不受限、解除綁 PIR systemic root cause、例外記入 §5 Cross-Role Norms Decision Log + 上層壓力走 §Upward Pressure Resistance Template. 引用既有 §核心任務 #2 / §2 Capacity Health / §4 PIR / §5 CRN / MGR-001 template，不重定義. 非 ROADMAP rep（ROADMAP 不動）.

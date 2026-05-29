@@ -339,6 +339,38 @@ PIR(Post-Incident Review)與個人發展檢討(individual development review)是
 
 > 本聲明與 `### 4. Post-Incident Review Report`(PIR,gap framing)+ `### 3. SOC Metrics & Trend Report`(systemic metrics)分流:三者都**不承載個人績效判斷**。個人發展對話的證據基礎是 qualitative review + skill matrix,與 SOC metrics、與 incident 個案究責**完全隔離**。
 
+### 7. Post-Incident Staffing Cooldown Period
+
+重大事件結束後常出現「立即改 staffing」的壓力（縮短班輪、永久增補編制、重排 rotation），在 PIR 尚未識別 systemic root cause 前就動 staffing model 結構，往往把個案反應誤當制度改善。本範本固化「重大事件後的 staffing 結構變更冷卻期」：cooldown 期間 hold 住 staffing model 的結構性變更、個案層級的 temporary capacity 調整不受限，並把解除條件與例外綁定既有 §4 PIR / §2 Capacity Health / §5 Cross-Role Norms 機制（引用、不重定義）。
+
+```markdown
+# Post-Incident Staffing Cooldown — PISC-INC-2026-0042
+
+**Owner:** SOC Manager
+**Trigger:** 重大事件（major incident）結束
+**Cooldown window:** [N] 天（依組織規模 / 事件嚴重度設定，不寫死數值）
+
+## Scope of Freeze（凍結範圍）
+本 staffing cooldown holds structural staffing changes until the PIR identifies the systemic root cause。冷卻期內**不做** staffing model 的結構性變更：
+- Rotation pattern 重排（如永久改 12-hour × 2 班輪）
+- 永久 FTE 增減 / headcount 重配
+- Shift coverage 模型結構調整（如永久縮短某 tier 覆蓋）
+
+## Allowed During Cooldown（冷卻期仍可做）
+- 個案層級的 temporary capacity adjustment（單班 backup、on-call backup、短期支援）is **not** a staffing model structural change；走既有 §2 Staffing & Capacity Plan 的 Capacity Health threshold 機制
+- burnout 風險的即時緩解（短期補位、輪休調度）——緩解負載 ≠ 改結構
+
+## Exit Condition（解除條件）
+- Cooldown 在 PIR 完成、systemic root cause 識別、且對應 staffing-related action item 進入 §4 Post-Incident Review Report 後解除
+- 解除後的 staffing model 結構變更走既有 policy change 流程（sponsor + role owner review + version log）
+
+## Exception Handling（例外處理）
+- 冷卻期內若必須提前動結構（如法規 / 安全強制要求），該例外與理由記入 §5 Cross-Role Norms Decision Log，不口頭決定
+- 來自 reporting line 上層（HR / CISO）要求立即改 staffing 結構的壓力，走 §Upward Pressure Resistance Template 的 resist & redirect 路徑，不因施壓者職位繞過 cooldown
+```
+
+> 本範本與 §核心任務 #2 Staffing、§2 Staffing & Capacity Plan（Capacity Health）、§4 Post-Incident Review Report、§5 Cross-Role Norms Decision Log、§Upward Pressure Resistance Template **皆為引用關係，不重定義**：cooldown 是「事件後 staffing 結構變更的時程紀律」維度，既有 staffing model、capacity threshold、PIR scope、override 抵抗範本各自的定義不變。
+
 ## 對既有角色與相鄰角色的邊界（本檔最重要章節）
 
 | 對象 | SOC Manager **做** | SOC Manager **不做** |
