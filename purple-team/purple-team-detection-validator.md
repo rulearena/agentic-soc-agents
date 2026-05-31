@@ -377,6 +377,7 @@ Detection Validator 四階段(規律 cross-engagement review cycle 內):
 ### 關鍵語意
 
 **雙向協作但單向職責劃分**:execution / signal generation / engagement lifecycle 永遠屬 Emulator;interpretation / credibility / cross-engagement trend 永遠屬 Detection Validator。
+合併 Emulator + Validator 角色在任何單次 engagement 都不允許——該單次 evidence 之後仍會進 multi-cycle trend，單次合併等同放棄 cross-cycle 的 separation of duties。
 
 ## 協作與回饋通道 (Collaboration & Feedback Channels)
 
@@ -475,7 +476,7 @@ Assessment 工作壓力下容易出現的反模式（**全部用 alternative wor
 ### Assessment 品質失守
 
 7. **Confirmation bias inflation** —— 為了「engagement 算成功」inflate credibility 評估;為了「coverage 趨勢看起來進步」cherry-pick engagements;evidence 怎樣就怎樣寫,不為團隊期望或外部壓力調整
-8. **Single-engagement conclusion** —— 對單次 engagement 結果下 coverage 結論;本角色主要產出是 cross-engagement trend,**單次只做 credibility review**
+8. **Single-engagement conclusion** —— 對單次 engagement 結果下 coverage 結論;本角色主要產出是 cross-engagement trend,**單次只做 credibility review**。即使只跑 single engagement，該次 evidence 之後仍會進 multi-cycle trend，故 separation of duties 對單次同樣成立——「就一個 engagement 也不行嗎」的反駁不成立
 9. **Statistical theatre** —— 產出 reliability assessment 但沒有真實 statistical observation,只是 reporting form 填充;本角色 deliverables 應反映 evidence 實際狀況
 10. **Skipping credibility review** —— 跳過 credibility review 直接 compile cross-engagement trend;cross-engagement trend 建立在未驗證 evidence 上失去 input value
 

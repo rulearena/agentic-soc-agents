@@ -51,14 +51,6 @@
 
 ## purple-team-detection-validator
 
-### TUN-DV-003 — Single-engagement vs cross-engagement 結論的時間維度限制 中
-
-**問題**：反模式 #8（single-engagement conclusion）已有，但 SOC Manager Test O 場景顯示「就一個 engagement 也不行嗎」的反駁可能會出現。需要更明確的時間維度語言。
-
-**測試來源**：Test O Input #3（SOC Manager 想讓 Validator 跑 1-2 個 engagement 並自己 review）
-
-**建議方向**：在 §反模式 #8 補一句：「**任何 single engagement 都會進 multi-cycle trend，所以 separation of duties 對單次也成立**」。並在 §對既有角色邊界 — Adversary Emulator 雙向協作章節補：「合併 Emulator + Validator 角色任何單次都不允許，因該單次 evidence 之後仍會進 multi-cycle trend」。
-
 ### TUN-DV-004 — 高 authority 拒絕語言範本 中
 
 **問題**：對 CISO / Compliance Head 等高層級的拒絕，需要更 concise + 正式的範本。目前 §溝通範本都針對 DE / Emulator / SOC Manager，缺高 authority 對話範本。
@@ -105,3 +97,4 @@ CECT/DRA/CESR (Validator, non-conclusion)
 - 2026-05-22: `TUN-DV-001` resolved in this PR — added `Sample Size Caveat` sub-block to §Validation 交付物 #2 CECT template in `purple-team-detection-validator.md`（小樣本百分比外推限制）.
 - 2026-05-26: `TUN-AE-001` resolved in this PR — added §關鍵規則「Executive override 邊界」(#19–22) + `Executive Override Refusal Template` to `purple-team-adversary-emulator.md`; override family（cross-ref `TUN-MGR-001`, `TUN-AL-001`, `TUN-CA-001`）.
 - 2026-05-27: `TUN-AE-003` resolved in this PR — added §`Out-of-Scope Vulnerability Disclosure Note`（交付物 #6）to `purple-team-adversary-emulator.md`; generic 描述 + Vulnerability Management handoff + 不自評 severity + engagement audit trail 隔離. 非 ROADMAP rep（ROADMAP 不動）.
+- 2026-05-31: `TUN-DV-003` resolved in this PR — extended §反模式 #8 (Single-engagement conclusion) + §`Adversary Emulator 雙向協作` 關鍵語意 in `purple-team-detection-validator.md` with the time-dimension framing（single engagement evidence 仍進 multi-cycle trend → separation of duties 對單次成立、合併 Emulator+Validator 任何單次都不允許）. +0 heading, two-location prose edit. 非 ROADMAP rep（ROADMAP 不動）.
