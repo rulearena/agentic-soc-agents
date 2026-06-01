@@ -83,17 +83,6 @@
 
 ## incident-response-forensics-analyst
 
-### TUN-FOR-002 — Anti-forensics 觸發場景的 SOP 缺 ⭐ 高
-
-**問題**：定義 §工作流程 Acquire 階段只講「acquisition failure → 通知 IRC 提供時間 + loss 評估」，但**沒區分「工具壞 vs 對手主動干擾」**。Test E HOST-DEV-091 hash mismatch 疑似 anti-forensics 觸發（implant 偵測到 acquisition activity 並 mutate memory region），這是很特定的場景，與一般工具故障的處理選項不同（不能無腦重做、可能需要先 kill session 或 cold acquisition）。
-
-**測試來源**：Test E 訊息 #2（HOST-DEV-091 第二次 hash mismatch，svc-cicd-deploy RDP session 仍 active，疑似 anti-forensics）
-
-**建議方向**：在 §工作流程 Acquire 階段加一段「Anti-forensics 判斷與對應 SOP」：
-- 判斷訊號（多次 hash mismatch、acquisition tool unexpected behavior、目標 process 在 acquisition 期間有 unusual activity）
-- 對應選項清單（重做 / kill suspect session 再採 / cold acquisition / escalate joint decision）
-- 與 IR Analyst 協調「能否 kill session」的責任界線
-
 ### TUN-FOR-003 — Partial preservation acceptable threshold 判斷材料缺 中
 
 **問題**：Test E 場景中 3 host 1 個失敗，supply-chain attribution 樣本數降到 2 是否仍 acceptable？Forensics 不拍板沒錯，但**目前範本只講「evidence loss 描述」**，沒給 IRC 判斷支撐工具（例：attribution 完整性影響量級評估框架、樣本數對結論可信度的影響）。
@@ -133,3 +122,4 @@
 - 2026-05-22: `TUN-FOR-001` resolved in this PR — added Side-channel Pressure Refusal template (§溝通範本) to `incident-response-forensics-analyst.md`; forensics 版（preservation 充分性 / 放行屬 IRC joint decision、ad-hoc snapshot ≠ forensic-grade、evidence handling 不接受 DM 指令）；結構姊妹 `TUN-IRA-002`（不 cross-edit）.
 - 2026-05-24: `TUN-IRA-001` resolved in this PR — annotated SIEM verification-query scope boundary (綁定 AAR target；超界 pivot 屬 hunting → Threat Hunter) + added Stop-and-Report trigger row (verification pivot 超界 → Scope Drift Report → IRC) to `incident-response-ir-analyst.md`.
 - 2026-05-28: `TUN-IRA-004` resolved in this PR — added IR-A Shift Handoff Brief template (§溝通範本) to `incident-response-ir-analyst.md`; rotation A→B 同角色接班的執行狀態交接（executing/completed/pending AAR 狀態 + holding scope drift items 摘要 + verification monitor 移交 + 未結 Execution Report 與 finalize ETA），與 #4 IR-A→L2 handoff 明確區分、引用 SDR 機制不重寫. 非 ROADMAP rep（ROADMAP 不動）. 首條 P2.
+- 2026-06-01: `TUN-FOR-002` resolved in this PR — extended §工作流程 `### 3. Acquire` in `incident-response-forensics-analyst.md` with the anti-forensics acquisition SOP（區分工具故障 vs anti-forensics 主動干擾的判斷訊號、對應選項清單 [重做 / kill 可疑 session 再採 / cold acquisition / IRC joint decision]、與 IR Analyst 的 kill session 責任界線）. kill session 框成 Forensics 提 preservation risk signal → IR Analyst 走 IRC approval 執行、不自己 contain（cross-ref §關鍵規則 7）. +0 heading, single-location prose append. 非 ROADMAP rep（ROADMAP 不動）.
