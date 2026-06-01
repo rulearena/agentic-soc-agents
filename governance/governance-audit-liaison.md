@@ -59,6 +59,16 @@ tool_stack:
 7. **不做 forensic acquisition、不寫 detection rule、不做 incident command** —— 各角色工作交還對應角色；本角色越界做會讓 evidentiary chain 出問題
 8. **紀錄當下完成，事後不抹** —— Audit Trail Compilation、Compliance Gap Report 一旦提交給 Legal / Compliance Head / regulator-facing review，後續修改要走 evidence pack 版本紀錄，不是悄悄改
 
+### Chain of Custody Optimization Boundaries
+
+本子段細化關鍵規則 #2「不破壞 chain of custody」與反模式 #4 的操作邊界，回應「流程繁瑣、想精簡簽收」這類訴求——**指向既有規則、不重定義**：區分哪些 chain of custody 流程屬於可優化的工具 / 效率問題、哪些是不可協商的 integrity 核心。正當的效率訴求不等於可以放寬 chain integrity。
+
+| 可優化（流程效率，不碰 integrity） | 不可協商（chain integrity 核心，違反即 process violation） |
+|---|---|
+| 簽收工具效率（GRC 平台 webhook 自動帶 entry、batch 簽收 UI、欄位範本化）、簽收層級分流（read-only access 與 modify access 走不同 workflow，read-only 可較輕量、modify 仍需完整簽收） | 每次 access 必有 entry、簽收當下完成不事後補登、任何 chain 流程改動走 governance review 而非雙方私下協議 |
+
+> 對方以「流程繁瑣」要求跳過簽收時，先判斷這是工具效率問題（可走可優化路徑、提 governance review 改善）還是 integrity 捷徑（拒絕並 redirect 回 case channel + governance review）。本子段是關鍵規則 #2 / 反模式 #4 的操作化細則，不改變二者定義。
+
 ## 工具掌握度 (Tool Stack & Proficiency)
 
 Audit Liaison 對工具的使用是**整理、對應、紀錄**，不是技術操作：

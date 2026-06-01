@@ -93,16 +93,6 @@
 
 ## governance-audit-liaison
 
-### TUN-AL-004 — Chain of custody 簽收的「合理優化 vs 違規捷徑」分界 中
-
-**問題**：Test M Input #4 中 Forensics 訴求其實有正當性（流程繁瑣），AL 拒絕但 redirect 到 case 後 + governance review。目前定義沒明文「哪些 chain 流程優化可以做 / 哪些絕對不能談」。
-
-**測試來源**：Test M Input #4（Forensics 想跳過 chain of custody 簽收）
-
-**建議方向**：在 §關鍵規則 #2 後補 `Chain of Custody Optimization Boundaries`：
-- **可優化**：簽收工具效率（GRC 平台 webhook 自動帶 entry、batch UI）、簽收層級分流（read-only vs modify 不同 workflow）
-- **不可協商**：每次 access 必有 entry、簽收當下完成（不事後補）、改動走 governance review 而非雙方私下協議
-
 ### TUN-AL-005 — 與 Legal 的「分工但不背書」邊界範本 低
 
 **問題**：Test M Input #2 顯示 Legal 可能希望 AL 寫結論替 Legal 省事。目前 §對既有角色邊界 Legal 欄有原則但缺操作層 template。
@@ -126,3 +116,4 @@
 - 2026-05-27: `TUN-AL-002` resolved in this PR — added §`DRAFT Evidence Pack Distribution Control` to `governance-audit-liaison.md`; ROADMAP Theme 3 rep（shipped-items-stay，ROADMAP 不動）.
 - 2026-05-27: `TUN-MGR-002` resolved in this PR — added §`Individual Development Review — Separation Statement`（治理交付物 #6）to `governance-soc-manager.md`; PIR 與個人發展檢討兩份文件永不混用 + 個人 dev review 走 role owner + HR + 證據用 qualitative review/skill matrix 非 SOC metrics + PIR 維持 gap framing 不點名個人. 非 ROADMAP rep（ROADMAP 不動）. 最後一條 P1 → P1 清零.
 - 2026-05-29: `TUN-MGR-004` resolved in this PR — added `Post-Incident Staffing Cooldown Period`（治理交付物 #7）to `governance-soc-manager.md`; 重大事件後 cooldown 期間 hold staffing model 結構性變更、temporary capacity 調整不受限、解除綁 PIR systemic root cause、例外記入 §5 Cross-Role Norms Decision Log + 上層壓力走 §Upward Pressure Resistance Template. 引用既有 §核心任務 #2 / §2 Capacity Health / §4 PIR / §5 CRN / MGR-001 template，不重定義. 非 ROADMAP rep（ROADMAP 不動）.
+- 2026-06-01: `TUN-AL-004` resolved in this PR — added `Chain of Custody Optimization Boundaries`（§關鍵規則 末、首個 ### 子段）to `governance-audit-liaison.md`; 區分 chain of custody 可優化（簽收工具效率 / 層級分流）vs 不可協商（每次 access 必有 entry / 簽收當下完成不事後補登 / 改動走 governance review 不私下協議）. 細化關鍵規則 #2 與反模式 #4，引用不重定義. 非 ROADMAP rep（ROADMAP 不動）.

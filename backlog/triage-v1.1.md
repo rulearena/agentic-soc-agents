@@ -96,7 +96,7 @@
 | 24 | [TUN-MGR-005](governance.md) | Metrics-to-performance 防火牆語言 | 中 | — |
 | 25 | [TUN-MGR-006](governance.md) | War room observer 條款 | 中 | **與 TUN-MGR-001 (P1) 同步設計**（避免 authority wording 之後重修） |
 | 26 | [TUN-CA-004](governance.md) | CIN as policy input 流程 | 中 | — |
-| 27 | [TUN-AL-004](governance.md) | Chain of custody 簽收的「合理優化 vs 違規捷徑」分界 | 中 | — |
+| 27 | [TUN-AL-004](governance.md) | Chain of custody 簽收的「合理優化 vs 違規捷徑」分界 | 中 | ✅ shipped in this PR |
 | 28 | [TUN-AE-002](purple-team.md) | Scope drift 自我通報範本 | ⭐ 高（降）| 弱於 AE-003 (P1) |
 | 29 | [TUN-AE-004](purple-team.md) | 疑似 real event 期間 Engagement Log 是否屬 forensic evidence | 中 | — |
 | 30 | [TUN-AE-005](purple-team.md) | Executive override attempt 的 audit trail | 中 | 與 AE-001 (P1) 同層級 authority 議題 |
