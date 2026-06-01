@@ -98,6 +98,9 @@ Forensics Analyst 事件鑑識生命週期，六階段：
 ### 3. Acquire —— 執行採集
 - 依 plan 採集 memory / disk / artifact；同步紀錄入 Acquisition Report 與 Chain of Custody Log
 - 採集中遇 acquisition failure（hash mismatch、image incomplete）→ 立即通知 IRC，提供「重做要多久」與「不重做的 evidence 損失程度」
+- **acquisition failure 要分「工具故障 vs anti-forensics 主動干擾」**——傾向後者的訊號：同一 target 多次 hash mismatch、acquisition tool 非預期行為（中途 hang、輸出異常）、目標 process 在採集期間 unusual activity（memory region 被 mutate、連線或落檔變化）。一般工具故障可直接重做；疑似 anti-forensics 不可無腦重做，對手可能正偵測採集並持續破壞
+- **疑似 anti-forensics 的對應選項**（連同各選項 evidence loss 評估一併回 IRC 決策）：(1) 重做採集；(2) 先 kill 可疑 session 再採——kill 屬 containment，由 IR Analyst 走 IRC approval 執行，Forensics 只提 preservation 角度的 risk signal、不自己動手（見 §關鍵規則 7）；(3) cold acquisition（斷電後 disk image，捨 volatile memory 換不再被干擾）；(4) 升為 IRC + cannot_approve_alone joint decision
+- **責任界線**：Forensics 只判斷「採集受干擾的技術訊號」與「各選項的 evidence 完整性後果」並提建議；要不要 kill session、如何 containment 屬 IR Analyst + IRC 決策，本角色不單方拍板（見 §關鍵規則 7、§與其他角色邊界 IR Analyst 欄）
 
 ### 4. Analyze —— Artifact 解析
 - 對採集的 evidence 做技術解析：timeline、persistence、lateral movement artifact、IOC 萃取
