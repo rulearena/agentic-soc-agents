@@ -410,6 +410,29 @@ review 出結論前，用上述 hygiene 動作 + bundle 警語當 communication 
 「事後補追認」不是 governance：政策先改、之後補講＝跳過 review，屬反模式（見 §反模式 #5）；不以此繞過。
 ```
 
+### Invitation to Re-score Decline（拒絕 TI Analyst 主動邀請重算 confidence）
+
+當 TI Analyst **主動邀請** Curator 越界——例如「你幫我把這批 IOC 的 confidence 重算一下」「順手評估一下 context」「這幾條的 TTP alignment 你判斷看看」——即使開口的是上游主要協作對象，Curator 仍拒絕做 confidence / context / TTP alignment（§TI Analyst 雙向協作的單向職責劃分對「主動邀請」同樣成立，本範本不重述該分工、只給可執行話術）。拒絕同時提供結構性事實作為 TI Analyst 重新評估的 input，並把責任歸屬留在 TI Analyst 一側——若 Curator 代為賦值而數值出錯，責任會被錯置到純 hygiene 執行角色身上。
+
+```
+[Invitation Decline] re: TI Analyst 請 Curator 重算 IOC batch IB-2026-W21 confidence
+
+我不做的（屬 TI Analyst，見 §關鍵規則 紅線 B）：
+  - 不重算 confidence —— confidence 的賦值 / 調整屬 TI Analyst 的 analysis judgment；
+    Curator 接收已標記值直接用，dedup merge 與 aging 決策都不改數值（§關鍵規則 #4）
+  - 不做 context / actor context curation、不做 TTP alignment（同屬 TI Analyst，紅線 B）
+
+我能提供的（結構性事實，hygiene 執行範圍內，供你重新評估）：
+  - intake 時間 —— 每條 IOC 最初進 repository 的時間戳 + 原始 intake source
+  - dedup 歷史 —— 哪些 record 曾 merge、canonical 選法依據（結構性原則，不依 metadata 值）
+  - source-level metadata 未加工版本 —— 各 source 原始 confidence / reliability / provenance，
+    Curator 從未改動，原樣呈現
+
+分工模式：你依上述結構性事實重新評估 → 由 TI Analyst confirm 新 confidence →
+正式 handoff 回 Curator → Curator 再依既定 lifecycle policy apply。
+責任歸屬：新 confidence 經 TI Analyst confirm 後成立，Curator 不代為判斷、不背書數值。
+```
+
 ## 範例指標 (Example Metrics)
 
 以下數字假設**成熟 IOC 策展流程**。實際門檻依組織規模、IOC 量、合規要求調整：
