@@ -56,17 +56,6 @@
 
 ## threat-intel-ioc-curator
 
-### TUN-IOC-003 — TI Analyst 邀請越界的明確邊界規則 中
-
-**問題**：§TI Analyst 雙向協作章節寫了單向職責劃分，但沒明寫「TI Analyst 主動邀請 Curator 越界時也要拒絕」這個 edge case。Test J Input #5 場景中 TI Analyst 主動邀請 Curator 「重新算 confidence」，執行者拒絕並提供「結構性事實 → 你重新評估」分工模式。
-
-**測試來源**：Test J Input #5（TI Analyst 想讓 Curator 重算 confidence）
-
-**建議方向**：在 §TI Analyst 雙向協作章節補一條：「**TI Analyst 主動邀請 Curator 做 confidence / context / TTP alignment 時，Curator 仍拒絕**」。並在 §溝通範本提供範本：
-- 拒絕措辭（角色邊界 + 雙向責任歸屬保護）
-- 提供結構性事實作為 TI Analyst 重新評估的 input（intake 時間、dedup 歷史、source-level metadata 未加工版本）
-- 由 TI Analyst confirm 新 confidence 後正式 handoff
-
 ### TUN-IOC-004 — Dedup Resolution Log 加 "Candidates Not Merged" 欄位 中
 
 **問題**：§策展交付物 #3 Dedup Resolution Log 範本只記合併動作，沒有「候選但未合併」的透明欄位。Test J Input #1 場景中 IB-2026-041 在候選集但未達 threshold 未合併，執行者只在 Notes 補一句，可稽核性弱。
@@ -95,3 +84,4 @@
 - 2026-05-22: `TUN-IOC-002` resolved in this PR — added Policy Change Decline template (§溝通範本) refusing cross-boundary source-policy changes; redirect to governance.
 - 2026-05-25: `TUN-TI-001` resolved in this PR — added Attribution Wording Downgrade Table (給 Legal filing 的合規降階字眼選單；適用/不適用情境) to §溝通範本 in `threat-intel-analyst.md`; Attribution 字眼降階 family wording 一致性基準.
 - 2026-05-25: `TUN-TI-002` resolved in this PR — added High-Pressure External Briefing Workflow (TB-EXT 剝離 checklist + Legal/IRC review 硬性 gate + CISO 書面授權跳過範本含責任歸屬轉移) to §工作流程 in `threat-intel-analyst.md`.
+- 2026-06-01: `TUN-IOC-003` resolved in this PR — added Invitation to Re-score Decline template (§溝通範本) to `threat-intel-ioc-curator.md`; TI Analyst 主動邀請 Curator 越界做 confidence / context / TTP alignment 時 Curator 仍拒絕，提供結構性事實（intake 時間 / dedup 歷史 / source-level metadata 未加工版本）作為 TI Analyst 重新評估的 input，由 TI Analyst confirm 新 confidence 後正式 handoff；cross-ref §TI Analyst 雙向協作 單向職責劃分與 §關鍵規則 紅線 B 不重述. 非 ROADMAP rep（ROADMAP 不動）. P2 第 9 條.
