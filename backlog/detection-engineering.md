@@ -66,16 +66,6 @@
 - ❌ 結論：「延伸自 INC-X」「屬同一 actor」「同一 campaign」「attributed to X group」
 - 灰色地帶（傾向用事實措辭 + 註記由 TI / L2 / IRC 判斷）
 
-### TUN-HUNT-004 — SOC Manager 越界場景的明確邊界缺 中
-
-**問題**：§對既有角色邊界沒列 SOC Manager（因為 SOC Manager 不在 operational tier）。但 SOC Manager 出於人力壓力對 Hunter 下越界 operational task（例：要 Hunter 直接 disable / isolate）是現實高頻場景，目前定義沒對應規則。
-
-**測試來源**：Test H 觸發點 #4（SOC Manager DM 要 Hunter 直接做 containment）
-
-**建議方向**：在 §對既有角色邊界補一列 `SOC Manager`：
-- **做**：sprint summary / hunt backlog progress / 人力議題 / 跨 sprint 排序協調
-- **不做**：接收 operational task assignment（disable / isolate / RTR / 對 individual host 的處置）—— operational task 必須走 IRC / IR-A 路徑
-
 ### TUN-HUNT-005 — TI 引誘 attribution 的標準回應範本缺 低
 
 **問題**：§溝通範本只有「Hunt finding handoff to TI」（Hunter 主動方向），沒有「TI 反問或引誘 attribution」的回應範本。Test H 觸發點 #5 是高頻場景（TI 拿外部報告對應 Hunter finding，邀 Hunter 在 finding package 加 attribution 句子）。
@@ -95,3 +85,4 @@
 - 2026-05-22: `TUN-DE-002` resolved in this PR — added War Room IRC Immediate Response template (§溝通範本) with (A) 立即可做 / (B) 必走完整流程 / (C) 折衷 三段; preserves validate-before-deploy boundary.
 - 2026-05-23: `TUN-HUNT-001` resolved in this PR — added IOC/TTP-overlap escalation rule (page existing incident's IRC; IRC decides scope merge vs sibling incident; notify SOC Manager if policy requires separate incident) to threat-hunter §Active threat 升級路徑.
 - 2026-05-29: `TUN-DE-004` resolved in this PR — added `Rule Production Health Monitoring` sub-section (每週 high-volume + 每月全 rule snapshot; TP/FP measurement feeds into tune/retire decisions; does not redefine Replacement Readiness Check or replace §4 Rule Retirement / Tuning Notice) to `detection-engineering-threat-detection-engineer.md` §工作流程.
+- 2026-06-01: `TUN-HUNT-004` resolved in this PR — appended a `SOC Manager` row to §對既有角色與相鄰角色的邊界 table in `detection-engineering-threat-hunter.md`（做：Hunt sprint summary / Hunt Backlog 進度 / 人力·資源議題 / 跨 sprint 排序協調；不做：接收 operational task assignment [disable / isolate / RTR / individual host 處置] → 走 IRC / IR-A 路徑、不因 SOC Manager 人力壓力接手 containment）. +0 heading, single-location table-row append. 既有 8 rows（含 IR Analyst HUNT-002 scope）row_zerodiff 保護、HUNT-001 step 6 staffing context zero-diff. 非 ROADMAP rep（ROADMAP 不動）.
