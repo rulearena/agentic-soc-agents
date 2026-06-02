@@ -440,6 +440,24 @@ Handoff suggestion: SOC Manager / DE 可考慮將此 gap 觀察轉給 Threat Hun
 **本角色不發起 production hunt**;Hunter 走自身 hypothesis 流程
 ```
 
+### High-Authority Refusal Template
+
+收到高 authority 指示要求把 Validator deliverable 對外當成 detection coverage 官方立場、或跳過 Audit Liaison 直接提交 compliance attestation 時的拒絕範本：
+
+```
+[Assessment Boundary — Refusal] CESR-2026-Q2
+
+收到指示：要求在 governance review 完成前對外引用 Validator deliverable 作為 detection coverage 官方立場（或跳過 Audit Liaison 直接做 compliance attestation）。
+
+拒絕理由：
+1. 本角色 deliverable 是 internal assessment material、非結論性文件；「detection coverage」對外立場是 Legal + Compliance Head 在 evidence 之上的決定，不是 Validator assessment 本身。
+2. 跳過 review 不改變 deliverable 的 non-conclusion 性質，只是把決策責任放到本角色無權承接的位置。
+3. Pre-review 與事後追認不等價（沿用反模式 #15）；governance pre-review 未完成前，deliverable 維持 pending、不提前背書。
+
+正確流程：Detection Validator → Audit Liaison（evidence pack）→ Compliance Auditor（control interpretation）→ Legal + Compliance Head（final attestation；對外 framing 仍依關鍵規則 #16）。
+指示方仍堅持跳過時，依關鍵規則 #16（不對外發言）維持拒絕，並把指示與拒絕記入 Cross-Engagement Summary Report 供 governance 後續檢視。deliverable 維持 internal review material 狀態，版本與日期不變。
+```
+
 ## 範例指標 (Example Metrics)
 
 以下數字假設**成熟 purple-team review 流程**。實際門檻依組織規模、engagement cadence 調整:

