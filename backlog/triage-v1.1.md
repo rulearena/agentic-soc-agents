@@ -37,7 +37,7 @@
 | 11 | [TUN-IOC-001](threat-intel.md) | IRC 事件期間「在規則內可做事項」明確 menu 缺 | boundary / authority | ✅ shipped in this PR |
 | 12 | [TUN-IOC-002](threat-intel.md) | Policy Change Decline Template（拒絕 SOC Manager 跨界改 source policy） | 拒絕 / boundary | ✅ shipped in this PR |
 | 13 | [TUN-AE-001](purple-team.md) | CISO / executive 越權的明確處理章節 | authority / override | ✅ shipped in this PR |
-| 14 | [TUN-MGR-001](governance.md) | CISO override pressure response playbook | authority / override | **+ TUN-MGR-006 (P2) 同步設計** — ✅ shipped in this PR（MGR-001 only；MGR-006 仍 active） |
+| 14 | [TUN-MGR-001](governance.md) | CISO override pressure response playbook | authority / override | **+ TUN-MGR-006 (P2) 同步設計** — ✅ shipped in this PR（MGR-001 + MGR-006 皆已 shipped） |
 | 15 | [TUN-CA-001](governance.md) | Time-pressure escalation playbook | authority | ✅ shipped in this PR |
 | 16 | [TUN-CA-002](governance.md) | Cross-role consolidation 拒絕範本 | 拒絕 / boundary | 越界邀請 family — ✅ shipped in this PR |
 | 17 | [TUN-AL-001](governance.md) | AL escalation protocol when receiving CISO/Exec override directive | authority / override | ✅ shipped in this PR |
@@ -94,7 +94,7 @@
 | 22 | [TUN-MGR-003](governance.md) | Recognition framework 設計原則 | ⭐ 高（降）| — |
 | 23 | [TUN-MGR-004](governance.md) | Staffing change 在 incident 後的冷卻期 | 中 | ✅ shipped in this PR |
 | 24 | [TUN-MGR-005](governance.md) | Metrics-to-performance 防火牆語言 | 中 | — |
-| 25 | [TUN-MGR-006](governance.md) | War room observer 條款 | 中 | **與 TUN-MGR-001 (P1) 同步設計**（避免 authority wording 之後重修） |
+| 25 | [TUN-MGR-006](governance.md) | War room observer 條款 | 中 | **與 TUN-MGR-001 (P1) 同步設計** — ✅ shipped in this PR |
 | 26 | [TUN-CA-004](governance.md) | CIN as policy input 流程 | 中 | — |
 | 27 | [TUN-AL-004](governance.md) | Chain of custody 簽收的「合理優化 vs 違規捷徑」分界 | 中 | ✅ shipped in this PR |
 | 28 | [TUN-AE-002](purple-team.md) | Scope drift 自我通報範本 | ⭐ 高（降）| 弱於 AE-003 (P1) |

@@ -30,14 +30,6 @@
 - Team-level systemic contribution metrics 範本（替代 individual KPI）
 - Goodhart's Law 應用案例
 
-### TUN-MGR-006 — War room observer 條款 中
-
-**問題**：Test K Input #1 場景需要明確：CISO 作為 stakeholder 可否進 war room observe？目前定義模糊，可能被解讀為「在場 = 有 authority」。
-
-**測試來源**：Test K Input #1（執行者建議 CISO 可作 observer 但不投票）
-
-**建議方向**：在 §對既有角色與相鄰角色的邊界 — IR Commander 欄補一條：「CISO / 上層 stakeholder 可作為 war room observer 接收 situational awareness，但**不投票、不下指令、不入 Decision Log decision row**；觀察者角色明文化避免『在場 = 有 authority』誤解」。
-
 ### TUN-MGR-007 — Multi-input pressure session 的優先序協議 低
 
 **問題**：一個 session 內收到多個治理紅線挑戰時（如 Test K 5 個 input），需要 facilitator 自身的 self-check protocol：每個 input 對應哪條紅線、是否有跨 input 妥協（例：拒絕 #1 但通過 #4 會被視為選擇性執法）。
@@ -117,3 +109,4 @@
 - 2026-05-27: `TUN-MGR-002` resolved in this PR — added §`Individual Development Review — Separation Statement`（治理交付物 #6）to `governance-soc-manager.md`; PIR 與個人發展檢討兩份文件永不混用 + 個人 dev review 走 role owner + HR + 證據用 qualitative review/skill matrix 非 SOC metrics + PIR 維持 gap framing 不點名個人. 非 ROADMAP rep（ROADMAP 不動）. 最後一條 P1 → P1 清零.
 - 2026-05-29: `TUN-MGR-004` resolved in this PR — added `Post-Incident Staffing Cooldown Period`（治理交付物 #7）to `governance-soc-manager.md`; 重大事件後 cooldown 期間 hold staffing model 結構性變更、temporary capacity 調整不受限、解除綁 PIR systemic root cause、例外記入 §5 Cross-Role Norms Decision Log + 上層壓力走 §Upward Pressure Resistance Template. 引用既有 §核心任務 #2 / §2 Capacity Health / §4 PIR / §5 CRN / MGR-001 template，不重定義. 非 ROADMAP rep（ROADMAP 不動）.
 - 2026-06-01: `TUN-AL-004` resolved in this PR — added `Chain of Custody Optimization Boundaries`（§關鍵規則 末、首個 ### 子段）to `governance-audit-liaison.md`; 區分 chain of custody 可優化（簽收工具效率 / 層級分流）vs 不可協商（每次 access 必有 entry / 簽收當下完成不事後補登 / 改動走 governance review 不私下協議）. 細化關鍵規則 #2 與反模式 #4，引用不重定義. 非 ROADMAP rep（ROADMAP 不動）.
+- 2026-06-02: `TUN-MGR-006` resolved in this PR — added war room observer 條款 to §對既有角色與相鄰角色的邊界 IR Commander row（做 cell）of `governance-soc-manager.md`; 上層 stakeholder / CISO 僅可透過 IRC 既定 situational-awareness 管道以 observer 接收事件進度、不投票 / 不下指令 / 不列為 IRC Decision Log 的 decision-maker / approver、破除「在場 = 有 authority」誤解. SOC Manager 僅於 policy compendium 明文化此 observer 邊界（policy ownership，非 live 准入、非參與 IC、不取得 action authority）；接收管道 cross-ref §Upward Pressure Resistance Template，不重述. 與 `TUN-MGR-001`（override pressure）同步設計收尾. 非 ROADMAP rep（ROADMAP 不動）.
