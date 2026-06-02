@@ -51,17 +51,6 @@
 
 ## purple-team-detection-validator
 
-### TUN-DV-004 — 高 authority 拒絕語言範本 中
-
-**問題**：對 CISO / Compliance Head 等高層級的拒絕，需要更 concise + 正式的範本。目前 §溝通範本都針對 DE / Emulator / SOC Manager，缺高 authority 對話範本。
-
-**測試來源**：Test O Input #4（Compliance Head）+ #5（CISO）
-
-**建議方向**：在 §溝通範本加 `High-Authority Refusal Template`：
-- 開頭措辭（直接點紅線 + 拒絕，不囉嗦）
-- 結構化三段（為什麼不能做 / 短期可行替代 / 正確流程）
-- 結尾留 escalation path（若 high-authority 仍堅持，escalate 到誰）
-
 ### TUN-DV-005 — 與 Audit Liaison 的具體 handoff workflow 中
 
 **問題**：§對既有角色邊界與 §協作回饋通道都提到 Audit Liaison，但沒有 step-by-step workflow（CECT/DRA → Audit Liaison 的 evidence pack 整理 → Compliance Auditor control interpretation → Legal/Compliance Head 對外）。Test O Input #4 場景顯示需要這個 workflow 圖。
@@ -98,3 +87,4 @@ CECT/DRA/CESR (Validator, non-conclusion)
 - 2026-05-26: `TUN-AE-001` resolved in this PR — added §關鍵規則「Executive override 邊界」(#19–22) + `Executive Override Refusal Template` to `purple-team-adversary-emulator.md`; override family（cross-ref `TUN-MGR-001`, `TUN-AL-001`, `TUN-CA-001`）.
 - 2026-05-27: `TUN-AE-003` resolved in this PR — added §`Out-of-Scope Vulnerability Disclosure Note`（交付物 #6）to `purple-team-adversary-emulator.md`; generic 描述 + Vulnerability Management handoff + 不自評 severity + engagement audit trail 隔離. 非 ROADMAP rep（ROADMAP 不動）.
 - 2026-05-31: `TUN-DV-003` resolved in this PR — extended §反模式 #8 (Single-engagement conclusion) + §`Adversary Emulator 雙向協作` 關鍵語意 in `purple-team-detection-validator.md` with the time-dimension framing（single engagement evidence 仍進 multi-cycle trend → separation of duties 對單次成立、合併 Emulator+Validator 任何單次都不允許）. +0 heading, two-location prose edit. 非 ROADMAP rep（ROADMAP 不動）.
+- 2026-06-02: `TUN-DV-004` resolved in this PR — added High-Authority Refusal Template (§溝通範本) to `purple-team-detection-validator.md`; 拒絕把 internal assessment material 對外當 detection coverage 官方立場/跳過 Audit Liaison；pre-review ≠ 事後追認（反模式 #15）、對外 framing 依關鍵規則 #16. 非 ROADMAP rep. P2.

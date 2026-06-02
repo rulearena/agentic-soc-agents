@@ -71,7 +71,7 @@
 | # | ID | 標題 | 原 priority | Family / 備註 |
 |---|---|---|---|---|
 | 1 | [TUN-L1-003](triage.md) | 缺 time-critical TP 快速升級決策框架 | 中 | ✅ shipped in this PR |
-| 2 | [TUN-L1-005](triage.md) | Evidence pending 處理規範 | 中 | — |
+| 2 | [TUN-L1-005](triage.md) | Evidence pending 處理規範 | 中 | ✅ shipped in this PR |
 | 3 | [TUN-L2-003](triage.md) | Supply chain hypothesis 的並行 hand-off 路徑 | 中 | — |
 | 4 | [TUN-IRC-001](incident-response.md) | `cannot_approve_alone` 缺法規時限速查 hook | 中 | ✅ shipped in this PR |
 | 5 | [TUN-IRC-002](incident-response.md) | 業務 owner 跨界引導技術決策的 Anti-Pattern 缺位 | 中 | ✅ shipped in this PR |
@@ -79,7 +79,7 @@
 | 7 | [TUN-IRA-004](incident-response.md) | 跨 rotation IR-A 接班的 handoff template 缺 | 中 | ✅ shipped in this PR |
 | 8 | [TUN-FOR-002](incident-response.md) | Anti-forensics 觸發場景的 SOP 缺 | ⭐ 高（降）| ✅ shipped in this PR |
 | 9 | [TUN-FOR-003](incident-response.md) | Partial preservation acceptable threshold 判斷材料缺 | 中 | Attribution family 邊緣成員 |
-| 10 | [TUN-FOR-004](incident-response.md) | Override 流程的「業務時程壓力」入口未明說 | 中 | — |
+| 10 | [TUN-FOR-004](incident-response.md) | Override 流程的「業務時程壓力」入口未明說 | 中 | ✅ shipped in this PR |
 | 11 | [TUN-DE-003](detection-engineering.md) | Replacement readiness gate 機制未明寫 | 中 | — |
 | 12 | [TUN-DE-004](detection-engineering.md) | Production FP rate ongoing measurement 路徑未定義 | 中 | ✅ shipped in this PR |
 | 13 | [TUN-DE-005](detection-engineering.md) | Audit Liaison 拒灌水的 framing 範本缺 | 中 | 灌水 family（hub = AL-003 P1） |
@@ -101,7 +101,7 @@
 | 29 | [TUN-AE-004](purple-team.md) | 疑似 real event 期間 Engagement Log 是否屬 forensic evidence | 中 | — |
 | 30 | [TUN-AE-005](purple-team.md) | Executive override attempt 的 audit trail | 中 | 與 AE-001 (P1) 同層級 authority 議題 |
 | 31 | [TUN-DV-003](purple-team.md) | Single-engagement vs cross-engagement 結論的時間維度限制 | 中 | ✅ shipped in this PR |
-| 32 | [TUN-DV-004](purple-team.md) | 高 authority 拒絕語言範本 | 中 | — |
+| 32 | [TUN-DV-004](purple-team.md) | 高 authority 拒絕語言範本 | 中 | ✅ shipped in this PR |
 | 33 | [TUN-DV-005](purple-team.md) | 與 Audit Liaison 的具體 handoff workflow | 中 | — |
 
 ---

@@ -18,18 +18,6 @@
 
 **建議方向**：在「工具掌握度」表的 CrowdStrike Falcon 列補充：「能從 Process Explorer / Host Search 取得 file hash 餵給 VT」；或在「核心任務 → Context Enrichment」加一條 micro-workflow。
 
-### TUN-L1-005 — Evidence pending 處理規範 中
-
-**問題**：當必要 evidence 暫時取不到（API 斷線、hash 還沒撈、enrichment source 故障），ticket 應有明確標註慣例，避免被 L2 / auditor 誤讀為「L1 偷懶」。
-
-**測試來源**：Test A（VT lookup 因 raw alert 未含 hash 必須標 pending）
-
-**建議方向**：在 Alert Triage Report 範本的 Evidence 區塊加標準格式：
-```
-- [Evidence Type]: <link or attachment> | **PENDING** — reason: <為何取不到>; ETA: <何時可補>; owner: <誰負責補>
-```
-另在 Anti-Pattern 章節澄清：**「誠實標 pending 並說明理由」≠「跳過 enrichment」**。
-
 ### TUN-L1-006 — 常見 triage heuristic quick reference 擴充 低
 
 **問題**：目前 MITRE ATT&CK 對應表只列 6 條 technique，實務常見的 rundll32 / regsvr32 / mshta / wmic / certutil 等 LOLBin 濫用 pattern、Temp 路徑落地、export name pattern 等 heuristic 沒有快速 reference。
@@ -90,3 +78,4 @@
 - 2026-05-21: `TUN-L2-002` resolved in this PR — added hard escalation rule (single malware artifact across ≥2 business units → auto IR) to 升級條件.
 - 2026-05-23: `TUN-L1-002` resolved in this PR — added `Process / Systemic Escalation Paths` sub-section (systemic issue → Detection Engineer / SOC Engineer / SOC Manager + ticket queue / Slack channel / weekly review + 留痕) to `triage-l1-soc-analyst.md` §升級條件.
 - 2026-05-28: `TUN-L1-003` resolved in this PR — added `Time-Critical TP Fast-Track` sub-section (升級 + 並行 enrichment) to `triage-l1-soc-analyst.md` §工作流程; triggers on credential dumping / AD attack / ransomware staging patterns.
+- 2026-06-02: `TUN-L1-005` resolved in this PR — added Evidence Pending 標註規範 sub-section to `triage-l1-soc-analyst.md`; PENDING evidence 須填 reason/ETA/owner + 補回留痕、不靜默替換、平台異常記入 Systemic Issues Observed；PENDING ≠ 跳過 enrichment. 非 ROADMAP rep. P2.

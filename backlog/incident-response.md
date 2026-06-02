@@ -75,14 +75,6 @@
 - 各類 evidence 的可替代性（disk snapshot 能 / 不能補哪些 in-memory artifact）
 - 對 Legal / regulatory 可用性的影響分級
 
-### TUN-FOR-004 — Override 流程的「業務時程壓力」入口未明說 中
-
-**問題**：定義 §Override 流程講「Legal / business owner 進入決策窗口」，但**沒講誰負責把業務時程壓力轉成 joint decision 觸發**。Test E 場景中 Forensics 收到 side-channel 壓力後 redirect 給 IRC 並建議啟動 joint decision，但這是 Forensics 的職責還是 IRC 該主動評估？目前模糊。
-
-**測試來源**：Test E 訊息 #3（Forensics 主動建議 IRC 啟動 cannot_approve_alone joint decision）
-
-**建議方向**：在 §Override 流程加一行：「業務時程壓力出現 side-channel 訊號時，**Forensics 可以建議**啟動 joint decision，但**觸發決策權**仍在 IRC；Forensics 的責任是把 side-channel 事實 + evidence loss 量化 + 建議路徑送進 IRC 通道」。
-
 ### TUN-FOR-005 — 「ETA 超出 IRC 要求」的回應姿態未範本化 低
 
 **問題**：Test E 場景中 IRC 要求 10:30 完成，Forensics 評估後給 10:34 + 不退讓 hash verification —— 這是基於 §關鍵規則 8 自己詮釋的，但 §溝通範本沒示範。實務上 Forensics 給「超出 IRC 期望」的 ETA 時容易被解讀為「鑑識在拖延」，需要範本化清楚的姿態。
@@ -106,3 +98,4 @@
 - 2026-06-01: `TUN-FOR-002` resolved in this PR — extended §工作流程 `### 3. Acquire` in `incident-response-forensics-analyst.md` with the anti-forensics acquisition SOP（區分工具故障 vs anti-forensics 主動干擾的判斷訊號、對應選項清單 [重做 / kill 可疑 session 再採 / cold acquisition / IRC joint decision]、與 IR Analyst 的 kill session 責任界線）. kill session 框成 Forensics 提 preservation risk signal → IR Analyst 走 IRC approval 執行、不自己 contain（cross-ref §關鍵規則 7）. +0 heading, single-location prose append. 非 ROADMAP rep（ROADMAP 不動）.
 - 2026-06-02: `TUN-IRC-001` resolved in this PR — added `cannot_approve_alone` 法規時限速查 hook (§反應權限) to `incident-response-ir-commander.md`; 對外通知/disclosure 類決策可能受法規/合約/監理時限約束時，IRC 啟動即向 Audit Liaison 發 time-sensitive regulatory check 取得最快 external deadline 作 Decision Log 時間錨點，不自行詮釋合規義務、由 Legal/Audit Liaison 認定. 非 ROADMAP rep. P2.
 - 2026-06-02: `TUN-IRC-002` resolved in this PR — added 反模式 #9「業務 owner 跨界引導技術決策」to `incident-response-ir-commander.md`; 業務主管以「等不了/事後補/你拍板」引導 IRC 跳過 evidence preservation（#5）或 cannot_approve_alone 共同決策（#4）時回流程語言拒絕、Exec Sponsor 處理業務壓力取捨但 preservation/共同決策仍照既有流程. 非 ROADMAP rep. P2.
+- 2026-06-02: `TUN-FOR-004` resolved in this PR — added 業務時程壓力 side-channel 責任分界 to §Override 流程 in `incident-response-forensics-analyst.md`; side-channel 業務時程壓力 → Forensics 報事實+量化 evidence loss+建議 IRC 啟動 joint decision，不繞過 IRC、不靜默改 evidence handling，IRC 未判斷就 override 則紀錄義務歸 IRC；cross-ref FOR-001 不重述. 非 ROADMAP rep. P2.
