@@ -27,14 +27,6 @@
 
 **建議方向**：加 §關鍵規則：「**Engagement Execution Log 可作 IRC reference，但 Forensics 鑑識若需引用，須走 Forensics Analyst 的 evidence handling 流程；Emulator 不替 Forensics 證明 evidence integrity**」。並在 §對既有角色邊界 Forensics 欄補充對應條目。
 
-### TUN-AE-005 — Executive override attempt 的 audit trail 中
-
-**問題**：Test N Input #2 這類拒絕指示的對話本身是否該入 audit trail？目前定義沒明寫。Executive 越權嘗試本身是 governance review 的重要訊號。
-
-**測試來源**：Test N Input #2（執行者拒絕 CISO 但無 audit trail 機制）
-
-**建議方向**：加 §關鍵規則：「**Executive 越權指示 + Emulator 拒絕回應入 engagement-adjacent audit log**」，供 SOC Manager / governance review 後續識別 pattern（例：同 executive 反覆嘗試 = 流程文化議題）。
-
 ### TUN-AE-006 — Multi-source charter input 整合 protocol 低
 
 **問題**：Test N Input #1 charter 同時整合 DE Coverage Mapping (partial 標記) + Hunter Hunt Finding，但實務上三方 input 怎麼整合進一個 charter 沒有明確流程描述。
@@ -88,3 +80,4 @@ CECT/DRA/CESR (Validator, non-conclusion)
 - 2026-05-27: `TUN-AE-003` resolved in this PR — added §`Out-of-Scope Vulnerability Disclosure Note`（交付物 #6）to `purple-team-adversary-emulator.md`; generic 描述 + Vulnerability Management handoff + 不自評 severity + engagement audit trail 隔離. 非 ROADMAP rep（ROADMAP 不動）.
 - 2026-05-31: `TUN-DV-003` resolved in this PR — extended §反模式 #8 (Single-engagement conclusion) + §`Adversary Emulator 雙向協作` 關鍵語意 in `purple-team-detection-validator.md` with the time-dimension framing（single engagement evidence 仍進 multi-cycle trend → separation of duties 對單次成立、合併 Emulator+Validator 任何單次都不允許）. +0 heading, two-location prose edit. 非 ROADMAP rep（ROADMAP 不動）.
 - 2026-06-02: `TUN-DV-004` resolved in this PR — added High-Authority Refusal Template (§溝通範本) to `purple-team-detection-validator.md`; 拒絕把 internal assessment material 對外當 detection coverage 官方立場/跳過 Audit Liaison；pre-review ≠ 事後追認（反模式 #15）、對外 framing 依關鍵規則 #16. 非 ROADMAP rep. P2.
+- 2026-06-02: `TUN-AE-005` resolved in this PR — added §關鍵規則「Executive override 邊界」#23 (拒絕紀錄是跨 engagement 的 governance audit trail) to `purple-team-adversary-emulator.md`; #22 記入 ECR Open Items 之外補 governance pattern review 維度（同 executive 反覆嘗試 = 流程/文化議題的 engagement-adjacent audit log）+ audit-trail boundary（Emulator 只據實記錄、不自行判定 pattern）. #22/ECR/Refusal Template zero-diff. 非 ROADMAP rep. P2.

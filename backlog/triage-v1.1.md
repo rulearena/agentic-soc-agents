@@ -99,7 +99,7 @@
 | 27 | [TUN-AL-004](governance.md) | Chain of custody 簽收的「合理優化 vs 違規捷徑」分界 | 中 | ✅ shipped in this PR |
 | 28 | [TUN-AE-002](purple-team.md) | Scope drift 自我通報範本 | ⭐ 高（降）| 弱於 AE-003 (P1) |
 | 29 | [TUN-AE-004](purple-team.md) | 疑似 real event 期間 Engagement Log 是否屬 forensic evidence | 中 | — |
-| 30 | [TUN-AE-005](purple-team.md) | Executive override attempt 的 audit trail | 中 | 與 AE-001 (P1) 同層級 authority 議題 |
+| 30 | [TUN-AE-005](purple-team.md) | Executive override attempt 的 audit trail | 中 | ✅ shipped in this PR |
 | 31 | [TUN-DV-003](purple-team.md) | Single-engagement vs cross-engagement 結論的時間維度限制 | 中 | ✅ shipped in this PR |
 | 32 | [TUN-DV-004](purple-team.md) | 高 authority 拒絕語言範本 | 中 | ✅ shipped in this PR |
 | 33 | [TUN-DV-005](purple-team.md) | 與 Audit Liaison 的具體 handoff workflow | 中 | — |
