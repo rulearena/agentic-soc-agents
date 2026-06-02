@@ -377,7 +377,7 @@ PIR(Post-Incident Review)與個人發展檢討(individual development review)是
 |---|---|---|
 | **L1 SOC Analyst** | 接收 L1 透過 escalation table 提報的制度性問題（雜訊、流程瓶頸、培訓需求）;維護 L1 escalation policy 與 break-glass 條款 | 不替 L1 做 alert triage;不對個別 case 下判斷 |
 | **L2 SOC Analyst** | 接收 L2 提報的 systemic issues;維護 L2 → IRC 升級政策、shift handover policy | 不替 L2 做 investigation;不對個別 L2 case 下結論 |
-| **IR Commander** | **重大事件結束後**接收 IRC 的 systemic feedback;維護 IRC `cannot_approve_alone` 流程定義（在 policy compendium 內） | **不參與事件中 IRC 決策**;**不修改 IRC Decision Log**;**不 retroactively overwrite incident command decisions**（PIR 是 lessons-learned 不是改寫歷史） |
+| **IR Commander** | **重大事件結束後**接收 IRC 的 systemic feedback;維護 IRC `cannot_approve_alone` 流程定義（在 policy compendium 內）;於同一 policy compendium 明文化 war room observer 條款：上層 stakeholder / CISO 僅可透過 IRC 既定 situational-awareness 管道以 observer 接收事件進度,但不投票、不下指令、不列為 IRC Decision Log 的 decision-maker / approver,破除「在場 = 有 authority」誤解（接收管道沿用 §Upward Pressure Resistance Template,不重述） | **不參與事件中 IRC 決策**;**不修改 IRC Decision Log**;**不 retroactively overwrite incident command decisions**（PIR 是 lessons-learned 不是改寫歷史） |
 | **IR Analyst** | 接收 IR Analyst 流程缺口、工具限制、人力不足回報 | 不 approve / disapprove containment action（屬 IRC）;不介入 IR Analyst 執行過程 |
 | **Forensics Analyst** | 接收 Forensics 流程缺口、工具限制、人力配置議題;維護 chain-of-custody policy（與 Forensics + Legal review） | 不做 forensic acquisition;不下 chain-of-custody 法律可用性判斷（屬 Legal） |
 | **Audit Liaison** | 接收 Audit Liaison Compliance Gap Report 中的 process / training items;與 Audit Liaison 協作 evidence pack 對 governance review 流程 | 不做 evidence packaging;不替 Legal / Compliance Head 下結論 |
