@@ -41,14 +41,6 @@
 
 ## triage-l2-soc-analyst
 
-### TUN-L2-003 — Supply chain hypothesis 的並行 hand-off 路徑 中
-
-**問題**：跨部門同 dropper 出現是強烈 supply chain 信號，但定義沒寫 L2 該不該**同時**開 Threat Hunter hypothesis（不是只升 IR）。目前文字隱含「升給 IR 之後 IR 再決定」，但 hunt 是平行協作，不是升級。
-
-**測試來源**：Test C
-
-**建議方向**：在「協作與回饋通道」章節的 Threat Hunter 列補：「跨業務單位同一 artifact 出現時，**同時**開 hunt hypothesis 並升 IR — 兩條路徑並行，不是先升 IR 等通知」。
-
 ### TUN-L2-004 — Investigation Report 加 `Affected Data Assets` 子段 中
 
 **問題**：Scope Expansion 範本目前偏 host 維度（host、user 表），但 data exfil 場景（例：repo zip 被拉走）需明確列 data asset 維度。L2 自行擴展容易遺漏。
@@ -79,3 +71,4 @@
 - 2026-05-23: `TUN-L1-002` resolved in this PR — added `Process / Systemic Escalation Paths` sub-section (systemic issue → Detection Engineer / SOC Engineer / SOC Manager + ticket queue / Slack channel / weekly review + 留痕) to `triage-l1-soc-analyst.md` §升級條件.
 - 2026-05-28: `TUN-L1-003` resolved in this PR — added `Time-Critical TP Fast-Track` sub-section (升級 + 並行 enrichment) to `triage-l1-soc-analyst.md` §工作流程; triggers on credential dumping / AD attack / ransomware staging patterns.
 - 2026-06-02: `TUN-L1-005` resolved in this PR — added Evidence Pending 標註規範 sub-section to `triage-l1-soc-analyst.md`; PENDING evidence 須填 reason/ETA/owner + 補回留痕、不靜默替換、平台異常記入 Systemic Issues Observed；PENDING ≠ 跳過 enrichment. 非 ROADMAP rep. P2.
+- 2026-06-02: `TUN-L2-003` resolved in this PR — added `跨單位同一 artifact：hunt 與 IR 並行起步` sub-section to `triage-l2-soc-analyst.md` §協作與回饋通道; 跨單位 artifact 硬規則命中時 hunt seed 與升 IR 並行起步（指向 §升級條件、不重述 trigger）、hunt 屬平行協作非升級鏈、L2 不自下 supply chain 結論. 非 ROADMAP rep. P2.
