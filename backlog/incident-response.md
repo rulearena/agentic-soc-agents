@@ -8,25 +8,6 @@
 
 ## incident-response-ir-commander
 
-### TUN-IRC-001 — `cannot_approve_alone` 缺法規時限速查 hook 中
-
-**問題**：customer-notification 與 law-enforcement-contact 在不同 jurisdiction（GDPR 72hr、CCPA、台灣個資法等）有強制通報時限。角色定義 §升級條件表只說「法定通報，依各地法規時限」「Audit Liaison 主理」，但 IR Commander 在共同決策時需要知道「**最快 deadline 是什麼**」才能設定 war room 評估時程；目前要等 Audit Liaison 回覆才知道。
-
-**測試來源**：Test D 請求 #4（2026-05-18，Legal 請求 customer-notification + law-enforcement-contact 共同決策）
-
-**建議方向**：升級條件表加一欄 `法規時限速查連結`（不寫具體時限避免過時，但留可維護的 reference hook），讓 commander 在共同決策時序設計時有參考錨點。
-
-### TUN-IRC-002 — 業務 owner 跨界引導技術決策的 Anti-Pattern 缺位 中
-
-**問題**：目前 Anti-Pattern #1（super-engineer commander）是針對 commander **自己**衝動下技術指令，但**業務 owner（VP / 業務主管）引導 commander 跳過 preservation、跳過 approval 流程、直接拍板**的情境是更高頻、更難拒絕的壓力源（因為涉及階層 + 業務復工迫切性），目前定義沒有顯式 Anti-Pattern 與拒絕話術。
-
-**測試來源**：Test D 訊息 #3（R&D VP 引導以 disk snapshot 取代 memory dump、直接拍板 process kill）
-
-**建議方向**：新增 Anti-Pattern #9 `業務 owner 跨界引導技術決策`，含：
-- 識別訊號（「乾脆你拍板」「事後我們補」「dev team 等不了」）
-- 拒絕話術範本（不堆技術術語，回到流程語言）
-- 升級路徑（若 VP 持續施壓 → 拉 Exec Sponsor 共同決策）
-
 ### TUN-IRC-003 — Sev-1 暫定 → confirm/downgrade 缺時間框架 低
 
 **問題**：定義 §workflow §2 Classify 講「為何不是更高/更低」三軸評估，但沒有「Sev-1 **暫定** → N 分鐘內基於更多證據 confirm 或 downgrade」的明確時間框架。事件初期 commander 常需先暫定才能啟動流程，但暫定狀態能維持多久沒寫，可能導致 stakeholder 對嚴重度認知混亂。
@@ -123,3 +104,5 @@
 - 2026-05-24: `TUN-IRA-001` resolved in this PR — annotated SIEM verification-query scope boundary (綁定 AAR target；超界 pivot 屬 hunting → Threat Hunter) + added Stop-and-Report trigger row (verification pivot 超界 → Scope Drift Report → IRC) to `incident-response-ir-analyst.md`.
 - 2026-05-28: `TUN-IRA-004` resolved in this PR — added IR-A Shift Handoff Brief template (§溝通範本) to `incident-response-ir-analyst.md`; rotation A→B 同角色接班的執行狀態交接（executing/completed/pending AAR 狀態 + holding scope drift items 摘要 + verification monitor 移交 + 未結 Execution Report 與 finalize ETA），與 #4 IR-A→L2 handoff 明確區分、引用 SDR 機制不重寫. 非 ROADMAP rep（ROADMAP 不動）. 首條 P2.
 - 2026-06-01: `TUN-FOR-002` resolved in this PR — extended §工作流程 `### 3. Acquire` in `incident-response-forensics-analyst.md` with the anti-forensics acquisition SOP（區分工具故障 vs anti-forensics 主動干擾的判斷訊號、對應選項清單 [重做 / kill 可疑 session 再採 / cold acquisition / IRC joint decision]、與 IR Analyst 的 kill session 責任界線）. kill session 框成 Forensics 提 preservation risk signal → IR Analyst 走 IRC approval 執行、不自己 contain（cross-ref §關鍵規則 7）. +0 heading, single-location prose append. 非 ROADMAP rep（ROADMAP 不動）.
+- 2026-06-02: `TUN-IRC-001` resolved in this PR — added `cannot_approve_alone` 法規時限速查 hook (§反應權限) to `incident-response-ir-commander.md`; 對外通知/disclosure 類決策可能受法規/合約/監理時限約束時，IRC 啟動即向 Audit Liaison 發 time-sensitive regulatory check 取得最快 external deadline 作 Decision Log 時間錨點，不自行詮釋合規義務、由 Legal/Audit Liaison 認定. 非 ROADMAP rep. P2.
+- 2026-06-02: `TUN-IRC-002` resolved in this PR — added 反模式 #9「業務 owner 跨界引導技術決策」to `incident-response-ir-commander.md`; 業務主管以「等不了/事後補/你拍板」引導 IRC 跳過 evidence preservation（#5）或 cannot_approve_alone 共同決策（#4）時回流程語言拒絕、Exec Sponsor 處理業務壓力取捨但 preservation/共同決策仍照既有流程. 非 ROADMAP rep. P2.

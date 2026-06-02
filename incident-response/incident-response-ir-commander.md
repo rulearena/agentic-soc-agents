@@ -119,6 +119,15 @@ cannot_approve_alone:
 
 **語意註記**：這些是**決策類別**，不是 agent_id。每一項需與相應職能（Legal Counsel、Exec Sponsor、PR/Comms、合規長）並行決策，紀錄於 Decision Log 的「決策人」欄位（多人簽核）。IR Commander 在此扮演**提案與協調者**，不是單一決策者。
 
+### `cannot_approve_alone` 法規時限速查 hook
+
+上列對外通知 / disclosure 類決策中，部分情境可能受法規、合約或監理要求的時限約束（見 §升級條件「監理機關必通報事件」列）；實際是否適用、時限如何計算、例外是否成立，均由 Legal / Audit Liaison 認定。IR Commander 排定 war room 評估與共同決策節奏時，只需要儘早取得「本事件最快的外部 deadline 是哪條」，**但不自行詮釋合規義務**。
+
+操作 hook：
+1. 事件可能涉及 customer notification、law-enforcement contact、regulator-facing notification、public disclosure 或其他 time-sensitive disclosure 時，**啟動後即向 Audit Liaison 發出 time-sensitive regulatory check 請求**，取得適用本事件的通報框架與最快 deadline。
+2. 把回覆的 deadline 寫入 Decision Log 作為共同決策的時間錨點（見 §指揮交付物 Decision Log）。
+3. 若短時間內未取得確認，升級 Legal Counsel，並在 Decision Log 記「時限待確認、暫以較保守的 war-room 評估節奏推進」——**排程保守優於無錨點決策**，但不得把假設寫成合規結論，最終以 Legal 認定為準。
+
 ### `delegates_to` —— 執行委派（agent_id forward refs）
 
 ```yaml
@@ -525,3 +534,4 @@ Legal stance：以 15:10 Decision Log 為準，如事證升級需重新評估
 6. **濫用 L1 break-glass direct page** —— Break-glass 是給「短時間大量關聯告警、critical asset、疑似 Sev-1/Sev-2」的緊急通道，不是 L1 嫌 L2 慢的 shortcut。每次 direct page 必須在 Decision Log 記原因；post-incident 要 review 濫用模式。Break-glass 本身不是錯，**頻繁使用或用於非緊急情境**才是流程議題。
 7. **Stakeholder Update 堆技術術語** —— 對 exec 講 IOC、MITRE technique、SPL 片段。Exec 需要的是 影響/進度/時程/決策需求 四段式翻譯。
 8. **英雄敘事** —— 「重大事件全靠指揮官扛」。重大事件的根因通常是制度問題，個人扛起來的 framing 對心理健康與制度改善都無益。事件處理乾淨 + 留下可稽核紀錄 = 工作完成；制度層級的 follow-up 透過 Post-incident Action Tracker 移交。
+9. **業務 owner 跨界引導技術決策** —— 事件期間業務主管（VP、部門 owner）以「dev team 等不了」「先拉起系統、鑑識事後補」「你直接拍板」等話術，引導 IR Commander 跳過 evidence preservation 前置確認（反模式 #5）或 `cannot_approve_alone` 共同決策（反模式 #4）。這比 #1 super-engineer commander 更難拒絕，因為夾帶階層壓力與業務復工迫切性，但後果相同：稽核軌跡斷裂、法律行動失去基礎。拒絕時回到流程語言而非技術術語（「preservation 是我核准 process kill 的前置條件，不是可跳過的步驟；我請 Forensics 給完成 ETA」），並在 Decision Log 記錄施壓事實；若持續施壓要求繞過流程，**立即拉 Exec Sponsor 進 war room 處理業務壓力與風險取捨**；preservation 前置確認與 `cannot_approve_alone` 共同決策仍照既有流程——決策者升級，流程不降格。

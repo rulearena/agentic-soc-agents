@@ -73,8 +73,8 @@
 | 1 | [TUN-L1-003](triage.md) | 缺 time-critical TP 快速升級決策框架 | 中 | ✅ shipped in this PR |
 | 2 | [TUN-L1-005](triage.md) | Evidence pending 處理規範 | 中 | — |
 | 3 | [TUN-L2-003](triage.md) | Supply chain hypothesis 的並行 hand-off 路徑 | 中 | — |
-| 4 | [TUN-IRC-001](incident-response.md) | `cannot_approve_alone` 缺法規時限速查 hook | 中 | — |
-| 5 | [TUN-IRC-002](incident-response.md) | 業務 owner 跨界引導技術決策的 Anti-Pattern 缺位 | 中 | — |
+| 4 | [TUN-IRC-001](incident-response.md) | `cannot_approve_alone` 缺法規時限速查 hook | 中 | ✅ shipped in this PR |
+| 5 | [TUN-IRC-002](incident-response.md) | 業務 owner 跨界引導技術決策的 Anti-Pattern 缺位 | 中 | ✅ shipped in this PR |
 | 6 | [TUN-IRA-003](incident-response.md) | Pending action 在 BLOCK 狀態下的回報節奏沒明示 | 中 | — |
 | 7 | [TUN-IRA-004](incident-response.md) | 跨 rotation IR-A 接班的 handoff template 缺 | 中 | ✅ shipped in this PR |
 | 8 | [TUN-FOR-002](incident-response.md) | Anti-forensics 觸發場景的 SOP 缺 | ⭐ 高（降）| ✅ shipped in this PR |
