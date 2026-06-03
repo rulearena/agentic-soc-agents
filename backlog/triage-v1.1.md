@@ -82,7 +82,7 @@
 | 8 | [TUN-FOR-002](incident-response.md) | Anti-forensics 觸發場景的 SOP 缺 | ⭐ 高（降）| ✅ shipped in this PR |
 | 9 | [TUN-FOR-003](incident-response.md) | Partial preservation acceptable threshold 判斷材料缺 | 中 | Attribution family 邊緣成員 → v1.2 candidate / creator review required |
 | 10 | [TUN-FOR-004](incident-response.md) | Override 流程的「業務時程壓力」入口未明說 | 中 | ✅ shipped in this PR |
-| 11 | [TUN-DE-003](detection-engineering.md) | Replacement readiness gate 機制未明寫 | 中 | → v1.2 candidate（候選池；非承諾交付範圍）|
+| 11 | [TUN-DE-003](detection-engineering.md) | Replacement readiness gate 機制未明寫 | 中 | ✅ shipped (v1.2) |
 | 12 | [TUN-DE-004](detection-engineering.md) | Production FP rate ongoing measurement 路徑未定義 | 中 | ✅ shipped in this PR |
 | 13 | [TUN-DE-005](detection-engineering.md) | Audit Liaison 拒灌水的 framing 範本缺 | 中 | 灌水 family（hub = AL-003 P1） → v1.2 candidate（deferred: framing/size risk; not required for v1.1 closure）|
 | 14 | [TUN-HUNT-002](detection-engineering.md) | Hunt 補充 enrichment 給 IR Analyst 的邊界未明示 | 中 | ✅ shipped (v1.2) |
