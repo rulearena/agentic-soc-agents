@@ -47,14 +47,6 @@
 
 ## detection-engineering-threat-hunter
 
-### TUN-HUNT-002 — Hunt 補充 enrichment 給 IR Analyst 的邊界未明示 中
-
-**問題**：Test H 觸發點 #4 場景中 Hunter 主動提出「整理 technical context 給 IR Analyst 加速 containment」作為對 SOC Manager 越界要求的 constructive alternative。但這算「handoff 延伸」還是「越界做 IR Analyst 的 enrichment 工作」？§對既有角色邊界 — IR Analyst 欄位只說「提供 attack technique context」，沒明確覆蓋 hunt 中產生的 process tree / handle access timeline / module load order 是否可額外打包。
-
-**測試來源**：Test H 觸發點 #4
-
-**建議方向**：在 §對既有角色邊界 — IR Analyst 欄位細化：「Hunter **做**：以 hunt 過程中已產生的 technical context（process tree、handle access timeline、observed module load order）整理成 IR Analyst 可用的 enrichment package；Hunter **不做**：執行 RTR / 收 forensic-grade evidence / 取代 IR Analyst 的 verification 工作」。
-
 ### TUN-HUNT-003 — 「事實 vs 結論」line drawing examples 缺 中
 
 **問題**：HFP 寫「dropper hash 與 INC-2026-05-18-001 相同」算事實（hash 重疊是 observable）還是隱性 attribution？若是 TTP 高度相似（不只 hash）呢？目前 §關鍵規則 4「不做 attribution conclusion」缺具體 examples，Hunter 在邊界上會猶豫。
@@ -85,4 +77,5 @@
 - 2026-05-22: `TUN-DE-002` resolved in this PR — added War Room IRC Immediate Response template (§溝通範本) with (A) 立即可做 / (B) 必走完整流程 / (C) 折衷 三段; preserves validate-before-deploy boundary.
 - 2026-05-23: `TUN-HUNT-001` resolved in this PR — added IOC/TTP-overlap escalation rule (page existing incident's IRC; IRC decides scope merge vs sibling incident; notify SOC Manager if policy requires separate incident) to threat-hunter §Active threat 升級路徑.
 - 2026-05-29: `TUN-DE-004` resolved in this PR — added `Rule Production Health Monitoring` sub-section (每週 high-volume + 每月全 rule snapshot; TP/FP measurement feeds into tune/retire decisions; does not redefine Replacement Readiness Check or replace §4 Rule Retirement / Tuning Notice) to `detection-engineering-threat-detection-engineer.md` §工作流程.
+- 2026-06-03: `TUN-HUNT-002` resolved (v1.2) — refined the `IR Analyst` row in §對既有角色與相鄰角色的邊界 table in `detection-engineering-threat-hunter.md`（做：將 hunt 過程已產生的 operational technical context [process tree / handle access timeline / observed module load order] 整理成隨 L2 / IRC handoff 進入 IR flow、供 IR Analyst 使用的 enrichment package；不做：此 package 僅為 input、不取代 IR Analyst 的 verification、不為打包額外執行 RTR 或收 forensic-grade evidence → 需要時移交 Forensics）. +0 heading, single-row in-cell edit. 鄰列（IRC / Forensics / Detection Engineer 等）row_zerodiff 保護；framing 與 Forensics row「hunt 收 operational evidence、非 forensic-grade」一致. 非 ROADMAP rep（ROADMAP 不動）.
 - 2026-06-01: `TUN-HUNT-004` resolved in this PR — appended a `SOC Manager` row to §對既有角色與相鄰角色的邊界 table in `detection-engineering-threat-hunter.md`（做：Hunt sprint summary / Hunt Backlog 進度 / 人力·資源議題 / 跨 sprint 排序協調；不做：接收 operational task assignment [disable / isolate / RTR / individual host 處置] → 走 IRC / IR-A 路徑、不因 SOC Manager 人力壓力接手 containment）. +0 heading, single-location table-row append. 既有 8 rows（含 IR Analyst HUNT-002 scope）row_zerodiff 保護、HUNT-001 step 6 staffing context zero-diff. 非 ROADMAP rep（ROADMAP 不動）.
