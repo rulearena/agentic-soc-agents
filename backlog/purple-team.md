@@ -19,14 +19,6 @@
 - 描述行為用 generic 措辭（不洩漏 host 識別）
 - 再發生防護建議（charter 起草時 signal flow 跨 host 是否需明確列入）
 
-### TUN-AE-004 — 疑似 real event 期間 Engagement Log 是否屬 forensic evidence 中
-
-**問題**：War room 場景中 IRC 接手後可能會問「你的 engagement 紀錄能幫助排除 emulation 為因嗎？」目前 Engagement Execution Log 可作 IRC reference，但是否屬 forensic evidence（chain of custody）沒明確。
-
-**測試來源**：Test N Input #4（疑似 real event，L1 問 Emulator）
-
-**建議方向**：加 §關鍵規則：「**Engagement Execution Log 可作 IRC reference，但 Forensics 鑑識若需引用，須走 Forensics Analyst 的 evidence handling 流程；Emulator 不替 Forensics 證明 evidence integrity**」。並在 §對既有角色邊界 Forensics 欄補充對應條目。
-
 ### TUN-AE-006 — Multi-source charter input 整合 protocol 低
 
 **問題**：Test N Input #1 charter 同時整合 DE Coverage Mapping (partial 標記) + Hunter Hunt Finding，但實務上三方 input 怎麼整合進一個 charter 沒有明確流程描述。
@@ -81,3 +73,4 @@ CECT/DRA/CESR (Validator, non-conclusion)
 - 2026-05-31: `TUN-DV-003` resolved in this PR — extended §反模式 #8 (Single-engagement conclusion) + §`Adversary Emulator 雙向協作` 關鍵語意 in `purple-team-detection-validator.md` with the time-dimension framing（single engagement evidence 仍進 multi-cycle trend → separation of duties 對單次成立、合併 Emulator+Validator 任何單次都不允許）. +0 heading, two-location prose edit. 非 ROADMAP rep（ROADMAP 不動）.
 - 2026-06-02: `TUN-DV-004` resolved in this PR — added High-Authority Refusal Template (§溝通範本) to `purple-team-detection-validator.md`; 拒絕把 internal assessment material 對外當 detection coverage 官方立場/跳過 Audit Liaison；pre-review ≠ 事後追認（反模式 #15）、對外 framing 依關鍵規則 #16. 非 ROADMAP rep. P2.
 - 2026-06-02: `TUN-AE-005` resolved in this PR — added §關鍵規則「Executive override 邊界」#23 (拒絕紀錄是跨 engagement 的 governance audit trail) to `purple-team-adversary-emulator.md`; #22 記入 ECR Open Items 之外補 governance pattern review 維度（同 executive 反覆嘗試 = 流程/文化議題的 engagement-adjacent audit log）+ audit-trail boundary（Emulator 只據實記錄、不自行判定 pattern）. #22/ECR/Refusal Template zero-diff. 非 ROADMAP rep. P2.
+- 2026-06-03: `TUN-AE-004` resolved in this PR (v1.2) — added §關鍵規則「鑑識引用邊界」#24 (Engagement Execution Log 可作 IRC reference，evidence integrity 由 Forensics 認定) + §對既有角色邊界 Forensics row in-cell 補條目 to `purple-team-adversary-emulator.md`; Emulator 只據實提供 engagement 紀錄供 IRC 參考、不替 Forensics 證明 evidence integrity / 不自行判定該 log 是否屬 forensic evidence，正式引用為 evidence 走 Forensics evidence handling 流程（chain of custody 屬 Forensics）. audit-trail framing 對齊 #23/AE-005. #23/ECR/Refusal Template/frontmatter zero-diff. 非 ROADMAP rep. P2.
