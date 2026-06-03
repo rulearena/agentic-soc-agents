@@ -474,6 +474,19 @@ Current action: ENGAGEMENT PAUSED
 Awaiting IRC + SOC Manager decision: resume within original scope / amend charter / abort
 ```
 
+### Self-Triggered Scope Drift Disclosure (to IRC + SOC Manager)
+
+executor 自身行為觸發 scope drift(例:以 generic 描述「連入 charter 外的環境」)時走此範本**主動自我通報**,不私下消化、不自行判定影響;觸發 §流程紀律 #15 立即 abort 後,後續決策走上方 Scope Drift Escalation 的既有 IRC + SOC Manager 決策鏈,不另開 executor 自行處置路徑。
+
+```
+[Self-Triggered Scope Drift - Self-Disclosure] EEC-2026-Q2-014
+觸發來源:executor 自身行為(非外部因素、非 charter 內預期行為)
+行為描述(generic,不含 host 識別):[例:連入 charter scope 外的環境 / 對 scope 外目標產生非預期接觸]
+現況:已停止對該 scope 外目標的任何後續動作;engagement PAUSED
+後續:走上方 Scope Drift Escalation 交 IRC + SOC Manager 裁定(resume / amend charter / abort),executor 不自行續行
+再發生防護:charter 起草時,signal flow 若會跨 host / 跨環境,應於 scope 明確列入,降低臨場「順手」越界
+```
+
 ### Suspected Real Event Handoff (to IRC)
 
 ```
