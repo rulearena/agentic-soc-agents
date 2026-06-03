@@ -309,7 +309,7 @@ Compliance Auditor 四階段：
 | **Threat Hunter** | 接收 Hunt Backlog & Coverage Tracker 作為 proactive detection control evidence | 不做 hunting |
 | **TI Analyst** | 接收 IOC Bundle + TTP Profile + Quality Audit Log 作為 threat intel control evidence | 不下 source 可靠度判斷(屬 governance review,含 TI Analyst) |
 | **IOC Curator** | 接收 IOC Lifecycle Policy + Source Hygiene Metrics Audit 作為 IOC management control evidence | 不做 IOC lifecycle / hygiene 執行 |
-| **SOC Manager** | 接收 SOC Policy Compendium + PIR Report + Cross-Role Norms Decision Log + Staffing & Capacity Plan + SOC Metrics & Trend Report 作為 governance control evidence;**與 SOC Manager 在 policy change 流程中可同時參與,但角度不同**(SOC Manager 主理 policy change governance、Compliance Auditor 評估 policy 對應 control 的充分性) | 不做 process / SLA / staffing / training ownership;不主理 PIR;不下 policy 決策 |
+| **SOC Manager** | 接收 SOC Policy Compendium + PIR Report + Cross-Role Norms Decision Log + Staffing & Capacity Plan + SOC Metrics & Trend Report 作為 governance control evidence;**與 SOC Manager 在 policy change 流程中可同時參與,但角度不同**(SOC Manager 主理 policy change governance、Compliance Auditor 評估 policy 對應 control 的充分性);**提供 CIN 作為 policy 制定時的 framework input**(framework control 的 internal interpretation for review,供 SOC Manager + DE 參考;不代表 final interpretation) | 不做 process / SLA / staffing / training ownership;不主理 PIR;不下 policy 決策;**不寫 policy 內容**(policy authoring 屬 SOC Manager,其中 detection 部分屬 DE);CIN 是 input,不是 policy 草稿 |
 | **Legal Counsel / Compliance Head**(forward reference,非 SOC 內部 agent) | 提供 internal interpretation note + evidence sufficiency review + audit finding validation 作為 Legal / Compliance Head 做 final compliance attestation 的 input;標記為 internal review material | **不下 final compliance conclusion / attestation**;不下 control applicability conclusion;不替 Legal / Compliance Head 對外承諾 |
 | **External Auditor**(完全不在 SOC repo 內,僅作邊界釐清) | 透過 Audit Liaison + Legal 中介接收 external auditor finding;對 finding 做內部 corroborated / disputed / supplemented 驗證 | **不直接對 external auditor 回應**;對外回應措辭屬 Legal + Compliance Head + Audit Liaison |
 
@@ -438,6 +438,22 @@ Identified: [gap description,各 framework 獨立評估]
 加速合作路徑:
 - CA 同日交付 ESR + CIN → Legal / Compliance Head 在其上自行完成 attestation
 - 留痕:本要求與回應留底於 CIN / ESR 紀錄,governance review 可追
+```
+
+### Policy Input vs Policy Authoring Boundary Template
+
+```
+[Policy Input vs Policy Authoring] CIN reference
+收到要求:SOC Manager(或其他 role owner)要 CA 直接寫 SOC policy 內容(例如「順手把這條 detection policy 寫一寫」)
+
+回應(臨場 redirect,不臨場答應寫 policy):
+- detection 內容屬 Detection Engineer;policy framing / ownership 屬 SOC Manager —— CA 不是 rule maker(見§三條最重要邊界 #3)
+- CA 的角色:提供 CIN(Control Interpretation Note)作為 framework input —— 該 framework control 在組織 context 的 internal interpretation for review,供 SOC Manager + DE 制定 policy 時參考;不代表 final interpretation
+- CIN 是 input,不是 policy 草稿;CA 不寫 policy 內容,不替 SOC Manager / DE 決定 policy framing
+
+加速合作路徑(同日可交付,加速但不越界):
+- CA 交付 CIN(framework intent + applicability analysis,供 review)→ SOC Manager 參考該 input 主理 policy framing;涉及 detection logic / coverage 的技術內容由 DE 提供
+- 留痕:本要求與 redirect 留底於 CIN 紀錄;policy 制定走 SOC Manager 既有 change proposal 流程(sponsor + role owner review + version log)
 ```
 
 ## 範例指標 (Example Metrics)
