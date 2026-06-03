@@ -8,18 +8,6 @@
 
 ## detection-engineering-threat-detection-engineer
 
-### TUN-DE-003 — Replacement readiness gate 機制未明寫 中
-
-**問題**：Rule Retirement Notice 範本沒明確要求 retire 前先確認 replacement rule 已 deployed + production FP rate confirmed。Test G Input #2 場景中執行者自加「retirement 條件式 gate 在 replacement validated」，但這是憑判斷，定義沒寫。會留 detection gap 風險。
-
-**測試來源**：Test G Input #2（DRP-2024-018 retire 前先確認 replacement DRP-2026-035 production FP rate）
-
-**建議方向**：在 §鑑識交付物 #4 Retirement Notice 範本加必填欄位 `Replacement Readiness Check`：
-- Replacement rule ID + production deploy 日期
-- Replacement production FP rate（最近 30 天）
-- Replacement coverage 對 legacy TP 場景的對比
-- 若 replacement 未就位：retirement 延後或啟動臨時 mitigation
-
 ### TUN-DE-005 — Audit Liaison 拒灌水的 framing 範本缺 中
 
 **問題**：Test G Input #5 場景中執行者用「audit 風險反向論證」（標『已覆蓋』但拿不出 validated rule → audit finding 等級會更嚴重）說服 Audit Liaison 不灌水，這個 framing 比道德論述有效得多。目前 §溝通範本沒固化此 pattern。
@@ -77,5 +65,6 @@
 - 2026-05-22: `TUN-DE-002` resolved in this PR — added War Room IRC Immediate Response template (§溝通範本) with (A) 立即可做 / (B) 必走完整流程 / (C) 折衷 三段; preserves validate-before-deploy boundary.
 - 2026-05-23: `TUN-HUNT-001` resolved in this PR — added IOC/TTP-overlap escalation rule (page existing incident's IRC; IRC decides scope merge vs sibling incident; notify SOC Manager if policy requires separate incident) to threat-hunter §Active threat 升級路徑.
 - 2026-05-29: `TUN-DE-004` resolved in this PR — added `Rule Production Health Monitoring` sub-section (每週 high-volume + 每月全 rule snapshot; TP/FP measurement feeds into tune/retire decisions; does not redefine Replacement Readiness Check or replace §4 Rule Retirement / Tuning Notice) to `detection-engineering-threat-detection-engineer.md` §工作流程.
+- 2026-06-03: `TUN-DE-003` resolved (v1.2) — added a required `Replacement Readiness Check` gate to the §鑑識交付物 #4 Rule Retirement / Tuning Notice template in `detection-engineering-threat-detection-engineer.md`（必填 gate；retire 前須確認 replacement 已 production deploy + 最近 30 天 production FP rate 在預期內〔觀察窗未滿視為未確認〕；任一項未確認 → retirement 延後至 replacement 就位，或先啟動經既有 change process 核准的臨時 detection mitigation，避免 legacy rule 先下線留 detection gap）. 把 Test G Input #2「執行者憑判斷自加 gate」定為明文必填；right-size：2 confirm + 1 fail-branch，不重列既有 `## Replacement` 已有的 coverage 對比；同時補實 §工作流程 Health Monitoring 段（line 155/163）已 forward-reference 但未定義的 `Replacement Readiness Check` 名詞. +0 heading（code-fence 內 `##`）. 非 ROADMAP rep（ROADMAP 不動）.
 - 2026-06-03: `TUN-HUNT-002` resolved (v1.2) — refined the `IR Analyst` row in §對既有角色與相鄰角色的邊界 table in `detection-engineering-threat-hunter.md`（做：將 hunt 過程已產生的 operational technical context [process tree / handle access timeline / observed module load order] 整理成隨 L2 / IRC handoff 進入 IR flow、供 IR Analyst 使用的 enrichment package；不做：此 package 僅為 input、不取代 IR Analyst 的 verification、不為打包額外執行 RTR 或收 forensic-grade evidence → 需要時移交 Forensics）. +0 heading, single-row in-cell edit. 鄰列（IRC / Forensics / Detection Engineer 等）row_zerodiff 保護；framing 與 Forensics row「hunt 收 operational evidence、非 forensic-grade」一致. 非 ROADMAP rep（ROADMAP 不動）.
 - 2026-06-01: `TUN-HUNT-004` resolved in this PR — appended a `SOC Manager` row to §對既有角色與相鄰角色的邊界 table in `detection-engineering-threat-hunter.md`（做：Hunt sprint summary / Hunt Backlog 進度 / 人力·資源議題 / 跨 sprint 排序協調；不做：接收 operational task assignment [disable / isolate / RTR / individual host 處置] → 走 IRC / IR-A 路徑、不因 SOC Manager 人力壓力接手 containment）. +0 heading, single-location table-row append. 既有 8 rows（含 IR Analyst HUNT-002 scope）row_zerodiff 保護、HUNT-001 step 6 staffing context zero-diff. 非 ROADMAP rep（ROADMAP 不動）.

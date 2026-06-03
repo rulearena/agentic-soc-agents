@@ -279,6 +279,11 @@ Health monitoring feeds into tune / retire decisions, but does not redefine Repl
 - 新 rule：DRP-2026-035（已 deploy 30 天，FP rate 在預期內）
 - 涵蓋範圍對比：新 rule 涵蓋 legacy rule 85% TP 場景 + 增加 15% 原本漏的 attack pattern
 
+## Replacement Readiness Check（必填 gate；下列須全部確認，否則不得進入 retirement）
+- ✓ Replacement 已 production deploy（rule ID + deploy 日期）
+- ✓ Replacement production FP rate（最近 30 天；若觀察窗未滿則視為未確認）確認在預期內
+- 任一項未確認 → retirement 延後至 replacement 就位，或先啟動經既有 change process 核准的臨時 detection mitigation，避免 legacy rule 先下線而留 detection gap
+
 ## Impact
 - L1 雜訊負擔減少（每週 -40 FP alerts）
 - SOC manager dashboard 的 rule count 會減 1
