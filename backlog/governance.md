@@ -57,14 +57,6 @@
 - supplemented 範例（部分印證 + 需補 evidence）
 - 反例：「為什麼這個情境硬標 disputed 會在 walkthrough 被反殺」
 
-### TUN-CA-004 — CIN as policy input 流程 中
-
-**問題**：SOC Manager 可能會把 CA 當 policy 共筆者。Test L Input #4 中執行者臨場 redirect「detection 部分屬 DE + policy framing 屬 SOC Manager，CA 提供 CIN 作 framework input 不寫 policy 內容」。
-
-**測試來源**：Test L Input #4（SOC Manager 要 CA 直接寫 detection policy）
-
-**建議方向**：在 §對既有角色與相鄰角色的邊界 — SOC Manager 欄補一條：「**CIN 是 policy framework input，CA 不寫 policy 內容；policy 內容由 SOC Manager + DE 主理**」。並加 §溝通範本 `Policy Input vs Policy Authoring Boundary Template`。
-
 ### TUN-CA-005 — Audit Liaison rotation 間協作邊界 低
 
 **問題**：Test L Input #5 顯示 Audit Liaison rotation B 可能單方面同意把工作推給 CA。目前定義沒明文「Audit Liaison rotation 間的工作邊界變更不改變 CA 的紅線 C」。
@@ -109,4 +101,5 @@
 - 2026-05-27: `TUN-MGR-002` resolved in this PR — added §`Individual Development Review — Separation Statement`（治理交付物 #6）to `governance-soc-manager.md`; PIR 與個人發展檢討兩份文件永不混用 + 個人 dev review 走 role owner + HR + 證據用 qualitative review/skill matrix 非 SOC metrics + PIR 維持 gap framing 不點名個人. 非 ROADMAP rep（ROADMAP 不動）. 最後一條 P1 → P1 清零.
 - 2026-05-29: `TUN-MGR-004` resolved in this PR — added `Post-Incident Staffing Cooldown Period`（治理交付物 #7）to `governance-soc-manager.md`; 重大事件後 cooldown 期間 hold staffing model 結構性變更、temporary capacity 調整不受限、解除綁 PIR systemic root cause、例外記入 §5 Cross-Role Norms Decision Log + 上層壓力走 §Upward Pressure Resistance Template. 引用既有 §核心任務 #2 / §2 Capacity Health / §4 PIR / §5 CRN / MGR-001 template，不重定義. 非 ROADMAP rep（ROADMAP 不動）.
 - 2026-06-01: `TUN-AL-004` resolved in this PR — added `Chain of Custody Optimization Boundaries`（§關鍵規則 末、首個 ### 子段）to `governance-audit-liaison.md`; 區分 chain of custody 可優化（簽收工具效率 / 層級分流）vs 不可協商（每次 access 必有 entry / 簽收當下完成不事後補登 / 改動走 governance review 不私下協議）. 細化關鍵規則 #2 與反模式 #4，引用不重定義. 非 ROADMAP rep（ROADMAP 不動）.
+- 2026-06-03: `TUN-CA-004` resolved (v1.2) — added CIN-as-policy-input boundary to §對既有角色與相鄰角色的邊界 SOC Manager row + `Policy Input vs Policy Authoring Boundary Template`（§溝通範本）of `governance-compliance-auditor.md`; CIN 是 policy framework input、CA 不寫 policy 內容（policy authoring 屬 SOC Manager,其中 detection 部分屬 DE）、CIN 是 input 不是 policy 草稿. 引用 §三條最重要邊界 #3 rule-maker boundary + CIN deliverable #1 + SOC Manager 既有 change proposal 流程，不重定義. 非 ROADMAP rep（ROADMAP 不動）. 首個 v1.2 ship.
 - 2026-06-02: `TUN-MGR-006` resolved in this PR — added war room observer 條款 to §對既有角色與相鄰角色的邊界 IR Commander row（做 cell）of `governance-soc-manager.md`; 上層 stakeholder / CISO 僅可透過 IRC 既定 situational-awareness 管道以 observer 接收事件進度、不投票 / 不下指令 / 不列為 IRC Decision Log 的 decision-maker / approver、破除「在場 = 有 authority」誤解. SOC Manager 僅於 policy compendium 明文化此 observer 邊界（policy ownership，非 live 准入、非參與 IC、不取得 action authority）；接收管道 cross-ref §Upward Pressure Resistance Template，不重述. 與 `TUN-MGR-001`（override pressure）同步設計收尾. 非 ROADMAP rep（ROADMAP 不動）.
