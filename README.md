@@ -119,11 +119,11 @@ WARN 不影響退出碼；FAIL 退出 1。詳細檢查項見 [`scripts/README.md
 
 ---
 
-## v1.1 Backlog
+## 版本狀態 + Backlog
 
-實測中發現尚未併入 v1.0 的改善建議集中在 [`backlog/`](backlog/README.md)，含 6 個 category 共 80 條 tuning item。歡迎 issue / PR 引用對應 `TUN-*` ID（先 search 避免重複提案）。
+**v1.1 spec-update 已收口**：v1.0 release 後對 80 條 backlog item 做的 v1.1 spec-update，P1 全部 25 條已併入 agent 主檔、selected P2 closure set 已併入；其餘 P2 與 attribution / framing 相關條目移為 v1.2 candidate（候選池，非承諾交付範圍）。這不代表 backlog 清空——v1.1 是一個 spec-update 里程碑，不是 backlog 終點。
 
-更高層次的方向（themes，不含時程）見 [`ROADMAP.md`](ROADMAP.md)。
+剩餘 backlog 集中在 [`backlog/`](backlog/README.md)，仍歡迎 issue / PR 引用對應 `TUN-*` ID（先 search 避免重複提案）。排序與 v1.1 收口狀態見 [`backlog/triage-v1.1.md`](backlog/triage-v1.1.md)；更高層次方向（themes，不含時程）見 [`ROADMAP.md`](ROADMAP.md)。
 
 ---
 

@@ -1,5 +1,7 @@
 # v1.1 Triage Result
 
+> **v1.1 closure（2026-06-02）**：本檔 P1 全部 25 條已收口；P2 已 ship selected closure set，其餘標為 v1.2 candidate。下表各 row 的「✅ shipped in this PR」是 v1.1 update PR 系列的歷史措辭——指 shipped across the v1.1 update PRs（非單一 PR），row 維持原樣作歷史記錄，不逐列改寫。
+
 > **Note**：本檔是 v1.0 release 後 80 條 backlog item 的 v1.1 spec update 排序結果。
 > - 原 `backlog/*.md` 內每條的 ⭐ 高 / 中 / 低 是「設計優先序」（內部評估時用，**不改**）
 > - 本檔 P1 / P2 / Later 是「v1.1 排序」（哪些進下一波 spec update）
@@ -75,34 +77,34 @@
 | 3 | [TUN-L2-003](triage.md) | Supply chain hypothesis 的並行 hand-off 路徑 | 中 | ✅ shipped in this PR |
 | 4 | [TUN-IRC-001](incident-response.md) | `cannot_approve_alone` 缺法規時限速查 hook | 中 | ✅ shipped in this PR |
 | 5 | [TUN-IRC-002](incident-response.md) | 業務 owner 跨界引導技術決策的 Anti-Pattern 缺位 | 中 | ✅ shipped in this PR |
-| 6 | [TUN-IRA-003](incident-response.md) | Pending action 在 BLOCK 狀態下的回報節奏沒明示 | 中 | — |
+| 6 | [TUN-IRA-003](incident-response.md) | Pending action 在 BLOCK 狀態下的回報節奏沒明示 | 中 | → v1.2 candidate（候選池；非承諾交付範圍）|
 | 7 | [TUN-IRA-004](incident-response.md) | 跨 rotation IR-A 接班的 handoff template 缺 | 中 | ✅ shipped in this PR |
 | 8 | [TUN-FOR-002](incident-response.md) | Anti-forensics 觸發場景的 SOP 缺 | ⭐ 高（降）| ✅ shipped in this PR |
-| 9 | [TUN-FOR-003](incident-response.md) | Partial preservation acceptable threshold 判斷材料缺 | 中 | Attribution family 邊緣成員 |
+| 9 | [TUN-FOR-003](incident-response.md) | Partial preservation acceptable threshold 判斷材料缺 | 中 | Attribution family 邊緣成員 → v1.2 candidate / creator review required |
 | 10 | [TUN-FOR-004](incident-response.md) | Override 流程的「業務時程壓力」入口未明說 | 中 | ✅ shipped in this PR |
-| 11 | [TUN-DE-003](detection-engineering.md) | Replacement readiness gate 機制未明寫 | 中 | — |
+| 11 | [TUN-DE-003](detection-engineering.md) | Replacement readiness gate 機制未明寫 | 中 | → v1.2 candidate（候選池；非承諾交付範圍）|
 | 12 | [TUN-DE-004](detection-engineering.md) | Production FP rate ongoing measurement 路徑未定義 | 中 | ✅ shipped in this PR |
-| 13 | [TUN-DE-005](detection-engineering.md) | Audit Liaison 拒灌水的 framing 範本缺 | 中 | 灌水 family（hub = AL-003 P1） |
-| 14 | [TUN-HUNT-002](detection-engineering.md) | Hunt 補充 enrichment 給 IR Analyst 的邊界未明示 | 中 | — |
-| 15 | [TUN-HUNT-003](detection-engineering.md) | 「事實 vs 結論」line drawing examples 缺 | 中 | Attribution family |
+| 13 | [TUN-DE-005](detection-engineering.md) | Audit Liaison 拒灌水的 framing 範本缺 | 中 | 灌水 family（hub = AL-003 P1） → v1.2 candidate（deferred: framing/size risk; not required for v1.1 closure）|
+| 14 | [TUN-HUNT-002](detection-engineering.md) | Hunt 補充 enrichment 給 IR Analyst 的邊界未明示 | 中 | → v1.2 candidate（候選池；非承諾交付範圍）|
+| 15 | [TUN-HUNT-003](detection-engineering.md) | 「事實 vs 結論」line drawing examples 缺 | 中 | Attribution family → v1.2 candidate / creator review required |
 | 16 | [TUN-HUNT-004](detection-engineering.md) | SOC Manager 越界場景的明確邊界缺 | 中 | ✅ shipped in this PR |
-| 17 | [TUN-TI-003](threat-intel.md) | IRC war room joint decision walk-through 範本缺 | 中 | Attribution family |
-| 18 | [TUN-TI-004](threat-intel.md) | Actor context multi-cluster triangulation 範本欄位缺 | 中 | — |
-| 19 | [TUN-TI-005](threat-intel.md) | Hunter handoff → TI 出 IB+TPS+APC turnaround SLA 缺 | 中 | — |
-| 20 | [TUN-TI-006](threat-intel.md) | TLP 對外分享分級決策樹缺 | 中 | — |
+| 17 | [TUN-TI-003](threat-intel.md) | IRC war room joint decision walk-through 範本缺 | 中 | Attribution family → v1.2 candidate / creator review required |
+| 18 | [TUN-TI-004](threat-intel.md) | Actor context multi-cluster triangulation 範本欄位缺 | 中 | → v1.2 candidate（候選池；非承諾交付範圍）|
+| 19 | [TUN-TI-005](threat-intel.md) | Hunter handoff → TI 出 IB+TPS+APC turnaround SLA 缺 | 中 | → v1.2 candidate（候選池；非承諾交付範圍）|
+| 20 | [TUN-TI-006](threat-intel.md) | TLP 對外分享分級決策樹缺 | 中 | → v1.2 candidate / creator review required |
 | 21 | [TUN-IOC-003](threat-intel.md) | TI Analyst 邀請越界的明確邊界規則 | 中 | ✅ shipped in this PR |
-| 22 | [TUN-MGR-003](governance.md) | Recognition framework 設計原則 | ⭐ 高（降）| — |
+| 22 | [TUN-MGR-003](governance.md) | Recognition framework 設計原則 | ⭐ 高（降）| → v1.2 candidate（候選池；非承諾交付範圍）|
 | 23 | [TUN-MGR-004](governance.md) | Staffing change 在 incident 後的冷卻期 | 中 | ✅ shipped in this PR |
-| 24 | [TUN-MGR-005](governance.md) | Metrics-to-performance 防火牆語言 | 中 | — |
+| 24 | [TUN-MGR-005](governance.md) | Metrics-to-performance 防火牆語言 | 中 | → v1.2 candidate（deferred: framing/size risk; not required for v1.1 closure）|
 | 25 | [TUN-MGR-006](governance.md) | War room observer 條款 | 中 | **與 TUN-MGR-001 (P1) 同步設計** — ✅ shipped in this PR |
-| 26 | [TUN-CA-004](governance.md) | CIN as policy input 流程 | 中 | — |
+| 26 | [TUN-CA-004](governance.md) | CIN as policy input 流程 | 中 | → v1.2 candidate（候選池；非承諾交付範圍）|
 | 27 | [TUN-AL-004](governance.md) | Chain of custody 簽收的「合理優化 vs 違規捷徑」分界 | 中 | ✅ shipped in this PR |
-| 28 | [TUN-AE-002](purple-team.md) | Scope drift 自我通報範本 | ⭐ 高（降）| 弱於 AE-003 (P1) |
-| 29 | [TUN-AE-004](purple-team.md) | 疑似 real event 期間 Engagement Log 是否屬 forensic evidence | 中 | — |
+| 28 | [TUN-AE-002](purple-team.md) | Scope drift 自我通報範本 | ⭐ 高（降）| 弱於 AE-003 (P1) → v1.2 candidate（候選池；非承諾交付範圍）|
+| 29 | [TUN-AE-004](purple-team.md) | 疑似 real event 期間 Engagement Log 是否屬 forensic evidence | 中 | → v1.2 candidate（候選池；非承諾交付範圍）|
 | 30 | [TUN-AE-005](purple-team.md) | Executive override attempt 的 audit trail | 中 | ✅ shipped in this PR |
 | 31 | [TUN-DV-003](purple-team.md) | Single-engagement vs cross-engagement 結論的時間維度限制 | 中 | ✅ shipped in this PR |
 | 32 | [TUN-DV-004](purple-team.md) | 高 authority 拒絕語言範本 | 中 | ✅ shipped in this PR |
-| 33 | [TUN-DV-005](purple-team.md) | 與 Audit Liaison 的具體 handoff workflow | 中 | — |
+| 33 | [TUN-DV-005](purple-team.md) | 與 Audit Liaison 的具體 handoff workflow | 中 | → v1.2 candidate（候選池；非承諾交付範圍）|
 
 ---
 
