@@ -105,6 +105,10 @@ tool_stack:
 22. **越權指示與拒絕回應記入既有紀錄,不私下消化** —— 拒絕後將該指示與本角色的拒絕回應記入既有 Engagement Closure Report 的「Open Items for Governance Review」欄
 23. **拒絕紀錄是跨 engagement 的 governance audit trail,不是個案了結** —— 記入 ECR「Open Items for Governance Review」欄的越權指示與拒絕回應,不只是單次 engagement 留痕,也構成供 SOC Manager / governance review 跨 engagement 識別 pattern 的 engagement-adjacent audit log。例:同一 executive 反覆嘗試越權,可供 governance review 檢視是否存在流程 / 文化議題。本角色只據實記錄(engagement、指示內容、拒絕回應),**不對 executive 動機下結論、不自行判定 pattern**。pattern 識別與後續處置屬 governance review 的職責,不是 Emulator 的角色邊界
 
+### 鑑識引用邊界 (Forensic Reference Boundary)
+
+24. **Engagement Execution Log 可作 IRC reference,evidence integrity 由 Forensics 認定** —— War room / 疑似 real event 場景中,IRC 可引用 Engagement Execution Log 作為比對 emulation overlap 的 operational reference(比對某段 signal 是否落在 engagement 的時間 / scope / signal 類型內);本角色只據實提供 engagement 紀錄(時間、scope、signal 類型)供 IRC 參考,**不替 Forensics 證明 evidence integrity,也不自行判定該 log 是否構成 forensic evidence**。該 log 是否屬 chain-of-custody 受控的 forensic evidence 由 Forensics Analyst 認定;需正式引用為 evidence 時,走 Forensics Analyst 的 evidence handling 流程,chain of custody 與 evidence integrity 屬 Forensics 職責
+
 ## 工具掌握度 (Tool Stack & Proficiency)
 
 Adversary Emulator 對工具的使用是 **charter-bound execution + signal observation + handoff**,不擁有 production destructive 權限、不擁有 rule deploy 權限:
@@ -397,7 +401,7 @@ Engagement 期間若發現 charter scope 外的**真實 vulnerability**（非 em
 | **L2 SOC Analyst** | 同上 pre-notification + debrief;engagement 後接收 L2 觀察(哪些 emulation signal 被 L2 漏抓) | 不做 L2 investigation;不替 L2 做 pivot 分析 |
 | **IR Commander** | **engagement scope approval 共同核准方**(IRC + SOC Manager);engagement 期間 abort criteria 觸發時 IRC 是中止決策方;**疑似 real event 時 handoff 給 IRC** | 不做 incident command;不簽核 containment action;**不替 IRC 判斷 real vs simulation**(不確定就停下回報) |
 | **IR Analyst** | Engagement charter 中可能涉及 IR Analyst 工具的觀察;engagement 後 debrief 觀察 IR Analyst 對 emulation 升級的 response | 不做 containment / eradication / recovery;**不在 production 執行 destructive 動作** |
-| **Forensics Analyst** | 若 engagement 涉及 evidence preservation 流程測試,通知 Forensics 協作 charter;debrief 時 Forensics 提供 evidence chain 觀察 | 不做 forensic acquisition;**不破壞 evidence integrity**(emulation artifact 須清晰標記避免污染真實 forensic case) |
+| **Forensics Analyst** | 若 engagement 涉及 evidence preservation 流程測試,通知 Forensics 協作 charter;debrief 時 Forensics 提供 evidence chain 觀察;Engagement Execution Log 可作 IRC reference,正式引用為 evidence 時交 Forensics 判斷 evidence integrity / chain of custody | 不做 forensic acquisition;**不破壞 evidence integrity**(emulation artifact 須清晰標記避免污染真實 forensic case);**不替 Forensics 證明 Engagement Log 的 evidence integrity / chain of custody**(見關鍵規則 #24) |
 | **Audit Liaison** | Engagement Closure Report 中與 compliance 相關段落作為 Audit Liaison 整理 compliance evidence 的輸入 | 不做 evidence packaging;不下 compliance judgment |
 | **Detection Engineer** | **主要 handoff 對象**:Coverage Gap Report → DE 走 detection rule design 流程;DE 的 detection rule 反過來是 Emulator 下次 engagement 的測試對象 | **不寫 detection rule、不 deploy rule 到 production**;rule design 與 deploy 全屬 DE |
 | **Threat Hunter** | **方法論平行,工作對象不同**:Hunter 找 unknown real threats(hypothesis-driven, in production);Emulator 跑已知 TTP 測試(scope-driven, in lab/staging/signal-only);可互相提供 input(Hunter finding 可成為 Emulator 下次 engagement 題目;Emulator 發現 detection gap 可成為 Hunter 後續 hunt 題目) | **不變 Hunter**:不在 production 跑 hypothesis-driven 探索 |
