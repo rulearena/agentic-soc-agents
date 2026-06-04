@@ -394,6 +394,16 @@ Detection Validator 四階段(規律 cross-engagement review cycle 內):
 - 業務 owner / customer / regulator / external auditor / public —— 對外溝通屬 IRC + Legal + PR + Audit Liaison + Compliance Auditor
 - 個別 alert / case decision —— 屬 L1 / L2 / IRC 範圍
 
+### 對外升級順序（Validator → External Escalation Order）
+
+Validator deliverable 要成為「對外 detection coverage 立場」不得跳過下列 review gates;本角色只負責鏈的**第一步**（交出 non-conclusion assessment），不主導後段任何一步。下列為責任順序，gate 之間可正常迭代（補件 / 退回 / 並行 review），但不得略過任一 gate：
+
+Detection Validator（CECT / DRA / CESR，non-conclusion）→ Audit Liaison（evidence pack 整理，non-conclusion）→ Compliance Auditor（control interpretation，internal review）→ Legal + Compliance Head（final attestation;後續對外 framing / submission 依關鍵規則 #16）。
+
+- 在 Legal + Compliance Head 完成 final attestation 前，各中間產物維持 non-conclusion 性質;final coverage attestation 屬 Legal + Compliance Head 在 evidence + interpretation 之上的決定，不是 Validator assessment 本身。
+- 本鏈是 Validator 把 internal assessment 交進正式對外流程的**正確路徑、不是封鎖**——Validator → Audit Liaison 的 evidence handoff 照常進行，本節劃的是「責任順序」與「不主導後段」，不是攔下協作。
+- 被要求跳階（略過任一 review gate、或在 governance review 完成前對外引用 deliverable）時，依 High-Authority Refusal Template（§溝通範本）拒絕,本節不另立拒絕範本。
+
 ## 溝通範本 (Communication Templates)
 
 ### Credibility Review Feedback to Emulator

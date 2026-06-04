@@ -24,22 +24,6 @@
 
 ## purple-team-detection-validator
 
-### TUN-DV-005 — 與 Audit Liaison 的具體 handoff workflow 中
-
-**問題**：§對既有角色邊界與 §協作回饋通道都提到 Audit Liaison，但沒有 step-by-step workflow（CECT/DRA → Audit Liaison 的 evidence pack 整理 → Compliance Auditor control interpretation → Legal/Compliance Head 對外）。Test O Input #4 場景顯示需要這個 workflow 圖。
-
-**測試來源**：Test O Input #4（Compliance Head 想直接拿 Validator deliverable 對外發）
-
-**建議方向**：加 §`Validator-to-External Audit Workflow`：
-```
-CECT/DRA/CESR (Validator, non-conclusion)
-  → Audit Liaison (evidence pack 整理, non-conclusion)
-  → Compliance Auditor (control interpretation, internal review)
-  → Legal + Compliance Head (final attestation / 對外 framing)
-  → 對外窗口（Audit Liaison 或 Legal 指定）
-```
-每一步附對應的 handoff template + 拒絕跳階的標準回應。
-
 ### TUN-DV-006 — Re-test backlog 在 Emulator 容量受限期的處理 低
 
 **問題**：Test O Input #3 顯示需要「Emulator 容量受限時 RTR backlog 怎麼處理」的 SOP。目前範本只說「Emulator 走 charter 流程」沒有 backlog management 維度。
@@ -63,4 +47,5 @@ CECT/DRA/CESR (Validator, non-conclusion)
 - 2026-06-02: `TUN-DV-004` resolved in this PR — added High-Authority Refusal Template (§溝通範本) to `purple-team-detection-validator.md`; 拒絕把 internal assessment material 對外當 detection coverage 官方立場/跳過 Audit Liaison；pre-review ≠ 事後追認（反模式 #15）、對外 framing 依關鍵規則 #16. 非 ROADMAP rep. P2.
 - 2026-06-02: `TUN-AE-005` resolved in this PR — added §關鍵規則「Executive override 邊界」#23 (拒絕紀錄是跨 engagement 的 governance audit trail) to `purple-team-adversary-emulator.md`; #22 記入 ECR Open Items 之外補 governance pattern review 維度（同 executive 反覆嘗試 = 流程/文化議題的 engagement-adjacent audit log）+ audit-trail boundary（Emulator 只據實記錄、不自行判定 pattern）. #22/ECR/Refusal Template zero-diff. 非 ROADMAP rep. P2.
 - 2026-06-03: `TUN-AE-004` resolved in this PR (v1.2) — added §關鍵規則「鑑識引用邊界」#24 (Engagement Execution Log 可作 IRC reference，evidence integrity 由 Forensics 認定) + §對既有角色邊界 Forensics row in-cell 補條目 to `purple-team-adversary-emulator.md`; Emulator 只據實提供 engagement 紀錄供 IRC 參考、不替 Forensics 證明 evidence integrity / 不自行判定該 log 是否屬 forensic evidence，正式引用為 evidence 走 Forensics evidence handling 流程（chain of custody 屬 Forensics）. audit-trail framing 對齊 #23/AE-005. #23/ECR/Refusal Template/frontmatter zero-diff. 非 ROADMAP rep. P2.
+- 2026-06-04: `TUN-DV-005` resolved in this PR (v1.2) — added §協作與回饋通道 `對外升級順序（Validator → External Escalation Order）` sub-section to `purple-team-detection-validator.md`; 把 non-conclusion 升級鏈（Validator → Audit Liaison → Compliance Auditor → Legal + Compliance Head）從只活在 DV-004 拒絕範本內、提升為 standing 邊界（本角色只負責鏈第一步、不主導後段）+ 拒絕跳階（cross-ref §溝通範本 High-Authority Refusal Template，不另立拒絕範本）+ 明示本鏈是把 internal assessment 交進正式對外流程的正確路徑、不封鎖 Validator → Audit Liaison evidence handoff（沿用關鍵規則 #16）. **Right-sized**：原案「workflow 圖 + 每步 handoff template + 每步拒絕回應」過大降規，砍掉每步 template、只 ship 順序鏈 + 拒絕跳階邊界。Codex review P1/P2 修正：鏈尾 attestation 與對外 framing 分寫（對外 framing defer 關鍵規則 #16、消除與 #16 的 authority 矛盾，對齊 DV-004 line 457）、「每一步 non-conclusion」收斂為「final attestation 前各中間產物 non-conclusion」、「必須走固定順序」改「不得跳過 review gates（gate 間可迭代補件/退回/並行）」避免線性誤讀。非 ROADMAP rep. P2.
 - 2026-06-03: `TUN-AE-002` resolved in this PR (v1.2) — added §溝通範本 `Self-Triggered Scope Drift Disclosure` template to `purple-team-adversary-emulator.md`; executor 自身行為觸發 scope drift（順手連入 charter 外環境 / 順便 verify）時主動自我通報、不私下消化、不自行判定影響，描述用 generic 措辭不洩 host 識別，並補再發生防護（charter 起草明列跨 host signal flow）. 接續既有 §流程紀律 #15 abort → 上方 Scope Drift Escalation 的 IRC + SOC Manager 決策鏈，不另開 executor 自行處置路徑. 既有 Scope Drift Escalation / 其餘範本 zero-diff. 非 ROADMAP rep. P2.

@@ -104,7 +104,7 @@
 | 30 | [TUN-AE-005](purple-team.md) | Executive override attempt 的 audit trail | 中 | ✅ shipped in this PR |
 | 31 | [TUN-DV-003](purple-team.md) | Single-engagement vs cross-engagement 結論的時間維度限制 | 中 | ✅ shipped in this PR |
 | 32 | [TUN-DV-004](purple-team.md) | 高 authority 拒絕語言範本 | 中 | ✅ shipped in this PR |
-| 33 | [TUN-DV-005](purple-team.md) | 與 Audit Liaison 的具體 handoff workflow | 中 | → v1.2 candidate（候選池；非承諾交付範圍）|
+| 33 | [TUN-DV-005](purple-team.md) | 與 Audit Liaison 的具體 handoff workflow | 中 | ✅ shipped (v1.2) |
 
 ---
 
