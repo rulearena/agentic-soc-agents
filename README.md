@@ -123,7 +123,9 @@ WARN 不影響退出碼；FAIL 退出 1。詳細檢查項見 [`scripts/README.md
 
 **v1.1 spec-update 已收口**：v1.0 release 後對 80 條 backlog item 做的 v1.1 spec-update，P1 全部 25 條已併入 agent 主檔、selected P2 closure set 已併入；其餘 P2 與 attribution / framing 相關條目移為 v1.2 candidate（候選池，非承諾交付範圍）。這不代表 backlog 清空——v1.1 是一個 spec-update 里程碑，不是 backlog 終點。
 
-剩餘 backlog 集中在 [`backlog/`](backlog/README.md)，仍歡迎 issue / PR 引用對應 `TUN-*` ID（先 search 避免重複提案）。排序與 v1.1 收口狀態見 [`backlog/triage-v1.1.md`](backlog/triage-v1.1.md)；更高層次方向（themes，不含時程）見 [`ROADMAP.md`](ROADMAP.md)。
+**v1.2 spec-update 已收口**：v1.1 之後再併入一組 agent 邊界與範圍細化（7 條 P2 boundary / scope / cadence 條目）；其餘 candidate 條目維持候選池（非承諾交付範圍）。
+
+剩餘 backlog 集中在 [`backlog/`](backlog/README.md)，仍歡迎 issue / PR 引用對應 `TUN-*` ID（先 search 避免重複提案）。排序與 v1.1 / v1.2 收口狀態見 [`backlog/triage-v1.1.md`](backlog/triage-v1.1.md)；更高層次方向（themes，不含時程）見 [`ROADMAP.md`](ROADMAP.md)。
 
 ---
 

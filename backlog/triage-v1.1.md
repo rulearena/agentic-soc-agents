@@ -1,6 +1,8 @@
 # v1.1 Triage Result
 
 > **v1.1 closure（2026-06-02）**：本檔 P1 全部 25 條已收口；P2 已 ship selected closure set，其餘標為 v1.2 candidate。下表各 row 的「✅ shipped in this PR」是 v1.1 update PR 系列的歷史措辭——指 shipped across the v1.1 update PRs（非單一 PR），row 維持原樣作歷史記錄，不逐列改寫。
+>
+> **v1.2 closure（2026-06-04）**：v1.1 之後再 ship 一組 P2 boundary / scope / cadence 條目（下表標 ✅ shipped (v1.2) 者）；其餘維持 candidate。
 
 > **Note**：本檔是 v1.0 release 後 80 條 backlog item 的 v1.1 spec update 排序結果。
 > - 原 `backlog/*.md` 內每條的 ⭐ 高 / 中 / 低 是「設計優先序」（內部評估時用，**不改**）
