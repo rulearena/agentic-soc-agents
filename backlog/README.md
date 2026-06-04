@@ -1,6 +1,6 @@
 # v1.1 Tactical Backlog
 
-> **Note**：本目錄是 v1.0 release 之後在實測中發現、尚未併入 14 個 agent 主檔的改善建議集合。v1.1 spec-update 的優先排序見 [`triage-v1.1.md`](triage-v1.1.md)（25 P1 / 33 P2 / 22 Later）；P1 已全數收口、selected P2 已 ship，其餘為 v1.2 candidate（候選池，非承諾交付範圍）。contribution 前請先在對應 category 檔案 search 既有 `TUN-*` ID 避免重複提案。
+> **Note**：本目錄是 v1.0 release 之後在實測中發現、尚未併入 14 個 agent 主檔的改善建議集合。v1.1 spec-update 的優先排序見 [`triage-v1.1.md`](triage-v1.1.md)（25 P1 / 33 P2 / 22 Later）；P1 已全數收口、selected P2 已 ship（v1.1）；v1.2 再 ship 一組 P2 boundary / scope / cadence 條目，其餘維持 candidate（候選池，非承諾交付範圍）。contribution 前請先在對應 category 檔案 search 既有 `TUN-*` ID 避免重複提案。
 
 ## 一句話定位
 
