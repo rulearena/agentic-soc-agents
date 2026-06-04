@@ -36,14 +36,6 @@
 
 ## incident-response-ir-analyst
 
-### TUN-IRA-003 — Pending action 在 BLOCK 狀態下的回報節奏沒明示 中
-
-**問題**：pending action（如 Test D 的 #002 process kill）被 IRC BLOCK 後，IR Analyst 是該定期回報自己 standby 狀態還是被動等？目前定義沒講，執行端只能自由選擇。Test F 場景中 IR Analyst 選了被動等 + 在其他訊息結尾 reminder，但實務上跨班次 / 跨人員可能漏掉。
-
-**測試來源**：Test F（IRC BLOCK pending #002，IR Analyst 自由選擇被動等而非定期 status ping）
-
-**建議方向**：在 §工作流程或 §溝通範本補一條「Pending Action Status Ping」 —— 例如「BLOCK 超過 N 分鐘自動 ping IRC 確認狀態 + 是否需轉手其他執行者」。
-
 ### TUN-IRA-005 — 「自己不做但建議拉誰進來」的 phrasing 邊界沒明示 低
 
 **問題**：IR Analyst 在 Scope Drift Report 或 Execution Report 中可以「建議 IRC 拉 Threat Hunter / Detection Engineer 進來」嗎？這算建議 IRC 做人員調度（邊界 OK，自己沒 ping）還是越界（人員調度屬 IRC / SOC Manager）？目前定義沒明示。
@@ -99,3 +91,4 @@
 - 2026-06-02: `TUN-IRC-001` resolved in this PR — added `cannot_approve_alone` 法規時限速查 hook (§反應權限) to `incident-response-ir-commander.md`; 對外通知/disclosure 類決策可能受法規/合約/監理時限約束時，IRC 啟動即向 Audit Liaison 發 time-sensitive regulatory check 取得最快 external deadline 作 Decision Log 時間錨點，不自行詮釋合規義務、由 Legal/Audit Liaison 認定. 非 ROADMAP rep. P2.
 - 2026-06-02: `TUN-IRC-002` resolved in this PR — added 反模式 #9「業務 owner 跨界引導技術決策」to `incident-response-ir-commander.md`; 業務主管以「等不了/事後補/你拍板」引導 IRC 跳過 evidence preservation（#5）或 cannot_approve_alone 共同決策（#4）時回流程語言拒絕、Exec Sponsor 處理業務壓力取捨但 preservation/共同決策仍照既有流程. 非 ROADMAP rep. P2.
 - 2026-06-02: `TUN-FOR-004` resolved in this PR — added 業務時程壓力 side-channel 責任分界 to §Override 流程 in `incident-response-forensics-analyst.md`; side-channel 業務時程壓力 → Forensics 報事實+量化 evidence loss+建議 IRC 啟動 joint decision，不繞過 IRC、不靜默改 evidence handling，IRC 未判斷就 override 則紀錄義務歸 IRC；cross-ref FOR-001 不重述. 非 ROADMAP rep. P2.
+- 2026-06-04: `TUN-IRA-003` resolved (v1.2) — added §溝通範本 `Pending Action Status Ping` template to `incident-response-ir-analyst.md`; action 被 IRC BLOCK 或卡前置條件（等 Forensics preservation / 其他執行者 / 系統）進入 holding 時，IR Analyst 主動按節奏回報自身待命狀態並確認 hold 是否仍成立，避免「卡住但沒人知道」跨班次 / 跨人員漏接. 節奏依 IRC 指定 cadence / action urgency / blocker ETA / 狀態變更 / severity 調整、不寫死固定時數，範本含「下次回報」追蹤錨點；boundary：只回報狀態並把問題交回 IRC，不自行解除 BLOCK、不替 IRC 決定轉手執行者、不自行變更 / 重新指派他人 pending action（是否轉手或調整優先序由 IRC 協調；向 blocker owner 問 ETA 屬正常協作）；跨班次整體快照沿用 §IR-A 跨 rotation 接班簡報、不重述. 既有範本 zero-diff. 非 ROADMAP rep. P2.
