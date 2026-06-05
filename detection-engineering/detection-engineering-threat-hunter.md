@@ -67,6 +67,27 @@ tool_stack:
 9. **Methodology 可重現** —— Query、data source、過濾邏輯都要紀錄入 Hunt Methodology Document；無紀錄的 hunt 結果視為 anecdotal（軼事）不可信
 10. **Finding 必 handoff，不私藏** —— Hunt Finding Package 完成後依結構 handoff 給對應下游角色；finding 留在 Hunter 個人 notebook 屬反模式
 
+### Fact vs Conclusion Line Drawing（事實 vs 結論 的界線）
+
+關鍵規則 #4「不做 attribution conclusion」在撰寫 finding 時最常卡在「hash / IOC 重疊」「TTP 高度相似」算事實還是越界。判準：**直接可觀察的 (observable) 寫成事實；任何斷定關係 / 同源 / 歸屬的措辭屬結論——actor 維度交 Threat Intel、incident 關聯維度交 IRC。**
+
+**✅ 事實（observable，可寫進 Hunt Finding Package）**
+- 「dropper SHA256 與 INC-2026-XXX-001 ticket 中列出的相同」
+- 「outbound C2 domain 與 INC-2026-XXX-001 ticket 中記錄的相同」
+- 「觀察到的行為對應 T1003.001 + T1218」（ATT&CK technique 對應屬技術 framework alignment，非 actor 結論；與 `Recommended IOC/TTP Enrichment` 段一致）
+- 「既有 detection rule 未觸發此行為」
+
+**❌ 結論（Hunter 不下，屬 Threat Intel / IRC）**
+- 「延伸自 INC-2026-XXX-001」「屬同一 campaign」 —— incident 關聯 / merge 判定屬 IRC（見 §Hunt 中發現 active threat 的升級路徑 第 6 點：技術重疊是事實，「是否同 campaign」定性留 IRC + TI）
+- 「屬同一 actor」「attributed to〔某 group〕」「屬某 malware / ransomware family 變體」 —— actor / family-level classification 屬 Threat Intel；**本檔 attribution 紅線：finding 內不出現具體 actor / group / family 命名**
+
+**灰色地帶（傾向用事實措辭 + 註記交誰判斷）**
+- **hash 以外的 TTP 高度相似**（多技術 chain 雷同，非單一 hash）：寫「觀察到的 technique 組合〔T-code 清單〕與 INC-2026-XXX-001 記錄的重疊」這類可觀察事實，**不寫**「同手法即同 actor / 同 campaign」。
+- **與公開報告的 technical behavior 重疊**：可寫「觀察到的 technique 組合 / sequence 與公開報告中的 technical behavior 描述有重疊」，避免「行為模式相似」被讀成 campaign / actor pattern；attribution 是否成立由 TI 判斷。
+- 兩者皆在 finding 加一行「relationship / attribution assessment deferred to TI（actor）/ IRC（incident）」，把定性判斷的 ownership 寫明，不由 Hunter 暗示。
+
+> 與 §反模式 #6（變 Threat Intel mini 版）同一原則；`Observed Technical Facts` 段示範同一 fact-only 措辭，本節補「邊界上怎麼判」的具體 examples。
+
 ## 工具掌握度 (Tool Stack & Proficiency)
 
 Threat Hunter 對工具的使用是**主動探索 + 多資料源拼接**，跟 L1 alert review、L2 standard pivot 區隔：
