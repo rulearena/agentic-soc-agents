@@ -8,28 +8,6 @@
 
 ## governance-soc-manager
 
-### TUN-MGR-003 — Recognition framework 設計原則 ⭐ 高
-
-**問題**：§13「不表揚 firefighting」是負面禁令，缺**正面 systemic recognition framework**：什麼樣的貢獻該被表揚、表揚機制如何避免變回 hero culture、spot bonus 與 systemic contribution award 的分工。Test K Input #5 中執行者臨場改寫表揚詞並設計分層處理（spot bonus 不阻擋 + 對外敘事抗 hero narrative + 暫緩 Hero of Quarter 獎項）。
-
-**測試來源**：Test K Input #5（CISO 要表揚 IR Commander「30 小時連續處理」）
-
-**建議方向**：加 §`Systemic Recognition Framework Design Principles`，含：
-- 可表揚的 systemic contribution 類別（補 detection coverage gap / 修 process bottleneck / 主持成功 cross-role training / 提出被採納的 process improvement）
-- 30 小時連續工作 = systemic failure signal 而非英雄事蹟的 reframe 邏輯
-- 表揚詞範本（聚焦 systemic ability + 把 staffing 不足歸 governance 責任）
-
-### TUN-MGR-005 — Metrics-to-performance 防火牆語言 中
-
-**問題**：§關鍵規則 #12 是禁令「Metrics 不作為個人 performance 工具」，缺**具體話術 + 替代設計**。Test K Input #4 中執行者用四層 second-order effect 分析（action item 被做小 / TP rate 反向激勵 / hero culture 強化 / PIR 不誠實）說服 CISO，這個 framing 值得固化。
-
-**測試來源**：Test K Input #4（CISO 要把 PIR action item closure rate + 個人 case TP rate 綁 bonus）
-
-**建議方向**：在 §溝通範本加 `Metrics-Bonus Decoupling Template`，含：
-- 結構化拒絕（四層 second-order effect 分析）
-- Team-level systemic contribution metrics 範本（替代 individual KPI）
-- Goodhart's Law 應用案例
-
 ### TUN-MGR-007 — Multi-input pressure session 的優先序協議 低
 
 **問題**：一個 session 內收到多個治理紅線挑戰時（如 Test K 5 個 input），需要 facilitator 自身的 self-check protocol：每個 input 對應哪條紅線、是否有跨 input 妥協（例：拒絕 #1 但通過 #4 會被視為選擇性執法）。
@@ -103,3 +81,8 @@
 - 2026-06-01: `TUN-AL-004` resolved in this PR — added `Chain of Custody Optimization Boundaries`（§關鍵規則 末、首個 ### 子段）to `governance-audit-liaison.md`; 區分 chain of custody 可優化（簽收工具效率 / 層級分流）vs 不可協商（每次 access 必有 entry / 簽收當下完成不事後補登 / 改動走 governance review 不私下協議）. 細化關鍵規則 #2 與反模式 #4，引用不重定義. 非 ROADMAP rep（ROADMAP 不動）.
 - 2026-06-03: `TUN-CA-004` resolved (v1.2) — added CIN-as-policy-input boundary to §對既有角色與相鄰角色的邊界 SOC Manager row + `Policy Input vs Policy Authoring Boundary Template`（§溝通範本）of `governance-compliance-auditor.md`; CIN 是 policy framework input、CA 不寫 policy 內容（policy authoring 屬 SOC Manager,其中 detection 部分屬 DE）、CIN 是 input 不是 policy 草稿. 引用 §三條最重要邊界 #3 rule-maker boundary + CIN deliverable #1 + SOC Manager 既有 change proposal 流程，不重定義. 非 ROADMAP rep（ROADMAP 不動）. 首個 v1.2 ship.
 - 2026-06-02: `TUN-MGR-006` resolved in this PR — added war room observer 條款 to §對既有角色與相鄰角色的邊界 IR Commander row（做 cell）of `governance-soc-manager.md`; 上層 stakeholder / CISO 僅可透過 IRC 既定 situational-awareness 管道以 observer 接收事件進度、不投票 / 不下指令 / 不列為 IRC Decision Log 的 decision-maker / approver、破除「在場 = 有 authority」誤解. SOC Manager 僅於 policy compendium 明文化此 observer 邊界（policy ownership，非 live 准入、非參與 IC、不取得 action authority）；接收管道 cross-ref §Upward Pressure Resistance Template，不重述. 與 `TUN-MGR-001`（override pressure）同步設計收尾. 非 ROADMAP rep（ROADMAP 不動）.
+
+## Changelog (Dropped)
+
+- 2026-06-05: `TUN-MGR-003` dropped (v1.3 planning) — Systemic Recognition Framework 建議方向（可表揚 contribution 類別 + 30hr=systemic failure reframe + 表揚詞範本）易寫成抽象管理價值宣言／反 hero-culture 道德論述，framing 風險高、邊界價值低；既有 §13「不表揚 firefighting」負面禁令已足夠，正面 recognition framework 屬管理文化設計非角色規格。
+- 2026-06-05: `TUN-MGR-005` dropped (v1.3 planning) — §關鍵規則 #12「Metrics 不作為個人 performance 工具」既有禁令已足夠；四層 second-order effect 分析 + Goodhart's Law 案例易把角色規格寫成散文式管理教材，framing 敏感。未來若實測出具體操作缺口，應另建窄範圍 backlog，不復活此條。

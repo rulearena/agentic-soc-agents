@@ -32,14 +32,6 @@
 - 跨 motivation 類別（financial / espionage / hacktivism）的散布
 - 整體 actor-context 信心度（不是 IOC 信心度）
 
-### TUN-TI-005 — Hunter handoff → TI 出 IB+TPS+APC turnaround SLA 缺 中
-
-**問題**：Hunter HFP handoff 到 TI 產出 IOC Bundle + TTP Profile + Actor Context Sheet 的標準 turnaround 時間沒寫。INC active 期間若無 SLA，TI 會被 IRC / Legal / SOC Manager 多方拉走，handoff 結果可能延遲。
-
-**測試來源**：Test I Input #1（Hunter HFP 進來後 TI 應在多久內出三件套？目前靠執行者自主節奏）
-
-**建議方向**：在 §範例指標補一條：「Hunter HFP handoff → IB + TPS + APC three-piece package turnaround」目標時間（依 incident severity 分級：Sev-1 < 2 hr / Sev-2 < 8 hr / Sev-3 < 1 工作天）。
-
 ### TUN-TI-006 — TLP 對外分享分級決策樹缺 中
 
 **問題**：§關鍵規則 9「TLP 標記要保守」但沒給判斷流程。Test I Input #4 場景中 TI Analyst 需要判斷 corporate blog + LinkedIn 屬 TLP:CLEAR/WHITE 範圍，但「哪些 IOC / TTP / context 段落可 TLP:CLEAR、哪些必須 TLP:AMBER+」靠臨場判斷。
@@ -85,3 +77,7 @@
 - 2026-05-25: `TUN-TI-001` resolved in this PR — added Attribution Wording Downgrade Table (給 Legal filing 的合規降階字眼選單；適用/不適用情境) to §溝通範本 in `threat-intel-analyst.md`; Attribution 字眼降階 family wording 一致性基準.
 - 2026-05-25: `TUN-TI-002` resolved in this PR — added High-Pressure External Briefing Workflow (TB-EXT 剝離 checklist + Legal/IRC review 硬性 gate + CISO 書面授權跳過範本含責任歸屬轉移) to §工作流程 in `threat-intel-analyst.md`.
 - 2026-06-01: `TUN-IOC-003` resolved in this PR — added Invitation to Re-score Decline template (§溝通範本) to `threat-intel-ioc-curator.md`; TI Analyst 主動邀請 Curator 越界做 confidence / context / TTP alignment 時 Curator 仍拒絕，提供結構性事實（intake 時間 / dedup 歷史 / source-level metadata 未加工版本）作為 TI Analyst 重新評估的 input，由 TI Analyst confirm 新 confidence 後正式 handoff；cross-ref §TI Analyst 雙向協作 單向職責劃分與 §關鍵規則 紅線 B 不重述. 非 ROADMAP rep（ROADMAP 不動）. P2 第 9 條.
+
+## Changelog (Dropped)
+
+- 2026-06-05: `TUN-TI-005` dropped (v1.3 planning) — turnaround SLA 建議方向綁固定數字（Sev-1 < 2hr / Sev-2 < 8hr / Sev-3 < 1 工作天）= 虛構指標，與 v1.2 `TUN-IRA-003` 刻意改用相對 cadence 描述、避開寫死 SLA 的設計反向；handoff turnaround 屬 operational metric 非角色 boundary。未來若累積真實 SOC SLA 經驗，以窄範圍 backlog 另提，不復活此條。

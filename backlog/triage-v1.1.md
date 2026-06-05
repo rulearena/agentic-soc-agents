@@ -86,18 +86,18 @@
 | 10 | [TUN-FOR-004](incident-response.md) | Override 流程的「業務時程壓力」入口未明說 | 中 | ✅ shipped in this PR |
 | 11 | [TUN-DE-003](detection-engineering.md) | Replacement readiness gate 機制未明寫 | 中 | ✅ shipped (v1.2) |
 | 12 | [TUN-DE-004](detection-engineering.md) | Production FP rate ongoing measurement 路徑未定義 | 中 | ✅ shipped in this PR |
-| 13 | [TUN-DE-005](detection-engineering.md) | Audit Liaison 拒灌水的 framing 範本缺 | 中 | 灌水 family（hub = AL-003 P1） → v1.2 candidate（deferred: framing/size risk; not required for v1.1 closure）|
+| 13 | [TUN-DE-005](detection-engineering.md) | Audit Liaison 拒灌水的 framing 範本缺 | 中 | 灌水 family（hub = AL-003 P1，已 ship）→ **dropped (v1.3 planning)**：core framing 已存在 audit-liaison 主檔，DE 重述只升 framing 風險（changelog 見 detection-engineering.md）|
 | 14 | [TUN-HUNT-002](detection-engineering.md) | Hunt 補充 enrichment 給 IR Analyst 的邊界未明示 | 中 | ✅ shipped (v1.2) |
 | 15 | [TUN-HUNT-003](detection-engineering.md) | 「事實 vs 結論」line drawing examples 缺 | 中 | Attribution family → v1.2 candidate / creator review required |
 | 16 | [TUN-HUNT-004](detection-engineering.md) | SOC Manager 越界場景的明確邊界缺 | 中 | ✅ shipped in this PR |
 | 17 | [TUN-TI-003](threat-intel.md) | IRC war room joint decision walk-through 範本缺 | 中 | Attribution family → v1.2 candidate / creator review required |
 | 18 | [TUN-TI-004](threat-intel.md) | Actor context multi-cluster triangulation 範本欄位缺 | 中 | → v1.2 candidate（候選池；非承諾交付範圍）|
-| 19 | [TUN-TI-005](threat-intel.md) | Hunter handoff → TI 出 IB+TPS+APC turnaround SLA 缺 | 中 | → v1.2 candidate（候選池；非承諾交付範圍）|
+| 19 | [TUN-TI-005](threat-intel.md) | Hunter handoff → TI 出 IB+TPS+APC turnaround SLA 缺 | 中 | **dropped (v1.3 planning)**：固定 SLA = 虛構指標，與 IRA-003 相對 cadence 設計反向（changelog 見 threat-intel.md）|
 | 20 | [TUN-TI-006](threat-intel.md) | TLP 對外分享分級決策樹缺 | 中 | → v1.2 candidate / creator review required |
 | 21 | [TUN-IOC-003](threat-intel.md) | TI Analyst 邀請越界的明確邊界規則 | 中 | ✅ shipped in this PR |
-| 22 | [TUN-MGR-003](governance.md) | Recognition framework 設計原則 | ⭐ 高（降）| → v1.2 candidate（候選池；非承諾交付範圍）|
+| 22 | [TUN-MGR-003](governance.md) | Recognition framework 設計原則 | ⭐ 高（降）| **dropped (v1.3 planning)**：易寫成抽象管理價值宣言，§13 負面禁令已足夠（changelog 見 governance.md）|
 | 23 | [TUN-MGR-004](governance.md) | Staffing change 在 incident 後的冷卻期 | 中 | ✅ shipped in this PR |
-| 24 | [TUN-MGR-005](governance.md) | Metrics-to-performance 防火牆語言 | 中 | → v1.2 candidate（deferred: framing/size risk; not required for v1.1 closure）|
+| 24 | [TUN-MGR-005](governance.md) | Metrics-to-performance 防火牆語言 | 中 | **dropped (v1.3 planning)**：§關鍵規則 #12 已足夠，second-order/Goodhart 易寫成管理教材（changelog 見 governance.md）|
 | 25 | [TUN-MGR-006](governance.md) | War room observer 條款 | 中 | **與 TUN-MGR-001 (P1) 同步設計** — ✅ shipped in this PR |
 | 26 | [TUN-CA-004](governance.md) | CIN as policy input 流程 | 中 | ✅ shipped (v1.2) |
 | 27 | [TUN-AL-004](governance.md) | Chain of custody 簽收的「合理優化 vs 違規捷徑」分界 | 中 | ✅ shipped in this PR |
