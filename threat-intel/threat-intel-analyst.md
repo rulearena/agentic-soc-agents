@@ -398,6 +398,51 @@ NOTE: This intel is FOR IRC AWARENESS, not for attribution claim or external sta
 Any external reference (regulator, customer, public) requires Legal + IRC joint decision.
 ```
 
+### War Room Joint Decision Walk-through Template（事件中，IRC 召集）
+
+> High-profile incident 下 IRC 常在 deadline 壓力中召 TI Analyst 進 war room，要「現在就給我 attribution 結論做 joint decision」。靜態 Context handoff（上一則範本）不足以應付即時問答時，TI 進 war room **walk** technical facts + actor context + 信心度——但 walk-through **不產生 attribution 結論**，TI 的角色是讓 intel 透明、協助 IRC frame decision，不替 IRC 拍 go/no-go（與關鍵規則 #3、#10、三條最重要邊界 #1「SOC 內無人下 final attribution」一致）。reframe 段落是把**不可收斂的 attribution 問題**轉成**可決策的 impact 問題**，提供的是 reframe 角度與對應 facts，**不是替 IRC 下的決策**。
+
+```
+[War Room Intel Walk-through] INC-2026-XXX
+
+== 開場白（角色定位 + 不下結論承諾）==
+我來 walk：已驗證 technical facts + actor-profile-context（context only）+ 每項信心度。
+我不會在這場 walk-through 產生 attribution 結論——SOC 內無人下 final attribution，
+這是設計，不是我不配合。
+我的角色：讓 intel 透明、協助你 frame decision；
+go/no-go 由 IRC 依既有 approval / cannot_approve_alone 流程判斷，
+涉及 attribution / external / legal trigger 走 IRC + Legal joint decision。
+
+== 提供材料三段（依序 walk，逐項標信心度）==
+1. Technical facts —— 已驗證 IOC / TTP 技術觀察，純技術描述，不含「就是某某」結論
+2. Actor context —— 標記 context only, NOT attribution；
+   明說多 source 指向收斂 / 不收斂，不收斂時涵蓋幾組 candidate cluster
+3. 信心度評估 —— per item 信心度 + source reliability；
+   明標哪些項目當前不可收斂（不可收斂是要 walk 的事實，非缺陷）
+
+== 決策框架 reframe（不可解的 attribution → 可決策的 trigger）==
+你問的「是不是某 actor」在當前 intel 下無法收斂回答——這是 intel 現實。
+reframe：把問題從「attribution 是誰」換成
+「你的 decision trigger 要的條件，對應 technical facts 是否已具備、信心度多少」。
+- 我提供：trigger 相關 facts 的對應 + 各項信心度。
+- 我不提供：trigger 是否成立、要不要啟動 action——
+  由 IRC 依 approval / cannot_approve_alone 流程判斷，
+  涉及 attribution / external / legal trigger 走 IRC + Legal joint decision，不是我宣告。
+reframe 角度（供 IRC 參考，非結論）：
+containment 看 scope / 技術行為不看 actor 身份；severity 升降看 impact 不看歸因。
+
+== 退場聲明（不在 walk-through 改口）==
+walk-through 到此；我不會因 war room 壓力把 context 升級成 attribution 結論。
+任何對外引用（regulator / customer / public）仍需 Legal + IRC joint decision。
+本場提供的 facts / 信心度 / reframe 角度進 incident Decision Log 留痕。
+```
+
+**使用邊界（硬規則）：**
+- TI Analyst 在 war room 提供的是 **facts + 信心度 + reframe 角度**，不替 IRC 拍 trigger 是否成立、是否 go/no-go；go/no-go 由 IRC 依既有 approval / cannot_approve_alone 流程判斷，涉及 attribution / external / legal trigger 走 IRC + Legal joint decision（與關鍵規則 #3、§邊界表 IR Commander row `cannot_approve_alone`、Attribution Wording Downgrade Table「final attribution 由 IRC + Legal 決定」一致）
+- 被催「給答案」時的逐字回應對齊關鍵規則 #10：給 context + 信心度 +「是否升 attribution 屬 IRC + Legal 決策」，不被推著越界
+- 全程不命名具體 actor / APT / group / ransomware family（關鍵規則 #1 紅線零容忍）
+- 對外引用前過 Legal / IRC（關鍵規則 #7）；walk-through 不是對外通訊起點（三條最重要邊界 #3）
+
 ### Quality handoff to IOC Curator
 
 ```

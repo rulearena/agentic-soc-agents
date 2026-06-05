@@ -8,18 +8,6 @@
 
 ## threat-intel-analyst
 
-### TUN-TI-003 — IRC war room joint decision walk-through 範本缺 中
-
-**問題**：TI Analyst 不下結論，但事件壓力下可進 war room walk context + 信心度。Test I Input #2 場景中 TI Analyst 主動提「15 分鐘內到 war room walk-through + 但不會在 walk-through 中改口」，這個 pattern 值得固化。
-
-**測試來源**：Test I Input #2（IRC 30 分鐘內要 attribution 結論做 joint decision）
-
-**建議方向**：在 §溝通範本加 `War Room Joint Decision Walk-through Template`，含：
-- 開場白（角色定位 + 不下結論承諾）
-- 提供材料三段（technical facts / actor context / 信心度評估）
-- **決策框架 reframe**（從「是 X 嗎」reframe 到「在不收斂的 intel 下，trigger 條件是否成立」—— 把不可解的 attribution 問題轉成可決策的 impact 問題）
-- 退場聲明（不會在 walk-through 改口）
-
 ### TUN-TI-004 — Actor context multi-cluster triangulation 範本欄位缺 中
 
 **問題**：APC sheet 範本目前是單一 actor cluster 描述。實務上常見 multi-cluster 不一致（如 Test I 場景：4 sources × 至少 3 不一致 community labels），執行者臨場加 triangulation 段落，但範本沒固化。下游讀者容易把多 source 描述誤解為單一指向。
@@ -76,6 +64,7 @@
 - 2026-05-22: `TUN-IOC-002` resolved in this PR — added Policy Change Decline template (§溝通範本) refusing cross-boundary source-policy changes; redirect to governance.
 - 2026-05-25: `TUN-TI-001` resolved in this PR — added Attribution Wording Downgrade Table (給 Legal filing 的合規降階字眼選單；適用/不適用情境) to §溝通範本 in `threat-intel-analyst.md`; Attribution 字眼降階 family wording 一致性基準.
 - 2026-05-25: `TUN-TI-002` resolved in this PR — added High-Pressure External Briefing Workflow (TB-EXT 剝離 checklist + Legal/IRC review 硬性 gate + CISO 書面授權跳過範本含責任歸屬轉移) to §工作流程 in `threat-intel-analyst.md`.
+- 2026-06-05: `TUN-TI-003` resolved in this PR — added War Room Joint Decision Walk-through Template (§溝通範本) to `threat-intel-analyst.md`；事件中 IRC 召 TI 進 war room 即時 walk technical facts / actor context / 信心度，但不產生 attribution 結論；核心是 decision reframe（把不可收斂的 attribution 問題轉成可決策的 trigger / impact 問題，提供 reframe 角度與對應 facts，不替 IRC 下決策）+ 退場不改口；go/no-go 由 IRC 依既有 approval / cannot_approve_alone 流程判斷，attribution / external / legal trigger 走 IRC + Legal joint decision；接 Context handoff to IR Commander framing，cross-ref 關鍵規則 #1/#3/#7/#10 與三條最重要邊界 #1 不重述. v1.3 creator-lane.
 - 2026-06-01: `TUN-IOC-003` resolved in this PR — added Invitation to Re-score Decline template (§溝通範本) to `threat-intel-ioc-curator.md`; TI Analyst 主動邀請 Curator 越界做 confidence / context / TTP alignment 時 Curator 仍拒絕，提供結構性事實（intake 時間 / dedup 歷史 / source-level metadata 未加工版本）作為 TI Analyst 重新評估的 input，由 TI Analyst confirm 新 confidence 後正式 handoff；cross-ref §TI Analyst 雙向協作 單向職責劃分與 §關鍵規則 紅線 B 不重述. 非 ROADMAP rep（ROADMAP 不動）. P2 第 9 條.
 
 ## Changelog (Dropped)

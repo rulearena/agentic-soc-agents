@@ -90,7 +90,7 @@
 | 14 | [TUN-HUNT-002](detection-engineering.md) | Hunt 補充 enrichment 給 IR Analyst 的邊界未明示 | 中 | ✅ shipped (v1.2) |
 | 15 | [TUN-HUNT-003](detection-engineering.md) | 「事實 vs 結論」line drawing examples 缺 | 中 | Attribution family — ✅ shipped (v1.3) |
 | 16 | [TUN-HUNT-004](detection-engineering.md) | SOC Manager 越界場景的明確邊界缺 | 中 | ✅ shipped in this PR |
-| 17 | [TUN-TI-003](threat-intel.md) | IRC war room joint decision walk-through 範本缺 | 中 | Attribution family → v1.2 candidate / creator review required |
+| 17 | [TUN-TI-003](threat-intel.md) | IRC war room joint decision walk-through 範本缺 | 中 | Attribution family — ✅ shipped (v1.3) |
 | 18 | [TUN-TI-004](threat-intel.md) | Actor context multi-cluster triangulation 範本欄位缺 | 中 | → v1.2 candidate（候選池；非承諾交付範圍）|
 | 19 | [TUN-TI-005](threat-intel.md) | Hunter handoff → TI 出 IB+TPS+APC turnaround SLA 缺 | 中 | **dropped (v1.3 planning)**：固定 SLA = 虛構指標，與 IRA-003 相對 cadence 設計反向（changelog 見 threat-intel.md）|
 | 20 | [TUN-TI-006](threat-intel.md) | TLP 對外分享分級決策樹缺 | 中 | → v1.2 candidate / creator review required |
