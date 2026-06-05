@@ -88,7 +88,7 @@
 | 12 | [TUN-DE-004](detection-engineering.md) | Production FP rate ongoing measurement 路徑未定義 | 中 | ✅ shipped in this PR |
 | 13 | [TUN-DE-005](detection-engineering.md) | Audit Liaison 拒灌水的 framing 範本缺 | 中 | 灌水 family（hub = AL-003 P1，已 ship）→ **dropped (v1.3 planning)**：core framing 已存在 audit-liaison 主檔，DE 重述只升 framing 風險（changelog 見 detection-engineering.md）|
 | 14 | [TUN-HUNT-002](detection-engineering.md) | Hunt 補充 enrichment 給 IR Analyst 的邊界未明示 | 中 | ✅ shipped (v1.2) |
-| 15 | [TUN-HUNT-003](detection-engineering.md) | 「事實 vs 結論」line drawing examples 缺 | 中 | Attribution family → v1.2 candidate / creator review required |
+| 15 | [TUN-HUNT-003](detection-engineering.md) | 「事實 vs 結論」line drawing examples 缺 | 中 | Attribution family — ✅ shipped (v1.3) |
 | 16 | [TUN-HUNT-004](detection-engineering.md) | SOC Manager 越界場景的明確邊界缺 | 中 | ✅ shipped in this PR |
 | 17 | [TUN-TI-003](threat-intel.md) | IRC war room joint decision walk-through 範本缺 | 中 | Attribution family → v1.2 candidate / creator review required |
 | 18 | [TUN-TI-004](threat-intel.md) | Actor context multi-cluster triangulation 範本欄位缺 | 中 | → v1.2 candidate（候選池；非承諾交付範圍）|
