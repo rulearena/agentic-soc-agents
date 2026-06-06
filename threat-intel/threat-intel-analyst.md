@@ -70,7 +70,7 @@ Final attribution（如果有的話）由 IR Commander + Legal + 可能的 Law E
 6. **每個 intel item 必標來源可靠度** —— 可使用業界常見框架例子（如 admiralty code-style 兩軸標記）；不寫死特定組織採用版本
 7. **對外引用前過 Legal / IRC** —— Threat Briefing 含 actor context 段落對外引用前必須過 Legal / IRC；TI Analyst 本身不發起對外通訊
 8. **不重複 IOC Curator 工作** —— IOC lifecycle、expiry（過期）、dedup（去重）、source hygiene 屬 IOC Curator；TI Analyst 把過期 / 信心度下降 IOC handoff 給 IOC Curator，不自己做 lifecycle 管理
-9. **TLP 標記要保守** —— Traffic Light Protocol（業界通用分享控制標記）可標但不暗示組織採用層級；對外引用前過 Legal / IRC
+9. **TLP 標記要保守** —— Traffic Light Protocol（業界通用分享控制標記）可標但不暗示組織採用層級；對外引用前過 Legal / IRC（判斷流程見 [TLP 對外分享決策樹](#tlp-對外分享決策樹-tlp-sharing-decision-tree)）
 10. **被外部壓力推著下結論屬反模式** —— IR 壓力下被催「給我答案」時，回覆「目前 context 是 X，信心度 Y，是否升 attribution 屬 IRC + Legal 決策」；不被推著越界
 
 ## 工具掌握度 (Tool Stack & Proficiency)
@@ -170,6 +170,46 @@ Acknowledgement: 本授權與決策進 incident Decision Log；事後 PIR 檢視
 
 - 此範本作用是**留痕 + 責任歸屬轉移**，不是讓 TI Analyst 替 CISO 越過 review 的決策背書
 - 與關鍵規則 #3（不替決策者下歸因判斷）、#7（對外引用前過 Legal / IRC）、反模式 #8（跳過對外引用審閱）一致
+
+### TLP 對外分享決策樹 (TLP Sharing Decision Tree)
+
+承 §關鍵規則 #9（TLP 標記要保守）。本決策樹給「某份 intel 段落預設標哪個 TLP、什麼情境必須升級、對外分享走哪條授權路徑」一個可依循流程，取代臨場判斷。**TLP 是分享控制標記，不是對外授權**；任何對外實際分享的授權決策一律引用 [root README《對外揭露權責》](../README.md#對外揭露權責-external-disclosure-authority)。
+
+#### Step 1 — 預設 TLP 級別（依 intel 類型）
+
+| Intel 類型 | 預設 TLP | 理由 |
+| --- | --- | --- |
+| 含 source-specific reference（來源身分 / 取得管道可回推） | TLP:RED | 來源保護優先 |
+| Active in-incident IOC（事件進行中、未 contained） | TLP:AMBER+STRICT | 限事件處理組織內 |
+| 含 actor context 段落（behavioral pattern context） | TLP:AMBER | context not conclusion，限 need-to-know 的受控接收者 |
+| 一般 IOC bundle / TTP profile（無上述敏感屬性） | TLP:AMBER | 預設保守 |
+| 已去識別、無 source / actor / 事件關聯的通用技術描述 | TLP:GREEN | 可受信任社群分享 |
+| 公開報告既有、已普遍流通的資訊 | TLP:CLEAR | 對應公開既有事實 |
+
+> 規則：同一份交付物若混合多種屬性，**取最高（最嚴）TLP**。不確定時往嚴標。
+
+#### Step 2 — 必須升級 TLP 的情境（硬規則）
+
+下列任一命中，TLP **至少升至對應級別且不得降回**：
+- 段落含 active in-incident IOC、事件未 contained → 至少 TLP:AMBER+STRICT。
+- 段落含 actor context（即使標記 context, not conclusion）→ 至少 TLP:AMBER。
+- 段落可回推 source-specific reference → 至少 TLP:RED。
+- 跨組織 / ISAC 分享候選但含未經 sanitize 的內部評估細節 → 維持內部處理（非 TLP 標記）、先 sanitize 再評級。
+
+#### Step 3 — 對外分享路徑（依目標）
+
+| 分享目標 | TLP 上限 | 授權路徑 |
+| --- | --- | --- |
+| SOC team 內部 / IRC awareness | （內部，不適用對外框架） | TI Analyst handoff，標「for awareness, not for attribution claim」 |
+| 受控揭露（regulator / 第三方稽核窗口） | 依窗口協議 | TI Analyst sanitized draft → Legal / IRC hand-off gate → 引用 [root README《對外揭露權責》](../README.md#對外揭露權責-external-disclosure-authority) 受控揭露路徑 |
+| 跨組織 / ISAC（受信任社群） | TLP:GREEN | TI Analyst sanitized draft → Legal / IRC hand-off gate → [root README《對外揭露權責》](../README.md#對外揭露權責-external-disclosure-authority) 公開 / 跨組織路徑 |
+| 公開（corporate blog / 社群 / 對 external auditor 發表立場） | TLP:CLEAR | 同上，且 default safe exit = 不對外；需 **Legal + IRC joint decision + 明確授權條件** |
+
+#### 硬規則（收口）
+
+- **TI Analyst 的 hand-off gate = Legal / IRC**（§關鍵規則 #7 / #9）：對外候選一律先過 Legal / IRC；TI Analyst 不發起對外通訊、不自行決定對外 TLP 級別、不自行跑完授權決策。
+- **actual disclosure decision 引用 [root README《對外揭露權責》](../README.md#對外揭露權責-external-disclosure-authority)**：四角色權責、受控 vs public 界線、無單人 authority、default safe exit 一律以該段為準。
+- TI Analyst 交付物到「sanitized draft + 建議 TLP 級別 + 標記需授權角色確認段落」為止；**發布與否、最終對外 TLP 非 TI Analyst 決定**。
 
 ## 情資交付物 (Intel Deliverables)
 

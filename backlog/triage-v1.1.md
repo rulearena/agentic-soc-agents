@@ -93,7 +93,7 @@
 | 17 | [TUN-TI-003](threat-intel.md) | IRC war room joint decision walk-through 範本缺 | 中 | Attribution family — ✅ shipped (v1.3) |
 | 18 | [TUN-TI-004](threat-intel.md) | Actor context multi-cluster triangulation 範本欄位缺 | 中 | → v1.2 candidate（候選池；非承諾交付範圍）|
 | 19 | [TUN-TI-005](threat-intel.md) | Hunter handoff → TI 出 IB+TPS+APC turnaround SLA 缺 | 中 | **dropped (v1.3 planning)**：固定 SLA = 虛構指標，與 IRA-003 相對 cadence 設計反向（changelog 見 threat-intel.md）|
-| 20 | [TUN-TI-006](threat-intel.md) | TLP 對外分享分級決策樹缺 | 中 | → v1.2 candidate / creator review required |
+| 20 | [TUN-TI-006](threat-intel.md) | TLP 對外分享分級決策樹缺 | 中 | ✅ shipped (v1.3) |
 | 21 | [TUN-IOC-003](threat-intel.md) | TI Analyst 邀請越界的明確邊界規則 | 中 | ✅ shipped in this PR |
 | 22 | [TUN-MGR-003](governance.md) | Recognition framework 設計原則 | ⭐ 高（降）| **dropped (v1.3 planning)**：易寫成抽象管理價值宣言，§13 負面禁令已足夠（changelog 見 governance.md）|
 | 23 | [TUN-MGR-004](governance.md) | Staffing change 在 incident 後的冷卻期 | 中 | ✅ shipped in this PR |

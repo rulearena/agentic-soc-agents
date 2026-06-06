@@ -20,18 +20,6 @@
 - 跨 motivation 類別（financial / espionage / hacktivism）的散布
 - 整體 actor-context 信心度（不是 IOC 信心度）
 
-### TUN-TI-006 — TLP 對外分享分級決策樹缺 中
-
-**問題**：§關鍵規則 9「TLP 標記要保守」但沒給判斷流程。Test I Input #4 場景中 TI Analyst 需要判斷 corporate blog + LinkedIn 屬 TLP:CLEAR/WHITE 範圍，但「哪些 IOC / TTP / context 段落可 TLP:CLEAR、哪些必須 TLP:AMBER+」靠臨場判斷。
-
-**測試來源**：Test I Input #4
-
-**建議方向**：在 §關鍵規則 9 後或單獨小節加 `TLP Sharing Decision Tree`：
-- 哪些 intel 類型默認哪個 TLP 級別
-- 哪些情境必須升 TLP 級別（active in-incident IOC、含 actor context 段落、含 source-specific reference 等）
-- 跨組織分享、ISAC 分享、公開分享的 default TLP 對應
-- 任何 TLP 對外分享前 Legal + IRC 共同決策的硬規則
-
 ---
 
 ## threat-intel-ioc-curator
@@ -64,6 +52,7 @@
 - 2026-05-22: `TUN-IOC-002` resolved in this PR — added Policy Change Decline template (§溝通範本) refusing cross-boundary source-policy changes; redirect to governance.
 - 2026-05-25: `TUN-TI-001` resolved in this PR — added Attribution Wording Downgrade Table (給 Legal filing 的合規降階字眼選單；適用/不適用情境) to §溝通範本 in `threat-intel-analyst.md`; Attribution 字眼降階 family wording 一致性基準.
 - 2026-05-25: `TUN-TI-002` resolved in this PR — added High-Pressure External Briefing Workflow (TB-EXT 剝離 checklist + Legal/IRC review 硬性 gate + CISO 書面授權跳過範本含責任歸屬轉移) to §工作流程 in `threat-intel-analyst.md`.
+- 2026-06-06: `TUN-TI-006` resolved in this PR — added TLP Sharing Decision Tree (§工作流程) to `threat-intel-analyst.md`（Step 1 預設 TLP 級別依 intel 類型 / Step 2 必升級情境 / Step 3 對外分享路徑依目標）；核心立場：TLP 是分享控制標記、非對外授權，actual disclosure decision 一律引用新增的 root README《對外揭露權責》SSOT 段（四角色 Legal / IRC / Audit Liaison / Compliance Auditor 權責、受控 vs public 界線、無單人 authority〔含 IRC〕、default safe exit = 不對外）；TI hand-off gate 維持 Legal / IRC、不擴四角色；同步把 `purple-team-detection-validator.md` 三處四角色 authority 枚舉（關鍵規則 #16 / Report Handoff / deliverables）收斂為 cross-ref SSOT，#9 加決策樹指路. repo-wide「不直接接觸」contact-boundary 行屬另一慣例、不在本 PR 範圍. v1.3 high-sensitivity review lane.
 - 2026-06-05: `TUN-TI-003` resolved in this PR — added War Room Joint Decision Walk-through Template (§溝通範本) to `threat-intel-analyst.md`；事件中 IRC 召 TI 進 war room 即時 walk technical facts / actor context / 信心度，但不產生 attribution 結論；核心是 decision reframe（把不可收斂的 attribution 問題轉成可決策的 trigger / impact 問題，提供 reframe 角度與對應 facts，不替 IRC 下決策）+ 退場不改口；go/no-go 由 IRC 依既有 approval / cannot_approve_alone 流程判斷，attribution / external / legal trigger 走 IRC + Legal joint decision；接 Context handoff to IR Commander framing，cross-ref 關鍵規則 #1/#3/#7/#10 與三條最重要邊界 #1 不重述. v1.3 creator-lane.
 - 2026-06-01: `TUN-IOC-003` resolved in this PR — added Invitation to Re-score Decline template (§溝通範本) to `threat-intel-ioc-curator.md`; TI Analyst 主動邀請 Curator 越界做 confidence / context / TTP alignment 時 Curator 仍拒絕，提供結構性事實（intake 時間 / dedup 歷史 / source-level metadata 未加工版本）作為 TI Analyst 重新評估的 input，由 TI Analyst confirm 新 confidence 後正式 handoff；cross-ref §TI Analyst 雙向協作 單向職責劃分與 §關鍵規則 紅線 B 不重述. 非 ROADMAP rep（ROADMAP 不動）. P2 第 9 條.
 
