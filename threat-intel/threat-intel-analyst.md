@@ -278,6 +278,13 @@ Acknowledgement: 本授權與決策進 incident Decision Log；事後 PIR 檢視
 - Target context：歷史活動集中於 [generic industry category]
 - Operational tempo：活動時段集中於 [generic time pattern]
 
+## Source Triangulation Notes（多來源指向一致性，context not conclusion）
+- **Source 一致性**：[一致 / 部分一致 / 不一致]——各來源指向是否收斂的簡述
+- **Candidate clusters**：涵蓋 [N] 個候選 cluster（或範圍說明）；不一致時逐一標為 competing hypotheses、不合併為單一 actor
+- **Motivation spread**：跨 [financial / espionage / hacktivism / unclear] 類別的散布；分歧如實標、不挑一個當定論
+- **Overall actor-context confidence**：[high / medium / low]——**針對 actor-context 整體，非個別 IOC 信心度**；以最不確定維度為準（往保守標）
+- 本段為 **context, not conclusion**；多源命名差異僅作 hunt / detection context，不升級為 attribution
+
 ## Use as Context
 - Threat Hunter 可作為 hypothesis source（**hypothesis, not conclusion**）
 - Detection Engineer 可作為 coverage 優先序參考（**priority, not attribution**）

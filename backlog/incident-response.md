@@ -56,17 +56,6 @@
 
 ## incident-response-forensics-analyst
 
-### TUN-FOR-003 — Partial preservation acceptable threshold 判斷材料缺 中
-
-**問題**：Test E 場景中 3 host 1 個失敗，supply-chain attribution 樣本數降到 2 是否仍 acceptable？Forensics 不拍板沒錯，但**目前範本只講「evidence loss 描述」**，沒給 IRC 判斷支撐工具（例：attribution 完整性影響量級評估框架、樣本數對結論可信度的影響）。
-
-**測試來源**：Test E 訊息 #2（5 個選項給 IRC 但缺結構化判斷框架）
-
-**建議方向**：在 §鑑識交付物加一節 `Partial Preservation Impact Framework`，含：
-- Attribution 完整性的樣本量估算（n=1 vs n=2 vs n=3 對結論的差異）
-- 各類 evidence 的可替代性（disk snapshot 能 / 不能補哪些 in-memory artifact）
-- 對 Legal / regulatory 可用性的影響分級
-
 ### TUN-FOR-005 — 「ETA 超出 IRC 要求」的回應姿態未範本化 低
 
 **問題**：Test E 場景中 IRC 要求 10:30 完成，Forensics 評估後給 10:34 + 不退讓 hash verification —— 這是基於 §關鍵規則 8 自己詮釋的，但 §溝通範本沒示範。實務上 Forensics 給「超出 IRC 期望」的 ETA 時容易被解讀為「鑑識在拖延」，需要範本化清楚的姿態。
@@ -92,3 +81,7 @@
 - 2026-06-02: `TUN-IRC-002` resolved in this PR — added 反模式 #9「業務 owner 跨界引導技術決策」to `incident-response-ir-commander.md`; 業務主管以「等不了/事後補/你拍板」引導 IRC 跳過 evidence preservation（#5）或 cannot_approve_alone 共同決策（#4）時回流程語言拒絕、Exec Sponsor 處理業務壓力取捨但 preservation/共同決策仍照既有流程. 非 ROADMAP rep. P2.
 - 2026-06-02: `TUN-FOR-004` resolved in this PR — added 業務時程壓力 side-channel 責任分界 to §Override 流程 in `incident-response-forensics-analyst.md`; side-channel 業務時程壓力 → Forensics 報事實+量化 evidence loss+建議 IRC 啟動 joint decision，不繞過 IRC、不靜默改 evidence handling，IRC 未判斷就 override 則紀錄義務歸 IRC；cross-ref FOR-001 不重述. 非 ROADMAP rep. P2.
 - 2026-06-04: `TUN-IRA-003` resolved (v1.2) — added §溝通範本 `Pending Action Status Ping` template to `incident-response-ir-analyst.md`; action 被 IRC BLOCK 或卡前置條件（等 Forensics preservation / 其他執行者 / 系統）進入 holding 時，IR Analyst 主動按節奏回報自身待命狀態並確認 hold 是否仍成立，避免「卡住但沒人知道」跨班次 / 跨人員漏接. 節奏依 IRC 指定 cadence / action urgency / blocker ETA / 狀態變更 / severity 調整、不寫死固定時數，範本含「下次回報」追蹤錨點；boundary：只回報狀態並把問題交回 IRC，不自行解除 BLOCK、不替 IRC 決定轉手執行者、不自行變更 / 重新指派他人 pending action（是否轉手或調整優先序由 IRC 協調；向 blocker owner 問 ETA 屬正常協作）；跨班次整體快照沿用 §IR-A 跨 rotation 接班簡報、不重述. 既有範本 zero-diff. 非 ROADMAP rep. P2.
+
+## Changelog (Dropped)
+
+- 2026-06-07: `TUN-FOR-003` dropped (v1.3 planning) — 實測（Forensics，3 host 2/3 保全情境）顯示現行 spec 已逼出 in-lane、適度 bounded 的回應（forensic-grade vs operational evidence 區分、不可外推 partial→full、Legal evidentiary impact、不自行拍板）；固化「n=1/2/3 信心度量化框架」會讓 forensic sufficiency 看起來比實際可量化、有假精確風險。未來若再測出失敗，以更窄的 partial-preservation quick-reference 另提，不照原 TUN-FOR-003 全量補.
