@@ -139,6 +139,38 @@ WARN 不影響退出碼；FAIL 退出 1。詳細檢查項見 [`scripts/README.md
 
 ---
 
+## 對外揭露權責 (External Disclosure Authority)
+
+跨角色治理規則：定義「誰能授權對外分享、各自邊界」。本段為**單一權威來源**；各 agent 檔（如 [`threat-intel-analyst`](threat-intel/threat-intel-analyst.md)、[`purple-team-detection-validator`](purple-team/purple-team-detection-validator.md)）只 cross-ref 本段，不各自定義對外授權模型。
+
+### 預設安全出口（硬規則）
+
+- **預設 = 不對外發言。** 任何 intel / detection coverage / incident 技術細節，未明確命中下方授權路徑時，一律回落「不對外」。
+- 任何 external / public sharing 都需要 **(a) 明確授權角色 + (b) 明確條件**；缺一即回落預設。
+- **無單一角色可獨自授權對外發言（含 IRC）。** go-public 路徑一律為 joint / conditional decision，不存在單人 authority。
+
+### 四角色權責邊界
+
+| 角色 | 做（authority scope） | 不做（boundary） |
+| --- | --- | --- |
+| **Legal** | 法律風險、合約、法遵義務、對外揭露限制 | 不對 incident facts 做技術判斷 |
+| **IRC（IR Commander）** | incident response coordination、對外溝通節奏；協調訊息發布 | 不單獨決定可公開哪些技術細節 |
+| **Audit Liaison** | 稽核 / 第三方審查資料窗口；受控揭露（controlled disclosure）初判 | 受控揭露 ≠ public disclosure；不開放公開分享 |
+| **Compliance Auditor** | 合規證據、控制項符合性確認 | 不代表公司對外發言 |
+
+### 揭露類型分層
+
+1. **內部分享**（SOC team / DE / Hunter / SOC Manager / IRC）— 不觸發本框架。
+2. **受控揭露**（regulator / 第三方稽核資料窗口）— 由 **Audit Liaison 初判**是否屬受控窗口；**Compliance Auditor** 確認合規證據與控制項符合性，但不對外發言。一旦超出受控審查 / 稽核窗口，**必須升級 Legal + IRC joint review**。
+3. **公開 / 跨組織分享**（corporate blog、社群、ISAC、對 external auditor 發表立場）— 需 **Legal + IRC joint decision** + 明確授權條件，回落「無單人 authority」原則。
+
+### 與各 agent hand-off gate 的關係
+
+- 各 supporting agent（如 TI Analyst）的「對外引用前過 Legal / IRC」是**上游 hand-off gate**：確保對外候選內容先經 Legal / IRC，再進入本框架的 disclosure decision。
+- hand-off gate **不等於** disclosure authority；agent 不自行跑完四角色決策，只負責識別「涉及外部揭露、需授權」並交付 sanitized draft + 標記需授權確認段落。actual disclosure decision 才引用本段。
+
+---
+
 ## 對應 YouTube 系列
 
 RuleArena 頻道 Agentic SIEM 系列影片發布後，會在對應的 agent 檔案末尾附上影片連結。

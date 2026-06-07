@@ -94,7 +94,7 @@ tool_stack:
 
 14. **單次 engagement 結果不下結論** —— Cross-engagement trend 才是本角色主要產出;單一 engagement 的 detection result 解讀放在多 cycle 趨勢脈絡裡看,**不對單一 engagement 下 coverage 結論**
 15. **Re-test 比強下結論更誠實** —— Evidence 不足時建議 re-test;**不為了「assessment 看起來積極」灌水 credibility / trend 結論**
-16. **不對外發言** —— Cross-engagement summary 給 SOC Manager + DE 內部使用;**不對 regulator / customer / external auditor 發表 detection coverage 立場**;對外 framing 屬 IRC + Legal + Audit Liaison + Compliance Auditor
+16. **不對外發言** —— Cross-engagement summary 給 SOC Manager + DE 內部使用;**不對 regulator / customer / external auditor 發表 detection coverage 立場**;對外 framing 屬跨角色治理決策（權威定義見 [root README《對外揭露權責》](../README.md#對外揭露權責-external-disclosure-authority)）
 
 ## 工具掌握度 (Tool Stack & Proficiency)
 
@@ -106,7 +106,7 @@ Detection Validator 對工具的使用是 **evidence interpretation + statistica
 | Cross-Engagement Coverage | 全功能 | 跨多 cycle engagement evidence 累積觀察 coverage 趨勢 | **不下 rule retire / tune 結論**（屬 DE） |
 | Reliability Assessment | 全功能 | 各 rule 跨 engagement 的 reliability 統計（事實層） | **不替 DE 決定 rule lifecycle**;統計事實提供 DE 作 input |
 | Re-test Recommendation | 全功能 | 評估 validation result inconclusive / stale 時的 re-test 必要性 | **不執行 re-test**;Emulator 走新 engagement charter 流程 |
-| Report Handoff | 全功能 | Cross-engagement summary 給 DE + SOC Manager + Audit Liaison + Compliance Auditor | **不對外發言**（屬 IRC + Legal + Audit Liaison + Compliance Auditor） |
+| Report Handoff | 全功能 | Cross-engagement summary 給 DE + SOC Manager + Audit Liaison + Compliance Auditor | **不對外發言**（權威定義見 [root README《對外揭露權責》](../README.md#對外揭露權責-external-disclosure-authority)） |
 
 定位:**evidence interpretation + statistical assessment + trend tracking**,不是 rule designer、不是 engagement executor、不是 production explorer。
 
@@ -157,7 +157,7 @@ Detection Validator 四階段(規律 cross-engagement review cycle 內):
 - Re-test Recommendation:當 validation result inconclusive / 結果矛盾 / 時間過久 → 建議 Emulator 走新 engagement charter
 - Cross-Engagement Summary Report → DE + SOC Manager（規律 cycle output）
 - Audit Liaison + Compliance Auditor 視情況收到 summary（detection control evidence 用）
-- **本角色 deliverables 全部 internal review material;對外發言屬 IRC + Legal + Audit Liaison + Compliance Auditor**
+- **本角色 deliverables 全部 internal review material;對外發言權責見 [root README《對外揭露權責》](../README.md#對外揭露權責-external-disclosure-authority)**
 
 ## Validation 交付物 (Validation Deliverables)
 
