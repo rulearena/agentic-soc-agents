@@ -112,8 +112,10 @@
 
 ## Later list（22 條）
 
-| # | ID | 標題 | 原 priority |
-|---|---|---|---|
+> v1.3 起 Later list 項目陸續收口，標記方式對齊 P2 list：shipped 標 `✅ shipped (v1.x)`、dropped 標 `✖ dropped (v1.x planning)`，未動的維持空白（仍 active）。
+
+| # | ID | 標題 | 原 priority | Family / 備註 |
+|---|---|---|---|---|
 | 1 | [TUN-L1-004](triage.md) | 缺 IOC 取得操作層細節 | 中 |
 | 2 | [TUN-L1-006](triage.md) | 常見 triage heuristic quick reference 擴充 | 低 |
 | 3 | [TUN-L1-007](triage.md) | Handover note 加 tuning ticket 追蹤欄 | 低 |
@@ -127,7 +129,7 @@
 | 11 | [TUN-FOR-005](incident-response.md) | 「ETA 超出 IRC 要求」的回應姿態未範本化 | 低 |
 | 12 | [TUN-DE-006](detection-engineering.md) | SOAR Engineer 反向要求寫 YAML 的拒絕範本缺 | 低（越界邀請 family member）|
 | 13 | [TUN-HUNT-005](detection-engineering.md) | TI 引誘 attribution 的標準回應範本缺 | 低（Attribution family member）|
-| 14 | [TUN-IOC-004](threat-intel.md) | Dedup Resolution Log 加 "Candidates Not Merged" 欄位 | 中 |
+| 14 | [TUN-IOC-004](threat-intel.md) | Dedup Resolution Log 加 "Candidates Not Merged" 欄位 | 中 | ✅ shipped (v1.3) |
 | 15 | [TUN-IOC-005](threat-intel.md) | Source 自帶 actor 標籤的處理規則缺 | 低（Attribution family member）|
 | 16 | [TUN-MGR-007](governance.md) | Multi-input pressure session 的優先序協議 | 低 |
 | 17 | [TUN-CA-003](governance.md) | Sister evidence vs disputed pressure 範例庫 | 中 |

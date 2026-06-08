@@ -221,6 +221,14 @@ IOC Curator 四階段：
 | DRS-001 | 3 records | record A | earliest intake（結構性原則）|
 | DRS-002 | 2 records | record C | most complete metadata（結構性原則） |
 
+## Candidates Not Merged
+| Candidate record IDs | 未合併原因（結構性差異）| 保留為獨立 record 的決策依據 |
+|---|---|---|
+| IB-2026-041 | 未達既定 dedup engine threshold：indicator value 前綴相符但 port / path 結構不同 | 結構差異足以代表兩個獨立觀測，合併會喪失 granularity，保留為獨立 record |
+
+> **目的**：讓「**未合併也透明**」變成固定可稽核項目。候選但未達 threshold 的 record 不靠 Notes 補一句帶過，固定列入本子段。
+> **紅線**：未合併原因只記**結構性差異**（threshold / 結構欄位不符），**不依 metadata 值、不碰 attribution**——與 Resolution Principle 同一原則。
+
 ## Resolution Principle
 - Canonical record selection 依**結構性原則**（earliest intake / most complete metadata 等），**不依 metadata 值**
 - Merged metadata 保留所有 source-level confidence / reliability / provenance
