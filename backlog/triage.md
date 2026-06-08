@@ -10,14 +10,6 @@
 
 ## triage-l1-soc-analyst
 
-### TUN-L1-004 — 缺 IOC 取得操作層細節 中
-
-**問題**：定義說 L1 用 VirusTotal「**看結果**」，但沒寫「**如何從 EDR 撈到 hash 才能查**」這段銜接動作。對新人不夠 actionable。
-
-**測試來源**：Test A
-
-**建議方向**：在「工具掌握度」表的 CrowdStrike Falcon 列補充：「能從 Process Explorer / Host Search 取得 file hash 餵給 VT」；或在「核心任務 → Context Enrichment」加一條 micro-workflow。
-
 ### TUN-L1-006 — 常見 triage heuristic quick reference 擴充 低
 
 **問題**：目前 MITRE ATT&CK 對應表只列 6 條 technique，實務常見的 rundll32 / regsvr32 / mshta / wmic / certutil 等 LOLBin 濫用 pattern、Temp 路徑落地、export name pattern 等 heuristic 沒有快速 reference。
@@ -72,3 +64,4 @@
 - 2026-05-28: `TUN-L1-003` resolved in this PR — added `Time-Critical TP Fast-Track` sub-section (升級 + 並行 enrichment) to `triage-l1-soc-analyst.md` §工作流程; triggers on credential dumping / AD attack / ransomware staging patterns.
 - 2026-06-02: `TUN-L1-005` resolved in this PR — added Evidence Pending 標註規範 sub-section to `triage-l1-soc-analyst.md`; PENDING evidence 須填 reason/ETA/owner + 補回留痕、不靜默替換、平台異常記入 Systemic Issues Observed；PENDING ≠ 跳過 enrichment. 非 ROADMAP rep. P2.
 - 2026-06-02: `TUN-L2-003` resolved in this PR — added `跨單位同一 artifact：hunt 與 IR 並行起步` sub-section to `triage-l2-soc-analyst.md` §協作與回饋通道; 跨單位 artifact 硬規則命中時 hunt seed 與升 IR 並行起步（指向 §升級條件、不重述 trigger）、hunt 屬平行協作非升級鏈、L2 不自下 supply chain 結論. 非 ROADMAP rep. P2.
+- 2026-06-08: `TUN-L1-004` resolved in this PR — added `EDR → hash → VT micro-workflow`（Falcon Host Search / Process Explorer 定位 process → 取 file SHA256 → VT 查 ratio/first seen/community → 寫進 Triage Report External Intel 段並 attach evidence）to `triage-l1-soc-analyst.md` §工作流程 Step 2 External context，並在 §工具掌握度 CrowdStrike Falcon 列補 hash 取得能力. 補上「怎麼撈到 hash 才能查」的操作層銜接. v1.3 low-sensitivity review lane. P2.

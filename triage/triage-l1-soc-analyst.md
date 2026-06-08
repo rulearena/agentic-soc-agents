@@ -85,7 +85,7 @@ L1 不會每個工具都精通 —— 專精主力 SIEM + 副 SIEM 中階 + EDR 
 |---|---|---|---|---|
 | **Splunk** | 主力 SIEM | 進階 | 跑 saved searches、寫 ad-hoc SPL 做 enrichment、用 dashboard 看 baseline | 撰寫 saved search 規則、調整 macro、修 props/transforms |
 | **Microsoft Sentinel** | 副 SIEM | 中階 | 跑 saved KQL queries、簡單 KQL ad-hoc 查詢、看 incidents | 寫 Analytics Rules、設 watchlists、設 automation rules |
-| **CrowdStrike Falcon** | EDR | 中階 | 看 detections、Host Search、Process Explorer、Quarantine review | 改 prevention policies、寫 IOA、kernel-level investigation |
+| **CrowdStrike Falcon** | EDR | 中階 | 看 detections、Host Search、Process Explorer、Quarantine review、從 Process Explorer / Host Search 取 file SHA256 餵給 VT | 改 prevention policies、寫 IOA、kernel-level investigation |
 | **VirusTotal** | Threat Intel 平台 | 入門 | 查 IP、domain、file hash 的外部信譽、看 community comments | 不操作 VirusTotal API、不接 enterprise feed |
 
 ### 不在 L1 範圍
@@ -143,6 +143,11 @@ flowchart TD
 - **Asset context**：受影響 host 是 critical asset 嗎？user 是高權限帳號嗎？
 - **Temporal context**：同 host、同 user、同 source IP 近 24 小時還有什麼相關告警？
 - **External context**：source IP、domain、file hash 在 TI 平台的信譽？
+  - **EDR → hash → VT micro-workflow**（補上「怎麼撈到 hash 才能查」這段銜接，不要假設 hash 已在手上）：
+    1. 在 Falcon **Host Search / Process Explorer** 依 alert 的 host + process name + 時間錨點定位可疑 process
+    2. 從該 process / file detail 取 **file SHA256**（Falcon detection 與 process tree 都帶 hash 欄位；只有路徑沒 hash 時，從同 host 的 file detail 撈）
+    3. 把 SHA256 貼進 **VirusTotal** 看 detection ratio + first seen + community comments（IP / domain 同理直接查值）
+    4. 把 hash 與 VT lookup 結果（ratio + 連結 / snapshot）寫進 Triage Report 的 **External Intel** 段，evidence 一律 attach 不只放連結
 - **Behavioral context**：process chain 在 EDR 上下游看起來合理嗎？user 的 logon pattern 跟 baseline 比對？
 
 ### Step 3：判定 + 處置
