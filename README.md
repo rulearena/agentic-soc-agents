@@ -117,6 +117,8 @@ python3 scripts/validate_authority_chain.py
 
 WARN 不影響退出碼；FAIL 退出 1。詳細檢查項見 [`scripts/README.md`](scripts/README.md)。
 
+上述 validator 只驗 **schema / 結構一致性**。spec 在特定情境下的**行為**（交付物結構是否符合角色定義、邊界守不守得住）沒有自動 harness，靠 [`tests/manual/`](tests/manual/README.md) 的情境 prompt 人工 dry-run——用來在 ship / drop 某條 backlog 條目前，確認 spec 變更是否真的改變了 agent 行為。
+
 ---
 
 ## 版本狀態 + Backlog
