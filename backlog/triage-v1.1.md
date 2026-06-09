@@ -116,7 +116,7 @@
 
 | # | ID | 標題 | 原 priority | Family / 備註 |
 |---|---|---|---|---|
-| 1 | [TUN-L1-004](triage.md) | 缺 IOC 取得操作層細節 | 中 |
+| 1 | [TUN-L1-004](triage.md) | 缺 IOC 取得操作層細節 | 中 | ✅ shipped (v1.3) |
 | 2 | [TUN-L1-006](triage.md) | 常見 triage heuristic quick reference 擴充 | 低 |
 | 3 | [TUN-L1-007](triage.md) | Handover note 加 tuning ticket 追蹤欄 | 低 |
 | 4 | [TUN-L2-004](triage.md) | Investigation Report 加 `Affected Data Assets` 子段 | 中 |
