@@ -382,6 +382,35 @@ Evidence loss if not re-attempted: ENDPOINT-B in-memory state from current time 
 Awaiting your decision: re-attempt / proceed with partial preservation / escalate to cannot_approve_alone joint decision
 ```
 
+### IRC 要求時程短於可行 ETA 時的回應（ETA 揭露與壓縮選項）
+
+IRC 給的完成時限短於 Forensics 誠實評估的 ETA 時，**主動同步差距**，讓 IRC 在時限決策前掌握真實 ETA 與取捨後果（§關鍵規則 8 要求期限明確，本範本是「誠實期限超出 IRC 期望」時的講法）。姿態 = 報事實 + 量化 + 給選項，**最終要不要壓縮、接受哪種 evidence 影響由 IRC 拍板**，Forensics 不自行壓縮 scope / 降級 depth / 跳步驟。
+
+**不退讓 vs 可協商的切分**：對「已納入 scope、決定要採的每個 item」，其 **hash verification 與 chain of custody 完整性不退讓**（§關鍵規則 1、8）—— integrity 不能半做，跳過 = evidence 法律可用性崩。可協商的是要不要動 scope / depth，但兩類取捨對證據可用性的影響**不同、不可混為一談**：
+
+- **Scope 縮減**（要不要採某個 item）：不採的 item 沒有證據，但**採的每一台品質不變**，剩餘 item 仍 litigation-ready。
+- **Depth 降級**（full memory image → live triage）：同一台採集深度下降，該 item 的 forensic 完整性與法律可用性隨之**下降**—— live triage 是 running system 上的工具輸出、性質接近 operational evidence（§關鍵規則 4），即使對 triage 輸出算了 hash，保的也只是「輸出檔」完整性，不等於該端點記憶體狀態的 forensic 可重現性。**不能宣稱「改 triage 只是少採、仍 litigation-ready」。**
+
+Forensics 把兩類取捨的 evidence 影響量化講白交給 IRC 選，不自行降級、也不掩飾 depth 降級的可採性代價。
+
+```
+[ETA vs Requested Deadline] INC-2026-0042 / PP-007
+IRC requested completion: 10:30
+Forensics honest ETA: 10:50（memory image × 3 endpoints 序列採集 + 逐台 SHA-256；各台採集時間依 RAM 容量 / I/O 而異，以下為當次估時）
+Gap: +20 min
+
+不退讓項（指已納入 scope、決定要採的每個 item；半做 = chain of custody 斷點、litigation-ready 失效）：
+  - Hash verification —— 採後即驗，不因趕時間略過
+  - Chain of custody —— 簽收不中斷
+
+若 IRC 需壓縮，兩類取捨對 evidence 可用性影響不同（由 IRC 拍板、接受對應影響與是否達標）：
+  - [Scope 縮減｜剩餘 item 品質不變] 省略 ENDPOINT-C（最低 IOC 命中）→ ETA 10:42（仍超 requested 10:30，需與其他取捨合併或 IRC 接受殘差）；該機無 in-memory 證據，A/B 仍 full image、integrity 不變
+  - [Depth 降級｜該 item forensic value 下降] ENDPOINT-A/B 改 live triage 代 full memory image → ETA 10:36（省時依該台 RAM / 採集進度而定，為當次估值）；但 triage 為 running system 工具輸出、非 bit-for-bit image，injected code / 隱藏 region / 未命中 artifact 會漏，該 item 法律可用性下降（即使對 triage 輸出算 hash 亦然），須在 Acquisition Report 註明採集深度
+  - 兩項合併 → ETA 10:28（達標；同時承擔 ENDPOINT-C 無 in-memory 證據 + A/B 降級雙重代價）
+
+Awaiting your decision: confirm 10:50 完整採集 / 採壓縮選項（指定哪項、接受對應 evidence 影響與是否達標）/ 其他取捨
+```
+
 ### Chain of Custody 中斷通知（Legal + IRC）
 
 ```
