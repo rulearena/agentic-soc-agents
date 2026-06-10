@@ -28,14 +28,6 @@
 
 ## incident-response-ir-analyst
 
-### TUN-IRA-005 — 「自己不做但建議拉誰進來」的 phrasing 邊界沒明示 低
-
-**問題**：IR Analyst 在 Scope Drift Report 或 Execution Report 中可以「建議 IRC 拉 Threat Hunter / Detection Engineer 進來」嗎？這算建議 IRC 做人員調度（邊界 OK，自己沒 ping）還是越界（人員調度屬 IRC / SOC Manager）？目前定義沒明示。
-
-**測試來源**：Test F 訊息 #2 Scope Drift Report 的 Recommended Next Step（建議 IRC 拉 Threat Hunter / Detection Engineer 進來）
-
-**建議方向**：在 §核心任務 #4 scope drift 回報或 §溝通範本補一行：「Recommended Next Step 可包含人員調度建議，但**不自己 ping** 對應角色；ping 屬 IRC / SOC Manager 職權」。
-
 ### TUN-IRA-006 — Operational evidence 的 attach / 保存格式範本缺 低
 
 **問題**：定義講 operational evidence（command 輸出、log snapshot、screen capture）由 IR Analyst 收，但沒給保存位置、命名、保留期限的範本。Test F 場景中 IR Analyst 寫了「auth log 7d snapshot」但 attach 路徑 / case ID 沒寫具體 reference，實務上 IR ticket 會要求一致格式。
@@ -74,6 +66,7 @@
 - 2026-06-02: `TUN-FOR-004` resolved in this PR — added 業務時程壓力 side-channel 責任分界 to §Override 流程 in `incident-response-forensics-analyst.md`; side-channel 業務時程壓力 → Forensics 報事實+量化 evidence loss+建議 IRC 啟動 joint decision，不繞過 IRC、不靜默改 evidence handling，IRC 未判斷就 override 則紀錄義務歸 IRC；cross-ref FOR-001 不重述. 非 ROADMAP rep. P2.
 - 2026-06-04: `TUN-IRA-003` resolved (v1.2) — added §溝通範本 `Pending Action Status Ping` template to `incident-response-ir-analyst.md`; action 被 IRC BLOCK 或卡前置條件（等 Forensics preservation / 其他執行者 / 系統）進入 holding 時，IR Analyst 主動按節奏回報自身待命狀態並確認 hold 是否仍成立，避免「卡住但沒人知道」跨班次 / 跨人員漏接. 節奏依 IRC 指定 cadence / action urgency / blocker ETA / 狀態變更 / severity 調整、不寫死固定時數，範本含「下次回報」追蹤錨點；boundary：只回報狀態並把問題交回 IRC，不自行解除 BLOCK、不替 IRC 決定轉手執行者、不自行變更 / 重新指派他人 pending action（是否轉手或調整優先序由 IRC 協調；向 blocker owner 問 ETA 屬正常協作）；跨班次整體快照沿用 §IR-A 跨 rotation 接班簡報、不重述. 既有範本 zero-diff. 非 ROADMAP rep. P2.
 - 2026-06-10: `TUN-IRC-005` resolved in this PR — added fixed `Parallel notification (non-blocking)` 欄 to Action Approval Record 範本 in `incident-response-ir-commander.md`（與 `Execution Delegation`〔blocking〕區分；Action #003 filled〔Platform/IT fallback、持有者主管知會〕、#007 N/A）+ 填寫原則含 carve-out：`cannot_approve_alone` 類（legal / customer / regulator / law-enforcement / public disclosure）一律 blocking 聯合決策、不得填本欄，判準=通知對象有無否決/共同拍板權；明確區分「決策層 blocking gate」vs「執行層 non-blocking ping」，防止把聯合決策 gate 降級成順手通知. 在既有 authority 模型內補固定欄位、未擴權. 因碰 incident authority（通知 blocking/non-blocking 決策權）改判中敏感、走 user-driven review（複審指出的失效 section 引用已修，對齊 §升級條件 (Escalation Criteria)）. v1.3 medium-sensitivity review lane. P2.
+- 2026-06-10: `TUN-IRA-005` resolved in this PR — clarified IR Analyst 在 Scope Drift Report `Recommended Next Step` 的人員調度建議邊界 in `incident-response-ir-analyst.md`（範例補一條人員調度建議 + fenced block 後加 guardrail 範本說明）：IR-A **可**建議 IRC 拉 Threat Hunter / Detection Engineer 等角色進來（屬「給 IRC 決策參考」範圍）、但**不自行 ping / 召集**——實際人員調度屬 IRC / SOC Manager 職權，建議 ≠ 執行. 收束既有邊界、未授予新召集權、未引入新 escalation / approval / handoff path. v1.3 low-sensitivity review lane. P2.
 
 ## Changelog (Dropped)
 
