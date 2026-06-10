@@ -40,17 +40,7 @@
 
 ## incident-response-forensics-analyst
 
-### TUN-FOR-005 — 「ETA 超出 IRC 要求」的回應姿態未範本化 低
-
-**問題**：Test E 場景中 IRC 要求 10:30 完成，Forensics 評估後給 10:34 + 不退讓 hash verification —— 這是基於 §關鍵規則 8 自己詮釋的，但 §溝通範本沒示範。實務上 Forensics 給「超出 IRC 期望」的 ETA 時容易被解讀為「鑑識在拖延」，需要範本化清楚的姿態。
-
-**測試來源**：Test E 訊息 #1（Forensics 主動揭露 ETA 超 4 分鐘 + 解釋為什麼不退讓 hash）
-
-**建議方向**：在 §溝通範本補一段「ETA Negotiation Template」，示範：
-- 主動揭露差距（不要等 IRC 發現）
-- 講清楚不退讓的具體項（hash / completeness / chain of custody 哪一條）
-- 給「壓縮版」的選項（若 IRC 真要更快，可以省略哪些 → 對應 evidence 損失量級）
-- 最終決策仍在 IRC
+（incident-response-forensics-analyst 目前無 active backlog；已 resolved 項見底部 Changelog）
 
 ---
 
@@ -67,6 +57,7 @@
 - 2026-06-04: `TUN-IRA-003` resolved (v1.2) — added §溝通範本 `Pending Action Status Ping` template to `incident-response-ir-analyst.md`; action 被 IRC BLOCK 或卡前置條件（等 Forensics preservation / 其他執行者 / 系統）進入 holding 時，IR Analyst 主動按節奏回報自身待命狀態並確認 hold 是否仍成立，避免「卡住但沒人知道」跨班次 / 跨人員漏接. 節奏依 IRC 指定 cadence / action urgency / blocker ETA / 狀態變更 / severity 調整、不寫死固定時數，範本含「下次回報」追蹤錨點；boundary：只回報狀態並把問題交回 IRC，不自行解除 BLOCK、不替 IRC 決定轉手執行者、不自行變更 / 重新指派他人 pending action（是否轉手或調整優先序由 IRC 協調；向 blocker owner 問 ETA 屬正常協作）；跨班次整體快照沿用 §IR-A 跨 rotation 接班簡報、不重述. 既有範本 zero-diff. 非 ROADMAP rep. P2.
 - 2026-06-10: `TUN-IRC-005` resolved in this PR — added fixed `Parallel notification (non-blocking)` 欄 to Action Approval Record 範本 in `incident-response-ir-commander.md`（與 `Execution Delegation`〔blocking〕區分；Action #003 filled〔Platform/IT fallback、持有者主管知會〕、#007 N/A）+ 填寫原則含 carve-out：`cannot_approve_alone` 類（legal / customer / regulator / law-enforcement / public disclosure）一律 blocking 聯合決策、不得填本欄，判準=通知對象有無否決/共同拍板權；明確區分「決策層 blocking gate」vs「執行層 non-blocking ping」，防止把聯合決策 gate 降級成順手通知. 在既有 authority 模型內補固定欄位、未擴權. 因碰 incident authority（通知 blocking/non-blocking 決策權）改判中敏感、走 user-driven review（複審指出的失效 section 引用已修，對齊 §升級條件 (Escalation Criteria)）. v1.3 medium-sensitivity review lane. P2.
 - 2026-06-10: `TUN-IRA-005` resolved in this PR — clarified IR Analyst 在 Scope Drift Report `Recommended Next Step` 的人員調度建議邊界 in `incident-response-ir-analyst.md`（範例補一條人員調度建議 + fenced block 後加 guardrail 範本說明）：IR-A **可**建議 IRC 拉 Threat Hunter / Detection Engineer 等角色進來（屬「給 IRC 決策參考」範圍）、但**不自行 ping / 召集**——實際人員調度屬 IRC / SOC Manager 職權，建議 ≠ 執行. 收束既有邊界、未授予新召集權、未引入新 escalation / approval / handoff path. v1.3 low-sensitivity review lane. P2.
+- 2026-06-10: `TUN-FOR-005` resolved in this PR — added §溝通範本 `IRC 要求時程短於可行 ETA 時的回應（ETA 揭露與壓縮選項）` template to `incident-response-forensics-analyst.md`; 誠實 ETA 超出 IRC 期望時主動同步差距、姿態 = 報事實 + 量化 + 給選項；不退讓 = 已納入 scope 的每個 item 之 hash verification 與 chain of custody 完整性（§關鍵規則 1、8，integrity 不能半做）；可協商項明分兩類且對證據可用性影響不同——Scope 縮減（要不要採某 item、剩餘台品質不變）vs Depth 降級（full image → live triage、改變該 item 證據性質、forensic/法律可用性下降、掛回 §關鍵規則 4 operational-vs-forensic-grade），不可混為一談；壓縮與否與接受哪種影響最終由 IRC 拍板、Forensics 不自行壓縮/降級/跳步驟、不掩飾 depth 降級的可採性代價. 範例各選項以結果 ETA 呈現（含未達標殘差、兩項合併才達標）、per-endpoint 採集時間框為 incident-specific（不宣稱通用速率，避免與 §關鍵規則 8 估時 / MAR-014 互撞）、ETA 算術自洽. 與 `TUN-FOR-001` / `TUN-FOR-004` side-channel 骨幹同姿態（報事實 + 量化 + 決策交回 IRC），不轉移 authority、未擴權. 非 ROADMAP rep. v1.3 low-sensitivity review lane. P2.
 
 ## Changelog (Dropped)
 
