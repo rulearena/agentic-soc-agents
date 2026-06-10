@@ -259,6 +259,23 @@ AAR-005: isolate-workstation × 12（IRC approved 14:45）
 
 > **Recommended Next Step 的人員調度建議邊界**：IR Analyst 可在 `Recommended Next Step` 建議 IRC 拉 Threat Hunter / Detection Engineer 等角色進來（屬「給 IRC 決策參考」的範圍）；但**不自行 ping / 召集**對應角色——實際人員調度屬 IRC / SOC Manager 職權。建議 ≠ 執行：寫進報告供 IRC 決策即止，不直接聯絡或指派該角色。
 
+### 6. Operational Evidence Storage Convention
+
+IR Analyst 在執行與驗證過程中收的 operational evidence（command 輸出、log snapshot、screen capture）若只在報告裡寫「auth log 7d snapshot」這類描述、沒有具體 attach 位置與 reference，事後 review / handoff 時會找不到原始 artifact。以下定義最小一致格式，讓每份 operational evidence 都能在 IR ticket 內被定位。**本 convention 只適用 operational evidence；memory / disk image、chain of custody 屬 forensic-grade evidence，走 Forensics 的保全流程，不套用本格式**（§關鍵規則 3）。
+
+**命名**：`<ref>-evidence-<type>-<timestamp>`
+- `<ref>`：對應的 Action Approval Record 編號（如 `AAR-003`）；無對應 approval 的 evidence（如 pre-execution check）改用所屬 action / case ref（例 `INC-2026-0042-preexec`）
+- `<type>`：`cmdout`（command 輸出）/ `logsnap`（log snapshot）/ `screencap`（screen capture）
+- `<timestamp>`：採集時刻 `YYYYMMDDThhmm`（用事件時區，與報告時間軸一致）
+- 例：`AAR-003-evidence-logsnap-20260610T1435`、`AAR-003-evidence-cmdout-20260610T1437`
+
+**attach 規格**：
+- 一律 attach 到對應 IR ticket（不散落在個人路徑 / DM / 本機）；在 Action Execution Report 等交付物中**以檔名 reference 引用**，不把整段內容貼進報告本文
+- 描述要可定位：把「auth log 7d snapshot」寫成「auth log snapshot（過去 7d），見 `AAR-003-evidence-logsnap-20260610T1435`，attached to INC-2026-0042」
+- snapshot 一併註明來源（哪個資料源、查詢範圍、時間窗、host），讓他人能重建脈絡
+
+**保留期限**：對齊該事件的 retention policy，不另立標準。IR Analyst 不自行決定保留多久、不提前刪除 operational evidence——retention 期限由事件 / 合規政策認定，有疑義回報 IR Commander。
+
 ## 回報 Commander 的觸發條件 (Stop-and-Report Triggers)
 
 執行中遇到以下任一情境，**停下動作 → 提交 Scope Drift Report → 等 IRC 重新決策**：
