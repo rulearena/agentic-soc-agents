@@ -8,14 +8,6 @@
 
 ## incident-response-ir-commander
 
-### TUN-IRC-003 — Sev-1 暫定 → confirm/downgrade 缺時間框架 低
-
-**問題**：定義 §workflow §2 Classify 講「為何不是更高/更低」三軸評估，但沒有「Sev-1 **暫定** → N 分鐘內基於更多證據 confirm 或 downgrade」的明確時間框架。事件初期 commander 常需先暫定才能啟動流程，但暫定狀態能維持多久沒寫，可能導致 stakeholder 對嚴重度認知混亂。
-
-**測試來源**：Test D（事件 09:55 暫定 Sev-1，但定義沒寫多久內必須 confirm）
-
-**建議方向**：§workflow §2 Classify 補一條「Sev-1 暫定的 confirmation window」—— 例如「Sev-1 暫定後 30 分鐘內基於更多 evidence confirm 或 downgrade，confirmation 結果寫入 Severity Classification 第二版」。
-
 ### TUN-IRC-004 — Break-glass 合理使用 vs 濫用的 post-incident 判定範本 低
 
 **問題**：定義 §關鍵規則 7 + Anti-Pattern #6 明確說「濫用才是流程議題」，但沒給「**如何判定濫用**」的範本。Commander 在 Decision Log 標「不入濫用 review」是憑直覺，缺結構化判定 checklist。
@@ -53,6 +45,7 @@
 - 2026-06-10: `TUN-IRA-005` resolved in this PR — clarified IR Analyst 在 Scope Drift Report `Recommended Next Step` 的人員調度建議邊界 in `incident-response-ir-analyst.md`（範例補一條人員調度建議 + fenced block 後加 guardrail 範本說明）：IR-A **可**建議 IRC 拉 Threat Hunter / Detection Engineer 等角色進來（屬「給 IRC 決策參考」範圍）、但**不自行 ping / 召集**——實際人員調度屬 IRC / SOC Manager 職權，建議 ≠ 執行. 收束既有邊界、未授予新召集權、未引入新 escalation / approval / handoff path. v1.3 low-sensitivity review lane. P2.
 - 2026-06-10: `TUN-IRA-006` resolved in this PR — added §執行交付物 `### 6. Operational Evidence Storage Convention` to `incident-response-ir-analyst.md`；為 operational evidence（command 輸出 / log snapshot / screen capture）定義最小一致格式：命名 `<ref>-evidence-<type>-<timestamp>`（ref=AAR 編號如 `AAR-003`、type=cmdout/logsnap/screencap、無對應 approval 用 case ref 如 `INC-2026-0042-preexec`）、一律 attach 到 IR ticket 並在報告中以檔名 reference 引用（不貼整段內容）、描述須可定位（把「auth log 7d snapshot」寫成具體檔名 + 來源 / 範圍 / 時間窗 / host）、保留期限對齊事件 retention policy. 邊界：只規範 operational evidence 的存放格式，memory / disk image 與 chain of custody 仍屬 forensic-grade、走 Forensics 保全流程不套用本格式（掛回 §關鍵規則 3）；IR Analyst 不自定保留期、不提前刪除，retention 由事件 / 合規政策認定、有疑義回報 IRC——純格式收束、未擴權、未引入新 path. 非 ROADMAP rep. v1.3 low-sensitivity review lane. P2.
 - 2026-06-10: `TUN-FOR-005` resolved in this PR — added §溝通範本 `IRC 要求時程短於可行 ETA 時的回應（ETA 揭露與壓縮選項）` template to `incident-response-forensics-analyst.md`; 誠實 ETA 超出 IRC 期望時主動同步差距、姿態 = 報事實 + 量化 + 給選項；不退讓 = 已納入 scope 的每個 item 之 hash verification 與 chain of custody 完整性（§關鍵規則 1、8，integrity 不能半做）；可協商項明分兩類且對證據可用性影響不同——Scope 縮減（要不要採某 item、剩餘台品質不變）vs Depth 降級（full image → live triage、改變該 item 證據性質、forensic/法律可用性下降、掛回 §關鍵規則 4 operational-vs-forensic-grade），不可混為一談；壓縮與否與接受哪種影響最終由 IRC 拍板、Forensics 不自行壓縮/降級/跳步驟、不掩飾 depth 降級的可採性代價. 範例各選項以結果 ETA 呈現（含未達標殘差、兩項合併才達標）、per-endpoint 採集時間框為 incident-specific（不宣稱通用速率，避免與 §關鍵規則 8 估時 / MAR-014 互撞）、ETA 算術自洽. 與 `TUN-FOR-001` / `TUN-FOR-004` side-channel 骨幹同姿態（報事實 + 量化 + 決策交回 IRC），不轉移 authority、未擴權. 非 ROADMAP rep. v1.3 low-sensitivity review lane. P2.
+- 2026-06-10: `TUN-IRC-003` resolved in this PR — added §workflow §2 Classify 一條「暫定分級的 confirmation 節奏」+ Severity Classification 範本後「暫定 vs 定案」慣例註記 in `incident-response-ir-commander.md`；commander 可先給暫定 (provisional) severity 以啟動流程，但暫定不應無限延續：重新評估由觸發門檻驅動（證據到位 / 三軸輸入變動 / containment 或 scope 狀態改變 / 接近 mandatory notification 門檻），**不綁固定時數**（避免虛構 SLA，對齊 `TUN-IRA-003` 相對 cadence 設計、與被 drop 的 `TUN-TI-005` 固定 SLA 反向）；每次 confirm / downgrade 更新 Severity Classification（標暫定 → 定案版本變更）+ 記 Decision Log，暫定須在 Severity Classification 標為暫定並掛「下次 severity review」錨點（對齊 Command Brief Next Decision Points）. 邊界：只規範**何時**重新評估 severity 的節奏，不改變既有分級職權、不新增升降 severity 的權限——authority 收束未擴權. 非 ROADMAP rep. v1.3 low-sensitivity review lane. P2.
 
 ## Changelog (Dropped)
 
