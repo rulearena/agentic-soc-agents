@@ -118,7 +118,7 @@
 |---|---|---|---|---|
 | 1 | [TUN-L1-004](triage.md) | 缺 IOC 取得操作層細節 | 中 | ✅ shipped (v1.3) |
 | 2 | [TUN-L1-006](triage.md) | 常見 triage heuristic quick reference 擴充 | 低 |
-| 3 | [TUN-L1-007](triage.md) | Handover note 加 tuning ticket 追蹤欄 | 低 |
+| 3 | [TUN-L1-007](triage.md) | Handover note 加 tuning ticket 追蹤欄 | 低 | ✅ shipped (v1.3) |
 | 4 | [TUN-L2-004](triage.md) | Investigation Report 加 `Affected Data Assets` 子段 | 中 | ✅ shipped (v1.3) |
 | 5 | [TUN-L2-005](triage.md) | L1 已 break-glass page IR 時 L2 的並行責任 | 低 |
 | 6 | [TUN-IRC-003](incident-response.md) | Sev-1 暫定 → confirm/downgrade 缺時間框架 | 低 |

@@ -471,8 +471,12 @@ Evidence: <ticket link>
 - 42 tickets total: 38 FP (符合 playbook FP 條件), 3 升級 L2, 1 仍在 L1 暫掛
 
 ## Systemic Issues Observed (for SOC Manager / Detection Engineer review)
-- Rule "Unusual DNS Tunneling" 今天觸發 17 次，14 次都是已知合法 monitoring tool；建議調 allowlist
-- VirusTotal API 在 14:30-15:00 連線異常，影響該時段 enrichment 品質
+| Issue | 量化數據 | Tuning Ticket # | Owner | Status |
+|---|---|---|---|---|
+| Rule "Unusual DNS Tunneling" 大量 FP，建議調 allowlist | 今日觸發 17 次，其中 14 次為已知合法 monitoring tool（FP 比 ~82%） | DE-TUNE-2026-05-14-007 | Detection Engineer（轉單：當班 L1） | 已開單，待 DE review |
+| VirusTotal API 14:30-15:00 連線異常，影響該時段 enrichment 品質 | 該時段 ~8 筆 alert enrichment 延後 / 降級 | N/A (platform incident, see Reminders) | Platform / Vendor Ops | 已記 Reminders for Night Shift，追 vendor 復原狀態 |
+
+> **追蹤欄填寫原則**：並非每個 systemic issue 都對應一張 tuning ticket。detection noise / rule 調整 → 開 DE tuning ticket 並填 `Tuning Ticket #`；平台事件 / 供應商 outage 不屬 detection tuning，`Tuning Ticket #` 標 `N/A` 並改走對應 incident / Reminders for Night Shift track 追蹤。**每列都必須有 `Owner` + `Status`**——`N/A` 只代表「不是 detection tuning」，不代表沒人追。
 
 ## Reminders for Night Shift
 - HOST-FIN-042 isolation 進度需追蹤；如 L2 已 isolate，明天會看到 EDR sensor offline 不需誤判
