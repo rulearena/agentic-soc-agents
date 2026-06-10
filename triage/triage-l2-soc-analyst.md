@@ -245,6 +245,20 @@ L2 是 **investigate-and-respond** 角色。能寫複雜跨源查詢、能觸發
 - HOST-FIN-029 (RDP target, 收到後續 PowerShell payload)
 - HOST-DBA-003 (SMB 連線異常，14:25，service-svc-dbops 帳號)
 
+#### Affected Data Assets（資料資產維度）
+
+> 上面的 host / user 條列回答「哪些機器、哪些帳號被波及」；本子段回答「哪些**資料**可能被接觸或外傳」。data exfil 場景（DB dump、repo zip、檔案大量下載 / 上傳）必填；純 endpoint 感染、無資料接觸跡象可整段標 `N/A — 無資料資產接觸跡象`。
+
+| 資料資產 | 資料類型 | 敏感等級 | 外傳證據（已觀測 log 事實）| 合規影響預估（initial，非最終裁定）|
+|---|---|---|---|---|
+| HOST-DBA-003 上的 finance DB | 客戶交易紀錄（結構化）| 高度機密（含 PII / 財務資料）| SMB 連線異常但無大量讀取 / 外送 log，pending IR forensics | 若後續確認外傳，可能落入個資 / 財務合規通報範圍——交 IR Commander + Legal / DPO 判定 |
+| finance.user01 mailbox | 內部郵件 / 附件 | 機密 | mailbox access log 無大量下載 / 外送、無新增 forwarding rule、無異常 external session，pending forensics | 視後續 forensics 結果而定，pending IR Commander + Legal / DPO 判定 |
+
+**填寫原則**
+- **外傳證據只寫已觀測到的 log 事實**（連線、傳輸量、目的地、時間），不寫推測；無證據時寫「無外傳跡象（僅接觸）」或「pending forensics」，不要為了填欄而臆測。
+- **「合規影響預估」是 L2 的初判輸入，不是合規裁定**——標明 pending；**最終是否構成合規事件、是否啟動通報，由 IR Commander + Legal / DPO 決定，L2 不下最終裁定**（與 escalation 章節的 authority 邊界一致）。
+- 敏感等級依組織既有 data classification（公開 / 內部 / 機密 / 高度機密＋PII / 受監管資料）填；不確定就標「需 data owner 確認」，不自行升降級。
+
 ### Multi-source Cross-Reference
 - SIEM Splunk (cross-index pivot): [query link]
 - Sentinel KQL (multi-table union): [query link]
