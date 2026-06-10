@@ -33,14 +33,6 @@
 
 ## triage-l2-soc-analyst
 
-### TUN-L2-004 — Investigation Report 加 `Affected Data Assets` 子段 中
-
-**問題**：Scope Expansion 範本目前偏 host 維度（host、user 表），但 data exfil 場景（例：repo zip 被拉走）需明確列 data asset 維度。L2 自行擴展容易遺漏。
-
-**測試來源**：Test C（dev.alice 拉 3 個 private repo zip 與 dump 時序重疊）
-
-**建議方向**：Investigation Report 範本的 Scope Expansion 區塊加子段 `Affected Data Assets`（含資料類型、敏感等級、外傳證據、合規影響預估）。
-
 ### TUN-L2-005 — L1 已 break-glass page IR 時 L2 的並行責任 低
 
 **問題**：定義的 workflow 假設「L2 調查 → 升級 IR」線性流程，但 L1 已 break-glass 直接 page IR 的場景下，L2 與 IR 是**並行起步**。L2 應該先做哪些 containment 才不會卡 IR、handoff 時機與 evidence 完整度標準沒寫。
@@ -65,3 +57,4 @@
 - 2026-06-02: `TUN-L1-005` resolved in this PR — added Evidence Pending 標註規範 sub-section to `triage-l1-soc-analyst.md`; PENDING evidence 須填 reason/ETA/owner + 補回留痕、不靜默替換、平台異常記入 Systemic Issues Observed；PENDING ≠ 跳過 enrichment. 非 ROADMAP rep. P2.
 - 2026-06-02: `TUN-L2-003` resolved in this PR — added `跨單位同一 artifact：hunt 與 IR 並行起步` sub-section to `triage-l2-soc-analyst.md` §協作與回饋通道; 跨單位 artifact 硬規則命中時 hunt seed 與升 IR 並行起步（指向 §升級條件、不重述 trigger）、hunt 屬平行協作非升級鏈、L2 不自下 supply chain 結論. 非 ROADMAP rep. P2.
 - 2026-06-08: `TUN-L1-004` resolved in this PR — added `EDR → hash → VT micro-workflow`（Falcon Host Search / Process Explorer 定位 process → 取 file SHA256 → VT 查 ratio/first seen/community → 寫進 Triage Report External Intel 段並 attach evidence）to `triage-l1-soc-analyst.md` §工作流程 Step 2 External context，並在 §工具掌握度 CrowdStrike Falcon 列補 hash 取得能力. 補上「怎麼撈到 hash 才能查」的操作層銜接. v1.3 low-sensitivity review lane. P2.
+- 2026-06-09: `TUN-L2-004` resolved in this PR — added `Affected Data Assets` 子段（資料資產維度）to `triage-l2-soc-analyst.md` Investigation Report 範本 §Scope Expansion 發現；補上 host/user 維度之外的「哪些**資料**被接觸 / 外傳」表格（資料資產 / 資料類型 / 敏感等級 / 外傳證據 / 合規影響預估）+ 填寫原則（外傳證據只寫已觀測 log 事實、合規影響為初判輸入非最終裁定、最終認定由 IR Commander + Legal/DPO 決定、敏感等級依組織 data classification）. data exfil 場景補強，L2 不下合規最終裁定. v1.3 low-sensitivity review lane. P2.
