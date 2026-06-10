@@ -21,14 +21,6 @@
 - 可疑落地路徑（user Temp、Windows Temp、ProgramData）
 - 可疑 export name / function name pattern
 
-### TUN-L1-007 — Handover note 加 tuning ticket 追蹤欄 低
-
-**問題**：Shift Handover 範本的 `Systemic Issues Observed` 區塊只記「觀察到什麼」，沒有追蹤「是否已開 tuning request ticket」。L1 可能只「記下來」但沒實際往上推。
-
-**測試來源**：Test B
-
-**建議方向**：Handover 範本 Systemic Issues 區塊改為 table 格式，欄位：`Issue` / `量化數據` / `Tuning Ticket #` / `Owner` / `Status`。
-
 ---
 
 ## triage-l2-soc-analyst
@@ -58,3 +50,4 @@
 - 2026-06-02: `TUN-L2-003` resolved in this PR — added `跨單位同一 artifact：hunt 與 IR 並行起步` sub-section to `triage-l2-soc-analyst.md` §協作與回饋通道; 跨單位 artifact 硬規則命中時 hunt seed 與升 IR 並行起步（指向 §升級條件、不重述 trigger）、hunt 屬平行協作非升級鏈、L2 不自下 supply chain 結論. 非 ROADMAP rep. P2.
 - 2026-06-08: `TUN-L1-004` resolved in this PR — added `EDR → hash → VT micro-workflow`（Falcon Host Search / Process Explorer 定位 process → 取 file SHA256 → VT 查 ratio/first seen/community → 寫進 Triage Report External Intel 段並 attach evidence）to `triage-l1-soc-analyst.md` §工作流程 Step 2 External context，並在 §工具掌握度 CrowdStrike Falcon 列補 hash 取得能力. 補上「怎麼撈到 hash 才能查」的操作層銜接. v1.3 low-sensitivity review lane. P2.
 - 2026-06-09: `TUN-L2-004` resolved in this PR — added `Affected Data Assets` 子段（資料資產維度）to `triage-l2-soc-analyst.md` Investigation Report 範本 §Scope Expansion 發現；補上 host/user 維度之外的「哪些**資料**被接觸 / 外傳」表格（資料資產 / 資料類型 / 敏感等級 / 外傳證據 / 合規影響預估）+ 填寫原則（外傳證據只寫已觀測 log 事實、合規影響為初判輸入非最終裁定、最終認定由 IR Commander + Legal/DPO 決定、敏感等級依組織 data classification）. data exfil 場景補強，L2 不下合規最終裁定. v1.3 low-sensitivity review lane. P2.
+- 2026-06-10: `TUN-L1-007` resolved in this PR — converted Shift Handover Report 範本 §`Systemic Issues Observed` 從 bullet list 改為 table（欄位 `Issue` / `量化數據` / `Tuning Ticket #` / `Owner` / `Status`）to `triage-l1-soc-analyst.md`；補上「是否已開 tuning ticket 往上推」的追蹤維度，避免 L1 只記不推；加填寫原則 note 明示並非每個 systemic issue 都對應 tuning ticket（平台事件 / 供應商 outage 標 `N/A` 改走 incident / Reminders track，但仍須填 `Owner` + `Status`），防止讀者誤把 Ticket # 當硬性必填亂開單. v1.3 low-sensitivity review lane. P2.
