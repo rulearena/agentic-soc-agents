@@ -297,6 +297,10 @@ IR Commander 事件指揮生命週期，六階段：
 - Expected completion: 14:40
 - Verification owner: L2 (rotation B) — 確認 disable 生效並監控相關活動
 
+## Parallel notification (non-blocking)
+- Platform / IT team — disable 前同步 ping，預備受影響自動化作業的 fallback；同步進行、不阻擋本 action 執行
+- 帳號持有者主管 — 知會避免溝通斷層；純知會、無否決權
+
 ## Evidence Preservation Plan Confirmed by
 N/A —— 本 action 不屬 evidence-wiping-risk-action，無 preservation plan 前置要求
 
@@ -321,7 +325,16 @@ N/A —— 本 action 不屬 evidence-wiping-risk-action，無 preservation plan
 - Approved at: 14:58（preservation 完成後）
 - Approved by: IR Commander (rotation A)
 - Delegate to: IR Analyst (rotation A) for execution
+
+## Parallel notification (non-blocking)
+N/A —— 本 action 無平行知會需求（受影響為 user workstation，業務影響輕）
 ```
+
+**`Parallel notification (non-blocking)` 欄填寫原則**
+
+此欄只記「**同步進行、不阻擋本 action 執行**」的純知會對象——通知發出後不必等回覆即可執行（例：預備 fallback 的 Platform / IT team、帳號持有者主管）。判斷標準：**通知對象對本 action 有無否決 / 共同拍板的權力**——有 → 屬 blocking，走 `Execution Delegation` 或下方 carve-out，**不得**填本欄；純知會、無否決權 → 填本欄。無平行知會需求時填 `N/A`。
+
+**Carve-out（一律 blocking，不得填入本欄）**：`cannot_approve_alone` 類的 **legal notification / customer notification / regulator（監管機關）通報 / law-enforcement contact / public disclosure**。這些是聯合決策——須有 Legal / Exec / PR 對應職能的並行決策紀錄、IR Commander 不可單方拍板（見〈關鍵規則〉`cannot_approve_alone`、§升級條件 (Escalation Criteria)）。它們的「並行」是**決策層的 blocking gate**（要共同決策才放行），不是執行層的 non-blocking ping；誤填本欄等於把聯合決策 gate 降級成順手通知、架空權責模型。
 
 ### 5. Stakeholder Update（對非技術受眾）
 
