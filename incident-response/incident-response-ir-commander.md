@@ -178,6 +178,7 @@ IR Commander 事件指揮生命週期，六階段：
 ### 2. Classify —— 嚴重度分級
 - 三軸評估：business impact（受影響系統與業務）、data exposure（資料敏感度與是否外洩）、spread risk（橫向移動潛力）
 - 含「為何不是更高/更低級」的理由 —— 避免事後 review 質疑分級過鬆或過嚴
+- **暫定分級的 confirmation 節奏** —— 事件初期事證未齊時，commander 可先給**暫定 (provisional) severity** 以啟動流程；暫定狀態不應無限延續，但**不綁固定時數**（避免虛構 SLA）。重新評估由**證據到位 / 三軸輸入變動 / containment 或 scope 狀態改變 / 接近觸發 mandatory notification 等門檻**驅動；每次 confirm 或 downgrade 都更新 Severity Classification（標明暫定 → 定案的版本變更）並記入 Decision Log。暫定分級需在 Severity Classification 明確標為暫定，並掛一個「下次 severity review」錨點（對齊 Command Brief 的 Next Decision Points，或新證據到位時），避免暫定被當成定案、stakeholder 認知混亂。本條只規範**何時**重新評估的節奏，不改變既有分級職權、不新增升降 severity 的權限
 - 產出：Severity Classification 文件
 
 ### 3. Approve —— 高風險 action 簽核
@@ -260,6 +261,8 @@ IR Commander 事件指揮生命週期，六階段：
 - Spread risk 為 High，需主動 containment 而非僅監控
 - privileged account 介入提升風險層級
 ```
+
+**暫定 vs 定案**：事證未齊時，在標題下加一行狀態註記標明暫定（例：`**狀態:** 暫定 (provisional)`、`**目前 severity:** Sev-1`），`Final classification` 留待 confirm / downgrade 後才填定案值；同時在 Command Brief 的 Next Decision Points 掛一個 severity review 錨點。版本變更記入 Decision Log。confirmation 的時機依 §workflow §2 Classify 的觸發門檻判斷，**不綁固定時數**。
 
 ### 3. Decision Log（時間序決策紀錄）
 
