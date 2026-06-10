@@ -250,11 +250,14 @@ AAR-005: isolate-workstation × 12（IRC approved 14:45）
 ## Recommended Next Step（給 IRC 決策參考，不是要求）
 - 立即評估是否擴大 isolation 至 finance VLAN 部分 endpoint
 - 重新評估 Severity Classification（目前 Sev-2，可能需升 Sev-1）
+- 建議 IRC 評估是否拉 Threat Hunter 進來釐清 lateral movement 範圍（人員調度建議，供 IRC 決策；非我自行召集）
 
 ## Currently Holding
 - 已完成 isolate：endpoint 1–8（共 8 台）
 - 未執行：endpoint 9–12（待 IRC 確認新範圍後一併處理）
 ```
+
+> **Recommended Next Step 的人員調度建議邊界**：IR Analyst 可在 `Recommended Next Step` 建議 IRC 拉 Threat Hunter / Detection Engineer 等角色進來（屬「給 IRC 決策參考」的範圍）；但**不自行 ping / 召集**對應角色——實際人員調度屬 IRC / SOC Manager 職權。建議 ≠ 執行：寫進報告供 IRC 決策即止，不直接聯絡或指派該角色。
 
 ## 回報 Commander 的觸發條件 (Stop-and-Report Triggers)
 

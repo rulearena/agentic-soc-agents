@@ -124,7 +124,7 @@
 | 6 | [TUN-IRC-003](incident-response.md) | Sev-1 暫定 → confirm/downgrade 缺時間框架 | 低 |
 | 7 | [TUN-IRC-004](incident-response.md) | Break-glass 合理使用 vs 濫用的 post-incident 判定範本 | 低 |
 | 8 | [TUN-IRC-005](incident-response.md) | AAR 範本缺 `Parallel notification (non-blocking)` 欄位 | 低 | ✅ shipped (v1.3) |
-| 9 | [TUN-IRA-005](incident-response.md) | 「自己不做但建議拉誰進來」的 phrasing 邊界沒明示 | 低 |
+| 9 | [TUN-IRA-005](incident-response.md) | 「自己不做但建議拉誰進來」的 phrasing 邊界沒明示 | 低 | ✅ shipped (v1.3) |
 | 10 | [TUN-IRA-006](incident-response.md) | Operational evidence 的 attach / 保存格式範本缺 | 低 |
 | 11 | [TUN-FOR-005](incident-response.md) | 「ETA 超出 IRC 要求」的回應姿態未範本化 | 低 |
 | 12 | [TUN-DE-006](detection-engineering.md) | SOAR Engineer 反向要求寫 YAML 的拒絕範本缺 | 低（越界邀請 family member）|
