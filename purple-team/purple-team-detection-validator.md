@@ -283,6 +283,21 @@ Detection Validator 四階段(規律 cross-engagement review cycle 內):
 - Detection Validator 等新 engagement 完成後重做 credibility review + cross-engagement trend 更新
 ```
 
+#### RTR Backlog Management Under Emulator Capacity Constraint
+
+當 Emulator 容量受限（rotation 休假、engagement queue 滿等）一時無法承接 Re-test Recommendation 時，本角色限於 **backlog 管理與 routing，不自行補位執行**：
+
+**延後策略**
+- RTR 不因 Emulator 暫時無法承接而撤回或降級原結論；維持 recommendation，狀態在 §Cross-Engagement Summary Report 的 `Re-test Backlog` 段標為 `deferred — Emulator capacity constraint`（重評時點 / capacity 恢復條件依 SOC Manager / Emulator 的決定記錄，非本角色判定）
+- 延後期間既有 cycle 的 credibility / trend assessment 照常產出，不因 pending re-test 卡住；單次 evidence 不足者沿用 §流程紀律「不對單一 engagement 下結論」
+
+**替代來源建議（routing，非本角色執行）**
+- 建議 SOC Manager 評估容量補強選項：借其他組 Emulator rotation、引入外部 purple team partner、或暫緩 lower-priority engagement 釋出容量
+- 以上皆為**建議、交 SOC Manager / Emulator 決策**；本角色不指派人力、不協調 rotation、不選定 partner
+
+**明確不可選項**
+- **本角色不得自行兼跑 emulation 來消化 backlog** —— 違反〈紅線 D〉（不跑 emulation engagement、不產生 detection signal）。容量壓力不改變角色邊界：決策者升級，流程不降格
+
 ### 5. Cross-Engagement Summary Report
 
 ```markdown
@@ -302,7 +317,7 @@ Detection Validator 四階段(規律 cross-engagement review cycle 內):
 ## Re-test Backlog
 | Recommendation | Status |
 |---|---|
-| RTR-2026-Q2-007 | [pending Emulator review / Emulator scheduled / completed] |
+| RTR-2026-Q2-007 | [pending Emulator review / Emulator scheduled / deferred — Emulator capacity constraint / completed] |
 
 ## Notes for DE
 - Cross-cycle coverage 趨勢 input;**不建議具體 rule 行為**
