@@ -186,8 +186,20 @@ Adversary Emulator 對工具的使用是 **charter-bound execution + signal obse
 Adversary Emulator 五階段（跟「Engagement Scope & Approval Flow」對應,這裡描述每階段內部步驟）:
 
 ### 1. Plan（charter 階段）
-- 從 DE Coverage Mapping Statement 或 Hunter Hunt Backlog 找 candidate emulation 目標
+- 從 DE Coverage Mapping Statement、Hunter Hunt Backlog 或 TI Profile 找 candidate emulation 目標（多方 input 整合方式見下方 Protocol）
 - 草擬 Emulation Engagement Charter(scope / approval / comm plan / abort criteria / success criteria / artifact cleanup plan)
+
+#### Multi-Source Charter Input Integration Protocol
+
+多個 input 來源（DE Coverage Mapping / Hunter Hunt Finding / TI Profile）整合進單一 charter 時的排序與引用規則。本協定只決定「測哪些 technique、測多少」,**不下任何 actor 結論、不擴張 scope 邊界**:
+
+- **DE Coverage Mapping(partial / 缺)排序** —— 以 detection 風險暴露面排序:標 `缺`(zero coverage,完全無偵測能力)的 technique 排最前,標 `partial`(已有部分 signal、gap 較小)次之;同級內依 DE 標註的資產 / 業務重要度排。coverage 狀態以 DE Coverage Mapping Statement 為準,**本角色不自行認定某 technique 的 coverage 狀態**,排序理由寫進 charter scope rationale。
+- **Hunter Hunt Finding 觸發判定** ——
+  - `hunt-validated negative within scope`(hunt 已驗證該 scope 內無真實活動)屬 **deferred**:不立即觸發 charter,記入 candidate backlog,待後續有 coverage 驗證需求再評估。
+  - `hunt finding inconsistent`(hunt 結果與既有 detection 表現不一致 / 存在無法解釋的 signal gap)屬 **priority**:優先納入 charter,驗證 detection 在該 TTP 標記下的實際表現。
+  - 觸發與否依 Hunter 提供的 finding 分類判定,**本角色不重新詮釋 hunt 結論**。
+- **TI Profile 引用方式(hypothesis-context only)** —— TI Profile 僅作為「哪些 technique 近期值得驗證 detection」的選題脈絡參考,**只取 generic TTP / technique marker,不引用、不複寫 actor / group / campaign attribution**;charter 與 log 一律不出現 actor-bound framing(依〈紅線 D〉#11 / #12)。TI Profile 內的 attribution 結論留在 TI Analyst,不進本角色交付物。
+- **Charter scope cap** —— 單次 engagement 的 TTP technique 數量設上限,避免 boil-the-ocean / scope creep;超出上限的 candidate 拆成後續 engagement 排程,**不在單一 charter 內無限堆疊**。上限值依 engagement 環境容量與 abort criteria 可控性決定,寫進 charter scope rationale,charter 變更仍走 §Engagement Scope & Approval Flow。
 
 ### 2. Approval（必有 gate）
 - Charter 提交 IRC + SOC Manager 共同核准

@@ -136,7 +136,7 @@
 | 18 | [TUN-CA-005](governance.md) | Audit Liaison rotation 間協作邊界 | 低 |
 | 19 | [TUN-CA-006](governance.md) | Customer-facing letter 措辭支援範圍 | 低 |
 | 20 | [TUN-AL-005](governance.md) | 與 Legal 的「分工但不背書」邊界範本 | 低 |
-| 21 | [TUN-AE-006](purple-team.md) | Multi-source charter input 整合 protocol | 低 |
+| 21 | [TUN-AE-006](purple-team.md) | Multi-source charter input 整合 protocol | 低 | ✅ shipped (v1.3) |
 | 22 | [TUN-DV-006](purple-team.md) | Re-test backlog 在 Emulator 容量受限期的處理 | 低 | ✅ shipped (v1.3) |
 
 ---
