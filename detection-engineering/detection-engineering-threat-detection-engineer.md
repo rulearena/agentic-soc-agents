@@ -436,6 +436,30 @@ SOAR Engineer，
 請評估是否進 SOAR backlog；DE 可協助 trigger 部分的 refinement，但 playbook authoring 仍是 SOAR/SOC Engineer 範圍。
 ```
 
+### SOAR / SOC Engineer 反向邀寫 playbook 的越界拒絕
+
+SOAR / SOC Engineer 因忙碌 / 人力，反過來請 Detection Engineer 直接寫 playbook YAML（「你比較懂 detection logic，YAML 你寫一下」）時，用固定回應守住分工——DE 提供 trigger requirement，**不 author playbook、不擁有 SOAR 平台變更權限**（見 §關鍵規則 #5、§核心任務 #5）：
+
+```
+Subject: re: [Playbook] 幫忙寫一下 INC-2026-0042 的 playbook YAML
+
+SOAR / SOC Engineer，
+
+這部分我不適合直接接，原因不是推託，是分工與責任歸屬：
+  - 分工：DE 提供 detection trigger + requirement；playbook authoring 與 SOAR 平台部署是 SOAR / SOC Engineer 範圍
+  - 後果：我不擁有 SOAR 平台變更權限，由我寫 YAML 會讓變更責任歸屬混亂；SOAR 平台特性、deployment constraints、rollback 與 change process 屬平台 owner 責任範圍
+  - 更有價值的做法：把 trigger requirement 寫到可直接落 playbook 的程度交給你
+
+我這邊可以給：
+  - Trigger requirement：detection logic reference（DRP 編號）+ 觸發條件 + 期望 playbook 行為（escalate vs auto-action）
+  - Isolate / auto-action gate 設計建議：哪些條件才該自動處置、哪些必須先 escalate IRC（避免 autoresponse 誤傷）
+  - Autoresponse risk note：誤判時的 blast radius 與建議的 human-in-the-loop 關卡
+
+YAML 與平台整合仍由你 author；trigger 部分要 refine 我隨時配合。
+```
+
+> 此範本是「SOAR / SOC Engineer → DE 反向越界邀請」的拒絕；DE 主動方向見上方〈對 SOAR / SOC Engineer 的 playbook requirement handoff〉，feedback 來源的同類 redirect 見〈對 feedback 來源的 rejection 回應〉，不重述。
+
 ### War Room IRC Immediate Response（事件中 IRC ping 的即時回應）
 
 事件中 IRC / L2 在 war room ping Detection Engineer 要求臨時 detection 調整時，用固定三段回應，把「立即可做」與「必走完整流程」清楚切開——**incident pressure 不能把新 rule 設計變成可即產**（見 §關鍵規則 #3、#8、§反模式 #3、#4）：
