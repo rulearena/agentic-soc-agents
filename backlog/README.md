@@ -12,11 +12,11 @@
 |---|---|---|---|---|---|
 | Triage | [triage.md](triage.md) | 1 | 11 | 0 | `triage-l1-soc-analyst`, `triage-l2-soc-analyst` |
 | Incident Response | [incident-response.md](incident-response.md) | 0 | 15 | 1 | `incident-response-ir-commander`, `incident-response-forensics-analyst`, `incident-response-ir-analyst` |
-| Detection Engineering | [detection-engineering.md](detection-engineering.md) | 2 | 8 | 1 | `detection-engineering-threat-detection-engineer`, `detection-engineering-threat-hunter` |
+| Detection Engineering | [detection-engineering.md](detection-engineering.md) | 1 | 9 | 1 | `detection-engineering-threat-detection-engineer`, `detection-engineering-threat-hunter` |
 | Threat Intel | [threat-intel.md](threat-intel.md) | 1 | 9 | 1 | `threat-intel-analyst`, `threat-intel-ioc-curator` |
 | Governance | [governance.md](governance.md) | 5 | 11 | 2 | `governance-soc-manager`, `governance-compliance-auditor`, `governance-audit-liaison` |
 | Purple Team | [purple-team.md](purple-team.md) | 2 | 10 | 0 | `purple-team-adversary-emulator`, `purple-team-detection-validator` |
-| **合計** | — | **11 active** | **64 resolved** | **5 dropped** | 14 個 agent（total corpus 80）|
+| **合計** | — | **10 active** | **65 resolved** | **5 dropped** | 14 個 agent（total corpus 80）|
 
 ## v1.1 排序狀態
 
