@@ -8,17 +8,7 @@
 
 ## purple-team-adversary-emulator
 
-### TUN-AE-006 — Multi-source charter input 整合 protocol 低
-
-**問題**：Test N Input #1 charter 同時整合 DE Coverage Mapping (partial 標記) + Hunter Hunt Finding，但實務上三方 input 怎麼整合進一個 charter 沒有明確流程描述。
-
-**測試來源**：Test N Input #1
-
-**建議方向**：在 §工作流程 Step 1 Plan 補 `Multi-Source Charter Input Integration Protocol`：
-- DE Coverage Mapping 中標 partial / 缺的 priority 排序方式
-- Hunter Hunt Finding 何時觸發 charter（hunt-validated negative within scope 屬 deferred、hunt finding inconsistent 屬 priority）
-- TI Profile 對應 hypothesis-context 的引用方式（不下 actor 結論）
-- Charter scope cap（單次 engagement TTP technique 數量上限避免 boil-the-ocean）
+（purple-team-adversary-emulator 目前無 active backlog；已 resolved 項見底部 Changelog）
 
 ---
 
@@ -41,3 +31,4 @@
 - 2026-06-04: `TUN-DV-005` resolved in this PR (v1.2) — added §協作與回饋通道 `對外升級順序（Validator → External Escalation Order）` sub-section to `purple-team-detection-validator.md`; 把 non-conclusion 升級鏈（Validator → Audit Liaison → Compliance Auditor → Legal + Compliance Head）從只活在 DV-004 拒絕範本內、提升為 standing 邊界（本角色只負責鏈第一步、不主導後段）+ 拒絕跳階（cross-ref §溝通範本 High-Authority Refusal Template，不另立拒絕範本）+ 明示本鏈是把 internal assessment 交進正式對外流程的正確路徑、不封鎖 Validator → Audit Liaison evidence handoff（沿用關鍵規則 #16）. **Right-sized**：原案「workflow 圖 + 每步 handoff template + 每步拒絕回應」過大降規，砍掉每步 template、只 ship 順序鏈 + 拒絕跳階邊界。Codex review P1/P2 修正：鏈尾 attestation 與對外 framing 分寫（對外 framing defer 關鍵規則 #16、消除與 #16 的 authority 矛盾，對齊 DV-004 line 457）、「每一步 non-conclusion」收斂為「final attestation 前各中間產物 non-conclusion」、「必須走固定順序」改「不得跳過 review gates（gate 間可迭代補件/退回/並行）」避免線性誤讀。非 ROADMAP rep. P2.
 - 2026-06-03: `TUN-AE-002` resolved in this PR (v1.2) — added §溝通範本 `Self-Triggered Scope Drift Disclosure` template to `purple-team-adversary-emulator.md`; executor 自身行為觸發 scope drift（順手連入 charter 外環境 / 順便 verify）時主動自我通報、不私下消化、不自行判定影響，描述用 generic 措辭不洩 host 識別，並補再發生防護（charter 起草明列跨 host signal flow）. 接續既有 §流程紀律 #15 abort → 上方 Scope Drift Escalation 的 IRC + SOC Manager 決策鏈，不另開 executor 自行處置路徑. 既有 Scope Drift Escalation / 其餘範本 zero-diff. 非 ROADMAP rep. P2.
 - 2026-06-11: `TUN-DV-006` resolved in this PR — added `#### RTR Backlog Management Under Emulator Capacity Constraint` 子節（§Validation 交付物 #4 Re-test Recommendation 下）to `purple-team-detection-validator.md`；補 Emulator 容量受限（rotation 休假 / queue 滿）時 RTR backlog 的處理 SOP：延後策略（RTR 不撤回 / 不降級，狀態在 CESR `Re-test Backlog` 段標 `deferred — Emulator capacity constraint`、重評時點與 capacity 恢復條件依 SOC Manager / Emulator 決定記錄非本角色判定；延後期間既有 cycle assessment 照常）+ 替代來源建議（建議 SOC Manager 評估借 rotation / 外部 partner / 暫緩 lower-priority，皆 routing 交決策、不指派人力）+ 明確不可選項（本角色不得自行兼跑 emulation 消化 backlog＝違〈紅線 D〉，容量壓力不改邊界）. 同步把 CESR `Re-test Backlog` 範本 status 列舉補上 deferred 態（body-vs-template 一致）. 強化〈紅線 D〉未擴權、未引入新 path. 屬 SOP / 邊界保全型，純格式補強. v1.3 low-sensitivity review lane. P2.
+- 2026-06-11: `TUN-AE-006` resolved in this PR — added `#### Multi-Source Charter Input Integration Protocol` 子節（§工作流程 Step 1 Plan「草擬 charter」bullet 下）to `purple-team-adversary-emulator.md`；補多方 input（DE Coverage Mapping / Hunter Hunt Finding / TI Profile）整合進單一 charter 的排序與引用協定：DE Coverage Mapping 以 detection 風險暴露面排序（`缺` zero-coverage 最前、`partial` 次之，coverage 狀態以 DE Statement 為準、本角色不自行認定）+ Hunter Hunt Finding 觸發判定（`hunt-validated negative within scope` 屬 deferred、`hunt finding inconsistent` 屬 priority，依 Hunter 分類不重新詮釋）+ TI Profile hypothesis-context only（只取 generic TTP marker、不引用 actor / group / campaign attribution，依〈紅線 D〉#11 / #12，attribution 結論留 TI Analyst）+ charter scope cap（單次 TTP technique 數設上限避免 boil-the-ocean、超出拆後續 engagement、不寫死數值、charter 變更仍走 §Engagement Scope & Approval Flow）. 純工作流 / SOP 補強，未擴 scope / authority、未引入新 path. v1.3 low-sensitivity review lane. P2.
