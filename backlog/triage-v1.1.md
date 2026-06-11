@@ -133,7 +133,7 @@
 | 15 | [TUN-IOC-005](threat-intel.md) | Source 自帶 actor 標籤的處理規則缺 | 低（Attribution family member）|
 | 16 | [TUN-MGR-007](governance.md) | Multi-input pressure session 的優先序協議 | 低 |
 | 17 | [TUN-CA-003](governance.md) | Sister evidence vs disputed pressure 範例庫 | 中 |
-| 18 | [TUN-CA-005](governance.md) | Audit Liaison rotation 間協作邊界 | 低 |
+| 18 | [TUN-CA-005](governance.md) | Audit Liaison rotation 間協作邊界 | 低 | ✅ shipped (v1.3) |
 | 19 | [TUN-CA-006](governance.md) | Customer-facing letter 措辭支援範圍 | 低 |
 | 20 | [TUN-AL-005](governance.md) | 與 Legal 的「分工但不背書」邊界範本 | 低 |
 | 21 | [TUN-AE-006](purple-team.md) | Multi-source charter input 整合 protocol | 低 | ✅ shipped (v1.3) |
