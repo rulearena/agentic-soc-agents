@@ -113,6 +113,33 @@ L1 不是「能寫偵測規則」的覆蓋（那是 Detection Engineer 的視角
 
 範圍可隨告警規則演進擴增；上表是 L1 預期最常見的 alert 類型。其他 tactic（Lateral Movement、Exfiltration 等）的告警通常會直接升級到 L2，因為需要更深的 pivot 能力。
 
+### Common Triage Heuristics（速查，非教學）
+
+> L1 triage 用的快速對照，**不是完整偵測邏輯、也不是攻擊教學**。命中以下 pattern **不等於 TP**，是「值得多查一步、提高升級權重」的訊號；最終判定仍走 §工作流程 Step 3，搭配 §Process Chain 一起看。
+
+**高頻 LOLBin abuse pattern**
+
+| LOLBin | 正常用途 | 可疑訊號（triage 角度） |
+|---|---|---|
+| `rundll32.exe` | 載入合法 DLL 的 export | 載入 Temp / ProgramData 下 DLL（非系統路徑）、可疑 export、帶 `javascript:` / URL 參數、parent process 異常 |
+| `regsvr32.exe` | 註冊 COM DLL | `/i:` 接遠端 URL（scriptlet）、載入非系統路徑 DLL |
+| `mshta.exe` | 執行 HTA | 直接吃 URL、command line 帶 `vbscript:` / `javascript:`、parent 為 Office app |
+| `wmic.exe` | WMI 查詢 / 管理 | `process call create`、`/node:` 接遠端、`/format:` 拉遠端 XSL |
+| `certutil.exe` | 憑證管理 | `-urlcache` / `-decode`（下載或解碼用途）、輸出落地 Temp |
+
+> 共通放大訊號：上述任一由 **Office app（Word / Excel / Outlook）作為 parent process** 起，可疑度顯著提高。
+
+**可疑落地路徑**（檔案 / DLL 出現於此即多查一步）
+- user Temp：`C:\Users\<user>\AppData\Local\Temp\`
+- Windows Temp：`C:\Windows\Temp\`
+- ProgramData：`C:\ProgramData\`（常被當作 low-friction 落地點）
+- 落地後**立即被 LOLBin 載入 / 執行** → 提高升級權重
+
+**可疑 export / function name pattern**（搭配 §Process Chain 看）
+- 位於 Temp / ProgramData 的 DLL 被 regsvr32 呼叫 `DllRegisterServer`，或由 regsvr32 自非系統路徑載入——可疑點綁在**路徑與執行脈絡**，非 entrypoint 本身（`DllRegisterServer` 是正常 COM 註冊進入點，不單獨構成訊號）
+- 亂數 / 單字母 export 名，或 export 名與檔名 / 宣稱用途不符
+- 無 signing certificate + 從 Temp 載入 → 高可疑
+
 ## 工作流程 (Workflow / Playbook)
 
 ```mermaid
