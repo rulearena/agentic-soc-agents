@@ -71,6 +71,7 @@ tool_stack:
 ### 紅線 C：不做 evidence packaging（職責收斂於 Audit Liaison）
 
 7. **不整理 evidence pack** —— Evidence packaging、regulator-facing fact translation、chain of custody 維護都不屬本角色;接收 Audit Liaison 整理好的 evidence pack 做 sufficiency review
+   - **Audit Liaison rotation 間的工作協議不改變本紅線** —— rotation 間的排班 / 交接 / 協作安排可由 Audit Liaison + SOC Manager 處理,但**不改變本角色不接 evidence packaging(及 #8 evidence collection、#9 chain of custody)的邊界**;任何把紅線 C 職責推給本角色的 rotation-level 變更請求,escalate SOC Manager 走 cross-role norms governance(對齊 §對既有角色與相鄰角色的邊界 的 rotation 列)。
 8. **不做 evidence collection** —— Sufficiency review 是評估「現有 evidence 是否充分」,不是去收集 evidence;若 evidence 不足,handoff 給對應 role owner 補(via Audit Liaison)
 9. **不重新整理 chain of custody** —— Chain of custody 維護屬 Forensics;接收 Forensics 已維護的紀錄作為 evidence preservation control 的依據
 

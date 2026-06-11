@@ -35,14 +35,6 @@
 - supplemented 範例（部分印證 + 需補 evidence）
 - 反例：「為什麼這個情境硬標 disputed 會在 walkthrough 被反殺」
 
-### TUN-CA-005 — Audit Liaison rotation 間協作邊界 低
-
-**問題**：Test L Input #5 顯示 Audit Liaison rotation B 可能單方面同意把工作推給 CA。目前定義沒明文「Audit Liaison rotation 間的工作邊界變更不改變 CA 的紅線 C」。
-
-**測試來源**：Test L Input #5
-
-**建議方向**：在 §紅線 C 補一行：「**Audit Liaison rotation 間的工作協議不改變本角色的紅線 C；任何此類變更請求 escalate SOC Manager 走 cross-role norms governance**」。
-
 ### TUN-CA-006 — Customer-facing letter 措辭支援範圍 低
 
 **問題**：CA 可能被當作 customer letter 措辭起草者。Test L Input #2 中執行者明確 redirect「customer-facing 措辭屬 Legal + Compliance Head，CA 只提供 framework intent 解讀 input」。
@@ -81,6 +73,7 @@
 - 2026-06-01: `TUN-AL-004` resolved in this PR — added `Chain of Custody Optimization Boundaries`（§關鍵規則 末、首個 ### 子段）to `governance-audit-liaison.md`; 區分 chain of custody 可優化（簽收工具效率 / 層級分流）vs 不可協商（每次 access 必有 entry / 簽收當下完成不事後補登 / 改動走 governance review 不私下協議）. 細化關鍵規則 #2 與反模式 #4，引用不重定義. 非 ROADMAP rep（ROADMAP 不動）.
 - 2026-06-03: `TUN-CA-004` resolved (v1.2) — added CIN-as-policy-input boundary to §對既有角色與相鄰角色的邊界 SOC Manager row + `Policy Input vs Policy Authoring Boundary Template`（§溝通範本）of `governance-compliance-auditor.md`; CIN 是 policy framework input、CA 不寫 policy 內容（policy authoring 屬 SOC Manager,其中 detection 部分屬 DE）、CIN 是 input 不是 policy 草稿. 引用 §三條最重要邊界 #3 rule-maker boundary + CIN deliverable #1 + SOC Manager 既有 change proposal 流程，不重定義. 非 ROADMAP rep（ROADMAP 不動）. 首個 v1.2 ship.
 - 2026-06-02: `TUN-MGR-006` resolved in this PR — added war room observer 條款 to §對既有角色與相鄰角色的邊界 IR Commander row（做 cell）of `governance-soc-manager.md`; 上層 stakeholder / CISO 僅可透過 IRC 既定 situational-awareness 管道以 observer 接收事件進度、不投票 / 不下指令 / 不列為 IRC Decision Log 的 decision-maker / approver、破除「在場 = 有 authority」誤解. SOC Manager 僅於 policy compendium 明文化此 observer 邊界（policy ownership，非 live 准入、非參與 IC、不取得 action authority）；接收管道 cross-ref §Upward Pressure Resistance Template，不重述. 與 `TUN-MGR-001`（override pressure）同步設計收尾. 非 ROADMAP rep（ROADMAP 不動）.
+- 2026-06-11: `TUN-CA-005` resolved in this PR — added rotation-protocol carve-out sub-bullet under §紅線 C #7 of `governance-compliance-auditor.md`; Audit Liaison rotation 間的工作協議 / 排班 / 交接不改變 CA 不接 evidence packaging(及 #8 evidence collection、#9 chain of custody)的邊界、任何此類 rotation-level 變更請求 escalate SOC Manager 走 cross-role norms governance. 強化紅線 C 未改寫 #7-9 本體、未給 CA 新權限,與 §對既有角色與相鄰角色的邊界 rotation 列同義並 cross-ref(把同一概念前移到紅線本體旁直接可見). sub-bullet 不動 §流程紀律 #10-14 編號. v1.3 low-sensitivity review lane. P2.
 
 ## Changelog (Dropped)
 
