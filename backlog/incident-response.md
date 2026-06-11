@@ -8,13 +8,7 @@
 
 ## incident-response-ir-commander
 
-### TUN-IRC-004 — Break-glass 合理使用 vs 濫用的 post-incident 判定範本 低
-
-**問題**：定義 §關鍵規則 7 + Anti-Pattern #6 明確說「濫用才是流程議題」，但沒給「**如何判定濫用**」的範本。Commander 在 Decision Log 標「不入濫用 review」是憑直覺，缺結構化判定 checklist。
-
-**測試來源**：Test D Decision Log 第 1 列（標「不入濫用 review」憑直覺判斷）
-
-**建議方向**：在 §關鍵規則 7 後或單獨小節加 `Break-glass Review Checklist` —— 列出合理使用的判定條件（cross-dept + critical asset + 時序壓力等）vs 濫用訊號（L1 嫌 L2 慢、頻繁觸發、單一規則告警觸發等），作為 post-incident review 的結構化輸入。
+（incident-response-ir-commander 目前無 active backlog；已 resolved 項見底部 Changelog）
 
 ---
 
@@ -46,6 +40,7 @@
 - 2026-06-10: `TUN-IRA-006` resolved in this PR — added §執行交付物 `### 6. Operational Evidence Storage Convention` to `incident-response-ir-analyst.md`；為 operational evidence（command 輸出 / log snapshot / screen capture）定義最小一致格式：命名 `<ref>-evidence-<type>-<timestamp>`（ref=AAR 編號如 `AAR-003`、type=cmdout/logsnap/screencap、無對應 approval 用 case ref 如 `INC-2026-0042-preexec`）、一律 attach 到 IR ticket 並在報告中以檔名 reference 引用（不貼整段內容）、描述須可定位（把「auth log 7d snapshot」寫成具體檔名 + 來源 / 範圍 / 時間窗 / host）、保留期限對齊事件 retention policy. 邊界：只規範 operational evidence 的存放格式，memory / disk image 與 chain of custody 仍屬 forensic-grade、走 Forensics 保全流程不套用本格式（掛回 §關鍵規則 3）；IR Analyst 不自定保留期、不提前刪除，retention 由事件 / 合規政策認定、有疑義回報 IRC——純格式收束、未擴權、未引入新 path. 非 ROADMAP rep. v1.3 low-sensitivity review lane. P2.
 - 2026-06-10: `TUN-FOR-005` resolved in this PR — added §溝通範本 `IRC 要求時程短於可行 ETA 時的回應（ETA 揭露與壓縮選項）` template to `incident-response-forensics-analyst.md`; 誠實 ETA 超出 IRC 期望時主動同步差距、姿態 = 報事實 + 量化 + 給選項；不退讓 = 已納入 scope 的每個 item 之 hash verification 與 chain of custody 完整性（§關鍵規則 1、8，integrity 不能半做）；可協商項明分兩類且對證據可用性影響不同——Scope 縮減（要不要採某 item、剩餘台品質不變）vs Depth 降級（full image → live triage、改變該 item 證據性質、forensic/法律可用性下降、掛回 §關鍵規則 4 operational-vs-forensic-grade），不可混為一談；壓縮與否與接受哪種影響最終由 IRC 拍板、Forensics 不自行壓縮/降級/跳步驟、不掩飾 depth 降級的可採性代價. 範例各選項以結果 ETA 呈現（含未達標殘差、兩項合併才達標）、per-endpoint 採集時間框為 incident-specific（不宣稱通用速率，避免與 §關鍵規則 8 估時 / MAR-014 互撞）、ETA 算術自洽. 與 `TUN-FOR-001` / `TUN-FOR-004` side-channel 骨幹同姿態（報事實 + 量化 + 決策交回 IRC），不轉移 authority、未擴權. 非 ROADMAP rep. v1.3 low-sensitivity review lane. P2.
 - 2026-06-10: `TUN-IRC-003` resolved in this PR — added §workflow §2 Classify 一條「暫定分級的 confirmation 節奏」+ Severity Classification 範本後「暫定 vs 定案」慣例註記 in `incident-response-ir-commander.md`；commander 可先給暫定 (provisional) severity 以啟動流程，但暫定不應無限延續：重新評估由觸發門檻驅動（證據到位 / 三軸輸入變動 / containment 或 scope 狀態改變 / 接近 mandatory notification 門檻），**不綁固定時數**（避免虛構 SLA，對齊 `TUN-IRA-003` 相對 cadence 設計、與被 drop 的 `TUN-TI-005` 固定 SLA 反向）；每次 confirm / downgrade 更新 Severity Classification（標暫定 → 定案版本變更）+ 記 Decision Log，暫定須在 Severity Classification 標為暫定並掛「下次 severity review」錨點（對齊 Command Brief Next Decision Points）. 邊界：只規範**何時**重新評估 severity 的節奏，不改變既有分級職權、不新增升降 severity 的權限——authority 收束未擴權. 非 ROADMAP rep. v1.3 low-sensitivity review lane. P2.
+- 2026-06-11: `TUN-IRC-004` resolved in this PR — added §指揮交付物 `### 7. Break-glass Post-incident Review Checklist（事後審查）` to `incident-response-ir-commander.md`；補〈關鍵規則〉#7 + 反模式 #6 缺的「如何判定 break-glass 合理 vs 濫用」結構化模板：審查表六維度（trigger context / alternatives considered / evidence of urgency / investigation chain continuity / approval trail / rollback·follow-up needs）+ 三檔判讀結論（合理 / 合理但有 follow-up / 需檢討）。三層防滑釘死定位：(1) 只**事後**審查**已發生**的 break-glass、(2) 是給 post-incident review board 的結構化輸入服務問責·校正·流程改進、非事件當場拍板、(3) **不是授權工具**——不定義「符合哪些條件即可 break-glass」、不新增任何可即時援引略過 L2 的權限，緊急通道成立與否仍依既有 #7；額外加「即使判讀合理也不構成未來預先授權」+「濫用訊號是回顧性警訊、非事前禁令清單」。backlog 原建議的 cross-dept / critical asset / 時序壓力 拆進 retrospective 維度（trigger context / evidence of urgency），不列成事前綠燈清單. 收束既有 break-glass 邊界、未擴權、未引入新 path. 因碰 break-glass authority 邊界由 user 上修為「低到中、按中敏感心態處理」、走 user-driven review（user 釘三條護欄 + 提 2 P2 措辭精修：範例首行改「未經標準逐級升級；L2 已同步通知」避免說成「跳過 L2」、表格列名 `Scope containment` → `Investigation chain continuity` 避免誤聯想技術 containment）. v1.3 medium-sensitivity review lane. P2.
 
 ## Changelog (Dropped)
 
