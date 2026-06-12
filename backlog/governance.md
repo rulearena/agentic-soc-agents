@@ -14,13 +14,7 @@
 
 ## governance-compliance-auditor
 
-### TUN-CA-006 — Customer-facing letter 措辭支援範圍 低
-
-**問題**：CA 可能被當作 customer letter 措辭起草者。Test L Input #2 中執行者明確 redirect「customer-facing 措辭屬 Legal + Compliance Head，CA 只提供 framework intent 解讀 input」。
-
-**測試來源**：Test L Input #2
-
-**建議方向**：在 §對既有角色與相鄰角色的邊界 — Legal 欄補一條：「**Customer-facing letter 措辭屬 Legal + Compliance Head，CA 可提供 framework intent 解讀作為 input，不提供 attestation 字眼或 customer-facing 直譯文字**」。
+（governance-compliance-auditor 目前無 active backlog；已 resolved 項見底部 Changelog）
 
 ---
 
@@ -52,3 +46,4 @@
 
 - 2026-06-05: `TUN-MGR-003` dropped (v1.3 planning) — Systemic Recognition Framework 建議方向（可表揚 contribution 類別 + 30hr=systemic failure reframe + 表揚詞範本）易寫成抽象管理價值宣言／反 hero-culture 道德論述，framing 風險高、邊界價值低；既有 §13「不表揚 firefighting」負面禁令已足夠，正面 recognition framework 屬管理文化設計非角色規格。
 - 2026-06-05: `TUN-MGR-005` dropped (v1.3 planning) — §關鍵規則 #12「Metrics 不作為個人 performance 工具」既有禁令已足夠；四層 second-order effect 分析 + Goodhart's Law 案例易把角色規格寫成散文式管理教材，framing 敏感。未來若實測出具體操作缺口，應另建窄範圍 backlog，不復活此條。
+- 2026-06-12: `TUN-CA-006` resolved in this PR — added customer-facing letter boundary to §對既有角色與相鄰角色的邊界 Legal Counsel / Compliance Head row of `governance-compliance-auditor.md`；「做」欄補：若詢問可提供 framework intent 解讀作為起草 input，CA 的 input 限 framework 條文意圖描述不評估措辭是否符合 framework；「不做」欄補：不起草 customer-facing letter 措辭、不提供 attestation 字眼或 customer-facing 直譯文字（客戶溝通措辭的起草權不屬 CA，不因詢問方是誰而改變）. v1.3 low-sensitivity review lane. P2.

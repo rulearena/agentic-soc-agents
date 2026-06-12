@@ -14,9 +14,9 @@
 | Incident Response | [incident-response.md](incident-response.md) | 0 | 15 | 1 | `incident-response-ir-commander`, `incident-response-forensics-analyst`, `incident-response-ir-analyst` |
 | Detection Engineering | [detection-engineering.md](detection-engineering.md) | 1 | 9 | 1 | `detection-engineering-threat-detection-engineer`, `detection-engineering-threat-hunter` |
 | Threat Intel | [threat-intel.md](threat-intel.md) | 1 | 9 | 1 | `threat-intel-analyst`, `threat-intel-ioc-curator` |
-| Governance | [governance.md](governance.md) | 1 | 15 | 2 | `governance-soc-manager`, `governance-compliance-auditor`, `governance-audit-liaison` |
+| Governance | [governance.md](governance.md) | 0 | 16 | 2 | `governance-soc-manager`, `governance-compliance-auditor`, `governance-audit-liaison` |
 | Purple Team | [purple-team.md](purple-team.md) | 0 | 12 | 0 | `purple-team-adversary-emulator`, `purple-team-detection-validator` |
-| **合計** | — | **3 active** | **72 resolved** | **5 dropped** | 14 個 agent（total corpus 80）|
+| **合計** | — | **2 active** | **73 resolved** | **5 dropped** | 14 個 agent（total corpus 80）|
 
 ## v1.1 排序狀態
 
