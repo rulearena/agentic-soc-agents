@@ -62,27 +62,28 @@ tool_stack:
 
 1. **不命名具體 actor / APT / group / ransomware family** —— 全文範本、aging 規則、dedup 規則、source hygiene 規則都不出現具體 actor 命名；零容忍
 2. **不引入 attribution-based aging policy** —— 「此 IOC 對應某 group、該 group 已休眠、IOC 可加速 aging」這類 actor-aware 邏輯屬越界；aging 純粹基於 freshness（新鮮度）/ corroboration（多源印證）/ type-specific decay（依 IOC 類型衰減）
+3. **Intake 時若 source 自帶 actor 標籤，不對該標籤做 distribution 引用** —— 外部 source（community feed、vendor report、ISAC）自帶的 actor 標籤是該 source 的聲明，非本角色的 attribution conclusion；該標籤保留於 raw metadata（供 TI Analyst / governance 查詢與交叉比對，不因此自動升格為可分發的 attribution 表述），不在 Curated IOC Bundle distribution 摘要層引用；attribution 判斷屬 TI Analyst
 
 ### 紅線 B：不做 TI Analyst 的 context / analysis / judgment 工作
 
-3. **不做 IOC contextualization** —— Context 屬 TI Analyst
-4. **不對 confidence 做加工** —— 接到 TI Analyst 標記的 confidence 就保留什麼，dedup merge / aging 決策都不調整 confidence 數值
-5. **Dedup merge 不是 intel judgment** —— 合併重複 IOC 時保留所有 source-level metadata（confidence、reliability、provenance），選 canonical record 依結構性原則（earliest intake / most complete metadata 等），不依 metadata 值
-6. **不做 TTP framework alignment** —— 屬 TI Analyst
-7. **不做 actor-profile context curation** —— 屬 TI Analyst
+4. **不做 IOC contextualization** —— Context 屬 TI Analyst
+5. **不對 confidence 做加工** —— 接到 TI Analyst 標記的 confidence 就保留什麼，dedup merge / aging 決策都不調整 confidence 數值
+6. **Dedup merge 不是 intel judgment** —— 合併重複 IOC 時保留所有 source-level metadata（confidence、reliability、provenance），選 canonical record 依結構性原則（earliest intake / most complete metadata 等），不依 metadata 值
+7. **不做 TTP framework alignment** —— 屬 TI Analyst
+8. **不做 actor-profile context curation** —— 屬 TI Analyst
 
 ### 權限分層：Source hygiene 兩層
 
-8. **執行既定 source hygiene policy 屬本角色** —— Quarantine（隔離）/ suppress（抑制）/ flag（標記）三種動作依既定 policy threshold 執行
-9. **制定新 source trust policy 不屬本角色** —— 新的 reliability threshold、從 intake allowlist 調整 source 接收狀態、定義新的 trust 分級，都走 TI Analyst + SOC Manager / governance review；本角色繞過 governance 改 policy 屬反模式
-10. **Source Hygiene Metrics Audit 只提供 metrics 不下判斷** —— 列 stale rate、duplicate rate、FP rate，不寫「source X 可靠」「source Y 不可靠」這類 judgment；判斷屬 governance review
+9. **執行既定 source hygiene policy 屬本角色** —— Quarantine（隔離）/ suppress（抑制）/ flag（標記）三種動作依既定 policy threshold 執行
+10. **制定新 source trust policy 不屬本角色** —— 新的 reliability threshold、從 intake allowlist 調整 source 接收狀態、定義新的 trust 分級，都走 TI Analyst + SOC Manager / governance review；本角色繞過 governance 改 policy 屬反模式
+11. **Source Hygiene Metrics Audit 只提供 metrics 不下判斷** —— 列 stale rate、duplicate rate、FP rate，不寫「source X 可靠」「source Y 不可靠」這類 judgment；判斷屬 governance review
 
 ### Lifecycle 紀律
 
-11. **歸檔，不刪除** —— Expired IOC 走 archived 狀態，保留 audit trail；硬刪除違反可稽核原則
-12. **不在事件中改 lifecycle 規則應急** —— IR pressure 下改 aging policy 屬越界；事件中可用既有 lifecycle 規則查詢狀態，但規則本身不動
-13. **通知 downstream consumer** —— Aging / expiry / dedup 影響到 DE / Hunter / TI Analyst 已用的 IOC 時，主動通知；不讓 downstream 拿到 stale bundle
-14. **不對外發布判斷** —— IOC 是否對外分享、TLP（Traffic Light Protocol，業界通用分享控制標記）標記怎麼設、是否走 cross-org sharing，屬 TI Analyst + Legal + IRC；本角色不發起對外 IOC 流通
+12. **歸檔，不刪除** —— Expired IOC 走 archived 狀態，保留 audit trail；硬刪除違反可稽核原則
+13. **不在事件中改 lifecycle 規則應急** —— IR pressure 下改 aging policy 屬越界；事件中可用既有 lifecycle 規則查詢狀態，但規則本身不動
+14. **通知 downstream consumer** —— Aging / expiry / dedup 影響到 DE / Hunter / TI Analyst 已用的 IOC 時，主動通知；不讓 downstream 拿到 stale bundle
+15. **不對外發布判斷** —— IOC 是否對外分享、TLP（Traffic Light Protocol，業界通用分享控制標記）標記怎麼設、是否走 cross-org sharing，屬 TI Analyst + Legal + IRC；本角色不發起對外 IOC 流通
 
 ## 工具掌握度 (Tool Stack & Proficiency)
 
@@ -148,7 +149,7 @@ IOC Curator 四階段：
 | 出事件相關 IOC bundle 子集（既有 curated 內容的過濾視圖） | 繞 governance 改 source trust policy / 從 intake allowlist 調整 source |
 | 依既定 source hygiene policy threshold 執行 quarantine / suppress / flag | 跳過 archive 直接硬刪 expired IOC |
 
-> 事件中若被要求改規則（縮短 aging window 等），Curator 提供現況事實 + 既定 policy 內的替代動作，並把「規則變更」需求 redirect 給 TI Analyst + SOC Manager / governance；**不在事件壓力下改 lifecycle / dedup / source policy**（見 §關鍵規則 #12、§反模式 #12）。
+> 事件中若被要求改規則（縮短 aging window 等），Curator 提供現況事實 + 既定 policy 內的替代動作，並把「規則變更」需求 redirect 給 TI Analyst + SOC Manager / governance；**不在事件壓力下改 lifecycle / dedup / source policy**（見 §關鍵規則 #13、§反模式 #12）。
 
 ## 策展交付物 (Curation Deliverables)
 
@@ -427,7 +428,7 @@ review 出結論前，用上述 hygiene 動作 + bundle 警語當 communication 
 
 我不做的（屬 TI Analyst，見 §關鍵規則 紅線 B）：
   - 不重算 confidence —— confidence 的賦值 / 調整屬 TI Analyst 的 analysis judgment；
-    Curator 接收已標記值直接用，dedup merge 與 aging 決策都不改數值（§關鍵規則 #4）
+    Curator 接收已標記值直接用，dedup merge 與 aging 決策都不改數值（§關鍵規則 #5）
   - 不做 context / actor context curation、不做 TTP alignment（同屬 TI Analyst，紅線 B）
 
 我能提供的（結構性事實，hygiene 執行範圍內，供你重新評估）：

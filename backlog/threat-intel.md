@@ -14,13 +14,7 @@
 
 ## threat-intel-ioc-curator
 
-### TUN-IOC-005 — Source 自帶 actor 標籤的處理規則缺 低
-
-**問題**：某些外部 source 在 intake 時自帶 actor 標籤（例：community label 寫 APT-X-tooling）。Test J Input #3 場景中執行者臨場決定「即便 metadata 中有 source 自帶 actor 標籤也不引用」，但定義沒明寫此 edge case。Curator 可能被 source 端 actor 命名拖下水。
-
-**測試來源**：Test J Input #3（DE 問 hash 對應哪個 APT，背後是 source 自帶 actor 標籤的隱性引用問題）
-
-**建議方向**：在 §紅線 A 補一條：「**Intake 時若 source 自帶 actor 標籤，Curator 不對該標籤做 distribution 引用；該標籤的 attribution 判斷屬 TI Analyst**」。並在 §策展交付物 #5 Curated IOC Bundle for Distribution 範本 Metadata Preserved 段落補一行：「source 自帶 actor 標籤保留於 raw metadata，但不在 distribution 摘要層引用」。
+（threat-intel-ioc-curator 目前無 active backlog；已 resolved 項見底部 Changelog）
 
 ---
 
@@ -35,6 +29,7 @@
 - 2026-06-01: `TUN-IOC-003` resolved in this PR — added Invitation to Re-score Decline template (§溝通範本) to `threat-intel-ioc-curator.md`; TI Analyst 主動邀請 Curator 越界做 confidence / context / TTP alignment 時 Curator 仍拒絕，提供結構性事實（intake 時間 / dedup 歷史 / source-level metadata 未加工版本）作為 TI Analyst 重新評估的 input，由 TI Analyst confirm 新 confidence 後正式 handoff；cross-ref §TI Analyst 雙向協作 單向職責劃分與 §關鍵規則 紅線 B 不重述. 非 ROADMAP rep（ROADMAP 不動）. P2 第 9 條.
 - 2026-06-07: `TUN-TI-004` resolved in this PR — added `Source Triangulation Notes` 固定子段 to Actor Profile Context Sheet 範本 (§情資交付物 #3) in `threat-intel-analyst.md`（Source 一致性 / candidate clusters 數量或範圍 / motivation spread / overall actor-context confidence〔明標非 IOC 信心度〕/ context-not-conclusion）；只加子段、不擴 workflow；解決多 source 不一致時臨場硬湊、不可重現、下游誤讀為單一指向的問題. 實測（兩次 run 結構不一致）確認 gap. v1.3 high-sensitivity review lane.
 - 2026-06-08: `TUN-IOC-004` resolved in this PR — added `Candidates Not Merged` 固定子段 to Dedup Resolution Log 範本 (§策展交付物 #3) in `threat-intel-ioc-curator.md`（Candidate record IDs / 未合併原因〔結構性差異：未達 dedup engine threshold 的具體結構欄位不符〕/ 保留為獨立 record 的決策依據）；讓「未合併也透明」變成固定可稽核項目，候選但未達 threshold 的 record 不靠 Notes 補一句帶過；未合併原因與 Resolution Principle 同源——只記結構性差異、不依 metadata 值、不碰 attribution（守紅線 A）. Test J Input #1（IB-2026-041 候選未達 threshold）確認 gap. v1.3 low-sensitivity review lane.
+- 2026-06-12: `TUN-IOC-005` resolved in this PR — added §紅線 A #3 to `threat-intel-ioc-curator.md`（insert after existing #2，舊 #3–14 重編為 #4–15，更新兩處 cross-ref：§關鍵規則 #12→#13 + #4→#5）；外部 source 自帶 actor 標籤是 source 的聲明非本角色 attribution conclusion；該標籤保留於 raw metadata（供 TI Analyst / governance 查詢與交叉比對，不因此自動升格為可分發的 attribution 表述），不在 Curated IOC Bundle distribution 摘要層引用；attribution 判斷屬 TI Analyst. Attribution family member（cross-ref joint framing：source label ≠ analyst conclusion / raw metadata ≠ distribution output / attribution ownership 跟著 output 走）；Test J Input #3（DE 問 hash 對應哪個 APT、背後是 source 自帶 actor 標籤的隱性引用問題）確認 gap. v1.3 medium-sensitivity review lane.
 
 ## Changelog (Dropped)
 

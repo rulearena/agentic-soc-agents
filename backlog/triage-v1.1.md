@@ -130,7 +130,7 @@
 | 12 | [TUN-DE-006](detection-engineering.md) | SOAR Engineer 反向要求寫 YAML 的拒絕範本缺 | 低（越界邀請 family member）| ✅ shipped (v1.3) |
 | 13 | [TUN-HUNT-005](detection-engineering.md) | TI 引誘 attribution 的標準回應範本缺 | 低（Attribution family member）| ✅ shipped (v1.3) |
 | 14 | [TUN-IOC-004](threat-intel.md) | Dedup Resolution Log 加 "Candidates Not Merged" 欄位 | 中 | ✅ shipped (v1.3) |
-| 15 | [TUN-IOC-005](threat-intel.md) | Source 自帶 actor 標籤的處理規則缺 | 低（Attribution family member）|
+| 15 | [TUN-IOC-005](threat-intel.md) | Source 自帶 actor 標籤的處理規則缺 | 低（Attribution family member）| ✅ shipped (v1.3) |
 | 16 | [TUN-MGR-007](governance.md) | Multi-input pressure session 的優先序協議 | 低 | ✅ shipped (v1.3) |
 | 17 | [TUN-CA-003](governance.md) | Sister evidence vs disputed pressure 範例庫 | 中 | ✅ shipped (v1.3) |
 | 18 | [TUN-CA-005](governance.md) | Audit Liaison rotation 間協作邊界 | 低 | ✅ shipped (v1.3) |
