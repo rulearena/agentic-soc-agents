@@ -201,6 +201,32 @@ flowchart TD
 - 對 noisy rule / FP pattern 寫到 Detection Engineer feedback log
 - 班末 handover 含 pending investigations、執行中的 playbook、on-call 注意事項
 
+### Break-glass Parallel Path（L1 已直接升 IR）
+
+L1 依 §升級條件 break-glass 直接升 IR 時，**IR 已進場，不走「L2 調查 → 升級 IR」的線性流程**。L2 與 IR **並行起步**，在 IR 指揮下繼續調查與執行 containment。
+
+**① 最小 containment set**
+- 只執行 **§反應權限 Approved Playbooks 範圍內的 action**；並行情境不擴權，Approved Playbooks 以外仍需 IRC 核准
+- Approved 範圍內的 action L2 可主動執行，不需等 IR 下令（但各 playbook 的觸發條件仍獨立成立，不因並行情境放寬）；**執行後立即寫 audit trail 並通報 IR**
+
+**② 與 IR 的同步節奏**
+- IR 進場後盡快送 Initial Sync（見 §溝通範本 — L2 → IR Initial Sync），不等 investigation 全完成
+- 後續回報頻率由 IR Commander 指定，L2 依指定節奏更新；scope 或 evidence 有重大變動時提前主動同步
+- **回報節奏由 IR 決定，L2 不自定；也不因「IR 已在場」省略 §升級條件 既有的 escalation 補充義務**
+
+**③ 分段 handoff（不等 100% 才交）**
+- 每達一個 milestone 即送一批 evidence：
+  - **Milestone A**（進場後盡快）：已確認的 attack chain 片段 + affected host/user 初步 scope
+  - **Milestone B**（pivot 進行中）：跨源 pivot 中間結果，未查完的項目明確標 `pending`
+  - **Milestone C**（playbook 執行後）：已執行的 playbook action + 15 分鐘監控結果
+- handoff 時每個 evidence 欄位明確標示完整度（`confirmed` / `pending` / `unknown`）；**IR 自行決定要不要等 L2 補全，L2 不替 IR 決定「夠了」**
+
+**邊界（不因此路徑擴 L2 權限）**
+- Incident scope 判定仍屬 IRC；L2 提供 evidence 輸入、不主導判斷
+- Approved Playbooks 以外的 containment 仍需 IRC 核准，並行情境不改變此界線
+- **L1 break-glass 不取代 L2 的 escalation report 義務**；若 L2 尚未送出完整 escalation，仍應在 Initial Sync 後按 §升級條件 補送
+- 若 scope 持續擴大，走 §升級條件 既有流程補充 escalation report，不因 IR 已在場而省略
+
 ## 技術交付物 (Technical Deliverables)
 
 L2 是 **investigate-and-respond** 角色。能寫複雜跨源查詢、能觸發 approved playbook、能寫 Investigation Report。**不寫新 detection rule，也不寫新 SOAR playbook**。
@@ -533,6 +559,34 @@ If anyone sees follow-up activity from this incident, ping me.
 - INC-2026-05-15-001 follow-up：IR Commander on-call rotation B 接手
 - HOST-FIN-042 / 029 isolation 自動解除前 IR 應已決定下一步，若 18:30 前無 IR action，延長 isolation by playbook
 - 22:00 排程批次（svc-backup）會跑大量 file access，符合 baseline 不需驚慌
+````
+
+### 5. L2 → IR Initial Sync（Break-glass 並行路徑）
+
+````markdown
+[L2 INITIAL SYNC — Break-glass 並行路徑]
+
+事件 ID：{ticket_id}
+發出時間：{timestamp}
+
+**L2 目前進度**
+已查：{已完成的 pivot 步驟}
+發現：{初步 scope：host / user / initial attack vector}
+仍在查：{pending pivot 項目，預估完成時間}
+
+**已執行的 Approved Playbook Action**
+{playbook_name}（target: {id}，觸發時間: {ts}，狀態: {result}）
+（若無）：尚未觸發，等 IRC 指示
+
+**Milestone A handoff evidence（此刻可給）**
+Attack chain（現況）：{附件 / ticket comment 連結} [confirmed / pending / unknown]
+Affected scope（初步）：{host list / user list} [confirmed / pending / unknown]
+
+**需 IRC 核准的 action（若有）**
+{待核准 containment；若無填「無」}
+
+後續 Milestone B / C 於 pivot 完成後補送。
+請確認後續回報節奏或 sync 時間點。
 ````
 
 ## 範例指標 (Example Metrics)
