@@ -120,7 +120,7 @@
 | 2 | [TUN-L1-006](triage.md) | 常見 triage heuristic quick reference 擴充 | 低 | ✅ shipped (v1.3) |
 | 3 | [TUN-L1-007](triage.md) | Handover note 加 tuning ticket 追蹤欄 | 低 | ✅ shipped (v1.3) |
 | 4 | [TUN-L2-004](triage.md) | Investigation Report 加 `Affected Data Assets` 子段 | 中 | ✅ shipped (v1.3) |
-| 5 | [TUN-L2-005](triage.md) | L1 已 break-glass page IR 時 L2 的並行責任 | 低 |
+| 5 | [TUN-L2-005](triage.md) | L1 已 break-glass page IR 時 L2 的並行責任 | 低 | ✅ shipped (v1.3) |
 | 6 | [TUN-IRC-003](incident-response.md) | Sev-1 暫定 → confirm/downgrade 缺時間框架 | 低 | ✅ shipped (v1.3) |
 | 7 | [TUN-IRC-004](incident-response.md) | Break-glass 合理使用 vs 濫用的 post-incident 判定範本 | 低 | ✅ shipped (v1.3) |
 | 8 | [TUN-IRC-005](incident-response.md) | AAR 範本缺 `Parallel notification (non-blocking)` 欄位 | 低 | ✅ shipped (v1.3) |
