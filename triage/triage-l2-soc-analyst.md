@@ -576,7 +576,9 @@ If anyone sees follow-up activity from this incident, ping me.
 
 **已執行的 Approved Playbook Action**
 {playbook_name}（target: {id}，觸發時間: {ts}，狀態: {result}）
-（若無）：尚未觸發，等 IRC 指示
+（若無）：Approved Playbooks 觸發條件尚未成立，或觸發條件已成立正在評估中——
+  - 觸發條件成立 → L2 可主動執行並補通報（不需等 IRC 指示）
+  - 超出 Approved 範圍 → 見下方「需 IRC 核准的 action」
 
 **Milestone A handoff evidence（此刻可給）**
 Attack chain（現況）：{附件 / ticket comment 連結} [confirmed / pending / unknown]
