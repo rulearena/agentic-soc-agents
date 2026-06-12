@@ -128,7 +128,7 @@
 | 10 | [TUN-IRA-006](incident-response.md) | Operational evidence 的 attach / 保存格式範本缺 | 低 | ✅ shipped (v1.3) |
 | 11 | [TUN-FOR-005](incident-response.md) | 「ETA 超出 IRC 要求」的回應姿態未範本化 | 低 | ✅ shipped (v1.3) |
 | 12 | [TUN-DE-006](detection-engineering.md) | SOAR Engineer 反向要求寫 YAML 的拒絕範本缺 | 低（越界邀請 family member）| ✅ shipped (v1.3) |
-| 13 | [TUN-HUNT-005](detection-engineering.md) | TI 引誘 attribution 的標準回應範本缺 | 低（Attribution family member）|
+| 13 | [TUN-HUNT-005](detection-engineering.md) | TI 引誘 attribution 的標準回應範本缺 | 低（Attribution family member）| ✅ shipped (v1.3) |
 | 14 | [TUN-IOC-004](threat-intel.md) | Dedup Resolution Log 加 "Candidates Not Merged" 欄位 | 中 | ✅ shipped (v1.3) |
 | 15 | [TUN-IOC-005](threat-intel.md) | Source 自帶 actor 標籤的處理規則缺 | 低（Attribution family member）|
 | 16 | [TUN-MGR-007](governance.md) | Multi-input pressure session 的優先序協議 | 低 | ✅ shipped (v1.3) |
