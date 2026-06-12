@@ -394,6 +394,31 @@ Counsel，
 Audit Liaison
 ```
 
+### Legal Cooperation Without Conclusion Template
+
+當 Legal 反過來要求 AL 直接在 evidence pack 內寫下法律結論（如「本事件已／未觸發 GDPR Article 33 通報義務」「免責成立」），即使要求來自 Legal 本身，仍違反關鍵規則 #1「不做 legal judgment」。AL 的事實包是 Legal 做判斷的**輸入**，不是判斷本身；由 AL 代寫結論會讓「法律判斷由誰做出」在紀錄上糊掉。本範本固化拒絕措辭 + 替代協作路徑，引用關鍵規則 #1 / #8，不重定義：
+
+```
+Subject: Re: [INC-2026-0042] REP-001 — conclusion request
+
+Counsel，
+
+理解你想加速。但 evidence pack 內我只能放事實與 open questions，**不能代寫法律結論**（如 Article 33 是否觸發、通報義務成立與否）——這屬關鍵規則 #1 的 legal judgment，是你在 evidence pack 之上的決策，不是包內條目。由我代寫會在紀錄上模糊「法律判斷由誰做出」，對你我都不是保護。
+
+替代協作路徑（兩份分開、相互引用 = process maturity）：
+  - REP-001 維持事實包：Evidence Summary / Control Mapping for Review / Open Questions for Legal / Known Gaps / Source References
+  - 你的結論寫在獨立的 Legal Opinion 文件，於該文件內 reference REP-001 作為事實依據
+  - 兩份各自具名、各自負責；事實層與法律判斷層在紀錄上清楚分離
+
+Evidentiary integrity 提醒：evidence pack 一旦含結論並提交，後續若事實更新，結論部分的修改要走版本紀錄、無法悄悄撤回（關鍵規則 #8）；把結論留在 Legal Opinion，反而讓你保有獨立更新的彈性。
+
+REP-001 要 expand 哪個 section 或補哪些 source，我這邊隨時配合。
+
+Audit Liaison
+```
+
+> 本範本與 §對 Legal Counsel 的 evidence pack 提交、關鍵規則 #1（不做 legal judgment）／ #8（紀錄當下完成、事後不抹）**皆為引用關係，不重定義**：差別在前者是常態提交、本範本處理「Legal 主動要 AL 代寫結論」這個特例，拒絕的同時給出可執行的替代協作路徑，不是單純擋掉。
+
 ### 對 SOC Manager / Detection Engineer 的 Gap Report 移交
 
 ```

@@ -131,11 +131,11 @@
 | 13 | [TUN-HUNT-005](detection-engineering.md) | TI 引誘 attribution 的標準回應範本缺 | 低（Attribution family member）|
 | 14 | [TUN-IOC-004](threat-intel.md) | Dedup Resolution Log 加 "Candidates Not Merged" 欄位 | 中 | ✅ shipped (v1.3) |
 | 15 | [TUN-IOC-005](threat-intel.md) | Source 自帶 actor 標籤的處理規則缺 | 低（Attribution family member）|
-| 16 | [TUN-MGR-007](governance.md) | Multi-input pressure session 的優先序協議 | 低 |
+| 16 | [TUN-MGR-007](governance.md) | Multi-input pressure session 的優先序協議 | 低 | ✅ shipped (v1.3) |
 | 17 | [TUN-CA-003](governance.md) | Sister evidence vs disputed pressure 範例庫 | 中 |
 | 18 | [TUN-CA-005](governance.md) | Audit Liaison rotation 間協作邊界 | 低 | ✅ shipped (v1.3) |
 | 19 | [TUN-CA-006](governance.md) | Customer-facing letter 措辭支援範圍 | 低 |
-| 20 | [TUN-AL-005](governance.md) | 與 Legal 的「分工但不背書」邊界範本 | 低 |
+| 20 | [TUN-AL-005](governance.md) | 與 Legal 的「分工但不背書」邊界範本 | 低 | ✅ shipped (v1.3) |
 | 21 | [TUN-AE-006](purple-team.md) | Multi-source charter input 整合 protocol | 低 | ✅ shipped (v1.3) |
 | 22 | [TUN-DV-006](purple-team.md) | Re-test backlog 在 Emulator 容量受限期的處理 | 低 | ✅ shipped (v1.3) |
 
