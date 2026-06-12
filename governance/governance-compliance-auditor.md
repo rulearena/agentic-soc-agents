@@ -243,6 +243,36 @@ Compliance Auditor 四階段：
 - Disputed 條目的對外回應措辭由 Legal / Compliance Head 決定;本角色不發起對外通訊
 ```
 
+#### Worked Examples（AFV 分類決策錨點）
+
+以下三個例子示範 corroborated / disputed / supplemented 三種分類的判斷邏輯，以及一個「同情境硬標 disputed」的反例。決策錨：**讓 CA 做分類的是「內部 evidence 說什麼」，不是「組織希望結論是什麼」。**
+
+**corroborated 範例**
+- External finding：「Detection coverage for [technique] 不足——purple team exercise 期間無 alert 觸發。」
+- 內部 evidence：DE Coverage Mapping 該 technique 標記 `partial`（如 SOC-DE-COV-2026-01）；Event log 確認 purple team 測試視窗無對應 alert record。
+- 分類：**corroborated** —— DE 自標 `partial` + 事件未 fire，兩份內部 evidence 均**支持**外部 finding（detection coverage 確實不足）。
+- 常見錯誤：把 `partial` 誤讀為「有部分 coverage，可否認全無 coverage 的說法」。`partial` 不是反駁；`partial` 本身就是 corroboration 的一部分。
+
+**disputed 範例**
+- External finding：「Access log retention 未達 90 天——要求的 log 無法提供。」
+- 內部 evidence：SIEM retention config（如 ESR-2026-08）設定 180 天；log archive 可取回對應歷史 log，稽核期間已實際提供。
+- 分類：**disputed** —— 內部 evidence（retention 設定 + log 實際可取得）與外部 finding 事實描述直接矛盾。
+- 決策錨：是**內部 evidence 不支持描述**，而非「finding 對組織不利就否認」。若 archive 無法取回，就不能標 disputed。
+
+**supplemented 範例**
+- External finding：「[Incident-ID] 期間 IR 流程未依 playbook 執行。」
+- 內部 evidence：IRC Decision Log 顯示 escalation 路徑（L2 → IRC）有記錄符合 playbook；但 L2 → IRC handoff communication log 有 3 小時缺口，無 documented handoff record。
+- 分類：**supplemented** —— playbook 執行路徑部分有 evidence 印證；handoff gap 對應 documentation 不完整，需 Audit Liaison 請 role owner 補充後再做完整 validate。
+
+**反例（同情境硬標 disputed 的 walkthrough 問題）**
+- 情境：同 corroborated 範例（DE partial + 事件未 fire）。
+- 錯誤分類：標 **disputed**，理由為「我們有 coverage 改善計畫」。
+- Walkthrough 被反殺的原因：
+  1. Disputed 宣稱「內部 evidence 不支持外部描述」——但 DE 自標 `partial` 正是在說 coverage 不足，這份內部 evidence 支持而非否認 finding。
+  2. 改善計畫是未來行動，不改變現狀 evidence 的指向。
+  3. CA validation 標 disputed 但 DE Coverage Mapping 自標 `partial`，兩者自相矛盾，Legal / Compliance Head 在 walkthrough 一對照即發現，CA 可信度受損。
+- 正確處理：標 **corroborated**；若需提示改善方向，在 Validation Rationale 加 note 說明 DE coverage roadmap（不影響分類結果）。
+
 ### 4. Cross-Framework Consistency Check
 
 ```markdown
