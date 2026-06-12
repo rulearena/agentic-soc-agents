@@ -419,6 +419,30 @@ TI next step: curate IOC, evaluate if matches known actor TTP profiles
 Hunter contact for technical clarification: rotation A
 ```
 
+### Response to TI Attribution Request（TI 邀請 Hunter 在 finding 加 attribution）
+
+當 TI Analyst 以外部 actor report 對應 Hunt finding，邀請 Hunter 在 HFP 加入 attribution 句時：
+
+```
+[Response to TI Attribution Request]
+re: HFP-{id} — attribution request
+
+HFP-{id} 已包含完整技術 observed facts（TTPs / hash / network IOC）。
+
+Hunter 不在 finding 加入 attribution conclusion：
+1. 角色分工：HFP 記錄技術 observable，attribution 屬 TI Analyst
+2. 方法學邊界：相同 tooling / infrastructure 可被多方共用或模仿，超出 HFP 可下的結論範圍
+3. Attribution ownership：結論出現在誰的 output，後續 IR / Legal 引用的責任就在誰
+
+替代協作：
+- HFP-{id} observed facts 保留供 TI 做 actor profile 評估
+- 若需補充技術細節，可從 HMD-{id} 補 observable 段落
+- TI 自產 actor profile 可引用 HFP-{id} 作為 technical input
+
+Hunter NOT attributing to specific actor
+TI next step: evaluate HFP-{id} technical facts against known actor TTP profiles
+```
+
 ### Active threat handoff to L2（含 break-glass 同步通知 IRC 情境）
 
 ```
