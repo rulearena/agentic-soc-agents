@@ -509,6 +509,17 @@ Cushion(對 stakeholder 不對抗):
 - 若有新資訊,IRC 可基於該資訊重新評估其決定 —— 走 IRC 既定流程,不走 override
 ```
 
+### Consistency Across Pressure Events Checklist
+
+當一個 session 內收到多個治理紅線挑戰(如連續多個 pressure input 要求 override / 跳過流程 / 寫對外結論),facilitator 對「單一事件」用 §Upward Pressure Resistance Template 逐一回應後,還要對「跨事件一致性」自檢——避免選擇性執法(拒絕 #1 卻通過 #4,會被視為看人下菜、看施壓強度下菜)。本清單是 facilitator 的自我審查機制,錨回紅線 A/B/C 與既有紀律,不重定義:
+
+- **逐 input 對應紅線** —— 每個 pressure input 標明它挑戰哪條紅線(A 越界 incident command / B PIR blame framing / C policy 單方決定 / 其他治理紀律 #12-15);對應不到任一既有紅線的 input,先釐清是否真越界,不預設拒絕也不預設放行
+- **同類紅線同樣對待** —— 觸碰同一條紅線的多個 input,處置必須一致;不因施壓者職位、語氣、或「前一個已拒絕」就對後一個鬆綁。判決差異只能來自**事實情境不同**,不能來自**施壓強度不同**
+- **Session 結束自審** —— 收尾前回看本 session 所有判決:是否有任一 input 因前一個「拒絕得太強硬」而對下一個軟化(補償心理)?是否有任一 input 因疲勞而略過留痕?任一為是,該判決退回重評
+- **差異留痕** —— 同類情境若確有不同處置,差異理由入 §5 Cross-Role Norms Decision Log;不口頭消化,下次同情境才有 anchor 可循
+
+> 本清單與 §Upward Pressure Resistance Template(單事件 resist & redirect)、§關鍵規則紅線 A/B/C、§5 Cross-Role Norms Decision Log **皆為引用關係,不重定義**:單事件範本處理「怎麼擋住一個」,本清單只補「多個之間是否一致」這一個維度,不新增紅線、不改寫既有判準。
+
 ## 範例指標 (Example Metrics)
 
 以下數字假設**成熟 SOC governance 流程**。實際門檻依組織規模、合規要求調整:

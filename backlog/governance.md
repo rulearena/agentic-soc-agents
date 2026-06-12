@@ -8,16 +8,7 @@
 
 ## governance-soc-manager
 
-### TUN-MGR-007 — Multi-input pressure session 的優先序協議 低
-
-**問題**：一個 session 內收到多個治理紅線挑戰時（如 Test K 5 個 input），需要 facilitator 自身的 self-check protocol：每個 input 對應哪條紅線、是否有跨 input 妥協（例：拒絕 #1 但通過 #4 會被視為選擇性執法）。
-
-**測試來源**：Test K（5 個連續 pressure point）
-
-**建議方向**：加 §`Consistency Across Pressure Events Checklist`，含：
-- 每個 input 對應哪條紅線
-- 跨 input consistency check（同類紅線必須同樣對待）
-- Session 結束自我審查（是否任何 input 因為前一個拒絕「太強硬」而對下一個軟化）
+（governance-soc-manager 目前無 active backlog；已 resolved 項見底部 Changelog）
 
 ---
 
@@ -47,16 +38,7 @@
 
 ## governance-audit-liaison
 
-### TUN-AL-005 — 與 Legal 的「分工但不背書」邊界範本 低
-
-**問題**：Test M Input #2 顯示 Legal 可能希望 AL 寫結論替 Legal 省事。目前 §對既有角色邊界 Legal 欄有原則但缺操作層 template。
-
-**測試來源**：Test M Input #2（Legal 要 AL 直接在 evidence pack 寫 GDPR Article 33 結論）
-
-**建議方向**：在 §溝通範本加 `Legal Cooperation Without Conclusion Template`，含：
-- 拒絕措辭（保護 Legal 也保護 AL）
-- 替代協作路徑（獨立 Legal Opinion 文件引用 REP，兩份分開但相互引用 = process maturity）
-- Evidentiary integrity argument（如果 AL 寫 conclusion，後續 update 無法撤回）
+（governance-audit-liaison 目前無 active backlog；已 resolved 項見底部 Changelog）
 
 ---
 
@@ -74,6 +56,8 @@
 - 2026-06-03: `TUN-CA-004` resolved (v1.2) — added CIN-as-policy-input boundary to §對既有角色與相鄰角色的邊界 SOC Manager row + `Policy Input vs Policy Authoring Boundary Template`（§溝通範本）of `governance-compliance-auditor.md`; CIN 是 policy framework input、CA 不寫 policy 內容（policy authoring 屬 SOC Manager,其中 detection 部分屬 DE）、CIN 是 input 不是 policy 草稿. 引用 §三條最重要邊界 #3 rule-maker boundary + CIN deliverable #1 + SOC Manager 既有 change proposal 流程，不重定義. 非 ROADMAP rep（ROADMAP 不動）. 首個 v1.2 ship.
 - 2026-06-02: `TUN-MGR-006` resolved in this PR — added war room observer 條款 to §對既有角色與相鄰角色的邊界 IR Commander row（做 cell）of `governance-soc-manager.md`; 上層 stakeholder / CISO 僅可透過 IRC 既定 situational-awareness 管道以 observer 接收事件進度、不投票 / 不下指令 / 不列為 IRC Decision Log 的 decision-maker / approver、破除「在場 = 有 authority」誤解. SOC Manager 僅於 policy compendium 明文化此 observer 邊界（policy ownership，非 live 准入、非參與 IC、不取得 action authority）；接收管道 cross-ref §Upward Pressure Resistance Template，不重述. 與 `TUN-MGR-001`（override pressure）同步設計收尾. 非 ROADMAP rep（ROADMAP 不動）.
 - 2026-06-11: `TUN-CA-005` resolved in this PR — added rotation-protocol carve-out sub-bullet under §紅線 C #7 of `governance-compliance-auditor.md`; Audit Liaison rotation 間的工作協議 / 排班 / 交接不改變 CA 不接 evidence packaging(及 #8 evidence collection、#9 chain of custody)的邊界、任何此類 rotation-level 變更請求 escalate SOC Manager 走 cross-role norms governance. 強化紅線 C 未改寫 #7-9 本體、未給 CA 新權限,與 §對既有角色與相鄰角色的邊界 rotation 列同義並 cross-ref(把同一概念前移到紅線本體旁直接可見). sub-bullet 不動 §流程紀律 #10-14 編號. v1.3 low-sensitivity review lane. P2.
+- 2026-06-12: `TUN-MGR-007` resolved in this PR — added `Consistency Across Pressure Events Checklist`（§溝通範本，接 `Upward Pressure Resistance Template` 後）to `governance-soc-manager.md`; 多 pressure input session 的 facilitator 跨事件一致性自檢——逐 input 對應紅線(A/B/C)、同類紅線同樣對待(防選擇性執法／看施壓強度下菜)、session 結束自審(補償心理軟化、疲勞略過留痕)、差異留痕入 §5 CRN. 錨回紅線 A/B/C + §Upward Pressure Resistance Template(單事件) + §5 Cross-Role Norms Decision Log，引用不重定義、不新增紅線、不改寫判準. v1.3 low-sensitivity review lane.
+- 2026-06-12: `TUN-AL-005` resolved in this PR — added `Legal Cooperation Without Conclusion Template`（§溝通範本，接「對 Legal Counsel 的 evidence pack 提交」後）to `governance-audit-liaison.md`; 當 Legal 主動要 AL 在 evidence pack 內代寫法律結論(如 GDPR Article 33 是否觸發)時的拒絕措辭 + 替代協作路徑(結論寫獨立 Legal Opinion 文件 reference REP-001、事實層與判斷層分離 = process maturity) + evidentiary integrity 論證(結論一旦入 pack 提交、後續更新無法悄悄撤回). 操作化關鍵規則 #1(不做 legal judgment) / #8(紀錄當下完成事後不抹)，引用不重定義、不對法條表態、不寫對外承諾. v1.3 low-sensitivity review lane.
 
 ## Changelog (Dropped)
 
