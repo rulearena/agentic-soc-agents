@@ -14,18 +14,6 @@
 
 ## governance-compliance-auditor
 
-### TUN-CA-003 — Sister evidence vs disputed pressure 範例庫 中
-
-**問題**：Test L Input #3「DE 自標 partial + 事件未 fire = corroborated 而非 disputed」這類 reasoning pattern 在範本 #3 (AFV) 內沒 worked example，CA 在實際 pressure 下不易快速 anchor。
-
-**測試來源**：Test L Input #3（Compliance Head 要 dispute 一個內部 evidence 明顯支持 corroborated 的 finding）
-
-**建議方向**：在 §稽核交付物 #3 AFV 範本內加 `Worked Examples`：
-- corroborated 範例（內部 evidence 印證外部 finding）
-- disputed 範例（內部 evidence 實際不支持，且非為 defense）
-- supplemented 範例（部分印證 + 需補 evidence）
-- 反例：「為什麼這個情境硬標 disputed 會在 walkthrough 被反殺」
-
 ### TUN-CA-006 — Customer-facing letter 措辭支援範圍 低
 
 **問題**：CA 可能被當作 customer letter 措辭起草者。Test L Input #2 中執行者明確 redirect「customer-facing 措辭屬 Legal + Compliance Head，CA 只提供 framework intent 解讀 input」。
@@ -58,6 +46,7 @@
 - 2026-06-11: `TUN-CA-005` resolved in this PR — added rotation-protocol carve-out sub-bullet under §紅線 C #7 of `governance-compliance-auditor.md`; Audit Liaison rotation 間的工作協議 / 排班 / 交接不改變 CA 不接 evidence packaging(及 #8 evidence collection、#9 chain of custody)的邊界、任何此類 rotation-level 變更請求 escalate SOC Manager 走 cross-role norms governance. 強化紅線 C 未改寫 #7-9 本體、未給 CA 新權限,與 §對既有角色與相鄰角色的邊界 rotation 列同義並 cross-ref(把同一概念前移到紅線本體旁直接可見). sub-bullet 不動 §流程紀律 #10-14 編號. v1.3 low-sensitivity review lane. P2.
 - 2026-06-12: `TUN-MGR-007` resolved in this PR — added `Consistency Across Pressure Events Checklist`（§溝通範本，接 `Upward Pressure Resistance Template` 後）to `governance-soc-manager.md`; 多 pressure input session 的 facilitator 跨事件一致性自檢——逐 input 對應紅線(A/B/C)、同類紅線同樣對待(防選擇性執法／看施壓強度下菜)、session 結束自審(補償心理軟化、疲勞略過留痕)、差異留痕入 §5 CRN. 錨回紅線 A/B/C + §Upward Pressure Resistance Template(單事件) + §5 Cross-Role Norms Decision Log，引用不重定義、不新增紅線、不改寫判準. v1.3 low-sensitivity review lane.
 - 2026-06-12: `TUN-AL-005` resolved in this PR — added `Legal Cooperation Without Conclusion Template`（§溝通範本，接「對 Legal Counsel 的 evidence pack 提交」後）to `governance-audit-liaison.md`; 當 Legal 主動要 AL 在 evidence pack 內代寫法律結論(如 GDPR Article 33 是否觸發)時的拒絕措辭 + 替代協作路徑(結論寫獨立 Legal Opinion 文件 reference REP-001、事實層與判斷層分離 = process maturity) + evidentiary integrity 論證(結論一旦入 pack 提交、後續更新無法悄悄撤回). 操作化關鍵規則 #1(不做 legal judgment) / #8(紀錄當下完成事後不抹)，引用不重定義、不對法條表態、不寫對外承諾. v1.3 low-sensitivity review lane.
+- 2026-06-12: `TUN-CA-003` resolved in this PR — added `#### Worked Examples（AFV 分類決策錨點）` after AFV template in `governance-compliance-auditor.md`; corroborated / disputed / supplemented 三分類各一個 worked example + 一個「同情境硬標 disputed」反例（DE partial + 事件未 fire = corroborated 非 disputed）；決策錨：分類依內部 evidence 實際情況，不依組織希望結論調整；強化既有 §關鍵規則 #12 非 audit defense 主軸，不重定義三分類語意、不給 CA 新權限. v1.3 user-driven review lane.
 
 ## Changelog (Dropped)
 
