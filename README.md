@@ -127,7 +127,9 @@ WARN 不影響退出碼；FAIL 退出 1。詳細檢查項見 [`scripts/README.md
 
 **v1.2 spec-update 已收口**：v1.1 之後再併入一組 agent 邊界與範圍細化（7 條 P2 boundary / scope / cadence 條目）；其餘 candidate 條目維持候選池（非承諾交付範圍）。
 
-剩餘 backlog 集中在 [`backlog/`](backlog/README.md)，仍歡迎 issue / PR 引用對應 `TUN-*` ID（先 search 避免重複提案）。排序與 v1.1 / v1.2 收口狀態見 [`backlog/triage-v1.1.md`](backlog/triage-v1.1.md)；更高層次方向（themes，不含時程）見 [`ROADMAP.md`](ROADMAP.md)。
+**v1.3 spec-update 已收口**：attribution framing 完整化（Threat Intel、Detection Engineering）、Compliance Auditor worked examples、L2 triage template consistency；初始 80 條 backlog 全數收口（75 resolved / 5 dropped）。
+
+backlog 已全清零。歡迎 issue / PR 引用對應 `TUN-*` ID 提案新改善（先 search 避免重複）。對外方向（themes，不含時程）見 [`ROADMAP.md`](ROADMAP.md)。
 
 ---
 
