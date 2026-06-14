@@ -239,6 +239,16 @@ PowerShell in-memory C2 implant 可能存在於環境中
 - 觀察到 outbound network 連線到 [generic IOC pattern]
 - 行為與既有 detection rule 未觸發
 
+## IOC Quick Enrichment（交接前必填；enrichment ≠ attribution）
+對 finding 中的 network IOC（IP / domain），handoff 前完成 minimum-viable enrichment。以下為**必填欄位**，只記錄查詢回傳的內容、不下行為者身分結論：
+- **ASN / owner**：[WHOIS / ipinfo 回傳的 ASN 與 network block owner；註明屬 cloud / hosting / ISP 哪一類]
+- **rDNS（PTR 記錄）**：[reverse DNS PTR 查詢回傳值；無 PTR 記「no PTR record」]
+- **Reputation source（至少一個）**：[AbuseIPDB / VirusTotal / Talos / GreyNoise 其一的查詢結果摘要；記錄回傳的分數 / 標記原文，不加判讀]
+
+**界線：enrichment ≠ attribution** —— Hunter 只記錄 lookup 回傳的內容，不下「屬某 actor / group / campaign」結論。actor 維度的 attribution 屬 Threat Intel（見關鍵規則 #4 與 §Fact vs Conclusion Line Drawing）。
+
+**Caveat — 雲端供應商 IP 範圍**：若 IP 落在 Azure / AWS / GCP 等 cloud provider 公布的 IP 範圍內，**標記為可疑前先做 whitelist 檢查**（合法 cloud egress / SaaS 可能共用同段 IP）；whitelist 命中則於此註記，避免把 shared cloud IP 當成 actor infrastructure。
+
 ## Affected Scope Estimate
 - 3 個 endpoint 已直接觀察
 - 同 VLAN 其餘 endpoint 在 hunt scope 內無類似活動
@@ -265,6 +275,14 @@ PowerShell in-memory C2 implant 可能存在於環境中
 - Hypothesis: HHS-2026-018 / Methodology: HMD-2026-018
 - Hunt query results: [hunt management platform reference]
 ```
+
+**IOC enrichment 角色分工**（釐清 enrichment 各步驟的 handoff 邊界）：
+
+| 步驟 | 負責角色 |
+|---|---|
+| 基本 IOC enrichment（WHOIS / ASN、rDNS、reputation quick-check） | **Threat Hunter**（交接前） |
+| IOC 整理 / 去重、feed 來源管理 | **IOC Curator** |
+| 歸因（attribution）/ campaign 關聯 | **Threat Intel Analyst** |
 
 ### 4. Hunt Negative Result Report
 
