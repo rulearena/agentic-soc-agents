@@ -245,9 +245,11 @@ PowerShell in-memory C2 implant 可能存在於環境中
 - **rDNS（PTR 記錄）**：[reverse DNS PTR 查詢回傳值；無 PTR 記「no PTR record」]
 - **Reputation source（至少一個）**：[AbuseIPDB / VirusTotal / Talos / GreyNoise 其一的查詢結果摘要；記錄回傳的分數 / 標記原文，不加判讀]
 
+**反捏造規則（必填 ≠ 必猜）**：若手邊無對應查詢工具（無 WHOIS / reputation / rDNS 查詢能力），**明確將該欄標記為 `unresolved` 並於 handoff 時點出待下游補**；**嚴禁填入未經查詢的推測值**——包含 coarse 地理位置或 registry 範圍的猜測（例：憑 IP 前綴猜 ASN / registry / 地理歸屬）。**寧可留空標 `unresolved`，不可填未驗證值**；「必填」要求的是「必須交代欄位狀態」，不是「必須生出一個值」。
+
 **界線：enrichment ≠ attribution** —— Hunter 只記錄 lookup 回傳的內容，不下「屬某 actor / group / campaign」結論。actor 維度的 attribution 屬 Threat Intel（見關鍵規則 #4 與 §Fact vs Conclusion Line Drawing）。
 
-**Caveat — 雲端供應商 IP 範圍**：若 IP 落在 Azure / AWS / GCP 等 cloud provider 公布的 IP 範圍內，**標記為可疑前先做 whitelist 檢查**（合法 cloud egress / SaaS 可能共用同段 IP）；whitelist 命中則於此註記，避免把 shared cloud IP 當成 actor infrastructure。
+**Caveat — 雲端供應商 IP 範圍**：若 IP 落在 Azure / AWS / GCP 等 cloud provider 公布的 IP 範圍內，**標記為可疑前先做 whitelist 檢查**（合法 cloud egress / SaaS 可能共用同段 IP）；whitelist 命中則於此註記，避免把 shared cloud IP 當成 actor infrastructure。**whitelist 範圍同時涵蓋你環境中安全 / 網路設備廠牌（防火牆、EDR、SASE、proxy 供應商）的自家網段**：beacon 目標若落在這些廠牌的網段內，**優先當 vendor 通訊（如 FortiGuard / FortiCloud 類更新、授權、雲端管理 / 遙測）查證**，而非逕自當 C2——這類週期性外連常是合法產品 telemetry 而非 actor infrastructure。
 
 ## Affected Scope Estimate
 - 3 個 endpoint 已直接觀察
