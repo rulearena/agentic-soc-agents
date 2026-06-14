@@ -242,6 +242,7 @@ PowerShell in-memory C2 implant 可能存在於環境中
 ## IOC Quick Enrichment（交接前必填；enrichment ≠ attribution）
 對 finding 中的 network IOC（IP / domain），handoff 前完成 minimum-viable enrichment。以下為**必填欄位**，只記錄查詢回傳的內容、不下行為者身分結論：
 - **ASN / owner**：[WHOIS / ipinfo 回傳的 ASN 與 network block owner；註明屬 cloud / hosting / ISP 哪一類]
+  - **巢狀配發 / 來源不一致時的 owner 判定**：若 WHOIS 出現巢狀配發、或 WHOIS owner 與 BGP origin ASN 不一致，owner 以**最具體子配發（most-specific allocation）搭配 BGP origin AS 交叉確認**；上游 carrier / 父網段持有人**另記為 upstream，不可直接當 owner 上報**。若兩者仍無法收斂，標 `unresolved` 並於 handoff 說明，不自行定論。
 - **rDNS（PTR 記錄）**：[reverse DNS PTR 查詢回傳值；無 PTR 記「no PTR record」]
 - **Reputation source（至少一個）**：[AbuseIPDB / VirusTotal / Talos / GreyNoise 其一的查詢結果摘要；記錄回傳的分數 / 標記原文，不加判讀]
 
