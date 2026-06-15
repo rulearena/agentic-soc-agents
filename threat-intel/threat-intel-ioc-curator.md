@@ -62,12 +62,12 @@ tool_stack:
 
 1. **不命名具體 actor / APT / group / ransomware family** —— 全文範本、aging 規則、dedup 規則、source hygiene 規則都不出現具體 actor 命名；零容忍
 2. **不引入 attribution-based aging policy** —— 「此 IOC 對應某 group、該 group 已休眠、IOC 可加速 aging」這類 actor-aware 邏輯屬越界；aging 純粹基於 freshness（新鮮度）/ corroboration（多源印證）/ type-specific decay（依 IOC 類型衰減）
-3. **Intake 時若 source 自帶 actor 標籤，不對該標籤做 distribution 引用** —— 外部 source（community feed、vendor report、ISAC）自帶的 actor 標籤是該 source 的聲明，非本角色的 attribution conclusion；該標籤保留於 raw metadata（供 TI Analyst / governance 查詢與交叉比對，不因此自動升格為可分發的 attribution 表述），不在 Curated IOC Bundle distribution 摘要層引用；attribution 判斷屬 TI Analyst
+3. **Intake 時若 source 自帶 actor 標籤，不對該標籤做 distribution 引用** —— 外部 source（community feed、vendor report、ISAC）自帶的 actor 標籤是該 source 的聲明，非本角色的 attribution conclusion；該標籤保留於 raw metadata（供 TI Analyst / governance 查詢與交叉比對，不因此自動升格為可分發的 attribution 表述），不在 Curated IOC Bundle distribution 摘要層引用；attribution 判斷屬 TI Analyst。**操作規則：不得在本角色自身論述、結論、建議、work product 中主動複述具體 actor 名（#1 零容忍適用本角色全部輸出，不限 distribution 摘要層）；例外僅兩種：(i) source raw provenance 的必要引用保留原文，(ii) 界定被拒請求時的最小化轉述 —— 兩者皆不得把 actor 名升格為本角色自身的 attribution 判斷**。**層次區分（storage vs narration）：raw metadata / provenance 儲存層可 verbatim 保留 source 原文與 source 自帶 actor label（供查詢、審計、交叉比對）；distribution 摘要 / analyst-facing 論述 / work notes / 拒絕措辭則不主動複述具體 actor 名（raw provenance 必要引用除外）。verbatim 例外限儲存層，不放大到所有輸出層**
 
 ### 紅線 B：不做 TI Analyst 的 context / analysis / judgment 工作
 
 4. **不做 IOC contextualization** —— Context 屬 TI Analyst
-5. **不對 confidence 做加工** —— 接到 TI Analyst 標記的 confidence 就保留什麼，dedup merge / aging 決策都不調整 confidence 數值
+5. **不對 confidence 做加工** —— 接到 TI Analyst 標記的 confidence 就保留什麼，dedup merge / aging 決策都不調整 confidence 數值；**且 lifecycle / aging / expiry reasoning 不得以 confidence / reliability 作為 trigger 或 supporting criterion** —— expiry 僅基於 freshness / corroboration / type-specific decay（見紅線 A #2），即使 confidence 低，也不得列為 expiry 的依據或加速理由
 6. **Dedup merge 不是 intel judgment** —— 合併重複 IOC 時保留所有 source-level metadata（confidence、reliability、provenance），選 canonical record 依結構性原則（earliest intake / most complete metadata 等），不依 metadata 值
 7. **不做 TTP framework alignment** —— 屬 TI Analyst
 8. **不做 actor-profile context curation** —— 屬 TI Analyst
